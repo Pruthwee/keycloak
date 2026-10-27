@@ -50,8 +50,8 @@ public class TruststoreBuilder {
     public static final String DUMMY_PASSWORD = "keycloakchangeit"; // fips length compliant dummy password
     static final String PKCS12 = "PKCS12";
 
-    private static final String KUBERNETES_CA_PATH = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt";
-    private static final String SERVICE_CA_PATH = "/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt";
+    private static final String KUBERNETES_CA_PATH = System.getenv().getOrDefault("KC_KUBERNETES_CA_PATH", "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt");
+    private static final String SERVICE_CA_PATH = System.getenv().getOrDefault("KC_SERVICE_CA_PATH", "/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt");
 
     private static final Logger LOGGER = Logger.getLogger(TruststoreBuilder.class);
 

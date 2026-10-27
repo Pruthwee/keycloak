@@ -23,7 +23,7 @@ public class OsUtil {
 
     public static final OsArch OS_ARCH = determineOSAndArch();
 
-    public static final String PROMPT = OS_ARCH.isWindows() ? "c:\\>" : "$";
+    public static final String PROMPT = OS_ARCH.isWindows() ? System.getenv().getOrDefault("KC_CLI_PROMPT", "c:\\>") : "$";
 
     public static final String EOL = OS_ARCH.isWindows() ? "\r\n" : "\n";
 

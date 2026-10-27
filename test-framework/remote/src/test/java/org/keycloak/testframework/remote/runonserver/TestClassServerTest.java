@@ -35,7 +35,8 @@ public class TestClassServerTest {
         TestClassServer server = new TestClassServer(SERVER);
         server.addPermittedPackages(Set.of("org.keycloak.representations.idm"));
 
-        URLClassLoader urlClassLoader = new URLClassLoader(new URL[] { new URL("http://localhost:8500/test-classes/") }, null);
+        String testServerUrl = System.getenv().getOrDefault("KC_TEST_SERVER_URL", "http://localhost:8500");
+        URLClassLoader urlClassLoader = new URLClassLoader(new URL[] { new URL(testServerUrl + "/test-classes/") }, null);
         Assertions.assertNotNull(urlClassLoader.loadClass(RealmRepresentation.class.getName()));
 
         server.close();
@@ -45,7 +46,8 @@ public class TestClassServerTest {
     public void testInvalidPackage() throws MalformedURLException {
         TestClassServer server = new TestClassServer(SERVER);
 
-        URLClassLoader urlClassLoader = new URLClassLoader(new URL[] { new URL("http://localhost:8500/test-classes/") }, null);
+        String testServerUrl = System.getenv().getOrDefault("KC_TEST_SERVER_URL", "http://localhost:8500");
+        URLClassLoader urlClassLoader = new URLClassLoader(new URL[] { new URL(testServerUrl + "/test-classes/") }, null);
         Assertions.assertThrows(ClassNotFoundException.class, () -> urlClassLoader.loadClass(RealmRepresentation.class.getName()));
 
         server.close();

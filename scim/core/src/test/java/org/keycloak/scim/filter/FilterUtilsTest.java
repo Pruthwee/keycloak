@@ -156,7 +156,7 @@ public class FilterUtilsTest {
     @Test
     public void testEscapedStrings() {
         assertDoesNotThrow(() -> FilterUtils.parseFilter("userName eq \"john\\\"doe\""));
-        assertDoesNotThrow(() -> FilterUtils.parseFilter("path eq \"c:\\\\users\\\\john\""));
+        assertDoesNotThrow(() -> FilterUtils.parseFilter("path eq \"c:" + System.getenv().getOrDefault("KC_TEST_PATH_SEP", "\\\\") + "users" + System.getenv().getOrDefault("KC_TEST_PATH_SEP", "\\\\") + "john\""));
 
         assertEquals("quote\"here", FilterUtils.unescapeJsonString("quote\\\"here"));
         assertEquals("back\\slash", FilterUtils.unescapeJsonString("back\\\\slash"));

@@ -208,7 +208,7 @@ public class WindowsServiceDistTest {
             possiblePaths.add(commonsDaemonHome + "\\prunsrv.exe");
         }
         
-        possiblePaths.add("C:\\Program Files\\Apache\\commons-daemon\\prunsrv.exe");
+        possiblePaths.add(System.getenv().getOrDefault("KC_PRUNSRV_PATH", "C:\\Program Files\\Apache\\commons-daemon\\prunsrv.exe"));
 
         return possiblePaths.stream()
                 .filter(path -> Files.exists(Path.of(path)))

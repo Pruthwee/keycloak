@@ -40,7 +40,7 @@ public class SectorIdentifierRedirectUrisProvider implements Closeable {
     }
 
     public String getUri() {
-        return "http://127.0.0.1:" + httpServer.getAddress().getPort() + CONTEXT;
+        return "http://" + System.getenv().getOrDefault("KC_TEST_IP", "127.0.0.1") + ":" + httpServer.getAddress().getPort() + CONTEXT;
     }
 
     @Override

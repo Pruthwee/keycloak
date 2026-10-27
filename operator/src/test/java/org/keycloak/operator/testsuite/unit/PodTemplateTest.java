@@ -228,7 +228,7 @@ public class PodTemplateTest {
     public void testVolumeMountsAreMerged() {
         // Arrange
         var volumeMountName = "foo";
-        var volumeMountPath = "/mnt/path";
+        var volumeMountPath = System.getenv().getOrDefault("KC_TEST_VOLUME_PATH", "/mnt/path");
         var additionalPodTemplate = new PodTemplateSpecBuilder()
                 .withNewSpec()
                 .addNewContainer()

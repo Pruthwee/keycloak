@@ -91,7 +91,7 @@ public class PersistSessionsCommand extends AbstractCommand {
                         john = session.users().addUser(realm, username);
                     }
 
-                    UserSessionModel userSession = userSessionManager.createUserSession(realm, john, username, "127.0.0.2", "form", true, null, null);
+                    UserSessionModel userSession = userSessionManager.createUserSession(realm, john, username, System.getenv().getOrDefault("KC_TEST_IP_2", "127.0.0.2"), "form", true, null, null);
                     AuthenticatedClientSessionModel clientSession = session.sessions().createClientSession(realm, testApp, userSession);
                     clientSession.setRedirectUri("http://redirect");
                     clientSession.setNote("foo", "bar-" + i);

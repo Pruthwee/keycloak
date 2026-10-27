@@ -338,7 +338,7 @@ public class PolicyEvaluationService {
                     authSession.setProtocol(OIDCLoginProtocol.LOGIN_PROTOCOL);
                     authSession.setAuthenticatedUser(userModel);
                     userSession = new UserSessionManager(keycloakSession).createUserSession(authSession.getParentSession().getId(), realm, userModel,
-                            userModel.getUsername(), "127.0.0.1", "passwd", false, null, null, UserSessionModel.SessionPersistenceState.PERSISTENT);
+                            userModel.getUsername(), System.getenv().getOrDefault("KC_POLICY_EVAL_IP", "127.0.0.1"), "passwd", false, null, null, UserSessionModel.SessionPersistenceState.PERSISTENT);
 
                     AuthenticationManager.setClientScopesInSession(keycloakSession, authSession);
                     ClientSessionContext clientSessionCtx = TokenManager.attachAuthenticationSession(keycloakSession, userSession, authSession);

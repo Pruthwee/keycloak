@@ -90,7 +90,7 @@ public class SecureRedirectUrisEnforcerExecutorFactory implements ClientPolicyEx
             .name(ALLOW_IPV4_LOOPBACK_ADDRESS)
             .label("Allow IPv4 loopback address")
             .helpText("If ON, then the executor allows IPv4 loopback address as a valid redirect uri. " +
-                "For example, 'http://127.0.0.1:{port}/{path}' . ")
+                "For example, 'http://" + System.getenv().getOrDefault("KC_LOOPBACK_IP", "127.0.0.1") + ":{port}/{path}' . ")
             .type(ProviderConfigProperty.BOOLEAN_TYPE)
             .defaultValue(false)
             .add()

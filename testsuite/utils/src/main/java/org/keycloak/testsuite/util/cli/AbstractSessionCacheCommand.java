@@ -336,7 +336,7 @@ public abstract class AbstractSessionCacheCommand extends AbstractCommand {
 
                 UserSessionManager userSessionManager = new UserSessionManager(session);
                 for (int i=0 ; i<countInIteration ; i++) {
-                    UserSessionModel userSession = userSessionManager.createUserSession(realm, user, username, "127.0.0.1", "form", false, null, null);
+                    UserSessionModel userSession = userSessionManager.createUserSession(realm, user, username, System.getenv().getOrDefault("KC_TEST_IP", "127.0.0.1"), "form", false, null, null);
 
                     session.sessions().createClientSession(userSession.getRealm(), client, userSession);
                 }

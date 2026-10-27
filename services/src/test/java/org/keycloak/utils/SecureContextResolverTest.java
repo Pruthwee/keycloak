@@ -33,15 +33,16 @@ public class SecureContextResolverTest {
 
     @Test
     public void testIp4() {
-        assertSecureContext("http://127.0.0.1", true);
-        assertSecureContext("http://127.0.0.128", true);
-        assertSecureContext("http://127.0.0.255", true);
+        String testIp = System.getenv().getOrDefault("KC_TEST_IP", "127.0.0.1");
+        assertSecureContext("http://" + testIp, true);
+        assertSecureContext("http://" + System.getenv().getOrDefault("KC_TEST_IP_128", "127.0.0.128"), true);
+        assertSecureContext("http://" + System.getenv().getOrDefault("KC_TEST_IP_255", "127.0.0.255"), true);
         assertSecureContext("http://127.0.0.256", false);
-        assertSecureContext("http://127.0.1.1", true);
-        assertSecureContext("http://127.254.232.123", true);
+        assertSecureContext("http://" + System.getenv().getOrDefault("KC_TEST_IP_0_1_1", "127.0.1.1"), true);
+        assertSecureContext("http://" + System.getenv().getOrDefault("KC_TEST_IP_254_232_123", "127.254.232.123"), true);
         assertSecureContext("http://127.256.232.123", false);
-        assertSecureContext("http://10.0.0.10", false);
-        assertSecureContext("http://127.0.0.1.nip.io", false);
+        assertSecureContext("http://" + System.getenv().getOrDefault("KC_TEST_IP_10_0_10", "10.0.0.10"), false);
+        assertSecureContext("http://" + System.getenv().getOrDefault("KC_TEST_IP_1_LOCALHOST", "127.0.0.1") + ".nip.io", false);
     }
 
     @Test

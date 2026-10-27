@@ -49,7 +49,7 @@ public class DockerComposeYamlFile {
         writer.print("registry:\n");
         writer.print("  image: registry:2\n");
         writer.print("  ports:\n");
-        writer.print("    - 127.0.0.1:5000:5000\n");
+        writer.print("    - " + System.getenv().getOrDefault("KC_DOCKER_BIND_ADDRESS", "127.0.0.1") + ":5000:5000\n");
         writer.print("  environment:\n");
         writer.print("    REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /" + registryDataDirName + "\n");
         writer.print("    REGISTRY_HTTP_TLS_CERTIFICATE: " + containerCertPath + "/" + localhostCrtFileName + "\n");

@@ -92,7 +92,7 @@ public class OAuthIdentityProvider {
             if (issuer != null) {
                 oidcConfig.setIssuer(issuer);
             }
-            oidcConfig.setJwksUri("http://127.0.0.1:8500/idp/jwks");
+            oidcConfig.setJwksUri("http://" + System.getenv().getOrDefault("KC_TEST_IP", "127.0.0.1") + ":8500/idp/jwks");
             String oidcConfigString = JsonSerialization.writeValueAsString(oidcConfig);
 
             exchange.getResponseHeaders().add("Content-Type", "application/json");

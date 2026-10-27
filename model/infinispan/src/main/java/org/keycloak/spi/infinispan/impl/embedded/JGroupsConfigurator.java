@@ -335,7 +335,7 @@ public final class JGroupsConfigurator {
                 s.setString(1, org.jgroups.util.Util.addressToString(new UUID(address.getMostSignificantBits(), address.getLeastSignificantBits()))); // address
                 s.setString(2, "(starting)"); // name
                 s.setString(3, clusterName); // cluster name
-                s.setString(4, "127.0.0.1:0"); // ip = new IpAddress("localhost", 0).toString()
+                s.setString(4, System.getenv().getOrDefault("KC_JGROUPS_BIND_ADDRESS", "127.0.0.1") + ":0"); // ip = new IpAddress("localhost", 0).toString()
                 s.setBoolean(5, false); // coord
                 s.setLong(6, Time.currentTime()); // last_update
                 s.execute();

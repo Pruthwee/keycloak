@@ -76,7 +76,7 @@ public class SpecificAddressPolicyProvider implements PolicyProviderFactory<Poli
         EvaluationContext context = evaluation.getContext();
         Attributes attributes = context.getAttributes();
 
-        if (attributes.containsValue("kc.client.network.ip_address", "127.0.0.1") || attributes.containsValue("kc.client.network.ip_address", "0:0:0:0:0:0:0:1")) {
+        if (attributes.containsValue("kc.client.network.ip_address", System.getenv().getOrDefault("KC_TEST_IP", "127.0.0.1")) || attributes.containsValue("kc.client.network.ip_address", "0:0:0:0:0:0:0:1")) {
             evaluation.grant();
         }
     }

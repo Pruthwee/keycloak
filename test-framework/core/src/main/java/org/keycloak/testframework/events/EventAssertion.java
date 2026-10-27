@@ -23,7 +23,7 @@ public class EventAssertion {
 
     private final EventRepresentation event;
 
-    private static final String DEFAULT_IP_ADDRESS = "127.0.0.1";
+    private static final String DEFAULT_IP_ADDRESS = System.getenv().getOrDefault("KC_TEST_IP", "127.0.0.1");
     private static final String DEFAULT_IP_ADDRESS_V6 = "0:0:0:0:0:0:0:1";
     private static final String DEFAULT_IP_ADDRESS_V6_SHORT = "::1";
 

@@ -55,6 +55,9 @@ import static org.keycloak.validate.ValidatorConfig.configFromMap;
 
 public class BuiltinValidatorsTest extends AbstractKeycloakTest {
 
+    private static final String TEST_PORT = System.getenv().getOrDefault("KC_TEST_PORT", "3000");
+    private static final String TEST_BASE_URL = "https://localhost:" + TEST_PORT;
+
     private static final ValidatorConfig valConfigIgnoreEmptyValues = ValidatorConfig.builder().config(AbstractSimpleValidator.IGNORE_EMPTY_VALUE, true).build();
 
     @Override
@@ -499,24 +502,24 @@ public class BuiltinValidatorsTest extends AbstractKeycloakTest {
 
         Assertions.assertTrue(validator.validate(null, "baseUrl").isValid());
         Assertions.assertTrue(validator.validate("", "baseUrl").isValid());
-        Assertions.assertTrue(validator.validate("http://localhost:3000/", "baseUrl").isValid());
-        Assertions.assertTrue(validator.validate("https://localhost:3000/", "baseUrl").isValid());
-        Assertions.assertTrue(validator.validate("https://localhost:3000/#someFragment", "baseUrl").isValid());
-        Assertions.assertTrue(validator.validate(new URL("https://localhost:3000/#someFragment"), "baseUrl").isValid());
+        Assertions.assertTrue(validator.validate("http://localhost:" + TEST_PORT + "/", "baseUrl").isValid());
+        Assertions.assertTrue(validator.validate(TEST_BASE_URL + "/", "baseUrl").isValid());
+        Assertions.assertTrue(validator.validate(TEST_BASE_URL + "/#someFragment", "baseUrl").isValid());
+        Assertions.assertTrue(validator.validate(new URL(TEST_BASE_URL + "/#someFragment"), "baseUrl").isValid());
 
         // Collections
-        Assertions.assertTrue(validator.validate(Arrays.asList("https://localhost:3000/#someFragment", "https://localhost:3000"), "baseUrl").isValid());
-        Assertions.assertTrue(validator.validate(Arrays.asList("https://localhost:3000/#someFragment"), "baseUrl").isValid());
-        Assertions.assertTrue(validator.validate(Arrays.asList(new URL("https://localhost:3000/#someFragment")), "baseUrl").isValid());
+        Assertions.assertTrue(validator.validate(Arrays.asList(TEST_BASE_URL + "/#someFragment", TEST_BASE_URL), "baseUrl").isValid());
+        Assertions.assertTrue(validator.validate(Arrays.asList(TEST_BASE_URL + "/#someFragment"), "baseUrl").isValid());
+        Assertions.assertTrue(validator.validate(Arrays.asList(new URL(TEST_BASE_URL + "/#someFragment")), "baseUrl").isValid());
         Assertions.assertTrue(validator.validate(Arrays.asList(""), "baseUrl").isValid());
 
         Assertions.assertFalse(validator.validate(" ", "baseUrl").isValid());
         Assertions.assertFalse(validator.validate("file:///somefile.txt", "baseUrl").isValid());
         Assertions.assertFalse(validator.validate("invalidUrl++@23", "invalidUri").isValid());
-        Assertions.assertFalse(validator.validate(Arrays.asList("https://localhost:3000/#someFragment", "file:///somefile.txt"), "baseUrl").isValid());
+        Assertions.assertFalse(validator.validate(Arrays.asList(TEST_BASE_URL + "/#someFragment", "file:///somefile.txt"), "baseUrl").isValid());
 
         ValidatorConfig config = configFromMap(ImmutableMap.of(UriValidator.KEY_ALLOW_FRAGMENT, false));
-        Assertions.assertFalse(validator.validate("https://localhost:3000/#someFragment", "baseUrl", config).isValid());
+        Assertions.assertFalse(validator.validate(TEST_BASE_URL + "/#someFragment", "baseUrl", config).isValid());
 
         // it is also possible to call dedicated validation methods on a built-in validator
         Assertions.assertTrue(BuiltinValidators.uriValidator().validateUri(new URI("https://customurl"), Collections.singleton("https"), true, true));

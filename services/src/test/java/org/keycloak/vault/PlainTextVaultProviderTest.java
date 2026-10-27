@@ -234,7 +234,7 @@ public class PlainTextVaultProviderTest {
     @Test
     public void shouldNotValidateWithInvalidPath() {
         // given
-        Path vaultPath = Paths.get("/vault");
+        Path vaultPath = Paths.get(System.getenv().getOrDefault("KC_VAULT_PATH", "/vault"));
         FilesPlainTextVaultProvider provider = new FilesPlainTextVaultProvider(vaultPath, "test_realm",
                 Arrays.asList(AbstractVaultProviderFactory.AvailableResolvers.REALM_FILESEPARATOR_KEY.getVaultKeyResolver()));
         VaultKeyResolver resolver = AbstractVaultProviderFactory.AvailableResolvers.REALM_FILESEPARATOR_KEY.getVaultKeyResolver();
@@ -251,7 +251,7 @@ public class PlainTextVaultProviderTest {
     @Test
     public void shouldValidateWithDifferentResolver() {
         // given
-        Path vaultPath = Paths.get("/vault");
+        Path vaultPath = Paths.get(System.getenv().getOrDefault("KC_VAULT_PATH", "/vault"));
         FilesPlainTextVaultProvider provider = new FilesPlainTextVaultProvider(vaultPath, "test_realm",
                 Arrays.asList(AbstractVaultProviderFactory.AvailableResolvers.KEY_ONLY.getVaultKeyResolver()));
         VaultKeyResolver resolver = AbstractVaultProviderFactory.AvailableResolvers.KEY_ONLY.getVaultKeyResolver();

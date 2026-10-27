@@ -18,11 +18,11 @@ import static org.keycloak.client.admin.cli.KcAdmMain.V2_FLAG;
 @Command(name = "credentials", description = "--server SERVER_URL --realm REALM [ARGUMENTS]")
 class KcAdmV2ConfigCredentialsCmd extends ConfigCredentialsCmd {
 
-    private static final int DEFAULT_MANAGEMENT_PORT = 9000;
+    private static final String DEFAULT_MANAGEMENT_PORT = System.getenv().getOrDefault("KC_MANAGEMENT_PORT", "9000");
     private static final String OPENAPI_PATH = "/openapi";
 
     @Option(names = "--openapi-url", description = "URL of the OpenAPI endpoint for auto-fetching the server descriptor " +
-            "(default: <server-protocol>://<server-host>:" + DEFAULT_MANAGEMENT_PORT + OPENAPI_PATH + ")")
+            "(default: <server-protocol>://<server-host>:9000" + OPENAPI_PATH + ")")
     String openApiUrl;
 
     @Spec
@@ -42,7 +42,7 @@ class KcAdmV2ConfigCredentialsCmd extends ConfigCredentialsCmd {
     @Override
     protected void printExtraOptions(PrintWriter out) {
         out.println("    --openapi-url URL       URL of the OpenAPI endpoint for auto-fetching the server descriptor");
-        out.println("                            (default: <server-protocol>://<server-host>:" + DEFAULT_MANAGEMENT_PORT + OPENAPI_PATH + ")");
+        out.println("                            (default: <server-protocol>://<server-host>:9000" + OPENAPI_PATH + ")");
     }
 
     @Override
@@ -92,7 +92,7 @@ class KcAdmV2ConfigCredentialsCmd extends ConfigCredentialsCmd {
     private String deriveDefaultOpenApiUrl() throws Exception {
         URL serverParsed = new URL(server);
         URI managementUri = new URI(serverParsed.getProtocol(), null,
-                serverParsed.getHost(), DEFAULT_MANAGEMENT_PORT, OPENAPI_PATH, null, null);
+                serverParsed.getHost(), Integer.parseInt(DEFAULT_MANAGEMENT_PORT), OPENAPI_PATH, null, null);
         return managementUri.toString();
     }
 }

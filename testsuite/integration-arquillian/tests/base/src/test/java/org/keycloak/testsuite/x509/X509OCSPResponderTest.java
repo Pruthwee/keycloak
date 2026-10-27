@@ -61,7 +61,7 @@ public class X509OCSPResponderTest extends AbstractX509AuthenticationTest {
 
     private static final String OCSP_RESPONDER_HOST = "localhost";
 
-    private static final int OCSP_RESPONDER_PORT = 8888;
+    private static final int OCSP_RESPONDER_PORT = Integer.parseInt(System.getenv().getOrDefault("KC_OCSP_RESPONDER_PORT", "8888"));
 
     private Undertow ocspResponder;
 

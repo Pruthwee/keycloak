@@ -21,7 +21,7 @@ public class TestClassLoader extends URLClassLoader {
     }
 
     private TestClassLoader(ClassLoader parent) throws MalformedURLException {
-        super(new URL[] { new URL("http://localhost:8500/") }, parent);
+        super(new URL[] { new URL("http://localhost:" + System.getenv().getOrDefault("KC_TEST_SERVER_PORT", "8500") + "/") }, parent);
     }
 
 }

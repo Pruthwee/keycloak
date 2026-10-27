@@ -28,7 +28,7 @@ public class TestApp {
             httpServer.createContext(K_ADMIN_PATH, new KcAdminCallbackHandler(kcAdminInvocations));
             httpServer.createContext(FRONTCHANNEL_LOGOUT_PATH, new FrontChannelLogoutHandler(kcAdminInvocations));
 
-            String base = "http://127.0.0.1:" + httpServer.getAddress().getPort();
+            String base = "http://" + System.getenv().getOrDefault("KC_TEST_IP", "127.0.0.1") + ":" + httpServer.getAddress().getPort();
             redirectionUri = base + OAUTH_CALLBACK_PATH;
             adminUri = base + K_ADMIN_PATH;
             frontChannelLogoutUri = base + FRONTCHANNEL_LOGOUT_PATH;

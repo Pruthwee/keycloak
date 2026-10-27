@@ -6,7 +6,7 @@ public class TmpDir {
 
     // Maven overrides java.io.tmpdir, resolving to OS tmp directory
     public static File resolveTmpDir() {
-        File tmpDir = new File("/tmp");
+        File tmpDir = new File(System.getenv().getOrDefault("KC_TMP_DIR", "/tmp"));
         if (tmpDir.isDirectory()) {
             return tmpDir;
         }

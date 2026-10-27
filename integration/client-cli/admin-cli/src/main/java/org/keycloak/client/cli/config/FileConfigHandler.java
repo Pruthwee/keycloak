@@ -21,11 +21,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.nio.channels.FileChannel;
-import java.nio.channels.FileLock;
-import java.nio.channels.OverlappingFileLockException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.keycloak.client.cli.util.IoUtil;
 import org.keycloak.util.JsonSerialization;
@@ -39,6 +37,7 @@ public class FileConfigHandler implements ConfigHandler {
 
     private static final long MAX_SIZE = 10 * 1024 * 1024;
     private static String configFile;
+    private static final ReentrantLock CONFIG_LOCK = new ReentrantLock();
 
     public static void setConfigFile(String filename) {
         configFile = filename;
@@ -79,53 +78,33 @@ public class FileConfigHandler implements ConfigHandler {
             ensureFile();
 
             try (RandomAccessFile file = new RandomAccessFile(new File(configFile), "rw")) {
-                FileChannel fileChannel = file.getChannel();
 
-                FileLock fileLock = null;
-
-                // lock file for write
-                int tryCount = 0;
-                do try {
-                    fileLock = fileChannel.tryLock();
-                    break;
-                } catch (OverlappingFileLockException e) {
-                    // sleep a little, and try again
-                    try {
-                        Thread.sleep(100);
-                        continue;
-                    } catch (InterruptedException e1) {
-                        throw new RuntimeException("Interrupted");
+                // Use ReentrantLock instead of FileLock for container compatibility
+                // FileLock does not work reliably with container volume mounts
+                CONFIG_LOCK.lock();
+                try {
+                    // load config from file
+                    ConfigData config = new ConfigData();
+                    long size = file.length();
+                    if (size > MAX_SIZE) {
+                        printErr("Config file " + configFile + " is too big. It will be overwritten.");
+                        file.setLength(0);
+                    } else if (size > 0){
+                        byte[] buf = new byte[(int) size];
+                        file.readFully(buf);
+                        config = JsonSerialization.readValue(new ByteArrayInputStream(buf), ConfigData.class);
                     }
-                } while (tryCount++ < 10);
 
-                if (fileLock != null) {
-                    try {
-                        // load config from file
-                        ConfigData config = new ConfigData();
-                        long size = file.length();
-                        if (size > MAX_SIZE) {
-                            printErr("Config file " + configFile + " is too big. It will be overwritten.");
-                            file.setLength(0);
-                        } else if (size > 0){
-                            byte[] buf = new byte[(int) size];
-                            file.readFully(buf);
-                            config = JsonSerialization.readValue(new ByteArrayInputStream(buf), ConfigData.class);
-                        }
+                    // update loaded config
+                    op.update(config);
 
-                        // update loaded config
-                        op.update(config);
-
-                        // save config to file
-                        byte [] content = JsonSerialization.writeValueAsPrettyString(config).getBytes("utf-8");
-                        file.seek(0);
-                        file.write(content);
-                        file.setLength(content.length);
-
-                    } finally {
-                        fileLock.release();
-                    }
-                } else {
-                    throw new RuntimeException("Failed to get lock on " + configFile);
+                    // save config to file
+                    byte [] content = JsonSerialization.writeValueAsPrettyString(config).getBytes("utf-8");
+                    file.seek(0);
+                    file.write(content);
+                    file.setLength(content.length);
+                } finally {
+                    CONFIG_LOCK.unlock();
                 }
             }
         } catch (IOException e) {

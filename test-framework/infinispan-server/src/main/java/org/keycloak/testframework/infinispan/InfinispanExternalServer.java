@@ -12,7 +12,7 @@ public class InfinispanExternalServer extends InfinispanContainer implements Inf
 
     private static final String USER = "keycloak";
     private static final String PASSWORD = "Password1!";
-    private static final String HOST = "127.0.0.1";
+    private static final String HOST = System.getenv().getOrDefault("KC_INFINISPAN_HOST", "127.0.0.1");
 
     public static InfinispanExternalServer create() {
         return new InfinispanExternalServer(ContainerImages.getContainerImageName("infinispan"));
