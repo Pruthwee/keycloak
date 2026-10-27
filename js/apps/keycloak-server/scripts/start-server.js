@@ -14,10 +14,10 @@ const SERVER_DIR = path.resolve(DIR_NAME, "../server");
 const LOCAL_QUARKUS = path.resolve(DIR_NAME, "../../../../quarkus/dist/target");
 const LOCAL_DIST_NAME = "keycloak-999.0.0-SNAPSHOT.tar.gz";
 const SCRIPT_EXTENSION = process.platform === "win32" ? ".bat" : ".sh";
-const ADMIN_USERNAME = "admin";
-const ADMIN_PASSWORD = "admin";
-const CLIENT_ID = "temporary-admin-service";
-const CLIENT_SECRET = "temporary-admin-service";
+const ADMIN_USERNAME = process.env.KEYCLOAK_ADMIN_USERNAME || "admin";
+const ADMIN_PASSWORD = process.env.KEYCLOAK_ADMIN_PASSWORD || "admin";
+const CLIENT_ID = process.env.KEYCLOAK_ADMIN_CLIENT_ID || "temporary-admin-service";
+const CLIENT_SECRET = process.env.KEYCLOAK_ADMIN_CLIENT_SECRET || "temporary-admin-service";
 
 const options = {
   local: {
@@ -47,11 +47,11 @@ async function startServer() {
   };
 
   if (scriptArgs["account-dev"]) {
-    env.KC_ACCOUNT_VITE_URL = "http://localhost:5173";
+    env.KC_ACCOUNT_VITE_URL = process.env.KC_ACCOUNT_VITE_URL || "http://localhost:5173";
   }
 
   if (scriptArgs["admin-dev"]) {
-    env.KC_ADMIN_VITE_URL = "http://localhost:5174";
+    env.KC_ADMIN_VITE_URL = process.env.KC_ADMIN_VITE_URL || "http://localhost:5174";
   }
 
   console.info("Starting server…");

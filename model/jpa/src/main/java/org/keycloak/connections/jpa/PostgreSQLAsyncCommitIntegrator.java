@@ -50,6 +50,7 @@ class PostgreSQLAsyncCommitIntegrator extends AsyncCommitIntegrator {
     @Override
     protected void applyAsyncCommit(Connection connection) throws SQLException {
         try (Statement stmt = connection.createStatement()) {
+            stmt.setQueryTimeout(30);
             stmt.execute("SET LOCAL synchronous_commit TO OFF");
         }
     }
@@ -75,9 +76,11 @@ class PostgreSQLAsyncCommitIntegrator extends AsyncCommitIntegrator {
                     return false;
                 }
 
-                try (Statement stmt = connection.createStatement();
-                     ResultSet rs = stmt.executeQuery("SHOW wal_level")) {
-                    return rs.next() && "logical".equals(rs.getString(1));
+                try (Statement stmt = connection.createStatement()) {
+                    stmt.setQueryTimeout(30);
+                    try (ResultSet rs = stmt.executeQuery("SHOW wal_level")) {
+                        return rs.next() && "logical".equals(rs.getString(1));
+                    }
                 }
             } finally {
                 bootstrapJdbcConnectionAccess.releaseConnection(connection);
@@ -94,9 +97,11 @@ class PostgreSQLAsyncCommitIntegrator extends AsyncCommitIntegrator {
      * {@code ERROR: function aurora_version() does not exist}.
      */
     static boolean auroraVersionFunctionExists(Connection connection) throws SQLException {
-        try (Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT to_regproc('pg_catalog.aurora_version') IS NOT NULL")) {
-            return rs.next() && rs.getBoolean(1);
+        try (Statement stmt = connection.createStatement()) {
+            stmt.setQueryTimeout(30);
+            try (ResultSet rs = stmt.executeQuery("SELECT to_regproc('pg_catalog.aurora_version') IS NOT NULL")) {
+                return rs.next() && rs.getBoolean(1);
+            }
         }
     }
 }

@@ -18,6 +18,7 @@
 package org.keycloak.theme;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Enumeration;
 
@@ -44,11 +45,18 @@ public class JarThemeProviderFactory extends ClasspathThemeProviderFactory {
             ClassLoader classLoader = getClass().getClassLoader();
             Enumeration<URL> resources = classLoader.getResources(KEYCLOAK_THEMES_JSON);
             while (resources.hasMoreElements()) {
-                loadThemes(classLoader, resources.nextElement().openStream());
+                loadThemes(classLoader, openStreamWithTimeout(resources.nextElement()));
             }
         } catch (IOException e) {
             throw new RuntimeException("Failed to load themes", e);
         }
+    }
+
+    private static InputStream openStreamWithTimeout(URL url) throws IOException {
+        java.net.URLConnection urlConn = url.openConnection();
+        urlConn.setConnectTimeout(5000);
+        urlConn.setReadTimeout(30000);
+        return urlConn.getInputStream();
     }
 
 }

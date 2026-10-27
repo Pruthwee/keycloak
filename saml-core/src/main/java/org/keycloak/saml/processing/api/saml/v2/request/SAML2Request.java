@@ -155,7 +155,10 @@ public class SAML2Request {
 
         InputStream is = null;
         try {
-            is = resourceURL.openStream();
+            java.net.URLConnection urlConn = resourceURL.openConnection();
+            urlConn.setConnectTimeout(5000);
+            urlConn.setReadTimeout(30000);
+            is = urlConn.getInputStream();
         } catch (IOException e) {
             throw logger.processingError(e);
         }

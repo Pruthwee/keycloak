@@ -47,48 +47,50 @@ public class JpaUpdate26_5_0_OrgTablesSetDefaultCharsetAndCollation extends Cust
     protected void generateStatementsImpl() throws CustomChangeException {
         String schemaName = database.escapeObjectName(database.getDefaultSchemaName(), Schema.class);
 
-        try (Statement st = connection.createStatement();
-             ResultSet rs = st.executeQuery(
+        try (Statement st = connection.createStatement()) {
+            st.setQueryTimeout(30);
+            try (ResultSet rs = st.executeQuery(
                      "SELECT DEFAULT_CHARACTER_SET_NAME as charset, DEFAULT_COLLATION_NAME as collation " +
                      "FROM INFORMATION_SCHEMA.SCHEMATA " +
                      "WHERE SCHEMA_NAME = '" + schemaName + "'"
              )) {
 
-            if (rs.next()) {
-                String charset = rs.getString("charset");
-                String collation = rs.getString("collation");
+                if (rs.next()) {
+                    String charset = rs.getString("charset");
+                    String collation = rs.getString("collation");
 
-                String orgTable = getTableName("ORG");
-                String orgInvTable = getTableName("ORG_INVITATION");
+                    String orgTable = getTableName("ORG");
+                    String orgInvTable = getTableName("ORG_INVITATION");
 
-                statements.add(new RawSqlStatement("SET FOREIGN_KEY_CHECKS=0"));
+                    statements.add(new RawSqlStatement("SET FOREIGN_KEY_CHECKS=0"));
 
-                if (tableExists("ORG_INVITATION")) {
-                    // Fix ORG_INVITATION.ORGANIZATION_ID charset/collation
+                    if (tableExists("ORG_INVITATION")) {
+                        // Fix ORG_INVITATION.ORGANIZATION_ID charset/collation
+                        statements.add(new RawSqlStatement(
+                            "ALTER TABLE " + orgInvTable + " DROP FOREIGN KEY FK_ORG_INVITATION_ORG"
+                        ));
+
+                        statements.add(new RawSqlStatement(
+                            "ALTER TABLE " + orgInvTable +
+                            " CONVERT TO CHARACTER SET " + charset + " COLLATE " + collation
+                        ));
+                    }
+
+                    // Fix ORG.ID charset/collation
                     statements.add(new RawSqlStatement(
-                        "ALTER TABLE " + orgInvTable + " DROP FOREIGN KEY FK_ORG_INVITATION_ORG"
+                        "ALTER TABLE " + orgTable +
+                        " MODIFY ID VARCHAR(255) CHARACTER SET " + charset + " COLLATE " + collation + " NOT NULL"
                     ));
 
-                    statements.add(new RawSqlStatement(
-                        "ALTER TABLE " + orgInvTable +
-                        " CONVERT TO CHARACTER SET " + charset + " COLLATE " + collation
-                    ));
+                    if (tableExists("ORG_INVITATION")) {
+                        statements.add(new RawSqlStatement(
+                            "ALTER TABLE " + orgInvTable +
+                            " ADD CONSTRAINT FK_ORG_INVITATION_ORG FOREIGN KEY (ORGANIZATION_ID) REFERENCES " + orgTable + " (ID)"
+                        ));
+                    }
+
+                    statements.add(new RawSqlStatement("SET FOREIGN_KEY_CHECKS=1"));
                 }
-
-                // Fix ORG.ID charset/collation
-                statements.add(new RawSqlStatement(
-                    "ALTER TABLE " + orgTable +
-                    " MODIFY ID VARCHAR(255) CHARACTER SET " + charset + " COLLATE " + collation + " NOT NULL"
-                ));
-
-                if (tableExists("ORG_INVITATION")) {
-                    statements.add(new RawSqlStatement(
-                        "ALTER TABLE " + orgInvTable +
-                        " ADD CONSTRAINT FK_ORG_INVITATION_ORG FOREIGN KEY (ORGANIZATION_ID) REFERENCES " + orgTable + " (ID)"
-                    ));
-                }
-
-                statements.add(new RawSqlStatement("SET FOREIGN_KEY_CHECKS=1"));
             }
         } catch (SQLException e) {
             throw new CustomChangeException("Failed to read database default character set", e);

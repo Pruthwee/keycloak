@@ -68,6 +68,7 @@ class MSSQLAsyncCommitIntegrator extends AsyncCommitIntegrator {
     @Override
     protected void applyAsyncCommit(Connection connection) throws SQLException {
         try (Statement stmt = connection.createStatement()) {
+            stmt.setQueryTimeout(30);
             stmt.execute("COMMIT TRAN WITH (DELAYED_DURABILITY = ON)");
         }
     }
@@ -85,33 +86,35 @@ class MSSQLAsyncCommitIntegrator extends AsyncCommitIntegrator {
         try {
             JdbcConnectionAccess bootstrapJdbcConnectionAccess = sf.getJdbcServices().getBootstrapJdbcConnectionAccess();
             Connection connection = bootstrapJdbcConnectionAccess.obtainConnection();
-            try (Statement stmt = connection.createStatement();
-                 ResultSet rs = stmt.executeQuery(
-                         "SELECT delayed_durability_desc FROM sys.databases WHERE name = DB_NAME()")) {
-                if (!rs.next()) {
-                    logger.warn("Could not determine DELAYED_DURABILITY setting; disabling asynchronous commit optimization for SQL Server");
-                    return false;
-                }
+            try (Statement stmt = connection.createStatement()) {
+                stmt.setQueryTimeout(30);
+                try (ResultSet rs = stmt.executeQuery(
+                        "SELECT delayed_durability_desc FROM sys.databases WHERE name = DB_NAME()")) {
+                    if (!rs.next()) {
+                        logger.warn("Could not determine DELAYED_DURABILITY setting; disabling asynchronous commit optimization for SQL Server");
+                        return false;
+                    }
 
-                String setting = rs.getString(1);
-                switch (setting) {
-                    case "DISABLED":
-                        logger.info("Asynchronous commit optimization not available for SQL Server: " +
-                                "DELAYED_DURABILITY is DISABLED. Set it to ALLOWED to enable: " +
-                                "ALTER DATABASE ... SET DELAYED_DURABILITY = ALLOWED");
-                        return false;
-                    case "FORCED":
-                        logger.info("Asynchronous commit optimization not needed for SQL Server: " +
-                                "DELAYED_DURABILITY is FORCED — all transactions already use delayed durability");
-                        return false;
-                    case "ALLOWED":
-                        return true;
-                    default:
-                        logger.warnf("Unexpected DELAYED_DURABILITY value '%s'; disabling asynchronous commit optimization for SQL Server", setting);
-                        return false;
+                    String setting = rs.getString(1);
+                    switch (setting) {
+                        case "DISABLED":
+                            logger.info("Asynchronous commit optimization not available for SQL Server: " +
+                                    "DELAYED_DURABILITY is DISABLED. Set it to ALLOWED to enable: " +
+                                    "ALTER DATABASE ... SET DELAYED_DURABILITY = ALLOWED");
+                            return false;
+                        case "FORCED":
+                            logger.info("Asynchronous commit optimization not needed for SQL Server: " +
+                                    "DELAYED_DURABILITY is FORCED — all transactions already use delayed durability");
+                            return false;
+                        case "ALLOWED":
+                            return true;
+                        default:
+                            logger.warnf("Unexpected DELAYED_DURABILITY value '%s'; disabling asynchronous commit optimization for SQL Server", setting);
+                            return false;
+                    }
+                } finally {
+                    bootstrapJdbcConnectionAccess.releaseConnection(connection);
                 }
-            } finally {
-                bootstrapJdbcConnectionAccess.releaseConnection(connection);
             }
         } catch (SQLException e) {
             logger.warn("Failed to check DELAYED_DURABILITY setting; disabling asynchronous commit optimization for SQL Server", e);

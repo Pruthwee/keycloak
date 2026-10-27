@@ -16,7 +16,7 @@ textarea.pf-c-form-control {
 }
 
 .pf-c-alert__title {
-    font-size: var(--pf-global--FontSize--xs);
+    font-size: var(--pf-global--FontSize--xs, 0);
 }
 
 p.instruction {
@@ -32,7 +32,7 @@ h1#kc-page-title {
 }
 
 #kc-locale ul {
-    background-color: var(--pf-global--BackgroundColor--100);
+    background-color: var(--pf-global--BackgroundColor--100, #000000);
     display: none;
     top: 20px;
     min-width: 100px;
@@ -48,9 +48,9 @@ h1#kc-page-title {
 }
 
 #kc-locale-dropdown a {
-    color: var(--pf-global--Color--200);
+    color: var(--pf-global--Color--200, #000000);
     text-align: right;
-    font-size: var(--pf-global--FontSize--sm);
+    font-size: var(--pf-global--FontSize--sm, 0);
 }
 
 #kc-locale-dropdown button {
@@ -58,14 +58,14 @@ h1#kc-page-title {
     border: none;
     padding: 0;
     cursor: pointer;
-    color: var(--pf-global--Color--200);
+    color: var(--pf-global--Color--200, #000000);
     text-align: right;
-    font-size: var(--pf-global--FontSize--sm);
+    font-size: var(--pf-global--FontSize--sm, 0);
 }
 
 button#kc-current-locale-link::after {
     content: "\2c5";
-    margin-left: var(--pf-global--spacer--xs)
+    margin-left: var(--pf-global--spacer--xs, 4px)
 }
 
 .login-pf .container {
@@ -132,11 +132,11 @@ div.kc-logo-text span {
 }
 
 #kc-form-webauthn .select-auth-box-desc {
-    color: var(--pf-global--palette--black-600);
+    color: var(--pf-global--palette--black-600, #000000);
 }
 
 #kc-form-webauthn .select-auth-box-headline {
-    color: var(--pf-global--Color--300);
+    color: var(--pf-global--Color--300, #000000);
 }
 
 #kc-form-webauthn .select-auth-box-icon {
@@ -207,7 +207,7 @@ div.kc-logo-text span {
 }
 
 .required {
-    color: var(--pf-global--danger-color--200);
+    color: var(--pf-global--danger-color--200, #000000);
 }
 
 ol#kc-totp-settings {
@@ -281,7 +281,7 @@ ul#kc-totp-supported-apps {
 }
 
 .kc-social-gray {
-    color: var(--pf-global--Color--200);
+    color: var(--pf-global--Color--200, #000000);
 }
 
 .kc-social-gray h2 {
@@ -289,7 +289,7 @@ ul#kc-totp-supported-apps {
 }
 
 .kc-social-item {
-    margin-bottom: var(--pf-global--spacer--sm);
+    margin-bottom: var(--pf-global--spacer--sm, 8px);
     font-size: 15px;
     text-align: center;
 }
@@ -475,7 +475,7 @@ ul#kc-totp-supported-apps {
 }
 
 .select-auth-box-parent{
-    border-top: 1px solid var(--pf-global--palette--black-200);
+    border-top: 1px solid var(--pf-global--palette--black-200, #000000);
     padding-top: 1rem;
     padding-bottom: 1rem;
     cursor: pointer;
@@ -496,28 +496,28 @@ ul#kc-totp-supported-apps {
 }
 
 .select-auth-box-headline {
-    font-size: var(--pf-global--FontSize--md);
-    color: var(--pf-global--primary-color--100);
+    font-size: var(--pf-global--FontSize--md, 0);
+    color: var(--pf-global--primary-color--100, #06c);
     font-weight: bold;
 }
 
 .select-auth-box-desc {
-    font-size: var(--pf-global--FontSize--sm);
+    font-size: var(--pf-global--FontSize--sm, 0);
 }
 
 .select-auth-box-paragraph {
     text-align: center;
-    font-size: var(--pf-global--FontSize--md);
+    font-size: var(--pf-global--FontSize--md, 0);
     margin-bottom: 5px;
 }
 
 .card-pf {
     margin: 0 auto;
-    box-shadow: var(--pf-global--BoxShadow--lg);
+    box-shadow: var(--pf-global--BoxShadow--lg, 0 0 0 0 rgba(0,0,0,0));
     padding: 0 20px;
     max-width: 500px;
     border-top: 4px solid;
-    border-color: var(--pf-global--primary-color--100);
+    border-color: var(--pf-global--primary-color--100, #06c);
 }
 
 /*phone*/

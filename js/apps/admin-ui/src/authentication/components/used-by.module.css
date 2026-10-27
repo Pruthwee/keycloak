@@ -1,5 +1,5 @@
 .label {
   padding: 0;
-  font-size: var(--pf-v5-c-table--cell--FontSize);
-  color: var(--pf-v5-global--success-color--100);
+  font-size: var(--pf-v5-c-table--cell--FontSize, 0);
+  color: var(--pf-v5-global--success-color--100, #000000);
 }

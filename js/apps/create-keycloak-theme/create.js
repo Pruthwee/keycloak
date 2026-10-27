@@ -2,16 +2,16 @@
 
 import chalk from "chalk";
 import { Command, InvalidArgumentError } from "commander";
-import fs from "fs-extra";
 import Mustache from "mustache";
 import { mkdtemp } from "node:fs";
+import { readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve, dirname } from "node:path";
 import { simpleGit } from "simple-git";
-import { fileURLToPath } from "url";
+import { fileURLToPath } from "node:url";
 
 const packageJson = JSON.parse(
-  fs.readFileSync(
+  await readFile(
     join(fileURLToPath(import.meta.url), "..", "package.json"),
     "utf8",
   ),

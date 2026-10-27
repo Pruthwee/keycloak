@@ -68,6 +68,7 @@ class OracleAsyncCommitIntegrator extends AsyncCommitIntegrator {
     @Override
     protected void applyAsyncCommit(Connection connection) throws SQLException {
         try (Statement stmt = connection.createStatement()) {
+            stmt.setQueryTimeout(30);
             stmt.execute("COMMIT WRITE BATCH NOWAIT");
         }
     }

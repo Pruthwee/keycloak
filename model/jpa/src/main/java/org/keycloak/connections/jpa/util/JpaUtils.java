@@ -156,8 +156,13 @@ public class JpaUtils {
             return null;
         }
         Properties props = new Properties();
-        try (InputStream is = url.openStream()) {
-            props.load(is);
+        try {
+            java.net.URLConnection urlConn = url.openConnection();
+            urlConn.setConnectTimeout(5000);
+            urlConn.setReadTimeout(30000);
+            try (InputStream is = urlConn.getInputStream()) {
+                props.load(is);
+            }
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }

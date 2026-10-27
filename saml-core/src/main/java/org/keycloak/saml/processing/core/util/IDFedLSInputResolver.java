@@ -155,7 +155,10 @@ public class IDFedLSInputResolver implements LSResourceResolver {
             URL url = SecurityActions.loadResource(getClass(), loc);
             InputStream is;
             try {
-                is = url.openStream();
+                java.net.URLConnection urlConn = url.openConnection();
+                urlConn.setConnectTimeout(5000);
+                urlConn.setReadTimeout(30000);
+                is = urlConn.getInputStream();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

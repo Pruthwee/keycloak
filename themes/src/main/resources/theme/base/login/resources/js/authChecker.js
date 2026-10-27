@@ -113,7 +113,7 @@ function stopStatusPolling() {
 }
 
 export function checkAuthSession(pageAuthSessionHash) {
-  setTimeout(() => {
+  const timer = setTimeout(() => {
     const cookieAuthSessionHash = getKcAuthSessionHash();
     if (
       cookieAuthSessionHash &&
@@ -122,6 +122,8 @@ export function checkAuthSession(pageAuthSessionHash) {
       location.reload();
     }
   }, AUTH_SESSION_TIMEOUT_MILLISECS);
+  // Clean up the timeout if the page is unloaded to prevent memory leaks in SPA environments
+  globalThis.addEventListener("beforeunload", () => clearTimeout(timer), { once: true });
 }
 
 function getKcAuthSessionHash() {

@@ -58,23 +58,26 @@ public class AddRealmCodeSecret implements CustomSqlChange {
             String correctedSchemaName = database.escapeObjectName(database.getDefaultSchemaName(), Schema.class);
 
             if (SnapshotGeneratorFactory.getInstance().has(new Table().setName(correctedTableName), database)) {
-                try (Statement st = connection.createStatement(); ResultSet resultSet = st.executeQuery("SELECT ID FROM " + LiquibaseJpaUpdaterProvider.getTable(correctedTableName, correctedSchemaName) + " WHERE CODE_SECRET IS NULL")) {
-                    while (resultSet.next()) {
-                        String id = resultSet.getString(1);
-                        
-                        UpdateStatement statement = new UpdateStatement(null, null, correctedTableName)
-                                .addNewColumnValue("CODE_SECRET", KeycloakModelUtils.generateCodeSecret())
-                                .setWhereClause("ID=?").addWhereParameters(id);
-                        statements.add(statement);
-                        
-                        if (!resultSet.isFirst()) {
-                            sb.append(", ");
+                try (Statement st = connection.createStatement()) {
+                    st.setQueryTimeout(30);
+                    try (ResultSet resultSet = st.executeQuery("SELECT ID FROM " + LiquibaseJpaUpdaterProvider.getTable(correctedTableName, correctedSchemaName) + " WHERE CODE_SECRET IS NULL")) {
+                        while (resultSet.next()) {
+                            String id = resultSet.getString(1);
+                            
+                            UpdateStatement statement = new UpdateStatement(null, null, correctedTableName)
+                                    .addNewColumnValue("CODE_SECRET", KeycloakModelUtils.generateCodeSecret())
+                                    .setWhereClause("ID=?").addWhereParameters(id);
+                            statements.add(statement);
+                            
+                            if (!resultSet.isFirst()) {
+                                sb.append(", ");
+                            }
+                            sb.append(id);
                         }
-                        sb.append(id);
-                    }
 
-                    if (!statements.isEmpty()) {
-                        confirmationMessage = sb.toString();
+                        if (!statements.isEmpty()) {
+                            confirmationMessage = sb.toString();
+                        }
                     }
                 }
             }

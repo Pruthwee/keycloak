@@ -843,7 +843,7 @@ class KeycloakProcessor {
             Enumeration<URL> resources = Thread.currentThread().getContextClassLoader().getResources(KEYCLOAK_THEMES_JSON);
 
             while (resources.hasMoreElements()) {
-                themes.add(JsonSerialization.readValue(resources.nextElement().openStream(), ClasspathThemeProviderFactory.ThemesRepresentation.class));
+                themes.add(JsonSerialization.readValue(openStreamWithTimeout(resources.nextElement()), ClasspathThemeProviderFactory.ThemesRepresentation.class));
             }
 
             return themes;
@@ -1168,13 +1168,13 @@ class KeycloakProcessor {
 
         List<ScriptProviderDescriptor> descriptors = new ArrayList<>();
 
-        try (InputStream is = url.openStream()) {
+        try (InputStream is = openStreamWithTimeout(url)) {
             ScriptProviderDescriptor descriptor = JsonSerialization.readValue(is, ScriptProviderDescriptor.class);
 
             configureScriptDescriptor(descriptor, fileName -> {
                 // descriptor is at META-INF/
                 try {
-                    return new URL(url, "../" + fileName).openStream();
+                    return openStreamWithTimeout(new URL(url, "../" + fileName));
                 } catch (IOException e) {
                     throw new RuntimeException("Failed to read script file from: " + fileName);
                 }
@@ -1311,5 +1311,12 @@ class KeycloakProcessor {
         }
 
         throw new RuntimeException("No default datasource found. The server datasource must be the default datasource.");
+    }
+
+    private static InputStream openStreamWithTimeout(URL url) throws IOException {
+        java.net.URLConnection urlConn = url.openConnection();
+        urlConn.setConnectTimeout(5000);
+        urlConn.setReadTimeout(30000);
+        return urlConn.getInputStream();
     }
 }

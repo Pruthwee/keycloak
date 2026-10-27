@@ -81,7 +81,7 @@ public class DatabaseCompatibilityMetadataProvider implements CompatibilityMetad
             ObjectMapper objectMapper = new ObjectMapper();
             while(resources.hasMoreElements()) {
                 URL url = resources.nextElement();
-                try (InputStream inputStream = url.openStream()) {
+                try (InputStream inputStream = openStreamWithTimeout(url)) {
                     JsonParent parent = objectMapper.readValue(inputStream, new TypeReference<>() {});
                     changeSets.addAll(parent.changeSets);
                     migrations.addAll(parent.migrations);
@@ -107,5 +107,12 @@ public class DatabaseCompatibilityMetadataProvider implements CompatibilityMetad
         } catch (IOException e) {
             log.error("Unable to close InputStream when creating database unsupported change hash", e);
         }
+    }
+
+    private static InputStream openStreamWithTimeout(URL url) throws IOException {
+        java.net.URLConnection urlConn = url.openConnection();
+        urlConn.setConnectTimeout(5000);
+        urlConn.setReadTimeout(30000);
+        return urlConn.getInputStream();
     }
 }

@@ -127,6 +127,7 @@ public class QuarkusJpaConnectionProviderFactory extends AbstractJpaConnectionPr
         try (Connection connection = getConnection(); KeycloakSession session = factory.create()) {
             try {
                 try (Statement statement = connection.createStatement()) {
+                    statement.setQueryTimeout(30);
                     try (ResultSet rs = statement.executeQuery(String.format(SQL_GET_LATEST_VERSION, getSchema(schema)))) {
                         if (rs.next()) {
                             id = rs.getString(1);
@@ -345,18 +346,23 @@ public class QuarkusJpaConnectionProviderFactory extends AbstractJpaConnectionPr
             return;
         }
 
-        try (Connection connection = getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet rs = statement.executeQuery("SHOW VARIABLES LIKE 'wait_timeout'")) {
-            if (rs.next()) {
-                var waitTimeout = rs.getInt(2);
-                var poolMaxLifetime = DurationConverter.parseDuration(Configuration.getConfigValue(DatabaseOptions.DB_POOL_MAX_LIFETIME).getValue());
-                if (poolMaxLifetime.getSeconds() >= waitTimeout) {
-                    logger.warnf("%1$s 'wait_timeout=%2$d' is less than or equal to the configured '%3$s' duration. " +
-                                "This can cause 'No operations allowed after connection closed' exceptions, which can impact Keycloak operations. " +
-                                "To avoid such issues, set '%3$s' to a duration smaller than '%2$d' seconds.",
-                          vendor, waitTimeout, DatabaseOptions.DB_POOL_MAX_LIFETIME.getKey(), poolMaxLifetime);
+        try (Connection connection = getConnection()) {
+            try (Statement statement = connection.createStatement()) {
+                statement.setQueryTimeout(30);
+                try (ResultSet rs = statement.executeQuery("SHOW VARIABLES LIKE 'wait_timeout'")) {
+                    if (rs.next()) {
+                        var waitTimeout = rs.getInt(2);
+                        var poolMaxLifetime = DurationConverter.parseDuration(Configuration.getConfigValue(DatabaseOptions.DB_POOL_MAX_LIFETIME).getValue());
+                        if (poolMaxLifetime.getSeconds() >= waitTimeout) {
+                            logger.warnf("%1$s 'wait_timeout=%2$d' is less than or equal to the configured '%3$s' duration. " +
+                                        "This can cause 'No operations allowed after connection closed' exceptions, which can impact Keycloak operations. " +
+                                        "To avoid such issues, set '%3$s' to a duration smaller than '%2$d' seconds.",
+                                  vendor, waitTimeout, DatabaseOptions.DB_POOL_MAX_LIFETIME.getKey(), poolMaxLifetime);
+                        }
+                    }
                 }
+            } catch (SQLException e) {
+                logger.warnf(e, "Unable to validate %s 'wait_timeout' due to database exception", vendor);
             }
         } catch (SQLException e) {
             logger.warnf(e, "Unable to validate %s 'wait_timeout' due to database exception", vendor);
@@ -375,12 +381,17 @@ public class QuarkusJpaConnectionProviderFactory extends AbstractJpaConnectionPr
             return;
         }
 
-        try (Connection connection = getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet rs = statement.executeQuery("SHOW VARIABLES LIKE 'binlog_format'")) {
-            if (rs.next() && "STATEMENT".equalsIgnoreCase(rs.getString(2))) {
-                logger.errorf("%s 'binlog_format' is set to 'STATEMENT', which is incompatible with the READ COMMITTED transaction isolation level used by the stateless feature. "
-                        + "Change it to 'ROW' or 'MIXED' by running: SET GLOBAL binlog_format = 'ROW'", vendor);
+        try (Connection connection = getConnection()) {
+            try (Statement statement = connection.createStatement()) {
+                statement.setQueryTimeout(30);
+                try (ResultSet rs = statement.executeQuery("SHOW VARIABLES LIKE 'binlog_format'")) {
+                    if (rs.next() && "STATEMENT".equalsIgnoreCase(rs.getString(2))) {
+                        logger.errorf("%s 'binlog_format' is set to 'STATEMENT', which is incompatible with the READ COMMITTED transaction isolation level used by the stateless feature. "
+                                + "Change it to 'ROW' or 'MIXED' by running: SET GLOBAL binlog_format = 'ROW'", vendor);
+                    }
+                }
+            } catch (SQLException e) {
+                logger.warnf(e, "Unable to validate %s 'binlog_format' due to database exception", vendor);
             }
         } catch (SQLException e) {
             logger.warnf(e, "Unable to validate %s 'binlog_format' due to database exception", vendor);
@@ -394,20 +405,24 @@ public class QuarkusJpaConnectionProviderFactory extends AbstractJpaConnectionPr
             return;
         }
 
-        try (Connection connection = getConnection();
-             Statement statement = connection.createStatement()) {
-            try (ResultSet rs = statement.executeQuery("SHOW VARIABLES LIKE 'wsrep_on'")) {
-                if (!rs.next() || !"ON".equalsIgnoreCase(rs.getString(2))) {
-                    // not a Galera node, no further checks needed
-                    return;
+        try (Connection connection = getConnection()) {
+            try (Statement statement = connection.createStatement()) {
+                statement.setQueryTimeout(30);
+                try (ResultSet rs = statement.executeQuery("SHOW VARIABLES LIKE 'wsrep_on'")) {
+                    if (!rs.next() || !"ON".equalsIgnoreCase(rs.getString(2))) {
+                        // not a Galera node, no further checks needed
+                        return;
+                    }
                 }
-            }
-            try (ResultSet rs = statement.executeQuery("SHOW VARIABLES LIKE 'wsrep_sync_wait'")) {
-                if (rs.next() && "0".equals(rs.getString(2))) {
-                    logger.errorf("Galera Cluster detected with 'wsrep_sync_wait = 0'. "
-                            + "This will cause stale reads when requests are routed to different nodes. "
-                            + "Set 'wsrep_sync_wait = 1' on all Galera nodes to enable causal reads.");
+                try (ResultSet rs = statement.executeQuery("SHOW VARIABLES LIKE 'wsrep_sync_wait'")) {
+                    if (rs.next() && "0".equals(rs.getString(2))) {
+                        logger.errorf("Galera Cluster detected with 'wsrep_sync_wait = 0'. "
+                                + "This will cause stale reads when requests are routed to different nodes. "
+                                + "Set 'wsrep_sync_wait = 1' on all Galera nodes to enable causal reads.");
+                    }
                 }
+            } catch (SQLException e) {
+                logger.warnf(e, "Unable to validate Galera 'wsrep_sync_wait' due to database exception");
             }
         } catch (SQLException e) {
             logger.warnf(e, "Unable to validate Galera 'wsrep_sync_wait' due to database exception");
@@ -421,19 +436,25 @@ public class QuarkusJpaConnectionProviderFactory extends AbstractJpaConnectionPr
             return;
         }
 
-        try (Connection connection = getConnection();
-             Statement statement = connection.createStatement();
-             Statement statement2 = connection.createStatement();
-             ResultSet rs = statement.executeQuery("DBCC USEROPTIONS");
-             ResultSet dbnameRs = statement2.executeQuery("SELECT DB_NAME() as db")) {
-            dbnameRs.next();
-            String dbName = dbnameRs.getString(1);
-            while (rs.next()) {
-                String option = rs.getString(1);
-                String value = rs.getString(2);
-                if ("isolation level".equalsIgnoreCase(option) && (!"read committed snapshot".equalsIgnoreCase(value))) {
-                    logger.warnf("%s 'isolation level' for database '%s' is set to '%s'. Keycloak recommends 'read committed snapshot' isolation level to avoid deadlocks under high load. Please adjust the isolation level by executing 'ALTER DATABASE %s SET READ_COMMITTED_SNAPSHOT ON'.", vendor, dbName, rs.getString(2), dbName);
+        try (Connection connection = getConnection()) {
+            try (Statement statement = connection.createStatement();
+                 Statement statement2 = connection.createStatement()) {
+                statement.setQueryTimeout(30);
+                statement2.setQueryTimeout(30);
+                try (ResultSet rs = statement.executeQuery("DBCC USEROPTIONS");
+                     ResultSet dbnameRs = statement2.executeQuery("SELECT DB_NAME() as db")) {
+                    dbnameRs.next();
+                    String dbName = dbnameRs.getString(1);
+                    while (rs.next()) {
+                        String option = rs.getString(1);
+                        String value = rs.getString(2);
+                        if ("isolation level".equalsIgnoreCase(option) && (!"read committed snapshot".equalsIgnoreCase(value))) {
+                            logger.warnf("%s 'isolation level' for database '%s' is set to '%s'. Keycloak recommends 'read committed snapshot' isolation level to avoid deadlocks under high load. Please adjust the isolation level by executing 'ALTER DATABASE %s SET READ_COMMITTED_SNAPSHOT ON'.", vendor, dbName, rs.getString(2), dbName);
+                        }
+                    }
                 }
+            } catch (SQLException e) {
+                logger.warnf(e, "Unable to validate %s 'isolation level' due to database exception", vendor);
             }
         } catch (SQLException e) {
             logger.warnf(e, "Unable to validate %s 'isolation level' due to database exception", vendor);
@@ -488,15 +509,20 @@ public class QuarkusJpaConnectionProviderFactory extends AbstractJpaConnectionPr
      * Non-UTF-8-character encodings have been deprecated in 26.6.
      */
     private void checkEncoding(Database.Vendor vendor, Predicate<String> isValid, String recommendation, String query) {
-        try (var connection = getConnection();
-             var statement = connection.createStatement();
-             var rs = statement.executeQuery(query)) {
-            rs.next();
-            var encoding = rs.getString(1);
-            if (isValid.test(encoding)) {
-                return;
+        try (var connection = getConnection()) {
+            try (var statement = connection.createStatement()) {
+                statement.setQueryTimeout(30);
+                try (var rs = statement.executeQuery(query)) {
+                    rs.next();
+                    var encoding = rs.getString(1);
+                    if (isValid.test(encoding)) {
+                        return;
+                    }
+                    logInvalidEncoding(vendor, encoding, recommendation);
+                }
+            } catch (SQLException e) {
+                logger.warnf(e, "Unable to validate %s encoding due to database exception", vendor);
             }
-            logInvalidEncoding(vendor, encoding, recommendation);
         } catch (SQLException e) {
             logger.warnf(e, "Unable to validate %s encoding due to database exception", vendor);
         }

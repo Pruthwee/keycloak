@@ -179,7 +179,10 @@ public class JAXBUtil {
             if (schemaURL == null)
                 throw logger.nullValueError("Schema URL :" + schemaLocation);
 
-            schemaSources[i++] = new StreamSource(schemaURL.openStream());
+            java.net.URLConnection urlConn = schemaURL.openConnection();
+            urlConn.setConnectTimeout(5000);
+            urlConn.setReadTimeout(30000);
+            schemaSources[i++] = new StreamSource(urlConn.getInputStream());
         }
 
         Schema schema = schemaFactory.newSchema(schemaSources);

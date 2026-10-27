@@ -87,7 +87,11 @@ public class InfinispanUtil {
                     System.setProperty(InfinispanConnectionProvider.JGROUPS_BIND_ADDR, jgroupsBindAddr);
                 }
                 try {
-                    JChannel channel = new JChannel(fileLookup.lookupFileLocation(jgroupsConfigPath, InfinispanUtil.class.getClassLoader()).openStream());
+                    java.net.URL configUrl = fileLookup.lookupFileLocation(jgroupsConfigPath, InfinispanUtil.class.getClassLoader());
+                    java.net.URLConnection urlConn = configUrl.openConnection();
+                    urlConn.setConnectTimeout(5000);
+                    urlConn.setReadTimeout(30000);
+                    JChannel channel = new JChannel(urlConn.getInputStream());
                     channel.setName(nodeName);
                     JGroupsTransport transport = new JGroupsTransport(channel);
 

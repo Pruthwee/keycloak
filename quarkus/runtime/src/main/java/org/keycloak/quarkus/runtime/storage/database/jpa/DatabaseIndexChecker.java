@@ -186,21 +186,25 @@ public class DatabaseIndexChecker implements Runnable {
             return true;
         }
         if (productName.contains("oracle")) {
-            try (var stmt = connection.createStatement();
-                 var rs = stmt.executeQuery("SELECT BANNER FROM V$VERSION WHERE BANNER LIKE 'Oracle%' AND ROWNUM <= 1")) {
-                if (rs.next()) {
-                    String banner = rs.getString(1);
-                    return banner != null && banner.toUpperCase().contains("ENTERPRISE");
+            try (var stmt = connection.createStatement()) {
+                stmt.setQueryTimeout(30);
+                try (var rs = stmt.executeQuery("SELECT BANNER FROM V$VERSION WHERE BANNER LIKE 'Oracle%' AND ROWNUM <= 1")) {
+                    if (rs.next()) {
+                        String banner = rs.getString(1);
+                        return banner != null && banner.toUpperCase().contains("ENTERPRISE");
+                    }
                 }
             }
             return false;
         }
         if (productName.contains("microsoft")) {
-            try (var stmt = connection.createStatement();
-                 var rs = stmt.executeQuery("SELECT CAST(SERVERPROPERTY('EngineEdition') AS INT)")) {
-                if (rs.next()) {
-                    int edition = rs.getInt(1);
-                    return edition == 3 || edition == 5 || edition == 8;
+            try (var stmt = connection.createStatement()) {
+                stmt.setQueryTimeout(30);
+                try (var rs = stmt.executeQuery("SELECT CAST(SERVERPROPERTY('EngineEdition') AS INT)")) {
+                    if (rs.next()) {
+                        int edition = rs.getInt(1);
+                        return edition == 3 || edition == 5 || edition == 8;
+                    }
                 }
             }
         }
@@ -233,12 +237,14 @@ public class DatabaseIndexChecker implements Runnable {
                         String qualifiedIndex = qualifyPostgresIdentifier(info.indexName);
                         logger.infov("Dropping invalid index {0} before recreating", qualifiedIndex);
                         try (var stmt = connection.createStatement()) {
+                            stmt.setQueryTimeout(30);
                             stmt.execute("DROP INDEX CONCURRENTLY IF EXISTS " + qualifiedIndex);
                         }
                     }
                     String sql = addOnlineSyntax(info.sql, isPostgres, isOracle, isMssql);
                     logger.infov("Creating index: {0}", sql);
                     try (var stmt = connection.createStatement()) {
+                        stmt.setQueryTimeout(30);
                         stmt.execute(sql);
                     }
                     logger.infov("Successfully created index {0}", info.indexName);

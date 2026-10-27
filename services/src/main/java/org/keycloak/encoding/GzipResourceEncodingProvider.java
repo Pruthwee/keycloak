@@ -63,6 +63,8 @@ public class GzipResourceEncodingProvider implements ResourceEncodingProvider {
 
         try (is; GZIPOutputStream gos = new GZIPOutputStream(new FileOutputStream(tmpEncodedFile))) {
             IOUtils.copy(is, gos);
+        } finally {
+            tmpEncodedFile.delete();
         }
 
         try {

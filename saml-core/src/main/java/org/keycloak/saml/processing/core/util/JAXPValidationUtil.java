@@ -169,7 +169,10 @@ public class JAXPValidationUtil {
             URL url = SecurityActions.loadResource(JAXPValidationUtil.class, schema);
             if (url == null)
                 throw logger.nullValueError("schema url:" + schema);
-            sourceArr[i++] = new StreamSource(url.openStream());
+            java.net.URLConnection urlConn = url.openConnection();
+            urlConn.setConnectTimeout(5000);
+            urlConn.setReadTimeout(30000);
+            sourceArr[i++] = new StreamSource(urlConn.getInputStream());
         }
         return sourceArr;
     }

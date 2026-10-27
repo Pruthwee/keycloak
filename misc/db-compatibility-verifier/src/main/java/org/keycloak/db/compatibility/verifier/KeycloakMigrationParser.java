@@ -84,6 +84,8 @@ record KeycloakMigrationParser(ClassLoader classLoader, String packageName) {
         List<String> classNames = new ArrayList<>();
 
         JarURLConnection jarConn = (JarURLConnection) resource.openConnection();
+        jarConn.setConnectTimeout(5000);
+        jarConn.setReadTimeout(30000);
         try (JarFile jarFile = jarConn.getJarFile()) {
             Enumeration<JarEntry> entries = jarFile.entries();
 

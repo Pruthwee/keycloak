@@ -54,7 +54,7 @@ public class ClasspathThemeResourceProviderFactory implements ThemeResourceProvi
 
     protected void loadMessages(Properties messages, URL resource) throws IOException {
         if (resource != null) {
-            try (InputStream stream = resource.openStream()) {
+            try (InputStream stream = openStreamWithTimeout(resource)) {
                 PropertiesUtil.readCharsetAware(messages, stream);
             }
         }
@@ -75,6 +75,13 @@ public class ClasspathThemeResourceProviderFactory implements ThemeResourceProvi
 
     @Override
     public void close() {
+    }
+
+    private static InputStream openStreamWithTimeout(URL resource) throws IOException {
+        java.net.URLConnection urlConn = resource.openConnection();
+        urlConn.setConnectTimeout(5000);
+        urlConn.setReadTimeout(30000);
+        return urlConn.getInputStream();
     }
 
 }

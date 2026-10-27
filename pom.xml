@@ -151,6 +151,7 @@
         <postgresql.container>mirror.gcr.io/postgres:${postgresql.version}</postgresql.container>
         <aurora-postgresql.version>17.5</aurora-postgresql.version>
         <aws-jdbc-wrapper.version>4.0.1</aws-jdbc-wrapper.version>
+        <aws-sdk.version>2.57.4</aws-sdk.version>
         <cnpg.major-minor-version>1.29</cnpg.major-minor-version>
         <cnpg.patch-version>0</cnpg.patch-version>
         <cnpg.version>${cnpg.major-minor-version}.${cnpg.patch-version}</cnpg.version>
@@ -350,6 +351,13 @@
                 <groupId>io.quarkus.platform</groupId>
                 <artifactId>quarkus-bom</artifactId>
                 <version>${quarkus.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>2.57.4</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
