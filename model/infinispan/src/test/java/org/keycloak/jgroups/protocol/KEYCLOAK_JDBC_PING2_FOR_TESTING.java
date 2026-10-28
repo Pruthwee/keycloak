@@ -25,9 +25,15 @@ import java.sql.SQLException;
  * This overwrites the get connection method again to avoid the JPA style connection handling
  */
 public class KEYCLOAK_JDBC_PING2_FOR_TESTING extends KEYCLOAK_JDBC_PING2 {
+    // JDBC login timeout (DriverManager.setLoginTimeout takes seconds) so a connection attempt cannot hang forever
+    private static final int JDBC_LOGIN_TIMEOUT_SECONDS = 30;
+
     @Override
     protected Connection getConnection() {
         try {
+            if (dataSource == null && DriverManager.getLoginTimeout() == 0) {
+                DriverManager.setLoginTimeout(JDBC_LOGIN_TIMEOUT_SECONDS);
+            }
             return dataSource != null? dataSource.getConnection() :
                     DriverManager.getConnection(connection_url, connection_username, connection_password);
         } catch (SQLException e) {

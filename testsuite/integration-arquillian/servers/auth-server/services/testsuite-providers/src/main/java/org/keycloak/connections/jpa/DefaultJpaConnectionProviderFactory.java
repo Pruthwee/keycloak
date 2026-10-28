@@ -88,6 +88,9 @@ public class DefaultJpaConnectionProviderFactory implements JpaConnectionProvide
 
     private static final Logger logger = Logger.getLogger(DefaultJpaConnectionProviderFactory.class);
 
+    // JDBC login timeout in seconds (DriverManager.setLoginTimeout)
+    private static final int JDBC_LOGIN_TIMEOUT_SECONDS = 30;
+
     enum MigrationStrategy {
         UPDATE, VALIDATE, MANUAL
     }
@@ -398,6 +401,10 @@ public class DefaultJpaConnectionProviderFactory implements JpaConnectionProvide
                 String driver = config.get("driver");
                 url = augmentJdbcUrl(driver, url);
                 Class.forName(driver);
+                if (DriverManager.getLoginTimeout() == 0) {
+                    // seconds; keeps a connection attempt from hanging forever
+                    DriverManager.setLoginTimeout(JDBC_LOGIN_TIMEOUT_SECONDS);
+                }
                 return DriverManager.getConnection(StringPropertyReplacer.replaceProperties(url, System.getProperties()::getProperty), config.get("user"), config.get("password"));
             }
         } catch (Exception e) {
