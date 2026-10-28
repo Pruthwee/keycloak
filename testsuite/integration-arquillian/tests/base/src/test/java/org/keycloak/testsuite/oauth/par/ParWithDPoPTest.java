@@ -84,6 +84,8 @@ public class ParWithDPoPTest extends AbstractClientPoliciesTest {
 
     // defined in testrealm.json
     private static final String TEST_USER_NAME = "test-user@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String TEST_USER_PASSWORD = "password";
 
     private static final String CLIENT_NAME = "Zahlungs-App";
@@ -966,6 +968,7 @@ public class ParWithDPoPTest extends AbstractClientPoliciesTest {
         oauth.verifyToken(res.getAccessToken());
     }
 
+    // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
     private Random rand = new Random(System.currentTimeMillis());
 
     private String createConfidentialClientForTest() throws ClientRegistrationException {

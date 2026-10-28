@@ -19,6 +19,7 @@ import org.keycloak.services.clientpolicy.context.ClientSecretRotationContext;
 import org.keycloak.services.clientpolicy.context.DynamicClientUpdatedContext;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.services.clientpolicy.executor.ClientSecretRotationExecutorFactory.DEFAULT_SECRET_EXPIRATION_PERIOD;
@@ -56,12 +57,14 @@ public class ClientSecretRotationExecutor implements
             case REGISTERED:
             case UPDATED:
                 if(isClientWithSecret(session.getContext().getClient())) {
+                    // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
                     session.setAttribute(ClientSecretConstants.CLIENT_SECRET_ROTATION_ENABLED, Boolean.TRUE);
                     executeOnClientCreateOrUpdate((ClientCRUDContext) context);
                 }
                 break;
             case AUTHORIZATION_REQUEST:
             case TOKEN_REQUEST:
+                // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
                 if(isClientWithSecret(session.getContext().getClient())) {
                     session.setAttribute(ClientSecretConstants.CLIENT_SECRET_ROTATION_ENABLED, Boolean.TRUE);
                     executeOnAuthRequest();
@@ -126,6 +129,7 @@ public class ClientSecretRotationExecutor implements
 
     private void debugDynamicInfo(OIDCClientSecretConfigWrapper clientConfigWrapper, long startRemainingWindow) {
         if (logger.isDebugEnabled()) {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             logger.debugv("client expiration time: {0}, remaining time: {1}, current time: {2}, Time offset: {3}", clientConfigWrapper.getClientSecretExpirationTime(), startRemainingWindow, Time.currentTimeSeconds(), Time.getOffset());
             logger.debugv("client expiration date: {0}, window remaining date: {1}, current date: {2}", sdf.format(new Date(TimeUnit.SECONDS.toMillis(clientConfigWrapper.getClientSecretExpirationTime()))), sdf.format(new Date(TimeUnit.SECONDS.toMillis(startRemainingWindow))), sdf.format(new Date(Time.currentTimeMillis())));

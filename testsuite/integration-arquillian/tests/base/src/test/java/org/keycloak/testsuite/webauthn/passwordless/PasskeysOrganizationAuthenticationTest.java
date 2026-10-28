@@ -48,6 +48,7 @@ import org.keycloak.testsuite.webauthn.authenticators.DefaultVirtualAuthOptions;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;

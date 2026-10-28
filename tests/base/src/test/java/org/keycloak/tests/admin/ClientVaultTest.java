@@ -150,6 +150,8 @@ class ClientVaultTest {
                     .directAccessGrantsEnabled(true)
                     .secret("some-primary-secret")
                     .attribute(ClientSecretConstants.CLIENT_ROTATED_SECRET, "${vault.rotated_secret}")
+                    // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+                    // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                     .attribute(ClientSecretConstants.CLIENT_ROTATED_SECRET_CREATION_TIME, String.valueOf(System.currentTimeMillis() / 1000))
                     .attribute(ClientSecretConstants.CLIENT_ROTATED_SECRET_EXPIRATION_TIME, String.valueOf(System.currentTimeMillis() / 1000 + 86400)));
 

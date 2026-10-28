@@ -81,6 +81,7 @@
                 <version>${version.testcontainers}</version>
             </dependency>
             <dependency>
+                <!-- Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis -->
                 <groupId>org.jboss.shrinkwrap</groupId>
                 <artifactId>shrinkwrap-api</artifactId>
                 <version>${version.shrinkwrap}</version>

@@ -23,6 +23,7 @@ import java.util.List;
 import org.keycloak.models.sessions.infinispan.entities.SessionEntity;
 import org.keycloak.models.sessions.infinispan.util.SessionTimeouts;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

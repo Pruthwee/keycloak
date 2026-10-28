@@ -45,6 +45,7 @@ import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.sessions.CommonClientSessionModel;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -220,6 +221,7 @@ public class DefaultAuthenticationFlow implements AuthenticationFlow {
      */
     private String checkAndValidateParentFlow(AuthenticationExecutionModel model) {
         while (true) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
             AuthenticationExecutionModel parentFlowExecutionModel = processor.getRealm().getAuthenticationExecutionByFlowId(model.getParentFlow());
 
             if (parentFlowExecutionModel != null) {

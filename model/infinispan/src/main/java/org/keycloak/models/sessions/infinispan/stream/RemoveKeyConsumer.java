@@ -41,6 +41,7 @@ public class RemoveKeyConsumer<K, V> implements BiConsumer<Cache<K, V>, K> {
 
     @ProtoFactory
     @SuppressWarnings("unchecked")
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static <K, V> RemoveKeyConsumer<K, V> getInstance() {
         return (RemoveKeyConsumer<K, V>) INSTANCE;
     }

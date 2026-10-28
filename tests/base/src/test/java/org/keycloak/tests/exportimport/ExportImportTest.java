@@ -155,6 +155,7 @@ public class ExportImportTest {
     public void testDirFullExportImport() throws Throwable {
         runOnServerMaster.run(ExportImportHelper.setProvider(DirExportProviderFactory.PROVIDER_ID));
         String targetDirPath = runOnServerMaster.fetchString(ExportImportHelper.getExportImportTestDirectory()).replace("\"","")+ File.separator + "dirExport";
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         FileUtils.deleteQuietly(new File(targetDirPath));
         runOnServerMaster.run(ExportImportHelper.setDir(targetDirPath));
         runOnServerMaster.run(ExportImportHelper.setUsersPerFile(ExportImportConfig.DEFAULT_USERS_PER_FILE));

@@ -22,6 +22,8 @@ import java.util.logging.Logger;
 
 import org.keycloak.it.utils.RawKeycloakDistribution;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logmanager.Level;
 import org.jboss.logmanager.LogManager;
 import org.testcontainers.containers.GenericContainer;
@@ -35,6 +37,7 @@ import org.testcontainers.utility.DockerImageName;
 
 public class DatabaseContainer {
 
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String DEFAULT_PASSWORD = "Password1!";
 
     private final String alias;

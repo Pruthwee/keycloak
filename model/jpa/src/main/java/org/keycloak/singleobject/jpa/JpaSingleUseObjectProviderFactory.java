@@ -40,6 +40,7 @@ import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ProviderConfigurationBuilder;
 import org.keycloak.provider.ServerInfoAwareProviderFactory;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

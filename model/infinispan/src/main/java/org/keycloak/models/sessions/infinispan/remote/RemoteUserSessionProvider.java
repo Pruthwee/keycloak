@@ -67,6 +67,7 @@ import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
 import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.commons.util.concurrent.CompletionStages;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.Constants.SESSION_NOTE_LIGHTWEIGHT_USER;

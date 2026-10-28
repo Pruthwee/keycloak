@@ -45,6 +45,7 @@ import org.keycloak.provider.ProviderEvent;
 import org.keycloak.provider.ProviderEventListener;
 import org.keycloak.provider.ServerInfoAwareProviderFactory;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class JpaUserLoginFailureProviderFactory implements UserLoginFailureProviderFactory<JpaUserLoginFailureProvider>, EnvironmentDependentProviderFactory, ServerInfoAwareProviderFactory, ProviderEventListener {

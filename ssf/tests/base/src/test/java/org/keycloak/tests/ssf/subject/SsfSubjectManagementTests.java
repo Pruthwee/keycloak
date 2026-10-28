@@ -73,6 +73,7 @@ public class SsfSubjectManagementTests {
 
     static final String TEST_USER = "subject-tester";
     static final String TEST_EMAIL = "subject-tester@local.test";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String TEST_PASSWORD = "test";
 
     static final String PUSH_CONTEXT_PATH = "/ssf/push-subjects";

@@ -39,6 +39,7 @@ import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.representations.IDToken;
 import org.keycloak.services.managers.AuthenticationManager;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -48,6 +49,7 @@ public class AcrProtocolMapper extends AbstractOIDCProtocolMapper implements OID
 
     private static final Logger logger = Logger.getLogger(AcrProtocolMapper.class);
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {
@@ -89,6 +91,7 @@ public class AcrProtocolMapper extends AbstractOIDCProtocolMapper implements OID
         token.setAcr(acr);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name, boolean accessToken, boolean idToken, boolean introspectionEndpoint) {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
         mapper.setName(name);

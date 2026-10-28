@@ -29,6 +29,7 @@ import org.keycloak.testsuite.pages.LogoutConfirmPage;
 import org.keycloak.testsuite.util.URLUtils;
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.After;
 import org.junit.AfterClass;

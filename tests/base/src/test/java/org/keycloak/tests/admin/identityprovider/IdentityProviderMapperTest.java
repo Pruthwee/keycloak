@@ -265,6 +265,7 @@ public class IdentityProviderMapperTest extends AbstractIdentityProviderTest {
         Assertions.assertEquals(expected, mapperTypes.keySet(), "mapperTypes");
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static class IdentityProviderMapperServerConf implements KeycloakServerConfig {
 
         @Override

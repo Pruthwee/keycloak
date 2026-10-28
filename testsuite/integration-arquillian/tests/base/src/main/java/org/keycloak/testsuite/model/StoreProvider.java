@@ -53,6 +53,7 @@ public enum StoreProvider {
                 options.add(prefix + "db=" + vendor);
             });
             options.add(prefix + "db-username=" + System.getProperty("keycloak.connectionsJpa.user"));
+            // Cloud: retrieve secrets from AWS Secrets Manager
             options.add(prefix + "db-password=" + System.getProperty("keycloak.connectionsJpa.password"));
             options.add(prefix + "db-url=" + System.getProperty("keycloak.connectionsJpa.url"));
         }

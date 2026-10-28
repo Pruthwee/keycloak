@@ -43,6 +43,7 @@ import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.saml.common.util.DocumentUtil;
 import org.keycloak.saml.common.util.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.w3c.dom.Document;
 
@@ -54,6 +55,7 @@ public class XPathAttributeMapper extends AbstractIdentityProviderMapper impleme
 
     private static final Logger LOGGER = Logger.getLogger(XPathAttributeMapper.class);
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     public static final String ATTRIBUTE_XPATH = "attribute.xpath";
@@ -64,6 +66,7 @@ public class XPathAttributeMapper extends AbstractIdentityProviderMapper impleme
 
     private static final Pattern NAMESPACE_PATTERN = Pattern.compile("xmlns:(\\w+)=\"(.+?)\"");
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<XPathFactory> XPATH_FACTORY = ThreadLocal.withInitial(() -> {
         final XPathFactory xPathFactory = XPathFactory.newInstance();
         xPathFactory.setXPathVariableResolver(variableName -> {

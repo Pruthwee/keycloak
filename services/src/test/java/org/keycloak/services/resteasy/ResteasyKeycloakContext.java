@@ -27,6 +27,7 @@ import org.keycloak.http.HttpResponse;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.services.DefaultKeycloakContext;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.core.ResteasyContext;
 
 public class ResteasyKeycloakContext extends DefaultKeycloakContext {

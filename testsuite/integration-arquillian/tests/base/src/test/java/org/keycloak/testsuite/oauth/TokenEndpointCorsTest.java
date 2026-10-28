@@ -156,6 +156,7 @@ public class TokenEndpointCorsTest extends AbstractKeycloakTest {
         assertNull(response.getHeaders().get("Access-Control-Expose-Headers"));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, String> getTokenEndpointPreflightResponseHeaders(OAuthClient oAuthClient) {
         HttpOptions options = new HttpOptions(oAuthClient.getEndpoints().getToken());
         options.setHeader("Origin", "http://example.com");

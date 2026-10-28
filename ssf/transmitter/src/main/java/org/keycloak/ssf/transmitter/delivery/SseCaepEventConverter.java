@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class SseCaepEventConverter {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, Object> extractSseSubjectIdMap(JsonNode events) {
         if (events.isObject() && events.fieldNames().hasNext()) {
             String firstEventKey = events.fieldNames().next();

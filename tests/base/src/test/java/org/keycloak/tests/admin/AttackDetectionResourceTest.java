@@ -119,6 +119,7 @@ public class AttackDetectionResourceTest {
         if (expectedFailure) {
             assertEquals("127.0.0.1", status.get("lastIPFailure"));
             Long lastFailure = (Long) status.get("lastFailure");
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             assertTrue(lastFailure < (System.currentTimeMillis() + 1) && lastFailure > (System.currentTimeMillis() - 10000));
             assertNotEquals("0", status.get("failedLoginNotBefore").toString());
         } else {

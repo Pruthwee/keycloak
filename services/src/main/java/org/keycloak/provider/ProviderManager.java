@@ -27,6 +27,7 @@ import java.util.ServiceLoader;
 import org.keycloak.common.util.MultivaluedHashMap;
 import org.keycloak.services.DefaultKeycloakSessionFactory;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

@@ -61,6 +61,7 @@ import org.keycloak.models.sessions.infinispan.changes.SessionUpdateTask;
 import org.keycloak.models.sessions.infinispan.changes.SessionUpdatesList;
 import org.keycloak.models.sessions.infinispan.changes.Tasks;
 import org.keycloak.models.sessions.infinispan.changes.UserSessionPersistentChangelogBasedTransaction;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.keycloak.models.sessions.infinispan.changes.sessions.PersisterLastSessionRefreshStore;
 import org.keycloak.models.sessions.infinispan.entities.AuthenticatedClientSessionEntity;
 import org.keycloak.models.sessions.infinispan.entities.EmbeddedClientSessionKey;
@@ -88,6 +89,7 @@ import org.infinispan.commons.api.BasicCache;
 import org.infinispan.commons.util.ByRef;
 import org.infinispan.commons.util.concurrent.CompletionStages;
 import org.infinispan.factories.ComponentRegistry;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.infinispan.persistence.manager.PersistenceManager;
 import org.jboss.logging.Logger;
 

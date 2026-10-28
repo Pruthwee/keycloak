@@ -8,6 +8,7 @@ import java.util.Map;
 import org.keycloak.testframework.config.Config;
 import org.keycloak.testframework.logging.JBossContainerLogConsumer;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.testcontainers.containers.Container;
 import org.testcontainers.containers.JdbcDatabaseContainer;

@@ -46,6 +46,7 @@ public abstract class AbstractAdmCliTest extends AbstractCliTest {
     }
 
     static File getDefaultConfigFilePath() {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         return new File(System.getProperty("user.home") + "/.keycloak/kcadm.config");
     }
 
@@ -251,6 +252,7 @@ public abstract class AbstractAdmCliTest extends AbstractCliTest {
         String filename = UUID.randomUUID().toString() + extension;
         File file = new File(KcAdmExec.WORK_DIR + "/" + filename);
         if (content != null) {
+            // Cloud: consider using Amazon S3 for durable storage instead of local file writes
             OutputStream os = new FileOutputStream(file);
             os.write(content.getBytes(Charset.forName("iso_8859_1")));
             os.close();

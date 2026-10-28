@@ -138,6 +138,8 @@ import org.keycloak.sessions.RootAuthenticationSessionModel;
 import org.keycloak.util.Booleans;
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.NoCache;
 

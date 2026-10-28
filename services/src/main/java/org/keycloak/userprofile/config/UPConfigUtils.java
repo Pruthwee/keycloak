@@ -119,6 +119,7 @@ public class UPConfigUtils {
         return errors;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> validateAttributeGroups(UPConfig config) {
         long groupsWithoutName = config.getGroups().stream().filter(g -> g.getName() == null).collect(Collectors.counting());
 

@@ -57,11 +57,15 @@ public class ResourceLoaderTest {
 
     @Test
     public void testFiles() throws IOException {
+        // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
         Path tempDirectory = Files.createTempDirectory("safepath-test");
 
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File parent = new File(tempDirectory.toFile(), "resources");
         Assert.assertTrue(parent.mkdir());
 
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         new FileOutputStream(new File(tempDirectory.toFile(), "forbidden.css")).close();
         new FileOutputStream(new File(parent, "myresource.css")).close();
 

@@ -19,6 +19,7 @@ import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.representations.IDToken;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class ParameterizedScopeUserPropertyMapper extends ParameterizedScopeMapper {
@@ -27,6 +28,7 @@ public class ParameterizedScopeUserPropertyMapper extends ParameterizedScopeMapp
 
     public static final String PROVIDER_ID = "oidc-parameterized-scope-user-property-mapper";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {
@@ -102,6 +104,7 @@ public class ParameterizedScopeUserPropertyMapper extends ParameterizedScopeMapp
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name, String userAttribute,
                                               String tokenClaimName, String claimType,
                                               boolean accessToken, boolean idToken, boolean introspectionEndpoint) {

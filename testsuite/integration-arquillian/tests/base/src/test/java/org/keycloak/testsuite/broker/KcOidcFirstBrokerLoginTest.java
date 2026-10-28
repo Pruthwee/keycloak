@@ -28,6 +28,7 @@ import org.keycloak.testsuite.util.userprofile.UserProfileUtil;
 import org.keycloak.util.JsonSerialization;
 
 import org.apache.commons.lang3.StringUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;

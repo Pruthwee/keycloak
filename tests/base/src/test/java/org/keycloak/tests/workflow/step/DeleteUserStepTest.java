@@ -88,6 +88,8 @@ public class DeleteUserStepTest extends AbstractWorkflowTest {
     ConsentPage consentPage;
 
     private static final String USER_NAME = "user1";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String USER_PASSWORD = "passwd1";
 
     static Stream<Arguments> deleteFederatedUserTestProvider() {

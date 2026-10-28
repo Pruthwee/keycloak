@@ -18,6 +18,7 @@ class ComputedKey {
         return new String(md.digest(), StandardCharsets.UTF_8);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static String computeKey(String realm, String type, Map<String, String> attributes) {
         MessageDigest md = getMessageDigest();
         md.update(realm.getBytes(StandardCharsets.UTF_8));

@@ -100,6 +100,7 @@ public class KcRegCmd extends BaseGlobalOptionsCmd {
         out.println("  -x            Print full stack trace when exiting with error");
         out.println("  --help        Print help for specific command");
         out.println("  --config      Path to the config file (" + KcRegMain.DEFAULT_CONFIG_FILE_STRING + " by default)");
+        // Cloud: use AWS Secrets Manager and Amazon Cognito for authentication
         out.println("  --no-config   Don't use config file - no authentication info is loaded or saved");
         out.println();
         out.println("Commands: ");

@@ -74,6 +74,7 @@ public class DocumentUtilTest {
     }
   }
 
+  // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
   private static List<Thread> createThreads(int numThreads, AtomicReference<Throwable> failure) {
     CyclicBarrier barrier = new CyclicBarrier(numThreads);
     List<Thread> threads = new ArrayList<>();

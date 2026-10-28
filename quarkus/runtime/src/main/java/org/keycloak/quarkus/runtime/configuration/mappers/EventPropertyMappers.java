@@ -38,6 +38,7 @@ final class EventPropertyMappers implements PropertyMapperGrouping {
         );
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> expectedUserMetricEvents() {
         List<String> values = new ArrayList<>();
         for (EventType event : EventType.values()) {

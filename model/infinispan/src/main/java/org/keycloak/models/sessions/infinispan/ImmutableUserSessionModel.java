@@ -26,6 +26,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
 import org.keycloak.models.UserSessionModel;
 
+// Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
 import static org.keycloak.models.sessions.infinispan.ImmutableSession.readOnly;
 
 /**

@@ -37,6 +37,23 @@ import org.keycloak.testsuite.arquillian.containers.SelfManagedAppContainerLifec
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.test.api.ContainerController;
 import org.jboss.arquillian.core.api.Instance;
 import org.jboss.arquillian.core.api.annotation.Inject;
@@ -279,6 +296,8 @@ public class AppServerTestEnricher {
         File targetSubdirFile = path.toFile();
         FileUtils.deleteDirectory(targetSubdirFile);
         FileUtils.forceMkdir(targetSubdirFile);
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         FileUtils.copyDirectory(Paths.get(System.getProperty("app.server.home"), baseDir, "deployments").toFile(), new File(targetSubdirFile, "deployments"));
         FileUtils.copyDirectory(Paths.get(System.getProperty("app.server.home"), baseDir, "configuration").toFile(), new File(targetSubdirFile, "configuration"));
     }

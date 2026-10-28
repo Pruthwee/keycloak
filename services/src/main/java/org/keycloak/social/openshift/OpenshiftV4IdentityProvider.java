@@ -28,6 +28,7 @@ import org.apache.http.client.methods.HttpGet;
  */
 public class OpenshiftV4IdentityProvider extends AbstractOAuth2IdentityProvider<OpenshiftV4IdentityProviderConfig> implements SocialIdentityProvider<OpenshiftV4IdentityProviderConfig> {
 
+    // Cloud: externalize URL to AWS Systems Manager Parameter Store
     public static final String BASE_URL = "https://api.preview.openshift.com";
     public static final String OPENSHIFT_OAUTH_METADATA_ENDPOINT = "/.well-known/oauth-authorization-server";
     public static final String PROFILE_RESOURCE = "/apis/user.openshift.io/v1/users/~";

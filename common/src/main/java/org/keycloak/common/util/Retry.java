@@ -18,6 +18,7 @@
 package org.keycloak.common.util;
 
 import java.time.Duration;
+// Cloud: replace ThreadLocal with request-scoped beans for cloud environments
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -38,6 +39,7 @@ public class Retry {
     public static int execute(Runnable runnable, int attemptsCount, long intervalMillis) {
         int iteration = 0;
         while (true) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
             try {
                 runnable.run();
                 return iteration;

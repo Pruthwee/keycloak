@@ -111,6 +111,7 @@ public class JwtCredentialBuilder implements CredentialBuilder {
         return new JwtCredentialBody(jwsBuilder, jsonWebToken);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> getCredentialTypes(List<String> credentialTypes) {
         List<String> types = new ArrayList<>(Optional.ofNullable(credentialTypes).orElseGet(List::of));
         if (!types.contains(CredentialDefinition.VERIFIABLE_CREDENTIAL_TYPE)) {

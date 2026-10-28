@@ -38,6 +38,7 @@ import org.keycloak.representations.IDToken;
 import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class AcrUtils {
@@ -105,6 +106,7 @@ public class AcrUtils {
         return loa;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> getAcrValues(String claimsParam, String acrValuesParam, boolean essential) {
         List<String> acrValues = new ArrayList<>();
         if (acrValuesParam != null && !essential) {

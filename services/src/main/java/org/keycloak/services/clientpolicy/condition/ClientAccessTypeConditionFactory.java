@@ -37,6 +37,7 @@ public class ClientAccessTypeConditionFactory extends AbstractClientPolicyCondit
     public static final String TYPE_PUBLIC = "public";
     public static final String TYPE_BEARERONLY = "bearer-only";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

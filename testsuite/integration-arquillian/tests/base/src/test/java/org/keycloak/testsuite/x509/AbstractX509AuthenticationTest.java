@@ -73,6 +73,8 @@ import org.keycloak.userprofile.UserProfileConstants;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.logging.Logger;
 import org.junit.AfterClass;
@@ -135,6 +137,7 @@ public abstract class AbstractX509AuthenticationTest extends AbstractTestRealmKe
 
     protected AuthenticationExecutionInfoRepresentation directGrantExecution;
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<SetSystemProperty> systemProperties = new ArrayList<>(10);
 
     @Rule

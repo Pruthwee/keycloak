@@ -74,6 +74,7 @@ public class DockerComposeYamlInstallationProviderTest {
     public void writeToRealZip() throws IOException {
         final Response response = fireInstallationProvider();
         final byte[] responseBytes = (byte[]) response.getEntity();
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         FileUtils.writeByteArrayToFile(new File("target/keycloak-docker-compose-yaml.zip"), responseBytes);
     }
 

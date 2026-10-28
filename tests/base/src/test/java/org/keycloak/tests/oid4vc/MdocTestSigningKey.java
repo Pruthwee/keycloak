@@ -48,6 +48,7 @@ import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 final class MdocTestSigningKey {
 
     static final String KEY_ALIAS = "mdoc-test-signing";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String PASSWORD = "password";
 
     private static final Path KEYSTORES_BASE_DIR;
@@ -66,6 +67,7 @@ final class MdocTestSigningKey {
             X509Certificate caCertificate = generateCaCertificate(caName, caKeyPair);
             X509Certificate leafCertificate = generateLeafCertificate(caName, leafKeyPair, caKeyPair);
 
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
             KeyStore keyStore = KeyStore.getInstance("PKCS12");
             keyStore.load(null, null);
             keyStore.setKeyEntry(KEY_ALIAS, leafKeyPair.getPrivate(), PASSWORD.toCharArray(),

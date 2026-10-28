@@ -35,6 +35,7 @@ import org.keycloak.testframework.https.InjectCertificates;
 import org.keycloak.testframework.https.ManagedCertificates;
 
 import com.fasterxml.jackson.databind.JsonNode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.TestInstance;

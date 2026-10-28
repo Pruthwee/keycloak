@@ -75,6 +75,7 @@ public final class VciConformanceRealmUtil {
 
     public static final String REALM = "oid4vci";
     public static final String HOLDER = "alice";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String PASSWORD = "password";
     public static final String CLIENT = "oid4vci-client";
     public static final String CLIENT2 = "oid4vci-client2";
@@ -315,6 +316,7 @@ public final class VciConformanceRealmUtil {
         return keyProvider;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ProtocolMapperRepresentation> protocolMappers(String scopeName) {
         return List.of(
                 mapper("did-mapper", "oid4vc-subject-id-mapper", Map.of("claim.name", OID4VCConstants.CLAIM_NAME_SUBJECT_ID, "userAttribute", "did")),

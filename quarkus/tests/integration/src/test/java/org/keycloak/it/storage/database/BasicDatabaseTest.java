@@ -111,6 +111,7 @@ public abstract class BasicDatabaseTest {
     protected static String readKeycloakDbUpdateScript(RawDistRootPath path) {
         final String defaultScriptName = "keycloak-database-update.sql";
         Path scriptPath = Paths.get(path.getDistRootPath() + File.separator + "bin" + File.separator + defaultScriptName);
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File script = new File(scriptPath.toString());
         assertThat(String.format("Script '%s' does not exist!", defaultScriptName), script.isFile(), is(true));
 

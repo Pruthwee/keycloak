@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Optional;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

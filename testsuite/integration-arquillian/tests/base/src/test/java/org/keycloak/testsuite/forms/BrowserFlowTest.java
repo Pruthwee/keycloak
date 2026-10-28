@@ -50,6 +50,9 @@ import org.keycloak.testsuite.util.URLUtils;
 import org.keycloak.testsuite.util.WaitUtils;
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.arquillian.test.api.ArquillianResource;
@@ -71,6 +74,9 @@ import static org.hamcrest.Matchers.containsString;
 public class BrowserFlowTest extends AbstractChangeImportedUserPasswordsTest {
     private static final String INVALID_AUTH_CODE = "Invalid authenticator code.";
 
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String USER_WITH_ONE_OTP_OTP_SECRET = "DJmQfC73VGFhw7D4QJ8A";
     private static final String USER_WITH_TWO_OTPS_OTP1_SECRET = "DJmQfC73VGFhw7D4QJ8A";
     private static final String USER_WITH_TWO_OTPS_OTP2_SECRET = "ABCQfC73VGFhw7D4QJ8A";

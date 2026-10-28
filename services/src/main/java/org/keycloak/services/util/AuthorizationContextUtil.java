@@ -94,6 +94,7 @@ public class AuthorizationContextUtil {
         }
 
         AuthorizationRequestContext result = clientScopeParser.parseScopes(user, client, clientSession, scope);
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(cacheKey, result);
         return copyContext(result);
     }

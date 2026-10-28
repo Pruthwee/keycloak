@@ -34,6 +34,7 @@ import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class BruteForceUsersResource {
@@ -158,6 +159,7 @@ public class BruteForceUsersResource {
         if (Profile.isFeatureEnabled(Profile.Feature.ADMIN_FINE_GRAINED_AUTHZ)) {
             Set<String> groupIds = auth.groups().getGroupIdsWithViewPermission();
             if (!groupIds.isEmpty()) {
+                // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
                 session.setAttribute(UserModel.GROUPS, groupIds);
             }
         }

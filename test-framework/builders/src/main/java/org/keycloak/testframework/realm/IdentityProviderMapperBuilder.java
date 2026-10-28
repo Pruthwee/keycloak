@@ -10,6 +10,7 @@ public class IdentityProviderMapperBuilder extends Builder<IdentityProviderMappe
         super(rep);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static IdentityProviderMapperBuilder create() {
         return new IdentityProviderMapperBuilder(new IdentityProviderMapperRepresentation());
     }

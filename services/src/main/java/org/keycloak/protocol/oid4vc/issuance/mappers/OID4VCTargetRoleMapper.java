@@ -42,6 +42,7 @@ import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -57,6 +58,7 @@ public class OID4VCTargetRoleMapper extends OID4VCMapper {
 	public static final String CLIENT_CONFIG_KEY = "clientId";
 	public static final String MAPPER_ID = "oid4vc-target-role-mapper";
 
+ // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
 	private static final List<ProviderConfigProperty> CONFIG_PROPERTIES = new ArrayList<>();
 
 	static {
@@ -121,6 +123,7 @@ public class OID4VCTargetRoleMapper extends OID4VCMapper {
 		return "Map the assigned role to the credential subject, providing the client id as the target.";
 	}
 
+ // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
 	public static ProtocolMapperModel create(String name) {
 		var mapperModel = new ProtocolMapperModel();
 		mapperModel.setName(name);

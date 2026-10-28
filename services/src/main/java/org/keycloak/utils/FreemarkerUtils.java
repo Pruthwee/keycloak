@@ -41,6 +41,7 @@ public class FreemarkerUtils {
      * @param clazz Class, which should be in same package as the template
      * @return template from classpath
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static String loadTemplateFromClasspath(Map<String, Object> contextMap, String templateFile, Class<?> clazz) throws TemplateException, IOException {
         Configuration freemarkerConfig = new Configuration(Configuration.VERSION_2_3_32);
         freemarkerConfig.setClassForTemplateLoading(clazz, "");

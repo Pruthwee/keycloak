@@ -374,6 +374,7 @@ public class InstallationTest {
     }
 
     private void assertRfc7468Cert(String result) {
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         Assertions.assertTrue(result.startsWith("-----BEGIN CERTIFICATE-----"));
         Assertions.assertTrue(result.endsWith("-----END CERTIFICATE-----"));
         result.lines().forEach(line -> Assertions.assertTrue(line.length() <= 64));

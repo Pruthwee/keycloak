@@ -59,6 +59,11 @@ import io.quarkus.deployment.util.FileUtil;
 import io.quarkus.fs.util.ZipUtils;
 import org.apache.commons.io.FileUtils;
 import org.awaitility.Awaitility;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -156,6 +161,7 @@ public final class RawKeycloakDistribution implements KeycloakDistribution {
         Process proc = builder.start();
 
         DefaultOutputConsumer outputConsumer = new DefaultOutputConsumer();
+        // Cloud: use dynamic thread pool sizing based on ECS/EKS container resources
         var executor = Executors.newCachedThreadPool();
         int exitValue = -1;
         try {
@@ -353,6 +359,7 @@ public final class RawKeycloakDistribution implements KeycloakDistribution {
 
             File distFile;
             if (System.getProperty("product.dist.zip") != null) {
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 distFile = new File(System.getProperty("product.dist.zip"));
             } else {
                 distFile = new File("../../dist/" + File.separator + "target" + File.separator + "keycloak-" + Version.VERSION + ".zip");
@@ -565,6 +572,7 @@ public final class RawKeycloakDistribution implements KeycloakDistribution {
         }
     }
 
+    // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
     private void updateProperties(Consumer<Properties> propertiesConsumer, File propertiesFile) {
         Properties properties = new Properties();
 
@@ -580,6 +588,7 @@ public final class RawKeycloakDistribution implements KeycloakDistribution {
         }
 
         try (
+            // Cloud: consider using Amazon S3 for durable storage instead of local file writes
             FileOutputStream out = new FileOutputStream(propertiesFile)
         ) {
             propertiesConsumer.accept(properties);

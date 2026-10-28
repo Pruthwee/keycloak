@@ -57,6 +57,17 @@ import org.keycloak.testsuite.model.StoreProvider;
 import org.keycloak.utils.StringUtil;
 
 import org.apache.commons.lang3.SystemUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.spi.client.container.DeployableContainer;
 import org.jboss.arquillian.container.spi.client.container.DeploymentException;
 import org.jboss.arquillian.container.spi.client.container.LifecycleException;
@@ -335,10 +346,12 @@ public abstract class AbstractQuarkusDeployableContainer implements DeployableCo
         // support for MP Health this should change
         URL contextRoot = new URL(getBaseUrl(suiteContext) + "/auth/realms/master/");
         HttpURLConnection connection;
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long startTime = System.currentTimeMillis();
         Exception e = null;
 
         while (true) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
             if (System.currentTimeMillis() - startTime > getStartTimeout()) {
                 stop();
                 throw new IllegalStateException("Timeout [" + getStartTimeout() + "] while waiting for Quarkus server", e);

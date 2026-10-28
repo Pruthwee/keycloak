@@ -11,6 +11,7 @@ public class SAMLSingleSignOnServiceParser extends SAMLEndpointTypeParser {
         super(SAMLMetadataQNames.SINGLE_SIGNON_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLSingleSignOnServiceParser getInstance() {
         return INSTANCE;
     }

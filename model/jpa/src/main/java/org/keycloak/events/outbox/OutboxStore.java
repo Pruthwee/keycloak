@@ -37,6 +37,7 @@ import org.keycloak.models.jpa.entities.OutboxEntryStatus;
 
 import org.hibernate.LockMode;
 import org.hibernate.query.SelectionQuery;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

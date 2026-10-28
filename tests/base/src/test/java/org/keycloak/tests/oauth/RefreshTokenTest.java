@@ -97,6 +97,7 @@ import org.keycloak.util.DPoPGenerator;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
@@ -1257,6 +1258,7 @@ public class RefreshTokenTest {
                 .clientId("test-app")
                 .type(EventType.CODE_TO_TOKEN);
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         int currentTime = (int) (System.currentTimeMillis() / 1000);
 
         ClientRepresentation clientRep = oauth.clientResource().toRepresentation();

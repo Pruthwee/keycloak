@@ -16,6 +16,7 @@ import org.keycloak.testframework.util.FileUtils;
 import org.keycloak.testframework.util.MavenProjectUtil;
 
 import io.quarkus.bootstrap.resolver.maven.workspace.LocalProject;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 final class ProviderDeployer {
@@ -27,6 +28,7 @@ final class ProviderDeployer {
 
     ProviderDeployer(Logger log, File keycloakHomeDir, Set<KeycloakDependency> requestedDependencies, boolean hotDeployEnabled) {
         this.log = log;
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         this.providersDir = new File(keycloakHomeDir, "providers");
         this.requestedDependencies = requestedDependencies;
         this.hotDeployEnabled = hotDeployEnabled;

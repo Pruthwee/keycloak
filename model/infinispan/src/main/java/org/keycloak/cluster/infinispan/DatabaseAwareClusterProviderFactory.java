@@ -44,6 +44,7 @@ import org.keycloak.services.scheduled.ScheduledTaskRunner;
 import org.keycloak.timer.TimerProvider;
 
 import org.infinispan.commons.marshall.Marshaller;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -111,6 +112,7 @@ public class DatabaseAwareClusterProviderFactory extends InfinispanClusterProvid
 
             var pollerTask = new DatabaseClusterEventPollerTask(nodeInfo.clusterName(), protoStreamMarshaller);
             var runner = new ScheduledTaskRunner(factory, pollerTask);
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {

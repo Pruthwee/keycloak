@@ -15,6 +15,7 @@ public class ProtocolMapperBuilder extends Builder<ProtocolMapperRepresentation>
         super(rep);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperBuilder create() {
         return new ProtocolMapperBuilder(new ProtocolMapperRepresentation());
     }

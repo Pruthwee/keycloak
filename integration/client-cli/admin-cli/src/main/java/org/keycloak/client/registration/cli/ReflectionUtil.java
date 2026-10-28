@@ -57,6 +57,7 @@ public class ReflectionUtil {
         index.put(type, map);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, Field> getAttrFieldsForType(Type gtype) {
         Class type;
         if (gtype instanceof Class) {

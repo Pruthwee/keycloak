@@ -64,6 +64,7 @@ public final class ExportImportHelper {
     public static FetchOnServer getExportImportTestDirectory() {
         return session -> {
             if (tempDir == null) {
+                // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
                 tempDir = Files.createTempDirectory("kc-tests").toAbsolutePath().toString();
             }
             return tempDir;

@@ -41,6 +41,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.keycloak.representations.idm.RealmRepresentation;
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -56,6 +57,7 @@ public class IOUtil {
 
     private static final Logger log = Logger.getLogger(IOUtil.class);
 
+    // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
     public static final File PROJECT_BUILD_DIRECTORY = new File(System.getProperty("project.build.directory", "target"));
 
     public static <T> T loadJson(InputStream is, Class<T> type) {

@@ -194,6 +194,11 @@ import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
@@ -1491,6 +1496,8 @@ public class SAMLServletAdapterTest extends AbstractSAMLServletAdapterTest {
         Assertions.assertNotEquals("", xml);
         Document doc = DocumentUtil.getDocument(new StringReader(xml));
         String certBase64 = DocumentUtil.getElement(doc, new QName("http://www.w3.org/2000/09/xmldsig#", "X509Certificate")).getTextContent();
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         CertificateFactory cf = CertificateFactory.getInstance("X.509");
         Certificate cert = cf.generateCertificate(new ByteArrayInputStream(Base64.getMimeDecoder().decode(certBase64)));
         PublicKey pubkey = cert.getPublicKey();
@@ -1732,6 +1739,7 @@ public class SAMLServletAdapterTest extends AbstractSAMLServletAdapterTest {
 
         Document authenticationRequest = authnRequestMessage.getSOAPBody().getFirstChild().getOwnerDocument();
         String username = "pedroigor";
+        // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
         String password = "password";
         String pair = username + ":" + password;
         String authHeader = "Basic " + Base64.getEncoder().encodeToString(pair.getBytes());

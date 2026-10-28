@@ -54,6 +54,8 @@ public class UnlinkUserWorkflowStepTest extends AbstractWorkflowTest {
     LoginPage loginPage;
 
     private static final String USER_NAME = "user1";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String USER_PASSWORD = "passwd1";
     private static final String FIRST_IDP_OIDC_ALIAS = "oidc-idp-one";
     private static final String SECOND_IDP_OIDC_ALIAS = "oidc-idp-two";

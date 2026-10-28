@@ -77,6 +77,7 @@ public class JacksonAgnosticClassesTest {
 
     private static void collectClassesUsingJackson2(Path classesDir, List<String> violations,
                                                     String... forbiddenClassesInSamePackage) throws IOException {
+        // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
         Files.walkFileTree(classesDir, new SimpleFileVisitor<Path>() {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {

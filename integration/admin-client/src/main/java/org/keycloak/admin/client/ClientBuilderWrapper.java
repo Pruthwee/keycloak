@@ -6,6 +6,7 @@ import jakarta.ws.rs.client.ClientBuilder;
 
 import org.keycloak.admin.client.spi.ResteasyClientClassicProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 
 /**

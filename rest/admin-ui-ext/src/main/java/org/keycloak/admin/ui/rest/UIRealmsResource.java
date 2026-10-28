@@ -21,6 +21,7 @@ import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.NoCache;
 
 public class UIRealmsResource {

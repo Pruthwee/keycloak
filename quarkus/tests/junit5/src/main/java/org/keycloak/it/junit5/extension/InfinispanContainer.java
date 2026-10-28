@@ -25,6 +25,7 @@ import com.github.dockerjava.api.command.InspectContainerResponse;
 import org.infinispan.client.hotrod.RemoteCacheManager;
 import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
 import org.infinispan.commons.configuration.StringConfiguration;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.testcontainers.images.PullPolicy;
 
@@ -106,6 +107,7 @@ public class InfinispanContainer extends org.infinispan.testcontainers.Infinispa
         }
 
         while (true) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
             InspectContainerResponse info = dockerClient.inspectContainerCmd(getContainerId()).exec();
             if (!(info.getState() != null && Boolean.TRUE.equals(info.getState().getRunning()))) {
                 break;

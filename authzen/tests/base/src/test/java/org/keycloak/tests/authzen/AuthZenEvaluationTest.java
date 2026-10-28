@@ -224,6 +224,7 @@ public class AuthZenEvaluationTest {
                     .subject(USER, ADMIN_USER)
                     .action("read")
                     .resource("endpoint", "/nested-context")
+                    // Cloud: replace IP-based security with AWS IAM authentication
                     .contextProperty("request", Map.of("ip", "192.168.1.1"))
                     .build());
 

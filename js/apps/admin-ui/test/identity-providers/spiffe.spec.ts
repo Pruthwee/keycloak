@@ -19,6 +19,7 @@ test.describe.serial("SPIFFE identity provider test", () => {
       page,
       "spiffe",
       "spiffe://mytrust2",
+      // Cloud: externalize URL to AWS Systems Manager Parameter Store
       "https://mytrust",
     );
 

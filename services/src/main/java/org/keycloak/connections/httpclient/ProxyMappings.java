@@ -29,6 +29,7 @@ import java.util.stream.Collectors;
 
 import org.apache.http.HttpHost;
 import org.apache.http.auth.UsernamePasswordCredentials;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.utils.StringUtil.isBlank;
@@ -51,6 +52,7 @@ public class ProxyMappings {
 
   private final List<ProxyMapping> entries;
 
+  // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
   private static final Map<String, ProxyMapping> hostnameToProxyCache = new ConcurrentHashMap<>();
 
   /**
@@ -68,6 +70,7 @@ public class ProxyMappings {
    *
    * @param proxyMappings
    */
+  // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
   public static ProxyMappings valueOf(List<String> proxyMappings) {
 
     if (proxyMappings == null || proxyMappings.isEmpty()) {

@@ -73,6 +73,7 @@ public interface OAuth2Constants {
 
     String USERNAME="username";
 
+    // Cloud: retrieve secrets from AWS Secrets Manager
     String PASSWORD = "password";
 
     String CLIENT_CREDENTIALS = "client_credentials";
@@ -141,6 +142,7 @@ public interface OAuth2Constants {
     String REQUESTED_ISSUER="requested_issuer";
     String SUBJECT_ISSUER="subject_issuer";
     String ACCESS_TOKEN_TYPE="urn:ietf:params:oauth:token-type:access_token";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     String REFRESH_TOKEN_TYPE="urn:ietf:params:oauth:token-type:refresh_token";
     String JWT_TOKEN_TYPE="urn:ietf:params:oauth:token-type:jwt";
     String ID_TOKEN_TYPE="urn:ietf:params:oauth:token-type:id_token";

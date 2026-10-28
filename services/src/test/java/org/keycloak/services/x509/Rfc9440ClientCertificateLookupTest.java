@@ -17,6 +17,7 @@ import org.keycloak.services.resteasy.HttpRequestImpl;
 
 import com.google.common.base.Splitter;
 import org.apache.commons.io.IOUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.mock.MockHttpRequest;
 import org.junit.BeforeClass;
 import org.junit.Test;

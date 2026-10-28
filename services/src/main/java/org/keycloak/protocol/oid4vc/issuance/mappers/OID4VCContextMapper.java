@@ -43,6 +43,7 @@ public class OID4VCContextMapper extends OID4VCMapper {
     public static final String MAPPER_ID = "oid4vc-context-mapper";
     public static final String TYPE_KEY = "context";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> CONFIG_PROPERTIES = new ArrayList<>();
 
     static {

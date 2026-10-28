@@ -76,6 +76,8 @@ public class AdminEventStoreProviderTest {
 
     @Test
     public void query() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long oldest = System.currentTimeMillis() - 30000;
         long newest = System.currentTimeMillis() + 30000;
 
@@ -218,6 +220,9 @@ public class AdminEventStoreProviderTest {
 
     @Test
     public void clear() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
         eventHelper.storeEvent(create(System.currentTimeMillis() - 20000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
         eventHelper.storeEvent(create(System.currentTimeMillis(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
@@ -233,12 +238,20 @@ public class AdminEventStoreProviderTest {
     @Test
     public void clearOld() {
         eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         eventHelper.storeEvent(create(System.currentTimeMillis() - 20000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
         eventHelper.storeEvent(create(System.currentTimeMillis(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
         eventHelper.storeEvent(create(System.currentTimeMillis(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
         eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
 
         eventHelper.clearAdminEvents(realm1.getId(), System.currentTimeMillis() - 10000);
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         eventHelper.clearAdminEvents(realm2.getId(), System.currentTimeMillis() - 10000);
 
         Assertions.assertEquals(2, eventHelper.queryAdminEvents(realm1.getId(), null, null, null, null, null, null, null, null, null, null).length);

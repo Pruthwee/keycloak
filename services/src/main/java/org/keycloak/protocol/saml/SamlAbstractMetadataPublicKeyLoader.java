@@ -42,6 +42,7 @@ import org.keycloak.keys.PublicKeyLoader;
 import org.keycloak.saml.processing.core.saml.v2.util.SAMLMetadataUtil;
 import org.keycloak.saml.processing.core.util.XMLSignatureUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.w3c.dom.Element;
 

@@ -13,6 +13,7 @@ import jakarta.ws.rs.container.ContainerRequestFilter;
 import jakarta.ws.rs.container.PreMatching;
 import jakarta.ws.rs.ext.Provider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 @Provider
@@ -51,6 +52,7 @@ public class InvalidQueryParameterFilter implements ContainerRequestFilter {
         }
         CharacterIterator it = new StringCharacterIterator(input);
         while (true) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
             char c = it.current();
             if (c == CharacterIterator.DONE) {
                 break;

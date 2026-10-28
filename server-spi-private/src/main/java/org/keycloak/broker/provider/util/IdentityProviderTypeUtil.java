@@ -48,6 +48,7 @@ public class IdentityProviderTypeUtil {
         return listFactoriesByTypes(session, Set.of(type));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<IdentityProviderType> listTypesFromClass(Class<? extends IdentityProvider> providerType) {
         return Arrays.stream(IdentityProviderType.values())
                 .filter(t -> !t.equals(IdentityProviderType.ANY) && toTypeClass(t).isAssignableFrom(providerType))

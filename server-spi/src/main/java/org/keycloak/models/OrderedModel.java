@@ -32,6 +32,7 @@ public interface OrderedModel {
         public static final OrderedModelComparator INSTANCE = new OrderedModelComparator();
 
         @SuppressWarnings("unchecked")
+        // Cloud: consider using AWS DynamoDB for shared singleton state
         public static <T extends OrderedModel> OrderedModelComparator<T> getInstance() {
             return INSTANCE;
         }

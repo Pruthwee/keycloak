@@ -217,6 +217,7 @@ public class RoleUtils {
      * @return all role mappings for the given mapper with composite roles expanded.
      * For {@link UserModel} instances, group-inherited roles are also included.
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Set<RoleModel> getDeepRoleMappings(RoleMapperModel roleMapper) {
         // RoleMapperModel has exactly two implementations: UserModel and GroupModel.
         // UserModel.hasRole() considers group-inherited roles, so we must include them

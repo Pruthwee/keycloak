@@ -40,6 +40,7 @@ public class KcOidcBrokerPrivateKeyJwtCustomSignAlgTest extends AbstractKcOidcBr
         rep.setProviderId(GeneratedEcdsaKeyProviderFactory.ID);
         rep.setProviderType(KeyProvider.class.getName());
         rep.setConfig(new MultivaluedHashMap<>());
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         rep.getConfig().putSingle("priority", Long.toString(System.currentTimeMillis()));
         rep.getConfig().putSingle("active", "true");
         rep.getConfig().putSingle("enabled", "true");

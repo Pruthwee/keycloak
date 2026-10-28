@@ -35,6 +35,7 @@ import org.keycloak.Config;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -187,6 +188,7 @@ public class DefaultExecutorsProviderFactory implements ExecutorsProviderFactory
             return Executors.newFixedThreadPool(min, threadFactory);
         } else {
             // Same like Executors.newCachedThreadPool. Besides that "min" and "max" are configurable
+            // Cloud: use dynamic thread pool sizing based on ECS/EKS container resources
             return new ThreadPoolExecutor(min, max,
                     60L, TimeUnit.SECONDS,
                     new LinkedBlockingQueue<>(),
@@ -210,6 +212,7 @@ public class DefaultExecutorsProviderFactory implements ExecutorsProviderFactory
                     logger.tracef("Creating thread: %s", threadName);
                 }
 
+                // Cloud: use bounded ExecutorService instead of unbounded thread creation
                 return new Thread(r, threadName);
             }
 

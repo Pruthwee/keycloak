@@ -47,6 +47,8 @@ public class OAuthScopeInTokenResponseTest extends AbstractKeycloakTest {
     @Test
     public void specifyNoScopeTest() throws Exception {
         String loginUser = "john-doh@localhost";
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve secrets from AWS Secrets Manager
         String loginPassword = "password";
         String clientSecret = "password";
 
@@ -122,6 +124,7 @@ public class OAuthScopeInTokenResponseTest extends AbstractKeycloakTest {
     }
 
     @Test
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public void failTokenNotExistingScope() throws Exception {
         String loginUser = "john-doh@localhost";
         String loginPassword = "password";

@@ -67,6 +67,7 @@ public class AttributeTest {
         assertEquals(1, attributes.getValue("multi_valued").asInt(0));
         assertEquals(4, attributes.getValue("multi_valued").asInt(3));
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         assertEquals(new SimpleDateFormat("dd/MM/yyyy").parse("12/12/2016"), attributes.getValue("date").asDate(0, "dd/MM/yyyy"));
 
         assertEquals("127.0.0.1", attributes.getValue("ip_network_address").asInetAddress(0).getHostAddress());

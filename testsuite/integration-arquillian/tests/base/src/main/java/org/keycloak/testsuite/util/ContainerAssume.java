@@ -19,6 +19,7 @@ package org.keycloak.testsuite.util;
 
 import org.keycloak.testsuite.arquillian.AuthServerTestEnricher;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assume;
 

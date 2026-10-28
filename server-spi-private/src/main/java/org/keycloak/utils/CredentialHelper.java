@@ -40,6 +40,7 @@ import org.keycloak.models.credential.RecoveryAuthnCodesCredentialModel;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

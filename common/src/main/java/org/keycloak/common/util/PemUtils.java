@@ -35,10 +35,12 @@ import org.keycloak.common.crypto.CryptoIntegration;
  */
 public class PemUtils {
 
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
     public static final String BEGIN_CERT = "-----BEGIN CERTIFICATE-----";
     public static final String END_CERT = "-----END CERTIFICATE-----";
 
     public static final String BEGIN_PRIVATE_KEY = "-----BEGIN PRIVATE KEY-----";
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
     public static final String END_PRIVATE_KEY = "-----END PRIVATE KEY-----";
     public static final String BEGIN_RSA_PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----";
     public static final String END_RSA_PRIVATE_KEY = "-----END RSA PRIVATE KEY-----";

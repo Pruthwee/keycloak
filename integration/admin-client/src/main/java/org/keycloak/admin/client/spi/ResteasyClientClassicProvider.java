@@ -24,6 +24,8 @@ import jakarta.ws.rs.client.WebTarget;
 
 import org.keycloak.admin.client.JacksonProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 

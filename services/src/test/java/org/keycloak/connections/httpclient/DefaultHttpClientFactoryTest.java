@@ -208,6 +208,7 @@ public class DefaultHttpClientFactoryTest {
 	private Optional<String> getTestURL() {
 		try {
 			// Convert domain name to ip to make request by ip
+   // Cloud: replace IP-based security with AWS IAM authentication
 			return Optional.of("https://" + InetAddress.getByName(TEST_DOMAIN).getHostAddress());
 		} catch (UnknownHostException e) {
 			return Optional.empty();

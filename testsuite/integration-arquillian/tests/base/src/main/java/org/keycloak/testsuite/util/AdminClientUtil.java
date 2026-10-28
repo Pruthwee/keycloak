@@ -37,6 +37,11 @@ import org.apache.http.client.config.RequestConfig;
 import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.ssl.SSLContexts;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.client.jaxrs.ClientHttpEngine;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
@@ -131,6 +136,7 @@ public class AdminClientUtil {
     public static SSLContext getSSLContextWithTruststore() {
         try {
             if ("true".equals(System.getProperty("auth.server.ssl.required"))) {
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 File truststore = new File(PROJECT_BUILD_DIRECTORY, "dependency/keystore/keycloak.truststore");
                 System.setProperty("javax.net.ssl.trustStore", truststore.getAbsolutePath());
                 return getSSLContextWithTruststore(truststore, "secret");

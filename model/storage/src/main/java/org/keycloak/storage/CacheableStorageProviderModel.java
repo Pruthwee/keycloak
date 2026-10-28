@@ -218,6 +218,7 @@ public class CacheableStorageProviderModel extends PrioritizedComponentModel {
 
 
     public static long dailyTimeout(int hour, int minute) {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(Time.currentTimeMillis());
         cal.set(Calendar.HOUR_OF_DAY, hour);

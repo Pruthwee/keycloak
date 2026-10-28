@@ -259,6 +259,7 @@ public class OIDCClientSecretConfigWrapper extends AbstractClientConfigWrapper {
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> map = new HashMap<>();
         try {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
             map.put("clientId", getId());
             map.put("clientName", getName());

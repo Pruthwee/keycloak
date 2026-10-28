@@ -33,6 +33,7 @@ public class Messages {
 
     public static final String INVALID_USERNAME_OR_EMAIL = "invalidUsernameOrEmailMessage";
 
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String INVALID_PASSWORD = "invalidPasswordMessage";
 
     public static final String INVALID_EMAIL = "invalidEmailMessage";

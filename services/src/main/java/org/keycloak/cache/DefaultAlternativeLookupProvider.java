@@ -13,6 +13,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.models.RoleModel;
 import org.keycloak.services.resources.IdentityBrokerService;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.utils.KeycloakModelUtils.CLIENT_ROLE_SEPARATOR;

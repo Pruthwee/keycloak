@@ -12,6 +12,7 @@ const credentials = {
 
 const token = (secondsFromNow: number) => {
   const payload = { exp: Math.ceil(Date.now() / 1000) + secondsFromNow };
+  // Cloud: abstract Node.js globals behind environment-aware adapters
   return `header.${Buffer.from(JSON.stringify(payload)).toString("base64url")}.signature`;
 };
 

@@ -78,6 +78,8 @@ public class AdminConsoleWhoAmILocaleTest {
     private static final String USER_WITHOUT_LOCALE = "user-without-locale";
     private static final String USER_WITH_LOCALE = "user-with-locale";
     private static final String USER_NO_ACCESS = "user-no-access";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "password";
     private static final String ADMIN_CLI_NOT_ALLOWED = "admin-cli-not-allowed";
     private static final String SECRET = "secret";

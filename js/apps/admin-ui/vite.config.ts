@@ -27,6 +27,7 @@ export default defineConfig(({ mode }) => {
           let properties = {};
           if (process.env.NODE_ENV === "development") {
             properties = getProperties(
+              // Cloud: use fs/promises or AWS S3 for async file operations
               readFileSync(
                 "./maven-resources/theme/keycloak.v2/admin/messages/messages_en.properties",
               ),

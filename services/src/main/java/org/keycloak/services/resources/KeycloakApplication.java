@@ -38,6 +38,7 @@ import org.keycloak.services.DefaultKeycloakSessionFactory;
 import org.keycloak.services.managers.ApplianceBootstrap;
 
 import io.quarkus.runtime.Quarkus;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -65,6 +66,7 @@ public abstract class KeycloakApplication extends Application {
     protected void initTmpDirectory() {
         String dataDir = getDataDir();
         if (dataDir != null) {
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             File tmpDir = new File(dataDir, "tmp");
             System.setProperty(KC_TMPDIR, tmpDir.getAbsolutePath());
         }

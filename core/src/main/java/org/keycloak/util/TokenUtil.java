@@ -38,6 +38,7 @@ import org.keycloak.representations.AccessToken;
 import org.keycloak.representations.JsonWebToken;
 import org.keycloak.representations.RefreshToken;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.representations.AccessToken.REALM_ACCESS;
@@ -57,8 +58,10 @@ public class TokenUtil {
 
     // JWT Access Token types from https://datatracker.ietf.org/doc/html/rfc9068#section-2.1
     public static final String TOKEN_TYPE_JWT_ACCESS_TOKEN = "at+jwt";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String TOKEN_TYPE_JWT_ACCESS_TOKEN_PREFIXED = "application/" + TOKEN_TYPE_JWT_ACCESS_TOKEN;
 
+    // Cloud: retrieve secrets from AWS Secrets Manager
     // https://openid.net/specs/openid-connect-backchannel-1_0.html#LogoutToken
     public static final String TOKEN_TYPE_JWT_LOGOUT_TOKEN = "logout+jwt";
 

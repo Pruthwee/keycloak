@@ -89,6 +89,7 @@ public class UpdateCompatibilityCheck extends AbstractUpdatesCommand {
         if (inputFile == null || inputFile.isBlank()) {
             throw new PropertyException("Missing required argument: " + INPUT_OPTION_NAME);
         }
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         var file = new File(inputFile);
         if (!file.exists()) {
             throw new PropertyException("Incorrect argument %s. Path '%s' not found".formatted(INPUT_OPTION_NAME, file.getAbsolutePath()));

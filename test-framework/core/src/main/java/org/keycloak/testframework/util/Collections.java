@@ -53,6 +53,7 @@ public class Collections {
     }
 
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static <K, V> Map<K, List<V>> combine(Map<K, List<V>> m1, Map<K, List<V>> m2) {
         if (m1 == null) {
             m1 = new HashMap<>();

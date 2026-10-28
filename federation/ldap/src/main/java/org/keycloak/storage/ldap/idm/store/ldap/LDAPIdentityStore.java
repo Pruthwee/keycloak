@@ -65,6 +65,7 @@ import org.keycloak.storage.ldap.mappers.LDAPOperationDecorator;
 
 import io.micrometer.core.instrument.Meter;
 import io.micrometer.core.instrument.Timer;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

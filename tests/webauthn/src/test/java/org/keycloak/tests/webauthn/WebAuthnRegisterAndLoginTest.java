@@ -439,6 +439,7 @@ public class WebAuthnRegisterAndLoginTest extends AbstractWebAuthnVirtualTest {
         assertThat(user.getCreatedTimestamp(), notNullValue());
 
         // test that timestamp is current with 60s tollerance
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         assertThat((System.currentTimeMillis() - user.getCreatedTimestamp()) < 60000, is(true));
 
         // test user info is set from form

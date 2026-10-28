@@ -50,6 +50,7 @@ public final class Marshalling {
 
     public static final String PROTO_SCHEMA_PACKAGE = "keycloak";
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<SerializationContextInitializer> SCHEMAS;
 
     public static List<SerializationContextInitializer> getSchemas() {

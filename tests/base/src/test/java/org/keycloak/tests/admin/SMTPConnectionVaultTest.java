@@ -53,6 +53,9 @@ public class SMTPConnectionVaultTest {
     public void testWithAuthEnabledValidCredentials() throws Exception {
         // The value of password must match the value of vaultPassword stored in the vault file: resources/vault/default_smtp__password.
         // Prefix default in the file default_smtp__password is the name of the managed realm.
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
         String password = "admin";
         String vaultPassword = "${vault.smtp_password}";
 

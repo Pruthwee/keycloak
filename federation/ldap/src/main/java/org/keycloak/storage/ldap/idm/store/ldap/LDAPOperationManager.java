@@ -66,6 +66,7 @@ import org.keycloak.truststore.TruststoreProvider;
 
 import io.micrometer.core.instrument.Meter;
 import io.micrometer.core.instrument.Timer;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

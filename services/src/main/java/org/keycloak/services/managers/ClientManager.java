@@ -53,6 +53,7 @@ import org.keycloak.sessions.AuthenticationSessionProvider;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.Constants.defaultClients;

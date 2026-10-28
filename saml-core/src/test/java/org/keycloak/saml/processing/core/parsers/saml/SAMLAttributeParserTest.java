@@ -15,6 +15,7 @@ import org.junit.Test;
 
 public class SAMLAttributeParserTest {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static String XML_DOC_TEMPLATE = "<samlp:AttributeQuery\n" +
             "    xmlns:saml=\"urn:oasis:names:tc:SAML:2.0:assertion\"\n" +
             "    xmlns:samlp=\"urn:oasis:names:tc:SAML:2.0:protocol\">\n" +

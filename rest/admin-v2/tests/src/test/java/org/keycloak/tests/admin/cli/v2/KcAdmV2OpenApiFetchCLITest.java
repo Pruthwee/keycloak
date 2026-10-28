@@ -151,6 +151,7 @@ public class KcAdmV2OpenApiFetchCLITest extends AbstractKcAdmV2CLITest {
 
         // Save to a local file
         Path openApiFile = tempDir.toPath().resolve("openapi-spec.json");
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         Files.write(openApiFile, response.getBody().readAllBytes());
 
         // Delete the registry so we can verify file loading recreates it

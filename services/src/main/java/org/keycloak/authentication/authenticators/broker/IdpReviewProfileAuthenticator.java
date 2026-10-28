@@ -48,6 +48,7 @@ import org.keycloak.userprofile.UserProfileContext;
 import org.keycloak.userprofile.UserProfileProvider;
 import org.keycloak.userprofile.ValidationException;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -241,6 +242,7 @@ public class IdpReviewProfileAuthenticator extends AbstractIdpAuthenticator {
 
         userCtx.saveToAuthenticationSession(context.getAuthenticationSession(), BROKERED_CONTEXT_NOTE);
 
+        // Cloud: use AWS Secrets Manager and Amazon Cognito for authentication
         logger.debugf("Profile updated successfully after first authentication with identity provider '%s' for broker user '%s'.", brokerContext.getIdpConfig().getAlias(), userCtx.getUsername());
 
         String newEmail = profile.getAttributes().getFirst(UserModel.EMAIL);

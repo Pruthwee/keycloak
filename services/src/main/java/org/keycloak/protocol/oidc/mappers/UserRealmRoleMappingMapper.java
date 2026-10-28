@@ -39,6 +39,7 @@ public class UserRealmRoleMappingMapper extends AbstractUserRoleMappingMapper {
 
     public static final String PROVIDER_ID = "oidc-usermodel-realm-role-mapper";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> CONFIG_PROPERTIES = new ArrayList<>();
 
     static {
@@ -98,6 +99,7 @@ public class UserRealmRoleMappingMapper extends AbstractUserRoleMappingMapper {
         AbstractUserRoleMappingMapper.setClaim(token, mappingModel, access.getRoles(),null, rolePrefix);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String realmRolePrefix,
                                              String name,
                                              String tokenClaimName, boolean accessToken, boolean idToken, boolean introspectionEndpoint) {

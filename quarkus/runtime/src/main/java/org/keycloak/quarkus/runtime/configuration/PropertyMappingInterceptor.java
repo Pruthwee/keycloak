@@ -60,6 +60,7 @@ import static org.keycloak.quarkus.runtime.configuration.MicroProfileConfigProvi
 @Priority(Priorities.APPLICATION - 10)
 public class PropertyMappingInterceptor implements ConfigSourceInterceptor {
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<Boolean> disable = new ThreadLocal<>();
 
     private Boolean augmenting;

@@ -129,6 +129,7 @@ public class ConditionalCredentialAuthenticatorFactory implements ConditionalAut
         return ConditionalCredentialAuthenticator.SINGLETON;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> getCredentialList(KeycloakSessionFactory sessionFactory) {
         // the list of credentials in the installation plus the fixed ones (kerberos, cert and none)
         try (KeycloakSession session = sessionFactory.create()) {

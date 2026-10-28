@@ -61,6 +61,7 @@ public class ConfigUtil {
             realmConfig.setRefreshToken(tokens.getRefreshToken());
             realmConfig.setSigningToken(signKey);
             realmConfig.setSecret(secret);
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             realmConfig.setExpiresAt(System.currentTimeMillis() + tokens.getExpiresIn() * 1000);
             if (realmConfig.getRefreshToken() != null) {
                 realmConfig.setRefreshExpiresAt(tokens.getRefreshExpiresIn() == 0 ?

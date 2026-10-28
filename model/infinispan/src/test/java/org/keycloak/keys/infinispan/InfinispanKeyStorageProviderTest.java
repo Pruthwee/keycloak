@@ -67,6 +67,7 @@ public class InfinispanKeyStorageProviderTest {
         // Just one thread will execute the task
         List<Thread> threads = new LinkedList<>();
         for (int i=0 ; i<10 ; i++) {
+            // Cloud: use bounded ExecutorService instead of unbounded thread creation
             Thread t = new Thread(new SampleWorker("model1"));
             threads.add(t);
         }

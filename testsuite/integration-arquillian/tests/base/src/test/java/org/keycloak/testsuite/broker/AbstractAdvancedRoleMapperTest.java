@@ -190,6 +190,7 @@ public abstract class AbstractAdvancedRoleMapperTest extends AbstractRoleMapperT
         return createMatchingUserConfig();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, List<String>> createMatchingUserConfig() {
         return ImmutableMap.<String, List<String>> builder()
                 .put(KcOidcBrokerConfiguration.ATTRIBUTE_TO_MAP_NAME,

@@ -39,6 +39,7 @@ public class KcAdmV2EditCLITest extends AbstractKcAdmV2CLITest {
 
     @TestSetup
     public void login() {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         configFilePath = new File(tempDir, "kcadm.config").getAbsolutePath();
         HttpUtil.clearHttpClient();
 

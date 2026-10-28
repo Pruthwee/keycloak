@@ -90,6 +90,7 @@ import static org.keycloak.tests.oauth.tokenexchange.DelegationAssertions.assert
 public class ClientAgentDelegationTest {
 
     static final String USERNAME = "test-user@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String PASSWORD = "password";
     static final String SUBJECT_CLIENT_ID = "subject-app";
     static final String ACTOR_CLIENT_ID = "actor-app";

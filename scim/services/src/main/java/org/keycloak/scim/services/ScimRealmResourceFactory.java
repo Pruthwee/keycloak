@@ -25,6 +25,7 @@ import org.keycloak.services.resource.RealmResourceProvider;
 import org.keycloak.services.resource.RealmResourceProviderFactory;
 import org.keycloak.urls.UrlType;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class ScimRealmResourceFactory implements RealmResourceProviderFactory, EnvironmentDependentProviderFactory {

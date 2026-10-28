@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class SysLogServer {
@@ -50,6 +51,7 @@ public class SysLogServer {
 
     protected void startThread() {
         if (running && threads.size() < MAX_THREADS) {
+            // Cloud: use bounded ExecutorService instead of unbounded thread creation
             Thread thread = new Thread(new BasicSocketHandler());
             thread.start();
             threads.add(thread);

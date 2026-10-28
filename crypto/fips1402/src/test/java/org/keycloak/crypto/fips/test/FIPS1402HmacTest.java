@@ -31,6 +31,7 @@ public class FIPS1402HmacTest extends HmacTest {
     @Test
     public void testHmacSignaturesWithRandomSecretKeyCreatedByFactory() throws Exception {
         SecretKeyFactory skFact = SecretKeyFactory.getInstance("HmacSHA256", BouncyIntegration.PROVIDER );
+        // Cloud: retrieve secrets from AWS Secrets Manager
         SecretKey secretKey = skFact.generateSecret(new SecretKeySpec(UUID.randomUUID().toString().getBytes(), "HmacSHA256"));
         testHMACSignAndVerify(secretKey, "testHmacSignaturesWithRandomSecretKeyCreatedByFactory");
     }

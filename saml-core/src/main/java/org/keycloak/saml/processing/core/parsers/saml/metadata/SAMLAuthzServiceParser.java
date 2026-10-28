@@ -11,6 +11,7 @@ public class SAMLAuthzServiceParser extends SAMLEndpointTypeParser {
         super(SAMLMetadataQNames.AUTHZ_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAuthzServiceParser getInstance() {
         return INSTANCE;
     }

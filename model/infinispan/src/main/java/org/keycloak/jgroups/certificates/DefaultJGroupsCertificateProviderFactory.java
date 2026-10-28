@@ -49,7 +49,11 @@ public class DefaultJGroupsCertificateProviderFactory implements JGroupsCertific
     // config
     public static final String ACTIVATED = "activated";
     private static final String ROTATION = "rotation";
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
     private static final String KEYSTORE_PATH = "keystoreFile";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String KEYSTORE_PASSWORD = "keystorePassword";
     private static final String TRUSTSTORE_PATH = "truststoreFile";
     private static final String TRUSTSTORE_PASSWORD = "truststorePassword";
@@ -123,6 +127,7 @@ public class DefaultJGroupsCertificateProviderFactory implements JGroupsCertific
 
     private String requireConfigurationAndFile(String key, Option<?> option) {
         var value = requireConfiguration(key, option);
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         if (!new File(value).exists()) {
             throw new RuntimeException("Property '%s' file '%s' does not exist.".formatted(key, value));
         }

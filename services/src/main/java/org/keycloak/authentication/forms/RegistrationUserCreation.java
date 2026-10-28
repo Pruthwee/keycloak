@@ -286,6 +286,7 @@ public class RegistrationUserCreation implements FormAction, FormActionFactory {
             formData = normalizeFormParameters(formData);
             UserProfileProvider profileProvider = session.getProvider(UserProfileProvider.class);
             profile = profileProvider.create(UserProfileContext.REGISTRATION, formData);
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute("UP_REGISTER", profile);
         }
         return profile;
@@ -326,6 +327,7 @@ public class RegistrationUserCreation implements FormAction, FormActionFactory {
             }
 
             // make sure the organization is set to the session so that UP org-related validators can run
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.getContext().setOrganization(organization);
             session.setAttribute(InviteOrgActionToken.class.getName(), token);
 

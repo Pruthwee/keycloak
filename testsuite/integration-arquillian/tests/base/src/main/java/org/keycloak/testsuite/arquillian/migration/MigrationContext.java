@@ -31,6 +31,7 @@ import org.keycloak.testsuite.util.oauth.AccessTokenResponse;
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 
 import org.apache.http.impl.client.CloseableHttpClient;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -60,6 +61,7 @@ public class MigrationContext {
         try (FileInputStream fis = new FileInputStream(file)) {
             String offlineToken = StreamUtil.readString(fis, StandardCharsets.UTF_8);
             logger.infof("Successfully read offline token: %s", offlineToken);
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             File f = new File(file);
             f.delete();
             logger.infof("Deleted file with offline token: %s", file);
@@ -95,6 +97,7 @@ public class MigrationContext {
         String file = getOfflineTokenLocation();
         logger.infof("Saving offline token to file: %s, Offline token is: %s", file, offlineToken);
 
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(file)))) {
             writer.print(offlineToken);
         }

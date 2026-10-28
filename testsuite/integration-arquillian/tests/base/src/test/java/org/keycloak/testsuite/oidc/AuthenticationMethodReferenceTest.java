@@ -53,6 +53,7 @@ import org.keycloak.testsuite.updaters.RealmAttributeUpdater;
 import org.keycloak.testsuite.util.FlowUtil;
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.After;
 import org.junit.Before;
@@ -66,7 +67,13 @@ import org.junit.jupiter.api.Assertions;
 public class AuthenticationMethodReferenceTest extends AbstractOIDCScopeTest{
 
     // config
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static String AMR_VALUE_KEY = Constants.AUTHENTICATION_EXECUTION_REFERENCE_VALUE;
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static String AMR_MAX_AGE_KEY = Constants.AUTHENTICATION_EXECUTION_REFERENCE_MAX_AGE;
     private static Integer DEFAULT_MAX_AGE = 120;
     private static String CLIENT_ID = "test-app";

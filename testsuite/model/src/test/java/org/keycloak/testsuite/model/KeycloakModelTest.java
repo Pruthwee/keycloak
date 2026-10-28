@@ -98,6 +98,7 @@ import org.keycloak.tracing.TracingProviderFactory;
 import org.keycloak.tracing.TracingSpi;
 
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.After;
 import org.junit.Assert;
@@ -278,6 +279,7 @@ public abstract class KeycloakModelTest {
     protected static final List<KeycloakModelParameters> MODEL_PARAMETERS;
     protected static final Config CONFIG = new Config(KeycloakModelTest::useDefaultFactory);
     private static volatile KeycloakSessionFactory DEFAULT_FACTORY;
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<KeycloakSessionFactory> LOCAL_FACTORY = new ThreadLocal<>();
     protected static boolean USE_DEFAULT_FACTORY = false;
 
@@ -434,6 +436,7 @@ public abstract class KeycloakModelTest {
             List<? extends Future<?>> tasks = IntStream.range(0, numThreads)
                     .mapToObj(i -> independentTask)
                     .map(es::submit).collect(Collectors.toList());
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             long limit = System.currentTimeMillis() + timeoutSeconds * 1000L;
             for (Future<?> future : tasks) {
                 long limitForTask = limit - System.currentTimeMillis();

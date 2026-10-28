@@ -21,6 +21,7 @@ const firstLdapVendor = "Active Directory";
 const updatedLdapName = `${firstLdapName}-updated`;
 
 // connection and authentication settings
+// Cloud: use AWS Secrets Manager and AWS Managed Microsoft AD
 const connectionUrlValid = "ldap://localhost:3004";
 const bindTypeSimple = "simple";
 const truststoreSpiAlways = "Always";

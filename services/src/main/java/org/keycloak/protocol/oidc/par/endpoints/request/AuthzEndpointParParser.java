@@ -32,6 +32,7 @@ import org.keycloak.protocol.oidc.endpoints.request.AuthorizationEndpointRequest
 import org.keycloak.protocol.oidc.endpoints.request.AuthzEndpointRequestParser;
 import org.keycloak.protocol.oidc.par.endpoints.ParEndpoint;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.protocol.oidc.par.endpoints.ParEndpoint.PAR_CLIENT_ID;
@@ -77,6 +78,7 @@ public class AuthzEndpointParParser extends AuthzEndpointRequestParser {
         // If DPoP Proof existed with PAR request, its public key needs to be matched with the one with Token Request afterward
         String dpopJkt = retrievedRequest.get(PAR_DPOP_PROOF_JKT);
         if (dpopJkt != null) {
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(PAR_DPOP_PROOF_JKT, dpopJkt);
         }
     }

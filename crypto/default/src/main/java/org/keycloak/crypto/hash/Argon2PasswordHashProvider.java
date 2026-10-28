@@ -17,6 +17,7 @@ import org.keycloak.models.credential.dto.PasswordSecretData;
 import org.keycloak.tracing.TracingProviderUtil;
 
 import org.bouncycastle.crypto.generators.Argon2BytesGenerator;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.crypto.hash.Argon2PasswordHashProviderFactory.MEMORY_KEY;

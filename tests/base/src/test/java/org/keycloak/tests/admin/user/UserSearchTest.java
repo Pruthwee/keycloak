@@ -956,6 +956,7 @@ public class UserSearchTest extends AbstractUserTest {
 
     @Test
     public void searchByCreatedAfter() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long beforeCreation = System.currentTimeMillis();
         createUser("timestampuser1", "timestampuser1@localhost");
         createUser("timestampuser2", "timestampuser2@localhost");

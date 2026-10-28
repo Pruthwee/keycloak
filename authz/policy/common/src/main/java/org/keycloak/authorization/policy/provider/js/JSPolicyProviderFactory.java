@@ -108,6 +108,7 @@ public class JSPolicyProviderFactory implements PolicyProviderFactory<JSPolicyRe
     }
 
     private EvaluatableScriptAdapter getEvaluatableScript(final AuthorizationProvider authz, final Policy policy) {
+        // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
         return scriptCache.computeIfAbsent(policy.getId(), id -> {
             final ScriptingProvider scripting = authz.getKeycloakSession().getProvider(ScriptingProvider.class);
             ScriptModel script = getScriptModel(policy, authz.getRealm(), scripting);

@@ -194,6 +194,7 @@ public class DeviceGrantType extends OAuth2GrantTypeBase {
         return singleUseStore.putIfAbsent(deviceCodeModel.serializePollingKey(), deviceCodeModel.getPollingInterval());
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static boolean approveUserCode(KeycloakSession session, RealmModel realm, String userCode, String userSessionId, Map<String, String> additionalParams) {
         SingleUseObjectProvider singleUseStore = session.singleUseObjects();
         OAuth2DeviceCodeModel deviceCodeModel = DeviceEndpoint.getDeviceByUserCode(session, realm, userCode);

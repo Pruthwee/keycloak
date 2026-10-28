@@ -128,6 +128,7 @@ public class BaseConfigCredentialsCmd extends BaseAuthOptionsCmd {
                 throw new IllegalArgumentException("Can't use both --keystore and --secret");
             }
 
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             if (!new File(keystore).isFile()) {
                 throw new RuntimeException("No such keystore file: " + keystore);
             }
@@ -178,6 +179,7 @@ public class BaseConfigCredentialsCmd extends BaseAuthOptionsCmd {
                         getAuthTokensBySecret(server, realm, user, password, clientId, secret) :
                         getAuthTokens(server, realm, user, password, clientId);
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         Long sigExpiresAt = signedRequestToken == null ? null : System.currentTimeMillis() + sigLifetime * 1000;
 
         // save tokens to config file

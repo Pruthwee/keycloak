@@ -25,6 +25,7 @@ import java.util.ServiceLoader;
 import org.keycloak.adapters.saml.config.SP;
 import org.keycloak.adapters.saml.config.parsers.ResourceLoader;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

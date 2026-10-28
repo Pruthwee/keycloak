@@ -33,6 +33,7 @@ public class HostUtils {
     public static String getIpAddress() {
         try {
             String hostname = getHostName();
+            // Cloud: replace IP-based security with AWS IAM authentication
             return InetAddress.getByName(hostname).getHostAddress();
         } catch (UnknownHostException uhe) {
             throw new IllegalStateException(uhe);

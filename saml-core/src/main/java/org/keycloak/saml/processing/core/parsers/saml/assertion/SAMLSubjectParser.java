@@ -42,6 +42,7 @@ public class SAMLSubjectParser extends AbstractStaxSamlAssertionParser<SubjectTy
         super(SAMLAssertionQNames.SUBJECT);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLSubjectParser getInstance() {
         return INSTANCE;
     }

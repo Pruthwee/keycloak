@@ -11,6 +11,7 @@ import org.keycloak.common.util.PemUtils;
 public final class DockerCertFileUtils {
     public static final String BEGIN_CERT = PemUtils.BEGIN_CERT;
     public static final String END_CERT = PemUtils.END_CERT;
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
     public static final String BEGIN_PRIVATE_KEY = "-----BEGIN PRIVATE KEY-----";
     public static final String END_PRIVATE_KEY = "-----END PRIVATE KEY-----";
     public static final String LINE_SEPERATOR = System.getProperty("line.separator");

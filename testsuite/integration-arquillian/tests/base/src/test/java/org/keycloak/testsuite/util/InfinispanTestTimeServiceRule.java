@@ -20,6 +20,7 @@ package org.keycloak.testsuite.util;
 
 import org.keycloak.testsuite.AbstractKeycloakTest;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.rules.ExternalResource;
 

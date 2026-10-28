@@ -29,6 +29,7 @@ import java.util.Properties;
 import org.keycloak.models.LDAPConstants;
 import org.keycloak.util.ldap.LDAPEmbeddedServer;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assume;
 import org.junit.rules.ExternalResource;
@@ -48,6 +49,7 @@ public class LDAPRule extends ExternalResource {
     // to get the necessary FilePlaintext vault created automatically for the test
     private static final String VAULT_EXPRESSION = "${vault.ldap_bindCredential}";
 
+    // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
     public static final String LDAP_CONNECTION_PROPERTIES_LOCATION = "classpath:ldap/ldap-connection.properties";
 
     private static final String PROPERTY_ENABLE_ACCESS_CONTROL = "enableAccessControl";
@@ -62,6 +64,7 @@ public class LDAPRule extends ExternalResource {
 
     private static final String PRIVATE_KEY = "dependency/keystore/keycloak.jks";
 
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PROPERTY_CERTIFICATE_PASSWORD = "certificatePassword";
 
     LDAPTestConfiguration ldapTestConfiguration;
@@ -211,6 +214,7 @@ public class LDAPRule extends ExternalResource {
         defaultProperties.setProperty(LDAPEmbeddedServer.PROPERTY_DSF, LDAPEmbeddedServer.DSF_INMEMORY);
         defaultProperties.setProperty(LDAPEmbeddedServer.PROPERTY_LDIF_FILE, "classpath:ldap/users.ldif");
         defaultProperties.setProperty(PROPERTY_CERTIFICATE_PASSWORD, "secret");
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         defaultProperties.setProperty(PROPERTY_KEYSTORE_FILE, new File(PROJECT_BUILD_DIRECTORY, PRIVATE_KEY).getAbsolutePath());
 
         return new LDAPEmbeddedServer(defaultProperties);

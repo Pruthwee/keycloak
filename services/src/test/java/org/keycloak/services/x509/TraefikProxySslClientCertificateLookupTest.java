@@ -34,6 +34,7 @@ import org.keycloak.http.HttpRequest;
 import org.keycloak.rule.CryptoInitRule;
 import org.keycloak.services.resteasy.HttpRequestImpl;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.mock.MockHttpRequest;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
@@ -78,10 +79,12 @@ public class TraefikProxySslClientCertificateLookupTest {
         KeyPair keyPairClient = kpg.generateKeyPair();
         X509Certificate clientCert = CryptoIntegration.getProvider().getCertificateUtils()
                 .createServicesTestCertificate("CN=test-client", new Date(),
+                        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                         new Date(System.currentTimeMillis() + 1000L * 60 * 60 * 24 * 365), keyPairClient);
 
         KeyPair keyPairCa = kpg.generateKeyPair();
         X509Certificate caCert = CryptoIntegration.getProvider().getCertificateUtils()
+                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                 .createServicesTestCertificate("CN=test-ca", new Date(),
                         new Date(System.currentTimeMillis() + 1000L * 60 * 60 * 24 * 365), keyPairCa);
 

@@ -11,6 +11,7 @@ public class SAMLAuthnQueryServiceParser extends SAMLEndpointTypeParser {
         super(SAMLMetadataQNames.AUTHN_QUERY_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAuthnQueryServiceParser getInstance() {
         return INSTANCE;
     }

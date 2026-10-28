@@ -6,6 +6,8 @@ import java.util.Collections;
 import org.keycloak.common.Profile;
 import org.keycloak.models.KeycloakSession;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.logging.MDC;
 
@@ -15,6 +17,7 @@ public final class MappedDiagnosticContextUtil {
     private static final MappedDiagnosticContextProvider NOOP_PROVIDER = new NoopMappedDiagnosticContextProvider();
     private static volatile Collection<String> keysToClear = Collections.emptySet();
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static MappedDiagnosticContextProvider getMappedDiagnosticContextProvider(KeycloakSession session) {
         if (!Profile.isFeatureEnabled(Profile.Feature.LOG_MDC)) {
             return NOOP_PROVIDER;

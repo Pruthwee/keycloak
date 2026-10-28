@@ -11,6 +11,8 @@ import { simpleGit } from "simple-git";
 import { fileURLToPath } from "url";
 
 const packageJson = JSON.parse(
+  // Cloud: replace synchronous operations with async/await
+  // Cloud: use fs.promises.readFile instead of fs.readFileSync
   fs.readFileSync(
     join(fileURLToPath(import.meta.url), "..", "package.json"),
     "utf8",

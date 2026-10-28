@@ -49,6 +49,7 @@ public class GuideMojo extends AbstractMojo {
 
                 if (dirName.equals("images")) {
                     log.info("Copy files from " + srcDir + " to " + targetRoot);
+                    // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
                     Files.walkFileTree(srcDir, new DirectoryCopyVisitor(targetRoot));
                 } else {
                     log.info("Guide dir: " + srcDir);

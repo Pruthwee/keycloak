@@ -29,6 +29,7 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.common.util.StringPropertyReplacer.replaceProperties;
@@ -112,6 +113,7 @@ public class NotifyUserStepProvider implements WorkflowStepProvider {
         String customMessage = stepModel.getConfig().getFirst("message");
         if (customMessage != null && !customMessage.trim().isEmpty()) {
             attributes.put("messageKey", "customMessage");
+            // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
             attributes.put("customMessage", replaceProperties(customMessage, new NotificationPropertyResolver(session, context)));
         } else if (nextStep != null && nextStep.getNotificationMessage() != null) {
             attributes.put("messageKey", nextStep.getNotificationMessage());

@@ -32,6 +32,7 @@ import org.keycloak.services.clientpolicy.ClientPolicyVote;
 import org.keycloak.services.clientpolicy.context.ClientModelContext;
 import org.keycloak.services.clientpolicy.context.ScopeParameterContext;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

@@ -52,6 +52,7 @@ public abstract class AbstractConfigurationTest {
         KcEnvConfigSource.ENV_OVERRIDE.put(name, value);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void putEnvVars(Map<String, String> map) {
         map.forEach(ConfigurationTest::putEnvVar);
     }

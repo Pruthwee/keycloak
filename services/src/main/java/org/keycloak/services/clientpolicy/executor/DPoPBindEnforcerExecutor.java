@@ -44,6 +44,7 @@ import org.keycloak.services.clientpolicy.context.TokenRevokeContext;
 import org.keycloak.services.util.DPoPUtil;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.OAuth2Constants.DPOP_HTTP_HEADER;
@@ -209,6 +210,7 @@ public class DPoPBindEnforcerExecutor implements ClientPolicyExecutorProvider<DP
         if (dPoP == null) {
             throw new ClientPolicyException(OAuthErrorException.INVALID_DPOP_PROOF, "DPoP proof is missing");
         }
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(DPoPUtil.DPOP_BINDING_ONLY_REFRESH_TOKEN_SESSION_ATTRIBUTE, true);
     }
 

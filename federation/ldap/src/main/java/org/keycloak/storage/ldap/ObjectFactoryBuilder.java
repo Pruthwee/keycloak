@@ -15,6 +15,7 @@ import javax.naming.spi.ObjectFactory;
 import org.keycloak.storage.ldap.idm.store.ldap.SessionBoundInitialLdapContext;
 import org.keycloak.utils.KeycloakSessionUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

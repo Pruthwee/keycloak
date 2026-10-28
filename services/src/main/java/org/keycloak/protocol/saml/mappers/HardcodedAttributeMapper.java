@@ -36,6 +36,7 @@ import org.keycloak.provider.ProviderConfigProperty;
 public class HardcodedAttributeMapper extends AbstractSAMLProtocolMapper implements SAMLAttributeStatementMapper {
     public static final String PROVIDER_ID = "saml-hardcode-attribute-mapper";
     public static final String ATTRIBUTE_VALUE = "attribute.value";
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {
@@ -82,6 +83,7 @@ public class HardcodedAttributeMapper extends AbstractSAMLProtocolMapper impleme
 
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name,
                                              String samlAttributeName, String nameFormat, String friendlyName, String value) {
         String mapperId = PROVIDER_ID;

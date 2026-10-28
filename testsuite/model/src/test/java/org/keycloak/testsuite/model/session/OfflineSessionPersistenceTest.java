@@ -185,6 +185,7 @@ public class OfflineSessionPersistenceTest extends KeycloakModelTest {
             // defer the shutdown and check if all sessions exist to ensure that they replicate across the different nodes
             // this should avoid an "org.infinispan.remoting.transport.jgroups.SuspectException: ISPN000400: Node node-XX was suspected"
             while (true) {
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
                 try {
                     assertOfflineSessionsExist(realmId, clientSessionIds);
                     break;

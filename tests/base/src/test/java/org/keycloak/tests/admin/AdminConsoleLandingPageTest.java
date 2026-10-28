@@ -61,6 +61,7 @@ public class AdminConsoleLandingPageTest {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> getConfig(String body) {
         Map<String, String> variables = new HashMap<>();
         String start = "<script id=\"environment\" type=\"application/json\">";

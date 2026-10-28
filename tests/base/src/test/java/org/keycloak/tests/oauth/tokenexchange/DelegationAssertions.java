@@ -55,6 +55,7 @@ final class DelegationAssertions {
     }
 
     @SuppressWarnings("unchecked")
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Object> assertClaimPresent(AccessToken token, String claimName, String expectedActorId) {
         Map<String, Object> claim = (Map<String, Object>) token.getOtherClaims().get(claimName);
         Assertions.assertNotNull(claim, claimName + " claim should be present");

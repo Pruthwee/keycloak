@@ -41,6 +41,7 @@ public class FrontChannelLogoutHandler {
         this.session = session;
         this.sid = clientSession.getUserSession().getId();
         this.issuer = clientSession.getNote(OIDCLoginProtocol.ISSUER);
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         this.session.setAttribute(getClass().getName(), this);
     }
 

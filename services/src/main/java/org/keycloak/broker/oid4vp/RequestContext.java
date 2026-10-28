@@ -78,6 +78,7 @@ public record RequestContext(String rootSessionId, String tabId, String nonce,
         return map;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static RequestContext fromMap(Map<String, String> map) {
         EphemeralKey encryptionKey = null;
         if (map.containsKey(KEY_ENC_KID)) {

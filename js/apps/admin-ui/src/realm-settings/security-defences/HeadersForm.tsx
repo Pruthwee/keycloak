@@ -30,6 +30,7 @@ export const HeadersForm = ({ realm, save }: HeadersFormProps) => {
     >
       <HelpLinkTextInput
         fieldName="browserSecurityHeaders.xFrameOptions"
+        // Cloud: externalize URL to AWS Systems Manager Parameter Store
         url="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options"
       />
       <HelpLinkTextInput

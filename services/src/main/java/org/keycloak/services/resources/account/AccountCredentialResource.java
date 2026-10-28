@@ -56,6 +56,8 @@ import org.keycloak.util.JsonSerialization;
 import org.keycloak.utils.MediaType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.NoCache;
 

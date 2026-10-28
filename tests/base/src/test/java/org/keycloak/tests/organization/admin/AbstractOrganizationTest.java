@@ -75,6 +75,7 @@ public abstract class AbstractOrganizationTest {
 
     protected String organizationName = "neworg";
     protected String memberEmail = "jdoe@neworg.org";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     protected String memberPassword = "password";
 
     @InjectRealm(config = OrganizationRealmConfig.class)

@@ -158,6 +158,7 @@ public class HmacOTP {
 
         try {
             Mac hmac = Mac.getInstance(crypto);
+            // Cloud: retrieve secrets from AWS Secrets Manager
             SecretKeySpec macKey = new SecretKeySpec(keyBytes, "RAW");
 
             hmac.init(macKey);

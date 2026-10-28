@@ -473,6 +473,7 @@ public abstract class AbstractJWTAuthorizationGrantTest extends BaseAbstractJWTA
 
     @Test
     public void testInvalidSignatureDoesNotConsumeJti() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         String jti = "test-sig-jti-" + System.currentTimeMillis();
         JsonWebToken token = createDefaultAuthorizationGrantToken();
         token.id(jti);

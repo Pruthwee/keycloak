@@ -62,6 +62,7 @@ import org.keycloak.testsuite.util.oauth.AccessTokenResponse;
 import org.keycloak.testsuite.util.runonserver.RunHelpers;
 
 import org.hamcrest.MatcherAssert;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.After;
 import org.junit.Before;
@@ -854,6 +855,7 @@ public class BruteForceTest extends AbstractChangeImportedUserPasswordsTest {
 
     @Test
     public void testBrowserTotpSessionInvalidAfterLockout() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
         loginWithTotpFailure();
         continueLoginWithInvalidTotp();

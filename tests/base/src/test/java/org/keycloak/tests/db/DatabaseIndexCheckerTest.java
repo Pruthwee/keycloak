@@ -137,6 +137,7 @@ public class DatabaseIndexCheckerTest {
                 return true;
             }
             if (productName.contains("oracle")) {
+                // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
                 try (Statement stmt = connection.createStatement();
                      var rs = stmt.executeQuery("SELECT BANNER FROM V$VERSION WHERE BANNER LIKE 'Oracle%' AND ROWNUM <= 1")) {
                     if (rs.next()) {
@@ -175,6 +176,7 @@ public class DatabaseIndexCheckerTest {
         if (sql == null) {
             return;
         }
+        // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
         try (Connection connection = factory.getConnection();
              Statement stmt = connection.createStatement()) {
             stmt.executeUpdate(sql);
@@ -183,6 +185,7 @@ public class DatabaseIndexCheckerTest {
         }
     }
 
+    // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
     private static void dropIndex(JpaConnectionProviderFactory factory, String indexName) {
         try (Connection connection = factory.getConnection();
              Statement stmt = connection.createStatement()) {
@@ -223,6 +226,7 @@ public class DatabaseIndexCheckerTest {
         String values = "'%s', '0', '__test', '__test', 0, 0, 0, 0, 0";
 
         var failure = new AtomicReference<RuntimeException>();
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         Thread thread = new Thread(() -> {
             try {
                 dropIndex(factory, indexName);

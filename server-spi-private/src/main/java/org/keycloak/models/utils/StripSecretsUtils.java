@@ -137,6 +137,7 @@ public class StripSecretsUtils {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> stripFromMap(Map<String, String> map, String key) {
         if ((map != null) && map.containsKey(key)) {
             map.put(key, maskNonVaultValue(map.get(key)));

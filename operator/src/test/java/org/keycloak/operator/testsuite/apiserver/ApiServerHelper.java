@@ -23,6 +23,7 @@ public class ApiServerHelper {
     private KubeAPIServer kubeApi;
 
     public ApiServerHelper() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
         for (int i = 0; i < MAX_START_RETRIES; i++) {
             kubeApi = new KubeAPIServer(

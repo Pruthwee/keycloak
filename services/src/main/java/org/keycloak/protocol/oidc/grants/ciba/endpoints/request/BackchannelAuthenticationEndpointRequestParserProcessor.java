@@ -43,6 +43,7 @@ import org.keycloak.services.ServicesLogger;
  */
 public class BackchannelAuthenticationEndpointRequestParserProcessor {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static BackchannelAuthenticationEndpointRequest parseRequest(EventBuilder event, KeycloakSession session, ClientModel client, MultivaluedMap<String, String> requestParams, CibaConfig config) {
         try {
             BackchannelAuthenticationEndpointRequest request = new BackchannelAuthenticationEndpointRequest();

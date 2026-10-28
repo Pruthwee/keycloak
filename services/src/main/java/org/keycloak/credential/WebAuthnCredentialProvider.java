@@ -56,6 +56,7 @@ import com.webauthn4j.util.AssertUtil;
 import com.webauthn4j.util.exception.WebAuthnException;
 import com.webauthn4j.verifier.OriginVerifierImpl;
 import com.webauthn4j.verifier.exception.BadOriginException;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

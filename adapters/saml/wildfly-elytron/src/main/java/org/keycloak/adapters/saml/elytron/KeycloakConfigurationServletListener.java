@@ -45,6 +45,7 @@ import org.keycloak.adapters.spi.SessionIdMapper;
 import org.keycloak.adapters.spi.SessionIdMapperUpdater;
 import org.keycloak.saml.common.exceptions.ParsingException;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -191,6 +192,7 @@ public class KeycloakConfigurationServletListener implements ServletContextListe
             if (! Modifier.isStatic(addTokenStoreUpdatersMethod.getModifiers())
               || ! Modifier.isPublic(addTokenStoreUpdatersMethod.getModifiers())
               || ! SessionIdMapperUpdater.class.isAssignableFrom(addTokenStoreUpdatersMethod.getReturnType())) {
+                // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
                 log.errorv("addTokenStoreUpdaters method in class {0} has to be public static. Ignoring class.", idMapperSessionUpdaterClass);
                 return previousIdMapperUpdater;
             }

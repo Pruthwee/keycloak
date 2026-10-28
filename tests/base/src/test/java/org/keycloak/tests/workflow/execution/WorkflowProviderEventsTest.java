@@ -56,6 +56,7 @@ public class WorkflowProviderEventsTest extends AbstractWorkflowTest {
 
         private WorkflowEventCollector() {}
 
+        // Cloud: consider using AWS DynamoDB for shared singleton state
         public static WorkflowEventCollector getInstance() {
             return INSTANCE;
         }
@@ -272,6 +273,7 @@ public class WorkflowProviderEventsTest extends AbstractWorkflowTest {
             assertThat(stepScheduledEvent.getStepProviderId(), equalTo(DisableUserStepProviderFactory.ID));
             assertThat(stepScheduledEvent.getExecutionId(), equalTo(executionId));
             assertThat(stepScheduledEvent.getDelay(), equalTo("5d"));
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             assertThat(stepScheduledEvent.getScheduledTime(), greaterThanOrEqualTo(System.currentTimeMillis()));
 
             // no other events should have fired yet

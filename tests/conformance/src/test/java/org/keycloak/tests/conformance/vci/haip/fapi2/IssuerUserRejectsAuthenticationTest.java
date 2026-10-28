@@ -45,6 +45,7 @@ public class IssuerUserRejectsAuthenticationTest extends AbstractVciConformanceT
         return discoverModuleVariants(
                 HAIP_PLAN,
                 walletInitiated(),
+                // Cloud: use AWS Secrets Manager and Amazon Cognito for authentication
                 "fapi2-security-profile-final-user-rejects-authentication",
                 ConformanceResult.PASSED,
                 BrowserInteraction.DENY_CONSENT);

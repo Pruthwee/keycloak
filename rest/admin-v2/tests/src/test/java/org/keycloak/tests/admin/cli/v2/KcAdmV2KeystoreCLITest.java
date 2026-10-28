@@ -58,6 +58,7 @@ public class KcAdmV2KeystoreCLITest {
 
     @TestSetup
     public void login() {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         configFilePath = new File(tempDir, "kcadm.config").getAbsolutePath();
         HttpUtil.clearHttpClient();
 
@@ -154,6 +155,7 @@ public class KcAdmV2KeystoreCLITest {
                 .roles().realmLevel().add(java.util.List.of(adminRole));
 
         try {
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
             String keystorePath = getClientKeystorePath();
             KeyStore ks = KeyStore.getInstance("JKS");
             try (var fis = new FileInputStream(keystorePath)) {

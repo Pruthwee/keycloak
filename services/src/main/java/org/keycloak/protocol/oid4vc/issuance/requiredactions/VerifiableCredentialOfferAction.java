@@ -32,6 +32,7 @@ import org.keycloak.representations.idm.oid4vc.VerifiableCredentialOfferActionCo
 import org.keycloak.sessions.AuthenticationSessionModel;
 
 import com.google.zxing.WriterException;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.constants.OID4VCIConstants.CREDENTIAL_OFFER_NONCE;

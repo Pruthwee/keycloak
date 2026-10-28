@@ -44,6 +44,8 @@ public class FineGrainedAdminSearchTest extends AbstractFineGrainedAdminTest {
 
             session.getContext().setRealm(realm);
 
+            // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
+            // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
             GroupModel customerAGroup = session.groups().createGroup(realm, "Customer A");
             UserModel customerAManager = session.users().addUser(realm, "customer-a-manager");
             customerAManager.setFirstName("Customer");

@@ -19,6 +19,8 @@ package org.keycloak.quarkus.runtime.integration.resteasy;
 
 import jakarta.ws.rs.core.MediaType;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.server.core.ResteasyReactiveRequestContext;
 import org.jboss.resteasy.reactive.server.spi.ServerRestHandler;
 

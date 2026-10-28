@@ -74,6 +74,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.hamcrest.MatcherAssert;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Rule;
@@ -296,6 +297,7 @@ public class RPInitiatedLogoutTest extends AbstractTestRealmKeycloakTest {
     public void logoutWithRememberMe() throws IOException {
         try (RealmAttributeUpdater update = new RealmAttributeUpdater(managedRealm.admin()).setRememberMe(true).update()) {
             String testUsername = "test-user@localhost";
+            // Cloud: retrieve secrets from AWS Secrets Manager
             String testUserPassword = "password";
             oauth.openLoginForm();
             assertFalse(loginPage.isRememberMeChecked());

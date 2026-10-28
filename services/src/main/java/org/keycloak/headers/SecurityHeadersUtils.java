@@ -27,6 +27,7 @@ public final class SecurityHeadersUtils {
     private SecurityHeadersUtils() {
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void addHeader(BrowserSecurityHeaders header, Map<String, String> sourceHeaders, BiConsumer<String, String> headerWriter) {
         addHeaderIfAbsent(header, sourceHeaders, ignored -> false, headerWriter);
     }

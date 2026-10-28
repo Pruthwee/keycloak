@@ -24,6 +24,12 @@ import org.keycloak.common.util.reflections.Reflections;
 import org.keycloak.testsuite.arquillian.annotation.ModelTest;
 import org.keycloak.testsuite.client.KeycloakTestingClient;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.test.impl.execution.LocalTestExecuter;
 import org.jboss.arquillian.container.test.impl.execution.event.LocalExecutionEvent;
 import org.jboss.arquillian.core.api.Instance;
@@ -62,6 +68,7 @@ public class ModelTestExecutor extends LocalTestExecuter {
                 result.setStatus(TestResult.Status.FAILED);
                 result.setThrowable(e);
             } finally {
+                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                 result.setEnd(System.currentTimeMillis());
             }
 

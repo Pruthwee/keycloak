@@ -94,6 +94,7 @@ import org.bouncycastle.cert.X509v3CertificateBuilder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -198,6 +199,7 @@ public class OID4VCKeyAttestationTest extends OID4VCIssuerTestBase {
                         PemUtils.encodeCertificate(sameSubjectAttackerLeafCertificate));
                 String sameSubjectAttackerLeafPrivateKeyPem = Base64.encodeBytes(
                         sameSubjectAttackerLeafKeyPair.getPrivate().getEncoded());
+                // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
                 Path caCertificatePath = Files.createTempFile("oid4vc-x5c-test-ca", ".pem");
                 Files.writeString(caCertificatePath, caCertificatePem, StandardCharsets.UTF_8);
                 caCertificatePath.toFile().deleteOnExit();
@@ -966,6 +968,7 @@ public class OID4VCKeyAttestationTest extends OID4VCIssuerTestBase {
 
         // Keep support for non-default typ variants used by dedicated compatibility tests.
         KeyAttestationJwtBody payload = new KeyAttestationJwtBody();
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long iat = System.currentTimeMillis() / 1000L;
         payload.setIat(iat);
         payload.setExp(iat + 3600);

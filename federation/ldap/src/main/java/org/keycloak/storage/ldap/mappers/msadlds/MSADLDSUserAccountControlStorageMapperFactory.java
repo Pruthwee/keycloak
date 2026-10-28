@@ -44,6 +44,7 @@ public class MSADLDSUserAccountControlStorageMapperFactory extends AbstractLDAPS
         configProperties = getConfigProps(null);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ProviderConfigProperty> getConfigProps(ComponentModel parentModel) {
         UserStorageProviderModel parent = parentModel != null ? new UserStorageProviderModel(parentModel) : new UserStorageProviderModel();
         if (parent.isImportEnabled()) {

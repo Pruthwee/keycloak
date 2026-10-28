@@ -77,6 +77,7 @@ public class SsfTransmitterAccountStateEventTests {
     static final String RECEIVER_SECRET = "receiver-account-state-secret";
 
     static final String TEST_USER = "account-state-tester";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String TEST_PASSWORD = "test";
 
     static final String PUSH_CONTEXT_PATH = "/ssf/push-account-state";

@@ -7,6 +7,7 @@ public class ConfigKeystoreOptions {
             .description("Specifies a path to the KeyStore Configuration Source.")
             .build();
 
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
     public static final Option<String> CONFIG_KEYSTORE_PASSWORD = new OptionBuilder<>("config-keystore-password", String.class)
             .category(OptionCategory.CONFIG)
             .description("Specifies a password to the KeyStore Configuration Source.")

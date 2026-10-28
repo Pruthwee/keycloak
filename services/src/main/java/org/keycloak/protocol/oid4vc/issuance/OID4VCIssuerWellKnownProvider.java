@@ -67,6 +67,7 @@ import org.keycloak.utils.MediaType;
 import org.keycloak.wellknown.WellKnownProvider;
 
 import org.apache.http.HttpHeaders;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.OID4VCConstants.SIGNED_METADATA_JWT_TYPE;
@@ -410,6 +411,7 @@ public class OID4VCIssuerWellKnownProvider implements WellKnownProvider {
     /**
      * Returns supported zip algorithms from realm attributes (optional).
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> getSupportedZipAlgorithms(RealmModel realm) {
         String zipAlgs = realm.getAttribute(ATTR_REQUEST_ZIP_ALGS);
         if (zipAlgs != null && !zipAlgs.isEmpty()) {

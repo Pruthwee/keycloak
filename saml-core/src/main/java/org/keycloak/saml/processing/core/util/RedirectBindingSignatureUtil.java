@@ -27,6 +27,7 @@ import org.keycloak.common.VerificationException;
 import org.keycloak.rotation.KeyLocator;
 import org.keycloak.saml.SignatureAlgorithm;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

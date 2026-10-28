@@ -35,6 +35,7 @@ import org.keycloak.provider.ProviderConfigProperty;
 public class HardcodedRole extends AbstractSAMLProtocolMapper {
     public static final String PROVIDER_ID = "saml-hardcode-role-mapper";
     public static final String ATTRIBUTE_VALUE = "attribute.value";
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
     public static final String ROLE_ATTRIBUTE = "role";
 
@@ -73,6 +74,7 @@ public class HardcodedRole extends AbstractSAMLProtocolMapper {
         return "Hardcode role into SAML Assertion.";
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name,
                                              String role) {
         String mapperId = PROVIDER_ID;

@@ -19,6 +19,7 @@ public class SAMLPDPDescriptorParser extends SAMLRoleDecriptorTypeParser<PDPDesc
         super(SAMLMetadataQNames.PDP_DESCRIPTOR);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLPDPDescriptorParser getInstance() {
         return INSTANCE;
     }

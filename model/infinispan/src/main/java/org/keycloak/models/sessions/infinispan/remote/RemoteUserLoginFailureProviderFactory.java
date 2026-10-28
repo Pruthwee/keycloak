@@ -48,6 +48,7 @@ import org.keycloak.provider.ServerInfoAwareProviderFactory;
 
 import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.util.concurrent.BlockingManager;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.connections.infinispan.InfinispanConnectionProvider.LOGIN_FAILURE_CACHE_NAME;

@@ -53,6 +53,7 @@ import org.keycloak.testsuite.util.MailServer;
 import org.keycloak.testsuite.util.TestCleanup;
 
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Rule;
 import org.junit.jupiter.api.Assertions;
@@ -74,6 +75,7 @@ public abstract class AbstractOrganizationTest extends AbstractAdminTest  {
 
     protected String organizationName = "neworg";
     protected String memberEmail = "jdoe@neworg.org";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     protected String memberPassword = "password";
     protected Function<String, BrokerConfiguration> brokerConfigFunction = name -> new BrokerConfigurationWrapper(name, createBrokerConfiguration());
 

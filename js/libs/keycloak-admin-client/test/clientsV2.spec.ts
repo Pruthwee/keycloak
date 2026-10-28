@@ -192,6 +192,8 @@ describe("Clients V2 API", () => {
       enabled: true,
       displayName: "Full Config Test Client",
       description: "A client with full OIDC configuration",
+      // Cloud: externalize URL to AWS Systems Manager Parameter Store
+      // Cloud: externalize URL to AWS Systems Manager Parameter Store
       redirectUris: ["http://localhost:3000/callback"],
       webOrigins: ["http://localhost:3000"],
     });

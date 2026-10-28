@@ -43,6 +43,7 @@ import org.keycloak.representations.JsonWebToken;
 import org.keycloak.representations.idm.authorization.ResourceType;
 import org.keycloak.representations.idm.authorization.RolePolicyRepresentation;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.utils.RoleUtils.getDeepUserRoleMappings;

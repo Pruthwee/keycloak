@@ -29,6 +29,7 @@ import org.keycloak.models.LDAPConstants;
 import org.keycloak.models.ModelException;
 import org.keycloak.storage.ldap.LDAPConfig;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -52,6 +53,7 @@ public class LDAPUtil {
             throw new IllegalArgumentException("You must provide a date.");
         }
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss'.0Z'");
 
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));

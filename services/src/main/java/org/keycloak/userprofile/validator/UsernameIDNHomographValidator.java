@@ -41,6 +41,7 @@ public class UsernameIDNHomographValidator implements SimpleValidator, Configure
 
     public static final String MESSAGE_NO_MATCH = "error-username-invalid-character";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {

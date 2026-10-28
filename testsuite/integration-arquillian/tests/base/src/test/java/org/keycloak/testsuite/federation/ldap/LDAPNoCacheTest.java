@@ -46,6 +46,7 @@ import org.keycloak.testsuite.util.LDAPTestUtils;
 import org.keycloak.testsuite.util.MailServer;
 import org.keycloak.testsuite.util.MailUtils;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.ClassRule;
 import org.junit.FixMethodOrder;

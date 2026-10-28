@@ -48,12 +48,14 @@ public class OID4VCExportImportTest extends OID4VCIssuerTestBase {
     @BeforeAll
     public static void createTempDir() throws IOException {
         if (tempDir == null) {
+            // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
             tempDir = Files.createTempDirectory("kc-tests").toAbsolutePath().toString();
         }
     }
 
     @AfterAll
     public static void deleteTempDir() throws IOException {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         FileUtils.deleteDirectory(new File(tempDir));
     }
 
@@ -181,6 +183,7 @@ public class OID4VCExportImportTest extends OID4VCIssuerTestBase {
 
             IssuedVerifiableCredentialModel issuedCred1 = new IssuedVerifiableCredentialModel(userId, vc1Id, walletClientId);
             issuedCred1.setRevision("rev-001");
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             issuedCred1.setIssuedAt(System.currentTimeMillis());
             session.users().addIssuedVerifiableCredential(issuedCred1);
 

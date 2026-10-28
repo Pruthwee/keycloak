@@ -34,6 +34,8 @@ import org.keycloak.representations.idm.PublishedRealmRepresentation;
 import org.keycloak.services.Urls;
 import org.keycloak.services.cors.Cors;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.NoCache;
 

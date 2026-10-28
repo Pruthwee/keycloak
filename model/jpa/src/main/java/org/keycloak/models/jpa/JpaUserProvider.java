@@ -879,6 +879,7 @@ public class JpaUserProvider implements UserProvider, UserCredentialStore, JpaUs
         List<Predicate> restrictions = predicates(params, root, Map.of());
         restrictions.add(cb.equal(root.get("realmId"), realm.getId()));
 
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(UserModel.GROUPS, groupIds);
 
         restrictions.addAll(AdminPermissionsSchema.SCHEMA.applyAuthorizationFilters(session, AdminPermissionsSchema.USERS, this, realm, cb, countQuery, root));

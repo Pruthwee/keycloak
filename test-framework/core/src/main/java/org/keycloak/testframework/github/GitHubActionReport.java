@@ -36,6 +36,7 @@ public class GitHubActionReport {
     private List<Slow> slowTests = new LinkedList<>();
 
     public GitHubActionReport() {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         this.gitHubStepSummary = GITHUB_STEP_SUMMARY != null ? new File(GITHUB_STEP_SUMMARY) : null;
         this.enabled = Config.get("kc.test.github.enabled", true, Boolean.class) && gitHubStepSummary != null;
         this.slowTestClassTimeout = TimeUnit.SECONDS.toMillis(Config.get("kc.test.github.slow.class", 120L, Long.class));
@@ -44,6 +45,7 @@ public class GitHubActionReport {
 
     public void onClassStart() {
         if (enabled) {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             testClassStartedAt = System.currentTimeMillis();
         }
     }
@@ -98,6 +100,7 @@ public class GitHubActionReport {
         if (enabled && (!failures.isEmpty() || !slowTests.isEmpty())) {
             try {
                 PrintWriter printWriter = new PrintWriter(new FileWriter(gitHubStepSummary, true));
+                Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
 
                 if (!failures.isEmpty()) {
                     printWriter.println("## :x: Failed tests");

@@ -54,6 +54,9 @@ import org.keycloak.testsuite.pages.LoginPage;
 import org.keycloak.testsuite.util.oauth.AccessTokenResponse;
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.test.api.ContainerController;
 import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.arquillian.test.api.ArquillianResource;
@@ -75,6 +78,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class UserStorageFailureTest extends AbstractTestRealmKeycloakTest {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static boolean initialized = false;
 
     private static final String LOCAL_USER = "localUser";

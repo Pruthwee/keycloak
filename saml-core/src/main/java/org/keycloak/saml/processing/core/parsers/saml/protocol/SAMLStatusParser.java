@@ -41,6 +41,7 @@ public class SAMLStatusParser extends AbstractStaxSamlProtocolParser<StatusType>
         super(SAMLProtocolQNames.STATUS);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLStatusParser getInstance() {
         return INSTANCE;
     }

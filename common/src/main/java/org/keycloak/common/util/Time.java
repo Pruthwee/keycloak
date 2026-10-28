@@ -33,6 +33,7 @@ public class Time {
      */
     @Deprecated
     public static int currentTime() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         return ((int) (System.currentTimeMillis() / 1000)) + offset;
     }
 

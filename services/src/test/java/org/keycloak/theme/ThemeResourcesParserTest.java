@@ -30,6 +30,7 @@ public class ThemeResourcesParserTest {
 
     @Test
     public void parseLegacyStyles() {
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties properties = new Properties();
         properties.setProperty("styles", "css/a.css css/b.css");
 
@@ -135,6 +136,7 @@ public class ThemeResourcesParserTest {
     }
 
     @Test
+    // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
     public void parseLegacyFaviconProperties() {
         Properties properties = new Properties();
         properties.setProperty("favIcon", "/favicon.svg");

@@ -73,6 +73,7 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Rule;
 import org.junit.Test;
@@ -733,6 +734,7 @@ public class TokenIntrospectionTest extends AbstractTestRealmKeycloakTest {
         AccessTokenResponse accessTokenResponse = oauth.doAccessTokenRequest(code);
         events.clear();
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         int currentTime = (int) (System.currentTimeMillis() / 1000);
 
         ClientRepresentation clientRep = AdminApiUtil.findClientByClientId(managedRealm.admin(), "test-app").toRepresentation();

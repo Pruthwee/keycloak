@@ -40,6 +40,7 @@ import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.authentication.authenticators.browser.AbstractUsernameFormAuthenticator.USER_SET_BEFORE_USERNAME_PASSWORD_AUTH;
@@ -102,6 +103,7 @@ public final class AuthenticatorUtils {
      * @param note The serialized note value to parse
      * @return A list of execution ids that were successfully completed to create this authentication session
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, Integer> parseCompletedExecutions(String note){
         // default to empty map
         if (note == null){

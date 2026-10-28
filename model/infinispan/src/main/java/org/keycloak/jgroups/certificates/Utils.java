@@ -42,12 +42,14 @@ import org.keycloak.common.util.CertificateUtils;
 import org.keycloak.common.util.KeyUtils;
 import org.keycloak.common.util.KeystoreUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public final class Utils {
 
     private static final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass());
     private static final String JGROUPS_SUBJECT = "jgroups";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     private static final char[] KEY_PASSWORD = "jgroups-password".toCharArray();
 
     private Utils() {
@@ -56,6 +58,7 @@ public final class Utils {
     public static JGroupsCertificate generateSelfSignedCertificate(Duration validity) {
         var endDate = Date.from(Instant.now().plus(validity));
         var keyPair = KeyUtils.generateRsaKeyPair(2048);
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         var certificate = CertificateUtils.generateV1SelfSignedCertificate(keyPair, JGROUPS_SUBJECT, BigInteger.valueOf(System.currentTimeMillis()), endDate);
 
         logger.debugf("Created JGroups certificate. Valid until %s", certificate.getNotAfter());

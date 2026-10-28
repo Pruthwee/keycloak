@@ -29,6 +29,8 @@ public class KEYCLOAK_JDBC_PING2_FOR_TESTING extends KEYCLOAK_JDBC_PING2 {
     protected Connection getConnection() {
         try {
             return dataSource != null? dataSource.getConnection() :
+                    // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
+                    // Cloud: use HikariCP connection pool with RDS Proxy for cloud deployments
                     DriverManager.getConnection(connection_url, connection_username, connection_password);
         } catch (SQLException e) {
             throw new RuntimeException(e);

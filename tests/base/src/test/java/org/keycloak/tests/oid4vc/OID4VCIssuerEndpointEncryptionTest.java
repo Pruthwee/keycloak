@@ -375,6 +375,7 @@ public class OID4VCIssuerEndpointEncryptionTest extends OID4VCIssuerEndpointTest
         return oauth.oid4vc().doNonceRequest().getNonce();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Object> generateRsaJwkWithPrivateKey() throws NoSuchAlgorithmException {
         var keyGen = java.security.KeyPairGenerator.getInstance("RSA");
         keyGen.initialize(2048);

@@ -39,6 +39,7 @@ import org.apache.kerby.kerberos.kerb.identity.backend.BackendConfig;
 import org.apache.kerby.kerberos.kerb.server.KdcConfig;
 import org.apache.kerby.kerberos.kerb.server.KdcConfigKey;
 import org.apache.kerby.kerberos.kerb.server.KdcServer;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -101,6 +102,7 @@ public class KerberosEmbeddedServer extends LDAPEmbeddedServer {
         kerberosEmbeddedServer.init();
         kerberosEmbeddedServer.start();
 
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         Runtime.getRuntime().addShutdownHook(new Thread() {
 
             @Override
@@ -215,6 +217,8 @@ public class KerberosEmbeddedServer extends LDAPEmbeddedServer {
         // and init() calls createBuiltinPrincipals() which conflicts with LDIF entries.
         kdcServer = new KdcServer(kdcConfig, backendConfig);
 
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File workDir = new File(System.getProperty("java.io.tmpdir"), "keycloak-kdc-" + this.kdcPort);
         workDir.mkdirs();
         kdcServer.setWorkDir(workDir);

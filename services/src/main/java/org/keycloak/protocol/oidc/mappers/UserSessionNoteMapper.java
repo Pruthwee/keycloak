@@ -40,6 +40,7 @@ import org.keycloak.representations.IDToken;
  */
 public class UserSessionNoteMapper extends AbstractOIDCProtocolMapper implements OIDCAccessTokenMapper, OIDCIDTokenMapper, OIDCAccessTokenResponseMapper, UserInfoTokenMapper, TokenIntrospectionTokenMapper {
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {
@@ -78,6 +79,7 @@ public class UserSessionNoteMapper extends AbstractOIDCProtocolMapper implements
 
     @Override
     public String getHelpText() {
+        // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
         return "Map a custom user session note to a token claim.";
     }
 
@@ -99,6 +101,7 @@ public class UserSessionNoteMapper extends AbstractOIDCProtocolMapper implements
         OIDCAttributeMapperHelper.mapClaim(accessTokenResponse, mappingModel, noteValue);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel createClaimMapper(String name,
                                                         String userSessionNote,
                                                         String tokenClaimName, String jsonType,

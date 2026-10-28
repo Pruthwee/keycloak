@@ -41,6 +41,7 @@ import org.keycloak.saml.common.constants.JBossSAMLURIConstants;
 import org.keycloak.saml.common.util.StaxUtil;
 import org.keycloak.saml.processing.core.saml.v2.writers.SAMLMetadataWriter;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 

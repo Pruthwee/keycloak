@@ -50,6 +50,7 @@ import org.keycloak.models.UserSessionModel;
 import org.keycloak.models.UserSessionProvider;
 import org.keycloak.models.session.UserSessionPersisterProvider;
 import org.keycloak.models.sessions.infinispan.InfinispanUserSessionProviderFactory;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.keycloak.models.sessions.infinispan.changes.sessions.PersisterLastSessionRefreshStoreFactory;
 import org.keycloak.models.utils.ResetTimeOffsetEvent;
 import org.keycloak.services.managers.UserSessionManager;

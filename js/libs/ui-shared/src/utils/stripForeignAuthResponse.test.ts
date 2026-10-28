@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { stripForeignAuthResponse } from "./stripForeignAuthResponse";
 
+// Cloud: externalize URL to AWS Systems Manager Parameter Store
 const CONSOLE_URL = "https://localhost:8443/realms/master/account/";
 
 describe("stripForeignAuthResponse", () => {

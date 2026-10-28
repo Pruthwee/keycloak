@@ -41,6 +41,7 @@ import org.keycloak.representations.IDToken;
  */
 public class GroupMembershipMapper extends AbstractOIDCProtocolMapper implements OIDCAccessTokenMapper, OIDCIDTokenMapper, UserInfoTokenMapper, TokenIntrospectionTokenMapper {
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {
@@ -83,6 +84,7 @@ public class GroupMembershipMapper extends AbstractOIDCProtocolMapper implements
         return "Map user group membership";
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static boolean useFullPath(ProtocolMapperModel mappingModel) {
         return "true".equals(mappingModel.getConfig().get("full.path"));
     }

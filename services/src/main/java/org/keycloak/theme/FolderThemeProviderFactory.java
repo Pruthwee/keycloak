@@ -40,6 +40,7 @@ public class FolderThemeProviderFactory implements ThemeProviderFactory {
         String d = config.get("dir");
         File rootDir = null;
         if (d != null) {
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             rootDir = new File(d);
         }
         themeProvider = new FolderThemeProvider(rootDir);

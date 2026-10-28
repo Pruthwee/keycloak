@@ -17,6 +17,7 @@
 
 package org.keycloak.sdjwt.consumer;
 
+// Cloud: replace RMI with RESTful HTTP APIs for cloud compatibility
 import java.rmi.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;

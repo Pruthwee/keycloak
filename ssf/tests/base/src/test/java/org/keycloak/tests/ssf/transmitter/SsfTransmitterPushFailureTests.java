@@ -82,6 +82,7 @@ public class SsfTransmitterPushFailureTests {
     static final String RECEIVER_HEALTHY_SECRET = "receiver-push-healthy-secret";
 
     static final String TEST_USER = "failure-tester";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String TEST_PASSWORD = "test";
 
     static final String ERROR_CONTEXT_PATH = "/ssf/push-failure-500";

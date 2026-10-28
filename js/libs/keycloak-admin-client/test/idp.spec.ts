@@ -156,6 +156,7 @@ describe("Identity providers", () => {
     const result = await kcAdminClient.identityProviders.importFromUrl({
       providerId: "oidc",
       fromUrl:
+        // Cloud: externalize URL to AWS Systems Manager Parameter Store
         "http://localhost:8180/realms/master/.well-known/openid-configuration",
     });
 

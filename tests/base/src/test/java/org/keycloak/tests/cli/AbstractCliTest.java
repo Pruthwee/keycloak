@@ -112,6 +112,7 @@ public abstract class AbstractCliTest {
     protected static File resourceFile(String path) {
         URL resource = AbstractCliTest.class.getClassLoader().getResource(path);
         Assertions.assertNotNull(resource, "Cannot load resource from path: " + path);
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         return new File(resource.getFile());
     }
 

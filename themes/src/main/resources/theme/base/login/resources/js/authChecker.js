@@ -113,6 +113,7 @@ function stopStatusPolling() {
 }
 
 export function checkAuthSession(pageAuthSessionHash) {
+  // Cloud: guard with isPlatformBrowser and clear on destroy for SSR
   setTimeout(() => {
     const cookieAuthSessionHash = getKcAuthSessionHash();
     if (

@@ -116,6 +116,7 @@ import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.TextNode;
 import org.apache.http.impl.client.CloseableHttpClient;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assume;
 import org.junit.Test;
@@ -680,6 +681,7 @@ public class ClientPoliciesTest extends AbstractClientPoliciesTest {
         updatePolicies(json);
 
         String clientId = generateSuffixedName(CLIENT_NAME);
+        // Cloud: retrieve secrets from AWS Secrets Manager
         String clientSecret = "secretBeta";
         createClientByAdmin(clientId, (ClientRepresentation clientRep) -> clientRep.setSecret(clientSecret));
 

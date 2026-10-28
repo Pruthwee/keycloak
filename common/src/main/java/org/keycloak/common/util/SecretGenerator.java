@@ -36,6 +36,7 @@ public class SecretGenerator {
     private SecretGenerator() {
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SecretGenerator getInstance() {
         return instance;
     }

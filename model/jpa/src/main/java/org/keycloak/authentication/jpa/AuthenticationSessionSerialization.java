@@ -50,6 +50,7 @@ final class AuthenticationSessionSerialization {
         return read(entity.getRequiredActions(), STRING_SET, entity.getTabId(), "requiredActions");
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, ExecutionStatus> getExecutionStatus(AuthenticationSessionEntity entity) {
         return read(entity.getExecutionStatus(), EXECUTION_STATUS_MAP, entity.getTabId(), "executionStatus");
     }

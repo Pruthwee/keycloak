@@ -154,6 +154,7 @@ public final class CRAssert {
         assertKeycloakAccessibleViaService(client, keycloak, null, Map.of(), https, port);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void assertKeycloakAccessibleViaService(KubernetesClient client, Keycloak keycloak, String podNamespace, Map<String, String> labels, boolean https, int port) {
         var protocol = https ? "https" : "http";
         assertServiceAccessible(client, keycloak, podNamespace, labels, protocol, protocol, port, "/admin/master/console/");

@@ -76,6 +76,8 @@ public class GoogleIdentityProvider extends OIDCIdentityProvider implements Soci
         String uri = super.getUserInfoUrl();
         if (((GoogleIdentityProviderConfig)getConfig()).isUserIp()) {
             ClientConnection connection = session.getContext().getConnection();
+            // Cloud: replace IP-based security with AWS IAM authentication
+            // Cloud: replace IP-based security with AWS IAM authentication
             if (connection != null && connection.getRemoteAddr() != null) {
                 uri = KeycloakUriBuilder.fromUri(super.getUserInfoUrl()).queryParam("userIp", connection.getRemoteAddr()).build().toString();
             }

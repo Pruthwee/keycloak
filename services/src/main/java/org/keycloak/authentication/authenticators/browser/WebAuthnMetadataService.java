@@ -9,6 +9,7 @@ import org.keycloak.utils.FileUtils;
 import org.keycloak.utils.StringUtil;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -24,6 +25,7 @@ public class WebAuthnMetadataService {
 
     private static volatile Map<String, WebAuthnAuthenticatorMetadata> aaguidToMetadata;
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void setDefaultMetadata(Map<String, WebAuthnAuthenticatorMetadata> metadata) {
         if (aaguidToMetadata == null) {
             aaguidToMetadata = metadata;

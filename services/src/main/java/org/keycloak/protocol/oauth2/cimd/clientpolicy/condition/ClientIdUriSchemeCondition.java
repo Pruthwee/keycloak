@@ -16,6 +16,7 @@ import org.keycloak.services.clientpolicy.condition.AbstractClientPolicyConditio
 import org.keycloak.services.clientpolicy.context.PreAuthorizationRequestContext;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

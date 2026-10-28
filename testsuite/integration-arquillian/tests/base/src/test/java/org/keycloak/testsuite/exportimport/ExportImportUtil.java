@@ -465,6 +465,7 @@ public class ExportImportUtil {
     }
 
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Object> findConsentByClientId(List<Map<String, Object>> consents, String clientId) {
         for (Map<String, Object> consent : consents) {
             if (clientId.equals(consent.get("clientId"))) return consent;

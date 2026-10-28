@@ -19,6 +19,8 @@ import org.keycloak.representations.docker.DockerAccess;
 import org.keycloak.representations.docker.DockerError;
 import org.keycloak.representations.docker.DockerErrorResponseToken;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.server.jaxrs.ResponseBuilderImpl;
 

@@ -51,6 +51,7 @@ import org.keycloak.ssf.transmitter.stream.StreamConfig;
 import org.keycloak.ssf.transmitter.subject.PurgedUserSnapshot;
 import org.keycloak.ssf.transmitter.support.SsfUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 

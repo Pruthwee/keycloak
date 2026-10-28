@@ -50,6 +50,7 @@ public class OID4VCSubjectIdMapper extends OID4VCMapper {
 
     public static final String MAPPER_ID = "oid4vc-subject-id-mapper";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> CONFIG_PROPERTIES = new ArrayList<>();
 
     static {
@@ -71,6 +72,7 @@ public class OID4VCSubjectIdMapper extends OID4VCMapper {
         CONFIG_PROPERTIES.add(userAttributeConfig);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name, String claimName, String userAttribute) {
         var mapperModel = new ProtocolMapperModel();
         mapperModel.setName(name);

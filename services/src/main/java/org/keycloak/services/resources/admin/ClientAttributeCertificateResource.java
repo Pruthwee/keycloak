@@ -59,6 +59,8 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.extensions.Extension;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.NoCache;
 
@@ -288,6 +290,7 @@ public class ClientAttributeCertificateResource {
         int validity = config.getValidity() != null && config.getValidity() > 0
                 ? config.getValidity()
                 : KeycloakModelUtils.DEFAULT_CERTIFICATE_VALIDITY_YEARS;
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.YEAR, validity);
         CertificateRepresentation info = KeycloakModelUtils.generateKeyPairCertificate(client.getClientId(), keySize, calendar);

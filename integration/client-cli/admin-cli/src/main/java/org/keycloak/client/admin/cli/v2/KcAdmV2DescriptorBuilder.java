@@ -202,6 +202,7 @@ public class KcAdmV2DescriptorBuilder {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<KcAdmV2CommandDescriptor.VariantDescriptor> buildVariants(
             Schema baseSchema, OpenAPI openApi) {
         String discriminatorField = baseSchema.getDiscriminator().getPropertyName();
@@ -445,6 +446,7 @@ public class KcAdmV2DescriptorBuilder {
         if (args.length != 1) {
             System.err.println("Usage: KcAdmV2DescriptorBuilder <output-dir>");
             System.exit(1);
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
         }
 
         OpenAPI openApi = parseOpenApi(

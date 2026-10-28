@@ -14,6 +14,7 @@ import { assertNotificationMessage } from "../utils/masthead.ts";
 test.describe.serial("Client SSF receiver", () => {
   const realmName = `ssf-receiver-realm-${uuid()}`;
   const clientId = `ssf-receiver-client-${uuid()}`;
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
   const audience = "https://receiver.example.com/ssf";
 
   // TextControl derives its data-testid from the form field name, which is the

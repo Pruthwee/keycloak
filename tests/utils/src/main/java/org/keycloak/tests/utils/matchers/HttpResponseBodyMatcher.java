@@ -34,6 +34,7 @@ public class HttpResponseBodyMatcher extends BaseMatcher<HttpResponse> {
 
     private final Matcher<String> matcher;
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private ThreadLocal<String> lastEntity = new ThreadLocal<>();
 
     public HttpResponseBodyMatcher(Matcher<String> matcher) {

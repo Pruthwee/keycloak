@@ -41,6 +41,7 @@ import org.keycloak.provider.ProviderConfigProperty;
  */
 public class RoleNameMapper implements SAMLRoleNameMapper, ProtocolMapper {
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     public static final String ROLE_CONFIG = "role";
@@ -107,6 +108,7 @@ public class RoleNameMapper implements SAMLRoleNameMapper, ProtocolMapper {
         return null;
    }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name,
                                              String role,
                                              String newName) {

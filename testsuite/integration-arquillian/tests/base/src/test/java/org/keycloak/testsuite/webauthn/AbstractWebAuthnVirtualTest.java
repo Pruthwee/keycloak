@@ -62,6 +62,7 @@ import org.keycloak.testsuite.webauthn.updaters.PasswordLessRealmAttributeUpdate
 import org.keycloak.testsuite.webauthn.updaters.WebAuthnRealmAttributeUpdater;
 import org.keycloak.testsuite.webauthn.utils.WebAuthnRealmData;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.After;
 import org.junit.Before;

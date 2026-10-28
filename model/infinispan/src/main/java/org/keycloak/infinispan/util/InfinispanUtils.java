@@ -92,6 +92,7 @@ public final class InfinispanUtils {
         return Math.max(1, config.getInt(CONFIG_RETRIES_BASE_TIME_MILLIS, DEFAULT_RETRIES_BASE_TIME_MILLIS));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void maxRetriesToOperationalInfo(Map<String, String> map, int value) {
         map.put(CONFIG_MAX_RETRIES, Integer.toString(value));
     }

@@ -84,6 +84,7 @@ class ClientStreamStoreVaultRoundTripTest {
                 "an actual change to the secret must replace the placeholder");
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> seededAttrs(String authorizationHeader) {
         Map<String, String> attrs = new HashMap<>();
         attrs.put(ClientStreamStore.SSF_STREAM_ID_KEY, STREAM_ID);

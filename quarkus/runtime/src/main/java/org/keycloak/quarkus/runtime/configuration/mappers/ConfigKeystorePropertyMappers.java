@@ -12,7 +12,10 @@ import io.smallrye.config.ConfigSourceInterceptorContext;
 import static org.keycloak.quarkus.runtime.configuration.mappers.PropertyMapper.fromOption;
 
 public final class ConfigKeystorePropertyMappers implements PropertyMapperGrouping {
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
     private static final String SMALLRYE_KEYSTORE_PATH = "smallrye.config.source.keystore.kc-default.path";
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String SMALLRYE_KEYSTORE_PASSWORD = "smallrye.config.source.keystore.kc-default.password";
 
 

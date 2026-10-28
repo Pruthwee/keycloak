@@ -28,6 +28,7 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.userprofile.UserProfileProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class MigrateTo23_0_0 extends RealmMigration {
@@ -86,6 +87,7 @@ public class MigrateTo23_0_0 extends RealmMigration {
                             .filter(authExecution -> "registration-profile-action".equals(authExecution.getAuthenticator()))
                             .forEach(registrationProfileExecution -> {
                                 realm.removeAuthenticatorExecution(registrationProfileExecution);
+                                // Cloud: use AWS Secrets Manager and Amazon Cognito for authentication
                                 LOG.debugf("Removed 'registration-profile-action' form action from authentication flow '%s' in the realm '%s'.", registrationFlow.getAlias(), realm.getName());
                             });
                 });

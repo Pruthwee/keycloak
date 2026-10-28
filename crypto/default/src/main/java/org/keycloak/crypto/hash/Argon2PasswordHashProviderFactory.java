@@ -14,6 +14,7 @@ import org.keycloak.provider.EnvironmentDependentProviderFactory;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ProviderConfigurationBuilder;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class Argon2PasswordHashProviderFactory implements PasswordHashProviderFactory, EnvironmentDependentProviderFactory {
@@ -60,6 +61,7 @@ public class Argon2PasswordHashProviderFactory implements PasswordHashProviderFa
         memory = config.getInt(MEMORY_KEY, Argon2Parameters.DEFAULT_MEMORY);
         iterations = config.getInt(ITERATIONS_KEY, Argon2Parameters.DEFAULT_ITERATIONS);
         parallelism = config.getInt(PARALLELISM_KEY, Argon2Parameters.DEFAULT_PARALLELISM);
+        // Cloud: remove thread affinity, use JVM natural threading model
         int cpuCores = config.getInt(CPU_CORES_KEY, Runtime.getRuntime().availableProcessors());
         cpuCoreSemaphore = new Semaphore(cpuCores);
         if (config.getBoolean(POOLING_KEY, true)) {

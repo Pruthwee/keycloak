@@ -142,6 +142,7 @@ import org.keycloak.userprofile.UserProfileProvider;
 import org.keycloak.util.JsonSerialization;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static java.util.Optional.ofNullable;
@@ -696,6 +697,7 @@ public class ModelToRepresentation {
         return rep;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, String> stripRealmAttributesIncludedAsFields(Map<String, String> attributes) {
         Map<String, String> a = new HashMap<>();
 

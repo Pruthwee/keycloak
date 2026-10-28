@@ -629,6 +629,7 @@
                         maven.execution.global-settings
                         maven.execution.active-profiles
                 -->
+                <!-- Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis -->
                 <groupId>org.jboss.shrinkwrap.resolver</groupId>
                 <artifactId>shrinkwrap-resolver-maven-plugin</artifactId>
                 <version>${shrinkwrap-resolver.version}</version>

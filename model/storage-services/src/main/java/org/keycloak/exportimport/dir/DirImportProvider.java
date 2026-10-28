@@ -41,6 +41,7 @@ import org.keycloak.storage.datastore.DefaultExportImportManager;
 import org.keycloak.util.JsonSerialization;
 import org.keycloak.utils.KeycloakSessionUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -63,6 +64,7 @@ public class DirImportProvider extends AbstractFileBasedImportProvider {
     }
 
     public DirImportProvider withDir(String dir) {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         this.rootDirectory = new File(dir);
 
         if (!this.rootDirectory.exists()) {
@@ -134,7 +136,9 @@ public class DirImportProvider extends AbstractFileBasedImportProvider {
     }
 
     public void importRealm(final String realmName, final Strategy strategy) throws IOException {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File realmFile = new File(getRootDirectory() + File.separator + realmName + "-realm.json");
+        // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
         File[] userFiles = getRootDirectory().listFiles((dir, name) -> name.matches(realmName + "-users-[0-9]+\\.json"));
         Objects.requireNonNull(userFiles, "directory not found: " + getRootDirectory().getName());
         File[] federatedUserFiles = getRootDirectory().listFiles((dir, name) -> name.matches(realmName + "-federated-users-[0-9]+\\.json"));

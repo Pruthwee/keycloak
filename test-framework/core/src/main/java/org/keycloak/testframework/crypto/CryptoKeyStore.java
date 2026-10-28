@@ -102,10 +102,12 @@ public class CryptoKeyStore {
 
     private File saveKeystore(File folder, KeystoreUtil.KeystoreFormat keystoreType, KeyStore keyStore, String keystorePassword) throws Exception {
         String fileName = "keystore-" + Time.currentTimeMillis() + "." + keystoreType.getPrimaryExtension();
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File file = new File(folder, fileName);
         if (file.exists()) {
             throw new RuntimeException("Keystore file already exists: " + file.getAbsolutePath());
         }
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (FileOutputStream fos = new FileOutputStream(file)) {
             keyStore.store(fos, keystorePassword.trim().toCharArray());
         }

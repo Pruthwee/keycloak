@@ -100,6 +100,7 @@ public class AdminEventPaths {
         return uri.toString();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static String clientProtocolMappersPath(String clientDbId) {
         URI uri = UriBuilder.fromUri(clientResourcePath(clientDbId))
                 .path(ClientResource.class, "getProtocolMappers")

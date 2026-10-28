@@ -237,6 +237,7 @@ public class SessionRestServiceTest extends AbstractRestServiceTest {
                     rep -> isLoopbackIp(rep.getIpAddress()) && rep.getBrowser().equals("Edge/12.0")
                             && rep.getCurrent() == null).count());
             assertEquals(1, sessions.stream().filter(
+                    // Cloud: replace IP-based security with AWS IAM authentication
                     rep -> ("192.168.10.3".equals(rep.getIpAddress()) || isLoopbackIp(rep.getIpAddress()))
                             && rep.getBrowser().equals("Safari/11.0")
                             && Boolean.TRUE.equals(rep.getCurrent())).count());

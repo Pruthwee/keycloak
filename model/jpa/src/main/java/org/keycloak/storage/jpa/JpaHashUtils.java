@@ -76,6 +76,7 @@ public class JpaHashUtils {
      * @param valueComparator                 comparator for comparing attribute values
      * @return predicate for filtering users based on attributes map
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static java.util.function.Predicate<UserEntity> predicateForFilteringUsersByAttributes(Map<String, String> customLongValueSearchAttributes, BiPredicate<String, String> valueComparator) {
         return userEntity -> customLongValueSearchAttributes.isEmpty() || // are there some long attribute values
                 customLongValueSearchAttributes

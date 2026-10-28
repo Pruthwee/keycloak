@@ -92,6 +92,7 @@ class SsfPushUrlValidatorTest {
     @Test
     void filterUsableEntries_dropsNonHttpScheme() {
         Set<String> usable = strict.filterUsableEntries(set(
+                // Cloud: replace FTP with Amazon S3 Transfer Acceleration and presigned URLs
                 "ftp://example.com/*",
                 "javascript:alert(1)/*",
                 "https://example.com/*"));

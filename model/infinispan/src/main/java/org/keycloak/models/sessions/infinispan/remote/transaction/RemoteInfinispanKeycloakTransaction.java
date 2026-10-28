@@ -33,6 +33,7 @@ import org.keycloak.models.sessions.infinispan.transaction.NonBlockingTransactio
 import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.commons.util.concurrent.AggregateCompletionStage;
 import org.infinispan.commons.util.concurrent.CompletableFutures;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 class RemoteInfinispanKeycloakTransaction<K, V, R extends ConditionalRemover<K, V>> implements NonBlockingTransaction {

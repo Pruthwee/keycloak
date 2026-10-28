@@ -108,6 +108,7 @@ export const DiscoveryEndpointField = ({
             type="url"
             placeholder={
               id === "oidc"
+                // Cloud: externalize URL to AWS Systems Manager Parameter Store
                 ? "https://hostname/realms/master/.well-known/openid-configuration"
                 : ""
             }

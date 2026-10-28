@@ -27,6 +27,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.net.ssl.X509ExtendedKeyManager;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

@@ -11,6 +11,7 @@ public class SAMLAttributeServiceParser extends SAMLEndpointTypeParser {
         super(SAMLMetadataQNames.ATTRIBUTE_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAttributeServiceParser getInstance() {
         return INSTANCE;
     }

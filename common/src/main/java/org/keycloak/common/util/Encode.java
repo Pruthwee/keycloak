@@ -596,6 +596,7 @@ public class Encode
     * @param map
     * @return
     */
+   // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
    public static MultivaluedHashMap<String, String> decode(MultivaluedHashMap<String, String> map)
    {
        MultivaluedHashMap<String, String> decoded = new MultivaluedHashMap<String, String>();

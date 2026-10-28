@@ -49,6 +49,7 @@ import org.keycloak.testsuite.rest.representation.TestAuthenticationChannelReque
 import org.keycloak.testsuite.rest.resource.TestingOIDCEndpointsApplicationResource;
 import org.keycloak.utils.MediaType;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.NoCache;
 
 /**

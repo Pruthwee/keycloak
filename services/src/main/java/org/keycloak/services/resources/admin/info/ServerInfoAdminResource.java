@@ -95,6 +95,7 @@ import org.keycloak.theme.Theme;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.extensions.Extension;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.NoCache;
 
 /**
@@ -432,6 +433,7 @@ public class ServerInfoAdminResource {
         return Stream.concat(list1.stream(), list2.stream()).collect(Collectors.toList());
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, List<String>> createEnumsMap(Class... enums) {
         Map<String, List<String>> m = new HashMap<>();
         for (Class e : enums) {

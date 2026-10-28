@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.ServiceConfigurationError;
 import java.util.ServiceLoader;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.shrinkwrap.descriptor.spi.node.Node;
 
 /**
@@ -37,6 +38,7 @@ public class AppServerContainerService  {
         loader = ServiceLoader.load(AppServerContainerProvider.class);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static synchronized AppServerContainerService getInstance() {
         if (service == null) {
             service = new AppServerContainerService();

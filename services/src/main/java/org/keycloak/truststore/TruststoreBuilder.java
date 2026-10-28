@@ -36,6 +36,7 @@ import org.keycloak.common.util.KeystoreUtil;
 import org.keycloak.common.util.KeystoreUtil.KeystoreFormat;
 import org.keycloak.common.util.KeystoreUtil.TruststoreFormat;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -47,6 +48,7 @@ public class TruststoreBuilder {
     public static final String SYSTEM_TRUSTSTORE_PASSWORD_KEY = "javax.net.ssl.trustStorePassword";
     public static final String SYSTEM_TRUSTSTORE_TYPE_KEY = "javax.net.ssl.trustStoreType";
     private static final String CERT_PROTECTION_ALGORITHM_KEY = "keystore.pkcs12.certProtectionAlgorithm";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String DUMMY_PASSWORD = "keycloakchangeit"; // fips length compliant dummy password
     static final String PKCS12 = "PKCS12";
 
@@ -97,6 +99,7 @@ public class TruststoreBuilder {
      * @param serviceCaPath path to the OpenShift service CA certificate
      */
     public static void includeKubernetesTrustStorePaths(List<String> trustStores, String kubernetesCaPath, String serviceCaPath) {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File kubernetesCA = new File(kubernetesCaPath);
         if (kubernetesCA.exists() && kubernetesCA.isFile()) {
             trustStores.add(kubernetesCaPath);
@@ -113,8 +116,10 @@ public class TruststoreBuilder {
     }
 
     static File saveTruststore(KeyStore truststore, TruststoreFormat truststoreType, String dataDir, char[] password) {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File file = new File(dataDir, "keycloak-truststore." + truststoreType.getPrimaryExtension());
         file.getParentFile().mkdirs();
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (FileOutputStream fos = new FileOutputStream(file)) {
             if (truststoreType == TruststoreFormat.PKCS12) {
                 // this should inhibit the use of encryption in storing the certs

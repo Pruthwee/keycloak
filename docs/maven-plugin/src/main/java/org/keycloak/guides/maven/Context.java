@@ -29,6 +29,7 @@ public class Context {
         Map<String, Integer> guidePriorities = loadPinnedGuides(srcPath);
 
         List<Path> guidePaths;
+        // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
         try (Stream<Path> files = Files.walk(srcPath)) {
             guidePaths = files
                   .filter(Files::isRegularFile)

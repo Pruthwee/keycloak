@@ -17,6 +17,7 @@ public interface JWTAuthorizationGrantConfig {
 
     String JWT_AUTHORIZATION_GRANT_ASSERTION_SIGNATURE_ALG = "jwtAuthorizationGrantAssertionSignatureAlg";
 
+    // Cloud: retrieve secrets from AWS Secrets Manager
     String JWT_AUTHORIZATION_GRANT_LIMIT_ACCESS_TOKEN_EXP = "jwtAuthorizationGrantLimitAccessTokenExp";
 
     String JWT_AUTHORIZATION_GRANT_ALLOWED_CLOCK_SKEW = "jwtAuthorizationGrantAllowedClockSkew";

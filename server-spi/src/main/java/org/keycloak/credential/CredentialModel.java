@@ -37,6 +37,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class CredentialModel implements Serializable {
 
     @Deprecated /** Use PasswordCredentialModel.TYPE instead **/
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String PASSWORD = "password";
 
     @Deprecated /** Use PasswordCredentialModel.PASSWORD_HISTORY instead **/

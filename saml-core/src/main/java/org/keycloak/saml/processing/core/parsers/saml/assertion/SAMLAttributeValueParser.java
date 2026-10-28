@@ -55,8 +55,10 @@ public class SAMLAttributeValueParser implements StaxParser {
     private static final QName NIL = new QName(JBossSAMLURIConstants.XSI_NSURI.get(), "nil", JBossSAMLURIConstants.XSI_PREFIX.get());
     private static final QName XSI_TYPE = new QName(JBossSAMLURIConstants.XSI_NSURI.get(), "type", JBossSAMLURIConstants.XSI_PREFIX.get());
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<XMLEventFactory> XML_EVENT_FACTORY = ThreadLocal.withInitial(XMLEventFactory::newInstance);
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAttributeValueParser getInstance() {
         return INSTANCE;
     }
@@ -148,6 +150,7 @@ public class SAMLAttributeValueParser implements StaxParser {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> addNamespaceWhenMissing(Deque<Map<String, String>> definedNamespaces, XMLEventWriter writer,
             StartElement startElement) throws XMLStreamException {
 

@@ -32,6 +32,7 @@ import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.sessions.RootAuthenticationSessionModel;
 import org.keycloak.util.TokenUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class UserSessionUtil {
@@ -112,6 +113,7 @@ public class UserSessionUtil {
                 }
             }
 
+            // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
             if (AuthenticationManager.isSessionValid(realm, userSession)) {
                 if (!checkTokenIssuedAt(token, userSession)) {
                     return UserSessionValidationResult.error(Errors.INVALID_TOKEN, userSession, invalidSessionCallback);

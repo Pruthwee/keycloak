@@ -92,6 +92,8 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.test.api.ContainerController;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.junit.After;
@@ -2515,6 +2517,7 @@ public class EntitlementAPITest extends AbstractAuthzTest {
         AtomicBoolean stop = new AtomicBoolean(false);
 
         // Thread that will be creating and deleting a resource
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         new Thread(() -> {
             while (!stop.get()) {
                 String resourceName = "Test Resource";

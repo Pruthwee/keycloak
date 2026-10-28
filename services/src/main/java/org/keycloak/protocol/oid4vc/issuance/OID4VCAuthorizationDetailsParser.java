@@ -43,6 +43,7 @@ public class OID4VCAuthorizationDetailsParser implements AuthorizationDetailsPar
         outDetail.setClaims(parseClaims((List<Map>) inDetail.getCustomData().get(CLAIMS)));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ClaimsDescription> parseClaims(List<Map> genericClaims) {
         if (genericClaims == null) {
             return null;

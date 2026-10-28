@@ -78,6 +78,7 @@ class BackchannelAuthenticationEndpointSignedRequestParser extends BackchannelAu
             throw new RuntimeException("Failed to verify signature");
         }
 
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(BackchannelAuthenticationEndpointRequestParser.CIBA_SIGNED_AUTHENTICATION_REQUEST, requestParams);
     }
 

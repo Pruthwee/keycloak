@@ -202,6 +202,7 @@ public class CIBATest extends AbstractClientPoliciesTest {
 
     private final String TEST_REALM_NAME = "test";
     private final String TEST_CLIENT_NAME = "test-app";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     private final String TEST_CLIENT_PASSWORD = "password";
 
     @Test

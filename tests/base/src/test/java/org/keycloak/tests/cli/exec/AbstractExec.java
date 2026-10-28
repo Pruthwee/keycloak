@@ -95,6 +95,7 @@ public abstract class AbstractExec {
             if (OS_ARCH.isWindows()) {
                 String cmd = (env != null ? "set " + env + " & " : "") + fixPath(getCmd()) + " " + fixQuotes(argsLine);
                 System.out.println("Executing: cmd.exe /c " + cmd);
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 process = Runtime.getRuntime().exec(new String[]{"cmd.exe", "/c", cmd}, null, new File(workDir));
             } else {
                 String cmd = (env != null ? env + " " : "") + getCmd() + " " + argsLine;
@@ -219,6 +220,8 @@ public abstract class AbstractExec {
     }
 
     public void waitForStdout(String content) {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
         while (System.currentTimeMillis() - start < waitTimeout) {
             if (stdoutString().indexOf(content) != -1) {

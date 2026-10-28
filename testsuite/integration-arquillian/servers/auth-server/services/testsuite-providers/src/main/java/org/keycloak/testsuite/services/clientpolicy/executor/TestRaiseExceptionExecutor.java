@@ -26,6 +26,7 @@ import org.keycloak.services.clientpolicy.ClientPolicyEvent;
 import org.keycloak.services.clientpolicy.ClientPolicyException;
 import org.keycloak.services.clientpolicy.executor.ClientPolicyExecutorProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class TestRaiseExceptionExecutor implements ClientPolicyExecutorProvider<TestRaiseExceptionExecutor.Configuration> {

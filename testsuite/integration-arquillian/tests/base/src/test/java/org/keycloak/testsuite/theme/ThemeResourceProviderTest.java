@@ -111,6 +111,7 @@ public class ThemeResourceProviderTest extends AbstractTestRealmKeycloakTest {
         // This can happen in rare case when the file were created before in "tmp" directory by different system user and current user can't delete them
         boolean filesNotExistsInTmp = testingClient.server().fetch(session -> {
             boolean deleted = true;
+            // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
             File file1 = Paths.get(System.getProperty("java.io.tmpdir"), "kc-gzip-cache", resourcesVersion, "welcome", "keycloak", "css", "welcome.css.gz").toFile();
             if (file1.isFile()) {
                 deleted = file1.delete();

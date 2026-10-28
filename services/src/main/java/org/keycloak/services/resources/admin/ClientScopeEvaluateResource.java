@@ -85,6 +85,8 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.NoCache;
 import org.w3c.dom.Document;
@@ -437,6 +439,7 @@ public class ClientScopeEvaluateResource {
         return user;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static class ProtocolMapperEvaluationRepresentation {
 
         @JsonProperty("mapperId")

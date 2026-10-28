@@ -44,6 +44,7 @@ public class OID4VCTypeMapper extends OID4VCMapper {
     public static final String TYPE_KEY = "vcTypeProperty";
     public static final String DEFAULT_VC_TYPE = "VerifiableCredential";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> CONFIG_PROPERTIES = new ArrayList<>();
 
     static {

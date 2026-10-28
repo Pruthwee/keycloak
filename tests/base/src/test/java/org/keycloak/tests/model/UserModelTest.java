@@ -75,6 +75,7 @@ public class UserModelTest {
             user.setEmail("email");
             assertNotNull(user.getCreatedTimestamp());
             // test that timestamp is current with 10s tollerance
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             Assertions.assertTrue((System.currentTimeMillis() - user.getCreatedTimestamp()) < 10000);
 
             user.addRequiredAction(RequiredAction.CONFIGURE_TOTP);

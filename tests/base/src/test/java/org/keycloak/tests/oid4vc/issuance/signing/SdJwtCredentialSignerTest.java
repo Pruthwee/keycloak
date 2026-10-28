@@ -514,6 +514,7 @@ public class SdJwtCredentialSignerTest extends OID4VCTest {
     private static X509Certificate decodeDerBase64Certificate(String certificateDerBase64) {
         try {
             byte[] certBytes = Base64.getDecoder().decode(certificateDerBase64);
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
             CertificateFactory certFactory = CertificateFactory.getInstance("X.509");
             return (X509Certificate) certFactory.generateCertificate(new java.io.ByteArrayInputStream(certBytes));
         } catch (Exception e) {

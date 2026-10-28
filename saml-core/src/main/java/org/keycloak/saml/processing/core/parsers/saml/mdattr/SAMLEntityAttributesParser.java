@@ -18,6 +18,7 @@ public class SAMLEntityAttributesParser extends AbstractStaxSamlMetadataParser<E
         super(SAMLMetadataQNames.ENTITY_ATTRIBUTES);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLEntityAttributesParser getInstance() {
         return INSTANCE;
     }

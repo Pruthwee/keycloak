@@ -85,6 +85,11 @@ public class LDAPSamlIdPInitiatedVaryingLetterCaseTest extends AbstractLDAPTest 
     private static final String USER_NAME_UPPERCASE = USER_NAME_LDAP.toUpperCase();
     private static final String USER_FIRST_NAME = "Joe";
     private static final String USER_LAST_NAME = "Doe";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String USER_PASSWORD = "P@ssw0rd!";
     private static final String USER_EMAIL = "jdoe@keycloak.org";
     private static final String USER_STREET = "Street";

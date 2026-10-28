@@ -43,6 +43,7 @@ public class ComponentExportImportTest extends AbstractAuthTest {
 
     @Before
     public void setDirs() {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         exportFile = new File (new File(System.getProperty("auth.server.config.dir", "target")), "singleFile-full.json");
         log.infof("Export file: %s", exportFile);
 

@@ -73,6 +73,7 @@ import org.keycloak.representations.idm.authorization.ResourceType;
 import org.keycloak.representations.idm.authorization.ScopePermissionRepresentation;
 import org.keycloak.representations.idm.authorization.ScopeRepresentation;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class AdminPermissionsSchema extends AuthorizationSchema {
@@ -110,6 +111,7 @@ public class AdminPermissionsSchema extends AuthorizationSchema {
     // user specific scopes
     public static final String IMPERSONATE = "impersonate";
     public static final String DELEGATE = "delegate";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String RESET_PASSWORD = "reset-password";
 
     public static final String MANAGE_GROUP_MEMBERSHIP = "manage-group-membership";
@@ -588,6 +590,7 @@ public class AdminPermissionsSchema extends AuthorizationSchema {
         }
 
         try {
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(SKIP_EVALUATION, Boolean.TRUE.toString());
             runnable.run();
         } finally {

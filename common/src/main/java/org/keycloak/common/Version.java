@@ -35,6 +35,7 @@ public class Version {
 
     static {
         try (InputStream is = Version.class.getResourceAsStream("/keycloak-version.properties")) {
+            // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
             Properties props = new Properties();
             props.load(is);
             Version.VERSION = props.getProperty("version");

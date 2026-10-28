@@ -26,6 +26,7 @@ import static org.keycloak.quarkus.runtime.configuration.mappers.PropertyMapper.
 
 public final class BootstrapAdminPropertyMappers implements PropertyMapperGrouping {
 
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD_SET = "bootstrap admin password is set";
     private static final String CLIENT_SECRET_SET = "bootstrap admin client secret is set";
 

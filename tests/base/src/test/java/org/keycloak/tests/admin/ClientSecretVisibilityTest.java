@@ -36,6 +36,8 @@ public class ClientSecretVisibilityTest {
 
     private static final String VIEW_ONLY_USER = "view-only-user";
     private static final String MANAGE_USER = "manage-user";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "password";
     private static final String CONFIDENTIAL_CLIENT_ID = "test-confidential";
     private static final String CONFIDENTIAL_CLIENT_SECRET = "test-secret-value";

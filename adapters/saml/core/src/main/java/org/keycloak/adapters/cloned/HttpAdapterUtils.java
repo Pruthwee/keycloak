@@ -37,6 +37,7 @@ import org.apache.http.util.EntityUtils;
  */
 public class HttpAdapterUtils {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static MultivaluedHashMap<String, KeyInfo> downloadKeysFromSamlDescriptor(HttpClient client, String descriptorUrl) throws HttpClientAdapterException {
         try {
             HttpGet httpRequest = new HttpGet(descriptorUrl);

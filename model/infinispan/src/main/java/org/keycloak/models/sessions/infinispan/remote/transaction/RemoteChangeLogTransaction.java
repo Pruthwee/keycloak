@@ -173,6 +173,7 @@ public class RemoteChangeLogTransaction<K, V, T extends Updater<K, V>, R extends
     }
 
     public T wrap(Map.Entry<K, MetadataValue<V>> entry) {
+        // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
         return entityChanges.computeIfAbsent(entry.getKey(), k -> factory.wrapFromCache(k, entry.getValue()));
     }
 

@@ -28,6 +28,7 @@ import org.keycloak.util.JsonSerialization;
 import org.keycloak.utils.JsonConfigProvider;
 
 import com.fasterxml.jackson.databind.JsonNode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class JsonConfigProviderFactory {
@@ -41,6 +42,7 @@ public class JsonConfigProviderFactory {
         try {
             String configDir = System.getProperty("jboss.server.config.dir");
             if (configDir != null) {
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 File f = new File(configDir + File.separator + "keycloak-server.json");
                 if (f.isFile()) {
                     ServicesLogger.LOGGER.loadingFrom(f.getAbsolutePath());

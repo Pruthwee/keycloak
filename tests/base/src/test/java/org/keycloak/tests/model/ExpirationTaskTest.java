@@ -413,6 +413,7 @@ public class ExpirationTaskTest {
         };
 
         // use a real async executor so the first run blocks inside the action
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         Executor asyncExecutor = r -> new Thread(r).start();
         var task = buildTask("concurrency-guard", action, listener, false, asyncExecutor, session.getKeycloakSessionFactory());
 

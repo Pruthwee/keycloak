@@ -31,6 +31,7 @@ import org.infinispan.Cache;
 import org.infinispan.affinity.KeyAffinityService;
 import org.infinispan.affinity.KeyAffinityServiceFactory;
 import org.infinispan.affinity.KeyGenerator;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -65,6 +66,7 @@ public class InfinispanKeyGenerator {
         boolean wantsLocalKey = !session.getProvider(StickySessionEncoderProvider.class).shouldAttachRoute();
 
         if (wantsLocalKey && cache.getCacheConfiguration().clustering().cacheMode().isClustered()) {
+            // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
             KeyAffinityService<K> keyAffinityService = keyAffinityServices.computeIfAbsent(cacheName, s -> {
                 KeyAffinityService<K> k = createKeyAffinityService(cache, keyGenerator);
                 log.debugf("Registered key affinity service for cache '%s'", cacheName);

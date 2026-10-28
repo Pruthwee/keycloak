@@ -27,6 +27,7 @@ public class SAMLEncryptedAssertionParser implements StaxParser {
 
     private static final SAMLEncryptedAssertionParser INSTANCE = new SAMLEncryptedAssertionParser();
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLEncryptedAssertionParser getInstance() {
         return INSTANCE;
     }

@@ -31,6 +31,7 @@ import org.keycloak.representations.userprofile.config.UPConfig.UnmanagedAttribu
 import org.keycloak.storage.UserStorageProvider;
 import org.keycloak.userprofile.UserProfileProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class MigrateTo24_0_0 extends RealmMigration {

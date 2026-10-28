@@ -149,6 +149,7 @@ public class SamlRelayStateTest extends AbstractSamlTest {
     @Test
     @Ignore("KEYCLOAK-5179")
     public void relayStateConcurrencyTest() throws Exception {
+        // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
         ThreadLocal<UUID> tl = new ThreadLocal<>();
 
         List<SamlClient.Step> steps = new SamlClientBuilder()

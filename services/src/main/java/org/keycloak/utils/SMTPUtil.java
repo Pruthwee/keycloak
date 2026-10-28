@@ -42,6 +42,7 @@ public class SMTPUtil {
      * @param config The configuration to validate
      * @throws EmailException If some error is found in the configuration
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void checkSMTPConfiguration(KeycloakSession session, Map<String, String> config) throws EmailException {
         if (config == null || config.isEmpty()) {
             return;

@@ -77,6 +77,7 @@ public class ElytronEcdhEsAlgorithmProvider implements JWEAlgorithmProvider {
             return derivedKey;
         } else {
             Cipher cipher = Cipher.getInstance(getAesWrapAlgorithm(header.getAlgorithm()));
+            // Cloud: retrieve secrets from AWS Secrets Manager
             cipher.init(Cipher.UNWRAP_MODE, new SecretKeySpec(derivedKey, "AES"));
             return cipher.unwrap(encodedCek, "AES", Cipher.SECRET_KEY).getEncoded();
         }
@@ -111,6 +112,7 @@ public class ElytronEcdhEsAlgorithmProvider implements JWEAlgorithmProvider {
         } else {
             Cipher cipher = Cipher.getInstance(getAesWrapAlgorithm(header.getAlgorithm()));
             cipher.init(Cipher.WRAP_MODE, new SecretKeySpec(derivedKey, "AES"));
+            // Cloud: retrieve secrets from AWS Secrets Manager
             byte[] cekBytes = keyStorage.getCekBytes();
             return cipher.wrap(new SecretKeySpec(cekBytes, "AES"));
         }

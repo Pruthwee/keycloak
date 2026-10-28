@@ -29,6 +29,7 @@ public class ClientSecretRotationExecutorFactory implements ClientPolicyExecutor
 
     public static final String SECRET_ROTATED_EXPIRATION_PERIOD = "rotated-expiration-period";
     public static final Long DEFAULT_SECRET_ROTATED_EXPIRATION_PERIOD = TimeUnit.DAYS.toSeconds(2);
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

@@ -105,6 +105,8 @@ import static org.keycloak.tests.oauth.tokenexchange.DelegationAssertions.assert
 public class TokenExchangeDelegationTest {
 
     private static final String USERNAME = "test-user@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "password";
 
     @InjectRealm(config = TokenExchangeDelegationRealmConfig.class)

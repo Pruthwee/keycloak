@@ -34,6 +34,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
+// Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
 import jakarta.servlet.http.HttpSession;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -63,6 +64,7 @@ public class SendUsernameServlet {
 
     private static boolean checkRoles = false;
     private static SamlAuthenticationError authError;
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Principal sentPrincipal;
     private static List<String> checkRolesList = Collections.singletonList("manager");
 
@@ -220,6 +222,7 @@ public class SendUsernameServlet {
         return output;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
     private String getSessionInfo() {
         HttpSession session = httpServletRequest.getSession(false);
 

@@ -213,6 +213,7 @@ public class WebAuthnAuthenticatorsBean {
                             .orElse(UNKNOWN);
                 }
 
+                // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
                 public static Transport getByMapperName(String mapperName) {
                     if (StringUtil.isBlank(mapperName)) return UNKNOWN;
 

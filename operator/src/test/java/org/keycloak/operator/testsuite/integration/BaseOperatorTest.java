@@ -104,6 +104,7 @@ import io.quarkus.test.junit.callback.QuarkusTestAfterEachCallback;
 import io.quarkus.test.junit.callback.QuarkusTestMethodContext;
 import org.awaitility.Awaitility;
 import org.eclipse.microprofile.config.ConfigProvider;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger.Level;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assumptions;
@@ -178,6 +179,7 @@ public enum OperatorDeployment {local_apiserver,local,remote}
 
   private static ApiServerHelper kubeApi;
 
+  // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
   private static List<HasMetadata> resources;
 
   @BeforeAll
@@ -375,8 +377,12 @@ public enum OperatorDeployment {local_apiserver,local,remote}
         String podName = pod.getMetadata().getName();
         Log.infof("Processing %s", podName);
         String podLog = k8sclient.pods().withName(podName).getLog();
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File file = new File(POD_LOGS_DIR + String.format("%s-%s.txt", namespace, podName)); // using namespace for now, if more tests fail, the log might get overwritten
         file.getAbsoluteFile().getParentFile().mkdirs();
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (var fw = new FileWriter(file, false)) {
           fw.write(podLog);
         }

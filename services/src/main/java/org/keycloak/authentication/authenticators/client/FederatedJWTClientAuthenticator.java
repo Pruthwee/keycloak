@@ -31,6 +31,8 @@ public class FederatedJWTClientAuthenticator extends AbstractClientAuthenticator
 
     public static final String PROVIDER_ID = "federated-jwt";
 
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String JWT_CREDENTIAL_ISSUER_KEY = "jwt.credential.issuer";
     public static final String JWT_CREDENTIAL_SUBJECT_KEY = "jwt.credential.sub";
 

@@ -58,6 +58,7 @@ public class AddRealmCodeSecret implements CustomSqlChange {
             String correctedSchemaName = database.escapeObjectName(database.getDefaultSchemaName(), Schema.class);
 
             if (SnapshotGeneratorFactory.getInstance().has(new Table().setName(correctedTableName), database)) {
+                // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
                 try (Statement st = connection.createStatement(); ResultSet resultSet = st.executeQuery("SELECT ID FROM " + LiquibaseJpaUpdaterProvider.getTable(correctedTableName, correctedSchemaName) + " WHERE CODE_SECRET IS NULL")) {
                     while (resultSet.next()) {
                         String id = resultSet.getString(1);

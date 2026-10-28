@@ -9,6 +9,7 @@ public final class Util {
     private Util() {
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static <T> Stream<T> mergeKeySet(Map<T, ?> map1, Map<T, ?> map2) {
         return Stream.concat(
                 map1.keySet().stream(),

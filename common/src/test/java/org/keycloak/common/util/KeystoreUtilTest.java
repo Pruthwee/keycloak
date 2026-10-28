@@ -20,6 +20,7 @@ public class KeystoreUtilTest {
         assertFalse(KeystoreUtil.getKeystoreFormat("some.file").isPresent());
         assertFalse(KeystoreUtil.getKeystoreFormat("somepfx").isPresent());
         assertEquals(KeystoreUtil.KeystoreFormat.PKCS12, KeystoreUtil.getKeystoreFormat("file.pfx").get());
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         assertEquals(KeystoreUtil.KeystoreFormat.JKS, KeystoreUtil.getKeystoreFormat("file.jks").get());
     }
 

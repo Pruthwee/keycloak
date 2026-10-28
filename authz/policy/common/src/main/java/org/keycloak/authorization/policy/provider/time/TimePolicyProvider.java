@@ -27,6 +27,7 @@ import org.keycloak.authorization.policy.evaluation.Evaluation;
 import org.keycloak.authorization.policy.evaluation.EvaluationContext;
 import org.keycloak.authorization.policy.provider.PolicyProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -43,6 +44,7 @@ public class TimePolicyProvider implements PolicyProvider {
     @Override
     public void evaluate(Evaluation evaluation) {
         Policy policy = evaluation.getPolicy();
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         SimpleDateFormat dateFormat = new SimpleDateFormat(DEFAULT_DATE_PATTERN);
         logger.debugf("Time policy %s evaluating", policy.getName());
         try {

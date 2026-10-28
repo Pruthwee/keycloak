@@ -57,6 +57,7 @@ public class Ed255192018SuiteTest {
             }
             exchange.close();
         });
+        // Cloud: use dynamic thread pool sizing based on ECS/EKS container resources
         executor = Executors.newFixedThreadPool(2);
         server.setExecutor(executor);
         server.start();

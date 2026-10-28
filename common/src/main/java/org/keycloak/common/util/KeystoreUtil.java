@@ -112,6 +112,7 @@ public class KeystoreUtil {
                 throw new RuntimeException("Unable to find key store in classpath");
             }
         } else {
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             trustStream = new FileInputStream(new File(filename));
         }
         try (InputStream is = trustStream) {

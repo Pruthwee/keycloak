@@ -92,6 +92,7 @@ public class HttpDistTest {
     public void maxQueuedRequestsTest(KeycloakRunner runner) {
         runner.run("start-dev", "--http-max-queued-requests=1", "--http-pool-max-threads=1");
 
+        // Cloud: use dynamic thread pool sizing based on ECS/EKS container resources
         ExecutorService executor = Executors.newFixedThreadPool(5);
         try {
             List<CompletableFuture<Integer>> statusCodesFuture = new ArrayList<>();

@@ -42,6 +42,7 @@ import org.keycloak.provider.ProviderConfigurationBuilder;
 
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -375,6 +376,7 @@ public class DenylistPasswordPolicyProviderFactory implements PasswordPolicyProv
             this.lastModifiedMillis = path.toFile().lastModified();
             this.lastSizeBytes = path.toFile().length();
             this.denylist = load();
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             this.lastCheckedMillis = System.currentTimeMillis();
         }
 

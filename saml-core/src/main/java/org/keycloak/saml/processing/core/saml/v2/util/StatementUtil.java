@@ -80,6 +80,7 @@ public class StatementUtil {
      *
      * @return
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static AttributeStatementType createAttributeStatement(Map<String, Object> attributes) {
         AttributeStatementType attrStatement = null;
 

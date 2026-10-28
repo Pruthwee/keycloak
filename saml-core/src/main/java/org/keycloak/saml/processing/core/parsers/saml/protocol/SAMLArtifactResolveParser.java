@@ -41,6 +41,7 @@ public class SAMLArtifactResolveParser extends SAMLRequestAbstractParser<Artifac
         super(SAMLProtocolQNames.ARTIFACT_RESOLVE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLArtifactResolveParser getInstance() {
         return INSTANCE;
     }

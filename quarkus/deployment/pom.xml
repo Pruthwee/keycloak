@@ -191,6 +191,7 @@
             <artifactId>quarkus-micrometer-deployment</artifactId>
             <exclusions>
                 <exclusion>
+                    <!-- Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis -->
                     <groupId>org.jboss.metadata</groupId>
                     <artifactId>jboss-metadata-web</artifactId>
                 </exclusion>

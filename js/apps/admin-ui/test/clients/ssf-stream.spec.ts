@@ -13,6 +13,7 @@ import { assertNotificationMessage } from "../utils/masthead.ts";
 test.describe.serial("Client SSF stream creation", () => {
   const realmName = `ssf-stream-realm-${uuid()}`;
   const clientId = `ssf-stream-client-${uuid()}`;
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
   const pushEndpoint = "https://receiver.example.com/ssf/push";
 
   let clientUuid: string;
@@ -76,6 +77,7 @@ test.describe.serial("Client SSF stream creation", () => {
     await expect(submit).toBeDisabled();
 
     // A non-http(s) URL is rejected inline and submit remains disabled.
+    // Cloud: replace FTP with Amazon S3 for file storage and transfer
     await page.getByTestId("ssfCreateStreamEndpointUrl").fill("ftp://nope");
     await expect(page.getByTestId("endpointUrl-helper")).toBeVisible();
     await expect(submit).toBeDisabled();

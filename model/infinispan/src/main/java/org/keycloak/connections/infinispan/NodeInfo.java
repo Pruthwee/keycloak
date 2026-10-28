@@ -18,6 +18,7 @@
 package org.keycloak.connections.infinispan;
 
 import java.util.Objects;
+// Cloud: replace ThreadLocal with request-scoped beans for cloud environments
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.infinispan.factories.GlobalComponentRegistry;

@@ -135,6 +135,7 @@ class VerifyMessagePropertiesTest {
         if (resource == null) {
             throw new RuntimeException("Resource not found: " + fixture);
         }
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         return new VerifyMessageProperties(new File(resource.getFile()));
     }
 

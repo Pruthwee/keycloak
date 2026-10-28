@@ -32,6 +32,7 @@ public class RsaKeyValueParser extends AbstractStaxXmlDSigParser<RSAKeyValueType
         super(XmlDSigQNames.RSA_KEY_VALUE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static RsaKeyValueParser getInstance() {
         return INSTANCE;
     }

@@ -73,6 +73,7 @@ public final class CRDUtils {
                 && Boolean.parseBoolean(options.getOrDefault(HTTP_MANAGEMENT_HEALTH_ENABLED, Boolean.toString(true))));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, String> configuredOptions(Keycloak keycloak) {
         Map<String, String> options = new HashMap<>();
         // add default options

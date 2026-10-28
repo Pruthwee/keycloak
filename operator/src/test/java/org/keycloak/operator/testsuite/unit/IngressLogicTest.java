@@ -70,6 +70,7 @@ public class IngressLogicTest {
             return build(true, false, true, true, null,null, hostname);
         }
 
+        // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
         public static MockKeycloakIngress build(Boolean defaultIngressEnabled, boolean ingressExists, boolean ingressSpecDefined, boolean tlsConfigured, Map<String, String> annotations) {
             return build(defaultIngressEnabled, ingressExists, ingressSpecDefined, tlsConfigured, annotations,null, null);
         }

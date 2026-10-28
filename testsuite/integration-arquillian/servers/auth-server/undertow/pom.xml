@@ -43,6 +43,7 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <!-- Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis -->
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
         </dependency>

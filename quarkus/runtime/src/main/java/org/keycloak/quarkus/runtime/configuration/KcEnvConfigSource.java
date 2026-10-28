@@ -50,6 +50,7 @@ public class KcEnvConfigSource extends PropertiesConfigSource {
         super(buildProperties(env), NAME, 500);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> buildProperties(Map<String, String> env) {
         Map<String, String> properties = new HashMap<>(env);
 

@@ -1083,6 +1083,7 @@ public class OID4VCJWTIssuerEndpointTest extends OID4VCIssuerEndpointTest {
         String cNonce = getCNonce();
 
         String issuer = credentialIssuer.getCredentialIssuer();
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long now = System.currentTimeMillis() / 1000L;
         String futureIatProof = generateJwtProofWithClaims(
                 List.of(issuer),

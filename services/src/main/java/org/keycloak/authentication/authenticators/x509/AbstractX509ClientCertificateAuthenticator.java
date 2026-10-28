@@ -44,6 +44,7 @@ import org.keycloak.models.UserModel;
 import org.keycloak.services.x509.X509ClientCertificateLookup;
 
 import org.apache.commons.codec.binary.Hex;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 

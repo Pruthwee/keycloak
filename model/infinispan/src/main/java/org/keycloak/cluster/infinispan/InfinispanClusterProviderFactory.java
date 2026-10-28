@@ -46,6 +46,7 @@ import org.infinispan.notifications.cachemanagerlistener.annotation.ViewChanged;
 import org.infinispan.notifications.cachemanagerlistener.event.MergeEvent;
 import org.infinispan.notifications.cachemanagerlistener.event.ViewChangedEvent;
 import org.infinispan.remoting.transport.Address;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.connections.infinispan.InfinispanConnectionProvider.LOCAL_CACHE_NAMES;
@@ -65,6 +66,7 @@ public class InfinispanClusterProviderFactory implements ClusterProviderFactory,
     private volatile Cache<String, Object> workCache;
     private volatile ClusterProvider clusterProvider;
 
+    // Cloud: use dynamic thread pool sizing based on ECS/EKS container resources
     protected final ExecutorService localExecutor = Executors.newCachedThreadPool(r -> {
         Thread thread = Executors.defaultThreadFactory().newThread(r);
         thread.setName(this.getClass().getName() + "-" + thread.getName());

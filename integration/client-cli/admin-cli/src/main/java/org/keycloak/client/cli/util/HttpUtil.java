@@ -320,6 +320,7 @@ public class HttpUtil {
         return addQueryParamsToUri(uri, params);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static String addQueryParamsToUri(String uri, Map<String, String> queryParams) {
 
         if (queryParams.size() == 0) {

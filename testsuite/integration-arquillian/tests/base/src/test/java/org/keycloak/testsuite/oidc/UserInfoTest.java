@@ -106,6 +106,7 @@ import org.keycloak.util.TokenUtil;
 import org.keycloak.utils.MediaType;
 
 import org.hamcrest.CoreMatchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Rule;

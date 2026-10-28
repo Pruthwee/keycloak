@@ -33,6 +33,7 @@ import org.keycloak.models.cache.infinispan.stream.InGroupPredicate;
 import org.keycloak.models.cache.infinispan.stream.InRealmPredicate;
 
 import org.infinispan.Cache;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -138,6 +139,7 @@ public class RealmCacheManager extends CacheManager {
     public <T> T computeSerialized(KeycloakSession session, String id, BiFunction<String, KeycloakSession, T> compute) {
         // this locking is only to ensure that if there is a computation for the same id in the "synchronized" block below,
         // it will have the same object instance to lock the current execution until the other is finished.
+        // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
         ReentrantLock lock = cacheInteractions.computeIfAbsent(id, s -> new ReentrantLock());
         try {
             lock.lock();

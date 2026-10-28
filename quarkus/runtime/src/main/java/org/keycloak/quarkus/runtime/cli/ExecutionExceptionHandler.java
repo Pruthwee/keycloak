@@ -22,6 +22,7 @@ import java.io.PrintWriter;
 import org.keycloak.quarkus.runtime.Environment;
 
 import io.quarkus.bootstrap.logging.InitialConfigurator;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import picocli.CommandLine;
 import picocli.CommandLine.ParseResult;

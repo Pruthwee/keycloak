@@ -45,6 +45,7 @@ public class SAMLSloRequestParser extends SAMLRequestAbstractParser<LogoutReques
         super(SAMLProtocolQNames.LOGOUT_REQUEST);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLSloRequestParser getInstance() {
         return INSTANCE;
     }

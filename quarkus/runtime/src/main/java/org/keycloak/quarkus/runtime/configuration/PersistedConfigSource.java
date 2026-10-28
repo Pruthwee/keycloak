@@ -58,12 +58,14 @@ public final class PersistedConfigSource extends PropertiesConfigSource {
      * to ignore this config source. Otherwise, default values are not resolved at runtime because the property will be
      * resolved from this config source, if persisted.
      */
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<Boolean> ENABLED = ThreadLocal.withInitial(() -> true);
 
     private PersistedConfigSource() {
         super(readProperties(), NAME, 200);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static PersistedConfigSource getInstance() {
         return INSTANCE;
     }
@@ -86,6 +88,7 @@ public final class PersistedConfigSource extends PropertiesConfigSource {
         return Set.of();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> readProperties() {
         if (!Environment.isRebuild()) {
             InputStream fileStream = loadPersistedConfig();
@@ -175,11 +178,13 @@ public final class PersistedConfigSource extends PropertiesConfigSource {
     public void saveDryRunProperties() throws FileNotFoundException, IOException {
         Path path = Environment.getHomePath().orElseThrow().resolve("lib").resolve("quarkus").resolve("dryRun.properties");
         var properties = Picocli.getNonPersistedBuildTimeOptions();
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (FileOutputStream fos = new FileOutputStream(path.toFile())) {
             properties.store(fos, null);
         }
     }
 
+    // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
     public void useDryRunProperties() {
         Path path = Environment.getHomePath().orElseThrow().resolve("lib").resolve("quarkus").resolve("dryRun.properties");
         if (Files.exists(path)) {

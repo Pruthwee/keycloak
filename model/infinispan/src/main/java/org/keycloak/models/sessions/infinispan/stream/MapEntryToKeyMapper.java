@@ -47,6 +47,7 @@ public class MapEntryToKeyMapper<K, V> implements Function<Map.Entry<K, V>, K> {
 
     @ProtoFactory
     @SuppressWarnings("unchecked")
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static <K1, V1> MapEntryToKeyMapper<K1, V1> getInstance() {
         return (MapEntryToKeyMapper<K1, V1>) INSTANCE;
     }

@@ -100,6 +100,7 @@ public class OAuth2DeviceCodeModel {
         this.codeChallengeMethod = codeChallengeMethod;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static OAuth2DeviceCodeModel fromCache(RealmModel realm, String deviceCode, Map<String, String> data) {
         OAuth2DeviceCodeModel model = new OAuth2DeviceCodeModel(realm, deviceCode, data);
 

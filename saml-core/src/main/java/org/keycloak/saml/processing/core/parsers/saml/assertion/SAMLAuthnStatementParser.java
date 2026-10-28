@@ -39,6 +39,7 @@ public class SAMLAuthnStatementParser extends AbstractStaxSamlAssertionParser<Au
         super(SAMLAssertionQNames.AUTHN_STATEMENT);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAuthnStatementParser getInstance() {
         return INSTANCE;
     }

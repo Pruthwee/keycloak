@@ -38,6 +38,7 @@ import org.keycloak.representations.IDToken;
  */
 public class AddressMapper extends AbstractOIDCProtocolMapper implements OIDCAccessTokenMapper, OIDCIDTokenMapper, UserInfoTokenMapper, TokenIntrospectionTokenMapper {
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     public static final String STREET = "street";
@@ -69,6 +70,7 @@ public class AddressMapper extends AbstractOIDCProtocolMapper implements OIDCAcc
 
     public static final String PROVIDER_ID = "oidc-address-mapper";
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel createAddressMapper() {
         return createAddressMapper(true, true, true, true);
     }

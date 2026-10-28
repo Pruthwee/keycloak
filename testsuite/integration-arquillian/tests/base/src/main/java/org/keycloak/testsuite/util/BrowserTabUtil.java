@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.htmlunit.WebClient;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.drone.webdriver.htmlunit.DroneHtmlUnitDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -40,6 +41,7 @@ public class BrowserTabUtil implements AutoCloseable {
     private WebDriver driver;
     private JavascriptExecutor jsExecutor;
     private List<String> tabs;
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<BrowserTabUtil> instances;
 
     private BrowserTabUtil(WebDriver driver) {

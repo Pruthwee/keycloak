@@ -151,6 +151,8 @@ public class DPoPTest {
     private static final String TEST_PUBLIC_CLIENT_ID = "test-public-client";
     private static final String TEST_NAMED_CLIENT_ID = "named-test-app";
     private static final String TEST_USER_NAME = "test-user@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String TEST_USER_PASSWORD = "password";
 
     @InjectRealm(config = DPoPRealmConfig.class)

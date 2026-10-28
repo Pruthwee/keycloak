@@ -57,6 +57,7 @@ public class OrganizationIdentityProviderTest extends AbstractOrganizationTest {
         return idpRep.getOrganizationLinks() == null || idpRep.getOrganizationLinks().isEmpty();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<OrganizationIdentityProviderLinkRepresentation> linksFor(String... orgIds) {
         return java.util.Arrays.stream(orgIds)
                 .map(OrganizationIdentityProviderLinkRepresentation::new)

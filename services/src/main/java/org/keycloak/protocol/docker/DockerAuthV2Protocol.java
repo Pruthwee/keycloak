@@ -32,6 +32,8 @@ import org.keycloak.services.ErrorResponseException;
 import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.util.TokenUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.server.jaxrs.ResponseBuilderImpl;
 
@@ -130,6 +132,7 @@ public class DockerAuthV2Protocol implements LoginProtocol {
                         .type("JWT")
                         .jsonContent(responseToken)
                         .rsa256(activeKey.getPrivateKey());
+                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                 final String expiresInIso8601String = new SimpleDateFormat(ISO_8601_DATE_FORMAT).format(new Date(responseToken.getIat() * 1000L));
 
                 final DockerResponse responseEntity = new DockerResponse()

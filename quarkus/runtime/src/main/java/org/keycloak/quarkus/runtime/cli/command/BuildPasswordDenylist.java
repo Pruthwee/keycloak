@@ -98,6 +98,7 @@ public class BuildPasswordDenylist extends AbstractCommand {
         picocli.println("  False-positive probability: " + fpp);
 
         try {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             long startMs = System.currentTimeMillis();
             DenylistPasswordPolicyProviderFactory.buildBloomFile(inputFile, outputFile, fpp);
             long elapsedMs = System.currentTimeMillis() - startMs;

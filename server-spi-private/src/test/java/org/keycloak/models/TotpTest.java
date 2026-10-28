@@ -52,6 +52,7 @@ public class TotpTest {
 
         for (int i = -lookAroundWindow; i <= lookAroundWindow; i++) {
 
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.MINUTE, i);
             totp.setCalendar(calendar);

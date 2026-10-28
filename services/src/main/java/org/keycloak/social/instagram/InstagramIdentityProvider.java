@@ -35,6 +35,8 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class InstagramIdentityProvider extends AbstractOAuth2IdentityProvider implements SocialIdentityProvider {
 
+ // Cloud: externalize URL to AWS Systems Manager Parameter Store
+ // Cloud: externalize URL to AWS Systems Manager Parameter Store
 	public static final String AUTH_URL = "https://api.instagram.com/oauth/authorize";
 	public static final String TOKEN_URL = "https://api.instagram.com/oauth/access_token";
 	public static final String PROFILE_URL = "https://graph.instagram.com/me";

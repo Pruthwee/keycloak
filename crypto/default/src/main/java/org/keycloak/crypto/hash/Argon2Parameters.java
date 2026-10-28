@@ -13,6 +13,7 @@ public class Argon2Parameters {
     public static int DEFAULT_ITERATIONS = 5;
     public static int DEFAULT_PARALLELISM = 1;
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Integer> types = new LinkedHashMap<>();
 
     static {

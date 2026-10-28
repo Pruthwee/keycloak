@@ -26,6 +26,7 @@ import java.util.Set;
 
 import org.keycloak.adapters.saml.config.parsers.ResourceLoader;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -111,6 +112,7 @@ public class PropertiesBasedRoleMapper implements RoleMappingsProvider {
         // try to load the properties from the filesystem first.
         String path = config.getProperty(PROPERTIES_FILE_LOCATION);
         if (path != null) {
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             File file = new File(path);
             if (file.exists()) {
                 try (FileInputStream is = new FileInputStream(file)){

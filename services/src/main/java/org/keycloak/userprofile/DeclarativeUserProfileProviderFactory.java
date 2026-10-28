@@ -570,6 +570,7 @@ public class DeclarativeUserProfileProviderFactory implements UserProfileProvide
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Object> getEmailAnnotationDecorator(AttributeContext c) {
         AttributeMetadata m = c.getMetadata();
         Map<String, Object> rawAnnotations = Optional.ofNullable(m.getAnnotations()).orElse(Map.of());

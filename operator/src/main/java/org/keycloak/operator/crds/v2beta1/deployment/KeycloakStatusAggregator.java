@@ -77,6 +77,7 @@ public class KeycloakStatusAggregator {
         updateType.setType(KeycloakStatusCondition.UPDATE_TYPE);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static <T extends StatusCondition> Map<String, T> getConditionMap(List<T> conditions) {
         return Optional.ofNullable(conditions).orElse(List.of()).stream().collect(Collectors.toMap(StatusCondition::getType, Function.identity()));
     }

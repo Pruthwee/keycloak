@@ -32,6 +32,7 @@ import org.keycloak.provider.ProviderConfigurationBuilder;
 import org.keycloak.storage.configuration.ServerConfigStorageProvider;
 import org.keycloak.timer.TimerProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.executors.ExecutorsProvider.EXPIRATION_TASKS;
@@ -105,6 +106,7 @@ public final class ExpirationHelper {
                 .add();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void addToOperationalInfo(int interval, int timeout, int maxRemoval, Map<String, String> info) {
         info.put(EXPIRATION_TASK_INTERVAL_KEY, interval + " seconds");
         info.put(EXPIRATION_TASK_TIMEOUT_KEY, timeout + " seconds");

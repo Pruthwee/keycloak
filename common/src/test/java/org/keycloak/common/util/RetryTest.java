@@ -43,7 +43,10 @@ class RetryTest {
     @Disabled("Disabled because it is slow. Run manually when needed.")
     @Test
     void shouldWaitExactlyTenSeconds() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long started = System.currentTimeMillis();
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         AtomicLong last = new AtomicLong(System.currentTimeMillis());
         Assertions.assertThrowsExactly(RuntimeException.class, () -> Retry.executeWithBackoff(iteration -> {
             long current = System.currentTimeMillis();

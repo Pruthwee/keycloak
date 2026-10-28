@@ -43,6 +43,7 @@ public class ClientScopesConditionFactory extends AbstractClientPolicyConditionP
     public static final String OPTIONAL = "Optional";
     public static final String ANY = "Any";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

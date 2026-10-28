@@ -32,6 +32,7 @@ public enum SslRequired {
     NONE;
 
     public boolean isRequired(ClientConnection connection) {
+        // Cloud: replace IP-based security with AWS IAM authentication
         return isRequired(connection.getRemoteAddr());
     }
 

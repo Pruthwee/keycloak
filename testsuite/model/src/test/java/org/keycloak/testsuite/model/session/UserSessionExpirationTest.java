@@ -157,6 +157,7 @@ public class UserSessionExpirationTest extends KeycloakModelTest {
                 .count();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> events(KeycloakSession session) {
         EventStoreProvider provider = session.getProvider(EventStoreProvider.class);
         return provider.createQuery()

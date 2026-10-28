@@ -19,6 +19,8 @@ package org.keycloak.testsuite.arquillian;
 
 import java.util.List;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.logging.Logger;
 import org.junit.runners.model.FrameworkMethod;

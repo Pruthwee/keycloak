@@ -47,6 +47,7 @@ public class OID4VCUserAttributeMapper extends OID4VCMapper {
     public static final String MAPPER_ID = "oid4vc-user-attribute-mapper";
     public static final String AGGREGATE_ATTRIBUTES_KEY = "aggregateAttributes";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> CONFIG_PROPERTIES = new ArrayList<>();
 
     static {
@@ -105,6 +106,7 @@ public class OID4VCUserAttributeMapper extends OID4VCMapper {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String mapperName, String claimName, String userAttribute,
                                              boolean aggregateAttributes) {
         ProtocolMapperModel mapperModel = new ProtocolMapperModel();

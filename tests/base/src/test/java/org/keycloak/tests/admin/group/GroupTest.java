@@ -147,6 +147,7 @@ public class GroupTest extends AbstractGroupTest {
         AtomicBoolean deletedAll = new AtomicBoolean(false);
         List<Exception> caughtExceptions = new CopyOnWriteArrayList<>();
         // read groups in a separate thread
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         new Thread(() -> {
             while (!deletedAll.get()) {
                 try {

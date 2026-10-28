@@ -44,6 +44,7 @@ public class ObjectMapperResolver implements ContextResolver<ObjectMapper> {
         mapper = ObjectMapperInitializer.OBJECT_MAPPER;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ObjectMapper createStreamSerializer() {
         ObjectMapper mapper = new ObjectMapper();
         JavaType type = TypeFactory.unknownType();

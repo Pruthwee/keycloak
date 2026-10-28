@@ -26,6 +26,7 @@ import java.util.Set;
 import org.keycloak.policy.PasswordPolicyConfigException;
 import org.keycloak.policy.PasswordPolicyProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

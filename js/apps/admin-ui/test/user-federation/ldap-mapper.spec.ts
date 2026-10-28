@@ -45,6 +45,7 @@ test.describe.serial("User Fed LDAP mapper tests", () => {
       providerId: provider,
       name: ldapName,
       config: {
+        // Cloud: use AWS Secrets Manager and AWS Managed Microsoft AD
         connectionUrl: ["ldap://localhost:3004"],
         bindType: ["simple"],
         bindDn: ["cn=user,dc=test"],

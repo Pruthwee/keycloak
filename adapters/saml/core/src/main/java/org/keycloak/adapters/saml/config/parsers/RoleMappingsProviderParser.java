@@ -38,6 +38,7 @@ public class RoleMappingsProviderParser extends AbstractKeycloakSamlAdapterV1Par
         super(KeycloakSamlAdapterV1QNames.ROLE_MAPPINGS_PROVIDER);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static RoleMappingsProviderParser getInstance() {
         return INSTANCE;
     }

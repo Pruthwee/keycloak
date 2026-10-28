@@ -30,6 +30,7 @@ import org.keycloak.services.ErrorResponse;
 import org.keycloak.services.managers.LDAPServerCapabilitiesManager;
 import org.keycloak.services.resources.admin.fgap.AdminPermissionEvaluator;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.NoCache;
 
 /**

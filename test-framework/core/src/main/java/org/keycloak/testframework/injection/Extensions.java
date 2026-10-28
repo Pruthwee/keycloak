@@ -26,6 +26,7 @@ public class Extensions {
     private static Extensions INSTANCE;
     private final List<TestFrameworkExtension> extensions;
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static Extensions getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new Extensions();

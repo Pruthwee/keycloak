@@ -26,6 +26,7 @@ import org.keycloak.models.cache.infinispan.events.UserCacheInvalidationEvent;
 import org.keycloak.models.cache.infinispan.stream.InRealmPredicate;
 
 import org.infinispan.Cache;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

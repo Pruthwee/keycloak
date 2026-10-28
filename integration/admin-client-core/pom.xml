@@ -41,6 +41,7 @@
             </exclusions>
         </dependency>
         <dependency>
+            <!-- Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis -->
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
             <version>${resteasy.version}</version>

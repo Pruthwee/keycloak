@@ -124,6 +124,7 @@ public class SdJwt {
         return String.join(OID4VCConstants.SDJWT_DELIMITER, parts);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> getDisclosureStrings(List<SdJwtClaim> claims) {
         List<String> disclosureStrings = new ArrayList<>();
         claims.stream()

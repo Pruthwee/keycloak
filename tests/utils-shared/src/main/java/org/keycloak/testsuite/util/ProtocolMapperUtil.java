@@ -28,6 +28,7 @@ public class ProtocolMapperUtil {
      * @param newName
      * @return
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperRepresentation createRoleNameMapper(String name,
                                                                     String role,
                                                                     String newName) {

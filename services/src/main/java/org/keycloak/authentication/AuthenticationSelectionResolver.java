@@ -30,6 +30,7 @@ import org.keycloak.models.AuthenticationExecutionModel;
 import org.keycloak.models.AuthenticationFlowModel;
 import org.keycloak.models.RealmModel;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -138,6 +139,7 @@ class AuthenticationSelectionResolver {
         RealmModel realm = processor.getRealm();
 
         while (true) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
             if (execution.isAlternative()) {
                 //Consider parent flow as we need to get all alternative executions to be able to list their credentials
                 flowId = execution.getParentFlow();

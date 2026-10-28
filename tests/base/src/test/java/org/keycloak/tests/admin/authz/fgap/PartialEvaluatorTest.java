@@ -99,6 +99,7 @@ public class PartialEvaluatorTest {
         return executeQueries(keycloakSession, realmName, allowedIds, deniedIds, 1).get(0);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> executeQueries(org.keycloak.models.KeycloakSession keycloakSession, String realmName, Set<String> allowedIds, Set<String> deniedIds, int queryCount) {
         RealmModel realmModel = keycloakSession.realms().getRealmByName(realmName);
         keycloakSession.getContext().setRealm(realmModel);

@@ -23,6 +23,17 @@ import java.time.Duration;
 
 import org.keycloak.testsuite.util.WaitUtils;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.core.api.InstanceProducer;
 import org.jboss.arquillian.core.api.annotation.Inject;
 import org.jboss.arquillian.core.api.annotation.Observes;
@@ -126,6 +137,7 @@ public class KeycloakDronePostSetup {
 
                 options.setUseInsecureSSL(true);
                 try {
+                    // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                     options.setSSLClientCertificateKeyStore(new File(keystore).toURI().toURL(), keystorePassword, keystoreType);
                 } catch (MalformedURLException e) {
                     throw new RuntimeException(e);
@@ -144,6 +156,7 @@ public class KeycloakDronePostSetup {
                 int refreshCount = 0;
 
                 while (true) {
+                Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
                     try {
                         // htmlUnit is not able to run javascript on about:blank page
                         if ("about:blank".equals(currentUrl)) {

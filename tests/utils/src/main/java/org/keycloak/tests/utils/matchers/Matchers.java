@@ -119,6 +119,7 @@ public class Matchers {
      * @param matcher
      * @return
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static <T> Matcher<Response> header(Matcher<Map<String, T>> matcher) {
         return new ResponseHeaderMatcher<>(matcher);
     }

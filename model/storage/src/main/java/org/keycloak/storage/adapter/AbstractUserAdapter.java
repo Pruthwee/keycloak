@@ -295,6 +295,7 @@ public abstract class AbstractUserAdapter extends UserModelDefaultMethods {
         throw new ReadOnlyException("user is read only for this update");
     }
 
+    // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
     protected long created = System.currentTimeMillis();
 
     @Override

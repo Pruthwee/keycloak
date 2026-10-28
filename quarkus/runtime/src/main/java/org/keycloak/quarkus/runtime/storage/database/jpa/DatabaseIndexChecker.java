@@ -60,6 +60,7 @@ import liquibase.precondition.core.NotPrecondition;
 import liquibase.precondition.core.OrPrecondition;
 import liquibase.precondition.core.TableExistsPrecondition;
 import liquibase.sqlgenerator.SqlGeneratorFactory;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -186,6 +187,7 @@ public class DatabaseIndexChecker implements Runnable {
             return true;
         }
         if (productName.contains("oracle")) {
+            // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
             try (var stmt = connection.createStatement();
                  var rs = stmt.executeQuery("SELECT BANNER FROM V$VERSION WHERE BANNER LIKE 'Oracle%' AND ROWNUM <= 1")) {
                 if (rs.next()) {

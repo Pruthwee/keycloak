@@ -57,6 +57,7 @@ public final class ValueIdentityBiFunction<K, V> implements BiFunction<K, V, V> 
      */
     @ProtoFactory
     @SuppressWarnings("unchecked")
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static <T, E> ValueIdentityBiFunction<T, E> getInstance() {
         return (ValueIdentityBiFunction<T, E>) INSTANCE;
     }

@@ -96,6 +96,7 @@ public class AdminApiV2 {
         return null;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Object> optionalMap(Map<String, Object> parent, String key) {
         return parent.containsKey(key) ? asMap(parent.get(key)) : Map.of();
     }

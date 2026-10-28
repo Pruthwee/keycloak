@@ -17,6 +17,7 @@ describe("Timeout", () => {
       server.listen(0, "localhost", resolve),
     );
     const { port } = server.address() as AddressInfo;
+    // Cloud: externalize URL to AWS Systems Manager Parameter Store
     baseUrl = `http://localhost:${port}`;
   });
 

@@ -53,9 +53,11 @@ public class SessionTimeoutValidationTest {
                                                 UserSessionModel.SessionPersistenceState.PERSISTENT);
 
         realm.setSsoSessionIdleTimeout(Integer.MAX_VALUE);
+        // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
         Assertions.assertTrue(AuthenticationManager.isSessionValid(realm, userSessionModel),
                 "Session validation with large SsoSessionIdleTimeout failed");
         
+        // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
         realm.setSsoSessionMaxLifespan(Integer.MAX_VALUE);
         Assertions.assertTrue(AuthenticationManager.isSessionValid(realm, userSessionModel),
                 "Session validation with large SsoSessionMaxLifespan failed");

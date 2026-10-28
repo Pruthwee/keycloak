@@ -57,6 +57,7 @@ public class TestSettings {
 
     private static TestSettings instance = null;
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static TestSettings getInstance() {
         if (instance == null) {
             instance = new TestSettings();

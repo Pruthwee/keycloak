@@ -67,6 +67,7 @@ public class ProviderConfigProperty {
      * Possibility to select from user attributes defined in the user-profile, but also still have an option to configure custom value
      */
     public static final String USER_PROFILE_ATTRIBUTE_LIST_TYPE="UserProfileAttributeList";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String PASSWORD="Password";
 
     /**

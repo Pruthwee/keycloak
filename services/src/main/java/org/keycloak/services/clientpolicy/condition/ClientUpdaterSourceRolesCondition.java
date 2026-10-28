@@ -44,6 +44,7 @@ import org.keycloak.services.clientpolicy.context.DynamicClientRegisteredContext
 import org.keycloak.services.clientpolicy.context.DynamicClientUpdateContext;
 import org.keycloak.services.clientpolicy.context.DynamicClientUpdatedContext;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 

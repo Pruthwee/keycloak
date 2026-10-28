@@ -54,6 +54,8 @@ public class RefreshTokenIntrospectionTest {
     private static final String CLIENT_B_SECRET = "secret-b";
 
     private static final String USERNAME = "testuser";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "password";
 
     @InjectRealm(config = RefreshTokenIntrospectionRealmConfig.class)

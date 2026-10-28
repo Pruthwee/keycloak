@@ -12,6 +12,7 @@ import org.keycloak.provider.EnvironmentDependentProviderFactory;
 import org.keycloak.ssf.Ssf;
 import org.keycloak.ssf.transmitter.subject.PurgedUserSnapshot;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class SsfTransmitterEventListenerFactory implements EventListenerProviderFactory, EnvironmentDependentProviderFactory {

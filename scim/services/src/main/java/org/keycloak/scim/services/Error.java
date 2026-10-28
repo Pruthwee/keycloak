@@ -20,6 +20,7 @@ import org.keycloak.scim.resource.spi.ScimMutabilityException;
 import org.keycloak.scim.resource.spi.ScimPatchException;
 import org.keycloak.theme.Theme;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 class Error {

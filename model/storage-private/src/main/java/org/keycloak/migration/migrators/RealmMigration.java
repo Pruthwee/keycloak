@@ -26,6 +26,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.models.cache.CacheRealmProvider;
 import org.keycloak.representations.idm.RealmRepresentation;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public abstract class RealmMigration implements Migration {

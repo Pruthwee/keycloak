@@ -155,6 +155,7 @@ public class DatabaseOptions {
     // mTLS keystore options
     public static final Option<File> DB_MTLS_KEY_STORE_FILE = new OptionBuilder<>("db-mtls-key-store-file", File.class)
             .category(OptionCategory.DATABASE)
+            // Cloud: use AWS Secrets Manager and Amazon Cognito for authentication
             .description("The path to the keystore file containing the client certificate and private key used for mTLS authentication with the database server.")
             .build();
 

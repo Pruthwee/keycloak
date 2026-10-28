@@ -104,6 +104,7 @@ public class SearchQueryUtilsTest {
 
     @Test
     public void testReDoS() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
         int count = 50000;
         for (int i = 0; i < count; i++) {

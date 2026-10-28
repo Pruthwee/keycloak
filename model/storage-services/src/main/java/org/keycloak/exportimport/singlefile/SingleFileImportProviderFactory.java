@@ -54,6 +54,7 @@ public class SingleFileImportProviderFactory implements ImportProviderFactory {
         if (fileName == null) {
             throw new IllegalArgumentException("Property " + FILE + " needs to be provided!");
         }
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         return new SingleFileImportProvider(session.getKeycloakSessionFactory(), new File(fileName), strategy);
     }
 

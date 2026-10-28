@@ -64,6 +64,7 @@ public class WindowsServiceDistTest {
 
     @BeforeEach
     void setUp(KeycloakRunner runner, RawDistRootPath path) {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         this.testServiceName = TEST_SERVICE_NAME_PREFIX + System.currentTimeMillis();
 
         // Check if prunsrv.exe is available in the distribution

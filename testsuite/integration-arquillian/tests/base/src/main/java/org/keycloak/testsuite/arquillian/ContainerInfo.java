@@ -7,6 +7,8 @@ import java.util.Objects;
 
 import org.keycloak.common.util.KeycloakUriBuilder;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.spi.Container;
 import org.jboss.arquillian.container.spi.Container.State;
 

@@ -27,6 +27,7 @@ import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.representations.AccessToken;
 import org.keycloak.services.x509.X509ClientCertificateLookup;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class MtlsHoKTokenUtil {
@@ -39,6 +40,7 @@ public class MtlsHoKTokenUtil {
 
     public static final String CERT_VERIFY_ERROR_DESC = "Client certificate missing, or its thumbprint and one in the token did NOT match";
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Stream<Map.Entry<ProtocolMapperModel, ProtocolMapper>> getTransientProtocolMapper() {
         ProtocolMapperModel protocolMapperModel = new ProtocolMapperModel();
         protocolMapperModel.setId(MtlsHoKProtocolMapper.PROVIDER_ID);

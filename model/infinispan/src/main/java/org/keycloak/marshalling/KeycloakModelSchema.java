@@ -72,6 +72,7 @@ import org.keycloak.models.cache.infinispan.stream.InIdentityProviderPredicate;
 import org.keycloak.models.cache.infinispan.stream.InRealmPredicate;
 import org.keycloak.models.sessions.infinispan.changes.ReplaceFunction;
 import org.keycloak.models.sessions.infinispan.changes.SessionEntityWrapper;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.keycloak.models.sessions.infinispan.changes.sessions.SessionData;
 import org.keycloak.models.sessions.infinispan.entities.AuthenticatedClientSessionEntity;
 import org.keycloak.models.sessions.infinispan.entities.AuthenticatedClientSessionStore;

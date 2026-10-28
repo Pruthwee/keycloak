@@ -230,6 +230,7 @@ public class LDAPTestUtils {
 
     // CRUD model mappers
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void addZipCodeLDAPMapper(RealmModel realm, ComponentModel providerModel) {
         addUserAttributeMapper(realm, providerModel, "zipCodeMapper", "postal_code", LDAPConstants.POSTAL_CODE);
     }

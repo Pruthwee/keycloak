@@ -7,6 +7,7 @@ import org.keycloak.testframework.realm.UserBuilder;
 public class BasicRealmWithUserConfig implements RealmConfig {
 
     public static final String USERNAME =  "basic-user";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String PASSWORD = "password";
 
     @Override

@@ -41,6 +41,7 @@ public class KcAdmV2CachedDescriptorHelpTest {
 
     @BeforeClass
     public static void setUpClass() throws IOException {
+        // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
         tempDir = Files.createTempDirectory("kcadm-help-test");
         setUpCachedDescriptor();
         ConfigUtil.setHandler(null);
@@ -177,6 +178,7 @@ public class KcAdmV2CachedDescriptorHelpTest {
     }
 
     private static void deleteRecursively(Path dir) throws IOException {
+        // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
         try (var paths = Files.walk(dir)) {
             paths.sorted(Comparator.reverseOrder())
                     .forEach(p -> {

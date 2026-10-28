@@ -20,6 +20,7 @@ package org.keycloak.testsuite.auth.page.login;
 import org.keycloak.testsuite.auth.page.AuthRealm;
 import org.keycloak.testsuite.console.page.fragment.LocaleDropdown;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

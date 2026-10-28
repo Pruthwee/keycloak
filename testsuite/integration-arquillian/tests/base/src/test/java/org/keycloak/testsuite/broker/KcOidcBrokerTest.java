@@ -332,6 +332,7 @@ public final class KcOidcBrokerTest extends AbstractAdvancedBrokerTest {
             List<UserSessionModel> userSessions = session.sessions().readOnlyStreamUserSessions(realm, client, -1, -1).toList();
             assertThat(userSessions, hasSize(1));
             UserSessionModel userSession = userSessions.get(0);
+            // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
             assertThat(AuthenticationManager.isSessionValid(realm, userSession), is(false));
         });
 

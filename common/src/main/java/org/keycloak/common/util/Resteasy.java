@@ -30,6 +30,7 @@ import java.util.Map;
 @Deprecated
 public final class Resteasy {
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<Map<Class<?>, Object>> contextualData = new ThreadLocal<Map<Class<?>, Object>>() {
         @Override
         protected Map<Class<?>, Object> initialValue() {

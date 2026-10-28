@@ -34,6 +34,7 @@ import org.keycloak.models.KeycloakSession;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Meter;
 import io.micrometer.core.instrument.Tag;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class MicrometerUserEventMetricsEventListenerProvider implements EventListenerProvider {

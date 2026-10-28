@@ -304,6 +304,7 @@ public class ExportUtils {
         return rep;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static MultivaluedHashMap<String, ComponentExportRepresentation> exportComponents(RealmModel realm, String parentId) {
         MultivaluedHashMap<String, ComponentExportRepresentation> components = new MultivaluedHashMap<>();
         realm.getComponentsStream(parentId).forEach(component -> {

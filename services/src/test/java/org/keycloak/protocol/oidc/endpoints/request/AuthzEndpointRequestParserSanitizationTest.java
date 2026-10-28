@@ -34,6 +34,7 @@ import org.keycloak.services.resteasy.ResteasyKeycloakSession;
 import org.keycloak.services.resteasy.ResteasyKeycloakSessionFactory;
 import org.keycloak.utils.ScopeUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.mock.MockHttpRequest;
 import org.junit.BeforeClass;
 import org.junit.Test;

@@ -25,6 +25,7 @@ import org.keycloak.ssf.transmitter.support.SsfUtil;
 import org.keycloak.storage.UserStorageProvider;
 import org.keycloak.storage.adapter.AbstractInMemoryUserAdapter;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

@@ -43,6 +43,7 @@ public class FullNameLDAPStorageMapperFactory extends AbstractLDAPStorageMapperF
         configProperties = getConfigProps(null);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ProviderConfigProperty> getConfigProps(ComponentModel parent) {
         boolean readOnly = false;
         if (parent != null) {

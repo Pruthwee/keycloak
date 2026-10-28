@@ -26,6 +26,7 @@ import org.keycloak.representations.workflows.WorkflowRepresentation;
 import org.keycloak.representations.workflows.WorkflowStepRepresentation;
 import org.keycloak.timer.TimerProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static java.util.Optional.ofNullable;
@@ -433,6 +434,7 @@ public class DefaultWorkflowProvider implements WorkflowProvider {
 
         if (scheduled == null) {
             scheduled = new HashMap<>();
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute("kc.workflow.scheduled", scheduled);
         }
 

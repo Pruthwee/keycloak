@@ -34,6 +34,7 @@ public class ClassLoaderUtil {
      * Detect if BC FIPS jars are present in the given directory. Return classloader with appropriate JARS based on that
      */
     public static ClassLoader resolveClassLoader(String libDir) {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File[] jarsInDir = new File(libDir).listFiles(file -> file.getName().endsWith(".jar"));
 
         // Detect if BC FIPS jars are present in the "client/lib" directory

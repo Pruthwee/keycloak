@@ -30,6 +30,7 @@ import org.keycloak.testframework.conformance.runner.ConformanceApiClient;
 import org.keycloak.testframework.logging.JBossContainerLogConsumer;
 import org.keycloak.testframework.util.ContainerImages;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.testcontainers.Testcontainers;
 import org.testcontainers.containers.GenericContainer;
@@ -174,6 +175,7 @@ public final class OpenIdConformanceServer implements AutoCloseable {
     private static X509Certificate nginxCertificate(GenericContainer<?> nginx) {
         try {
             return nginx.copyFileFromContainer(NGINX_CERTIFICATE_PATH,
+                    // Cloud: use AWS Certificate Manager (ACM) for certificate management
                     input -> (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(input));
         } catch (Exception e) {
             throw new RuntimeException("Failed to read the conformance suite TLS certificate from " + NGINX_CERTIFICATE_PATH, e);

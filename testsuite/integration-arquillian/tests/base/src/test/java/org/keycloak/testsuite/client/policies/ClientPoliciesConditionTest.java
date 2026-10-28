@@ -74,6 +74,7 @@ import org.keycloak.testsuite.util.ClientPoliciesUtil.ClientProfilesBuilder;
 import org.keycloak.testsuite.util.oauth.AccessTokenResponse;
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -742,6 +743,7 @@ public class ClientPoliciesConditionTest extends AbstractClientPoliciesTest {
     @Test
     public void testClientPolicyTriggeredForServiceAccountRequest() throws Exception {
         String clientId = "service-account-app";
+        // Cloud: retrieve secrets from AWS Secrets Manager
         String clientSecret = "app-secret";
         createClientByAdmin(clientId, (ClientRepresentation clientRep) -> {
             clientRep.setSecret(clientSecret);

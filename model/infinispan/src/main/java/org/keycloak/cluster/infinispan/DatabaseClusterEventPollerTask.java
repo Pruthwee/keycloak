@@ -34,6 +34,7 @@ import org.keycloak.timer.ScheduledTask;
 
 import org.infinispan.Cache;
 import org.infinispan.commons.marshall.Marshaller;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.connections.infinispan.InfinispanConnectionProvider.WORK_CACHE_NAME;

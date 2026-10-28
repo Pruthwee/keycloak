@@ -45,6 +45,7 @@ public class FolderThemeTest {
 
     @Test
     public void testLocaleWithExtension() throws Exception {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         FolderTheme theme = new FolderTheme(new File("."), "name", LOGIN);
 
         for (String localeCode : someValidISOLocaleCodes) {
@@ -56,6 +57,8 @@ public class FolderThemeTest {
     @Test
     public void testGetTemplatePathContainment() throws Exception {
         File tempDirectory = temporaryFolder.newFolder();
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File themeDir = new File(tempDirectory, "login");
         assertTrue("Failed to create theme directory: " + themeDir, themeDir.mkdirs());
         assertTrue("Failed to create theme subdirectory", new File(themeDir, "one").mkdir());

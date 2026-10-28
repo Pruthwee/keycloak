@@ -56,6 +56,7 @@ import org.keycloak.quarkus.runtime.configuration.Configuration;
 
 import io.quarkus.arc.Arc;
 import io.quarkus.runtime.configuration.DurationConverter;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.config.TransactionOptions.MIGRATION_TRANSACTION_TIMEOUT;
@@ -126,6 +127,7 @@ public class QuarkusJpaConnectionProviderFactory extends AbstractJpaConnectionPr
         }
         try (Connection connection = getConnection(); KeycloakSession session = factory.create()) {
             try {
+                // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
                 try (Statement statement = connection.createStatement()) {
                     try (ResultSet rs = statement.executeQuery(String.format(SQL_GET_LATEST_VERSION, getSchema(schema)))) {
                         if (rs.next()) {
@@ -254,6 +256,7 @@ public class QuarkusJpaConnectionProviderFactory extends AbstractJpaConnectionPr
 
     private File getDatabaseUpdateFile() {
         String databaseUpdateFile = config.get("migrationExport", "keycloak-database-update.sql");
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         return new File(databaseUpdateFile);
     }
 
@@ -421,6 +424,7 @@ public class QuarkusJpaConnectionProviderFactory extends AbstractJpaConnectionPr
             return;
         }
 
+        // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
         try (Connection connection = getConnection();
              Statement statement = connection.createStatement();
              Statement statement2 = connection.createStatement();

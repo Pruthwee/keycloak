@@ -23,6 +23,7 @@ import org.keycloak.testsuite.webauthn.pages.fragments.ContentAlert;
 import org.keycloak.testsuite.webauthn.pages.fragments.ContinueCancelModal;
 import org.keycloak.testsuite.webauthn.pages.fragments.LoggedInPageHeader;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

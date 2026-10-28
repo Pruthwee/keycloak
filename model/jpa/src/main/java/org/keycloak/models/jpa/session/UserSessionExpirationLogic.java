@@ -41,6 +41,7 @@ import org.keycloak.models.utils.RealmExpiration;
 import org.keycloak.models.utils.SessionTimeoutHelper;
 
 import org.hibernate.jpa.AvailableHints;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.jpa.session.JpaSessionUtil.offlineToString;

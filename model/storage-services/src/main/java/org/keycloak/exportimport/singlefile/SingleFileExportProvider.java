@@ -35,6 +35,7 @@ import org.keycloak.services.util.ObjectMapperResolver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -103,6 +104,7 @@ public class SingleFileExportProvider implements ExportProvider {
     }
 
     private void writeToFile(Object reps) throws IOException {
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         FileOutputStream stream = new FileOutputStream(this.file);
         getObjectMapper().writeValue(stream, reps);
     }

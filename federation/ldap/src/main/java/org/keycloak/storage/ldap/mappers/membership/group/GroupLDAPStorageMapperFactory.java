@@ -76,6 +76,7 @@ public class GroupLDAPStorageMapperFactory extends AbstractLDAPStorageMapperFact
         configProperties = config;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ProviderConfigProperty> getProps(ComponentModel parent) {
         String roleObjectClasses = LDAPConstants.GROUP_OF_NAMES;
         String mode = LDAPGroupMapperMode.LDAP_ONLY.toString();

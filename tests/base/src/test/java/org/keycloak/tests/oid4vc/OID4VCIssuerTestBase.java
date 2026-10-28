@@ -125,6 +125,7 @@ import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -162,6 +163,7 @@ public abstract class OID4VCIssuerTestBase {
     public static final String TEST_ISSUER_DID = "did:web:test.org";
     public static final String TEST_CREDENTIAL_MAPPERS_FILE = "/oid4vc/test-credential-mappers.json";
     public static final String TEST_USER = "john";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String TEST_PASSWORD = "password";
 
     public static final String jwtTypeNaturalPersonScopeName = "oid4vc_natural_person_jwt";
@@ -1211,6 +1213,7 @@ public abstract class OID4VCIssuerTestBase {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static class ProtocolMapperUtils {
 
         static ProtocolMapperRepresentation getIssuedAtTimeMapper(String subjectProperty, String truncateToTimeUnit, String valueSource) {

@@ -843,6 +843,7 @@ public class StaxParserUtil {
     public static EndElement peekNextEndElement(XMLEventReader xmlEventReader) throws ParsingException {
         try {
             while (true) {
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
                 XMLEvent xmlEvent = xmlEventReader.peek();
 
                 if (xmlEvent == null || xmlEvent.isEndElement())

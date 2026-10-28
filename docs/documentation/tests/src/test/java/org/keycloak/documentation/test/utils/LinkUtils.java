@@ -30,6 +30,7 @@ public class LinkUtils {
     private File verifiedLinksCacheFile;
     private Map<String, Long> verifiedLinks;
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static LinkUtils getInstance() {
         return instance;
     }
@@ -106,6 +107,7 @@ public class LinkUtils {
                     }
 
                     if (error == null) {
+                        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                         verifiedLinks.put(link, System.currentTimeMillis());
                     } else {
                         invalidLinks.add(new InvalidLink(link, error));

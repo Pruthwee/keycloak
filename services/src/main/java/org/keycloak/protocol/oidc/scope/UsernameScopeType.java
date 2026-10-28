@@ -10,6 +10,7 @@ import org.keycloak.models.UserModel;
 import org.keycloak.services.resources.admin.fgap.AdminPermissions;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

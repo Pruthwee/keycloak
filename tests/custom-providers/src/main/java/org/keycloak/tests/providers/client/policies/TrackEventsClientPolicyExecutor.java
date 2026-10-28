@@ -15,6 +15,7 @@ import org.keycloak.services.clientpolicy.context.admin.ClientProtocolMapperCont
 import org.keycloak.services.clientpolicy.executor.ClientPolicyExecutorProvider;
 import org.keycloak.services.clientpolicy.executor.ClientPolicyExecutorProviderFactory;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class TrackEventsClientPolicyExecutor implements ClientPolicyExecutorProviderFactory, ClientPolicyExecutorProvider<TrackEventsClientPolicyExecutor.Configuration> {
@@ -29,6 +30,7 @@ public class TrackEventsClientPolicyExecutor implements ClientPolicyExecutorProv
         this.events = new ArrayList<>();
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static TrackEventsClientPolicyExecutor getInstance() {
         return SINGLETON;
     }

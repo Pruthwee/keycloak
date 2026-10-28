@@ -34,6 +34,7 @@ import org.keycloak.representations.IDToken;
 import org.keycloak.util.JsonSerialization;
 import org.keycloak.util.TokenUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -45,6 +46,7 @@ public class ClaimsParameterWithValueIdTokenMapper extends AbstractOIDCProtocolM
 
     public static final String PROVIDER_ID = "oidc-claims-param-value-idtoken-mapper";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     public static final String CLAIM_NAME = "claim.name";
@@ -126,6 +128,7 @@ public class ClaimsParameterWithValueIdTokenMapper extends AbstractOIDCProtocolM
         hardcodedClaimMapper.setClaim(token, HardcodedClaim.create("hard", claimName, claim, "String", false, true, false), userSession);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel createMapper(String name, String attributeValue, boolean idToken) {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
         mapper.setName(name);

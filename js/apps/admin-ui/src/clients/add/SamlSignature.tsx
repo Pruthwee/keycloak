@@ -19,6 +19,7 @@ export const SIGNATURE_ALGORITHMS = [
 const KEYNAME_TRANSFORMER = ["NONE", "KEY_ID", "CERT_SUBJECT"] as const;
 
 const CANONICALIZATION = [
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
   { name: "EXCLUSIVE", value: "http://www.w3.org/2001/10/xml-exc-c14n#" },
   {
     name: "EXCLUSIVE_WITH_COMMENTS",

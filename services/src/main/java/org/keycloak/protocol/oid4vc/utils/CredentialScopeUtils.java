@@ -17,6 +17,7 @@ import org.keycloak.protocol.oid4vc.model.DisplayObject;
 import org.keycloak.util.Strings;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.constants.OID4VCIConstants.OID4VC_PROTOCOL;

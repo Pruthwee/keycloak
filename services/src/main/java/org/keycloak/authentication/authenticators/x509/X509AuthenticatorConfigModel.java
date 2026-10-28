@@ -113,6 +113,7 @@ public class X509AuthenticatorConfigModel extends AuthenticatorConfigModel {
             this.name = name;
         }
         public String getName() {  return this.name; }
+        // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
         public static MappingSourceType parse(String name) throws IllegalArgumentException, IndexOutOfBoundsException {
             if (name == null || name.trim().length() == 0)
                 throw new IllegalArgumentException("name");

@@ -85,6 +85,7 @@ import org.keycloak.utils.CredentialHelper;
 import io.micrometer.core.instrument.Meter;
 import io.micrometer.core.instrument.Metrics;
 import io.micrometer.core.instrument.Timer;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -111,6 +112,7 @@ public class LDAPStorageProviderFactory implements UserStorageProviderFactory<LD
         configProperties = getConfigProps(null);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ProviderConfigProperty> getConfigProps(ComponentModel parent) {
         boolean readOnly = false;
         if (parent != null) {

@@ -29,6 +29,7 @@ import org.keycloak.storage.StorageId;
 import org.keycloak.storage.role.RoleStorageProvider;
 import org.keycloak.storage.role.RoleStorageProviderModel;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class HardcodedRoleStorageProvider implements RoleStorageProvider {

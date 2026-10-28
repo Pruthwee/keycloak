@@ -105,6 +105,7 @@ public class SsfTransmitterStreamManagementTests {
     static final String RECEIVER_USER_AUTH = "ssf-receiver-user-auth";
     static final String RECEIVER_USER_AUTH_SECRET = "receiver-user-auth-secret";
     static final String SSF_USER = "ssf-user";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String SSF_USER_PASSWORD = "ssf-user-password";
 
     static final String DUMMY_PUSH_ENDPOINT = "http://127.0.0.1:65535/ssf/push";
@@ -1411,6 +1412,7 @@ public class SsfTransmitterStreamManagementTests {
             AuthenticationManager.AuthResult auth =
                     new AuthenticationManager.AuthResult(otherSa, null, token, target);
 
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(SsfAuthUtil.AUTH_KEY, auth);
             try {
                 Assertions.assertFalse(SsfAuthUtil.canManage(),

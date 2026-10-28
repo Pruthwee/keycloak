@@ -27,6 +27,7 @@ import org.keycloak.models.cache.CacheRealmProviderFactory;
 import org.keycloak.models.cache.infinispan.entities.Revisioned;
 
 import org.infinispan.Cache;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.connections.infinispan.InfinispanConnectionProvider.REALM_CACHE_NAME;

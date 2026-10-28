@@ -36,6 +36,7 @@ public class SpParser extends AbstractKeycloakSamlAdapterV1Parser<SP> {
         super(KeycloakSamlAdapterV1QNames.SP);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SpParser getInstance() {
         return INSTANCE;
     }

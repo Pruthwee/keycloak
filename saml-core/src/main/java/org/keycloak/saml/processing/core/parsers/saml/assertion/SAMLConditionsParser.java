@@ -39,6 +39,7 @@ public class SAMLConditionsParser extends AbstractStaxSamlAssertionParser<Condit
         super(SAMLAssertionQNames.CONDITIONS);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLConditionsParser getInstance() {
         return INSTANCE;
     }

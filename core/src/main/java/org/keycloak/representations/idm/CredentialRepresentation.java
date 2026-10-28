@@ -25,6 +25,7 @@ import org.keycloak.common.util.MultivaluedHashMap;
  */
 public class CredentialRepresentation {
     public static final String SECRET = "secret";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String PASSWORD = "password";
     public static final String TOTP = "totp";
     public static final String HOTP = "hotp";

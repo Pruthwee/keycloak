@@ -38,6 +38,7 @@ public class KeyParser extends AbstractKeycloakSamlAdapterV1Parser<Key> {
         super(KeycloakSamlAdapterV1QNames.KEY);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static KeyParser getInstance() {
         return INSTANCE;
     }

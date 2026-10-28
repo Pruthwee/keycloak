@@ -150,6 +150,7 @@ class AuthenticateSessionAdapter implements AuthenticationSessionModel {
                     return cachedUser;
                 }
                 LightweightUserAdapter lua = LightweightUserAdapter.fromString(session, getRealm(), luaSerialization);
+                // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
                 session.setAttribute("authSession.user." + parentSession.getId(), lua);
                 lua.setUpdateHandler(lua1 -> {
                     if (lua == lua1) {

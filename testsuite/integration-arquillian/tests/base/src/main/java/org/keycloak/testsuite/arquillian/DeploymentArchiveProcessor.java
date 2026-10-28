@@ -24,6 +24,18 @@ import org.keycloak.representations.adapters.config.AdapterConfig;
 import org.keycloak.testsuite.utils.io.IOUtil;
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.test.spi.client.deployment.ApplicationArchiveProcessor;
 import org.jboss.arquillian.core.api.InstanceProducer;
 import org.jboss.arquillian.core.api.annotation.Inject;
@@ -140,6 +152,7 @@ public class DeploymentArchiveProcessor implements ApplicationArchiveProcessor {
 
                 archive.add(new StringAsset(IOUtil.documentToString(doc)), adapterConfigPath);
 
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 ((WebArchive) archive).addAsResource(new File(DeploymentArchiveProcessor.class.getResource("/keystore/keycloak.truststore").getFile()));
 
                 // For running SAML tests it is necessary to have few dependencies on app-server side.

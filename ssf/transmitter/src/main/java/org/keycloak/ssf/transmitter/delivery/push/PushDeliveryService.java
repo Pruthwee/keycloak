@@ -15,6 +15,7 @@ import org.keycloak.ssf.transmitter.stream.StreamConfig;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.entity.StringEntity;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

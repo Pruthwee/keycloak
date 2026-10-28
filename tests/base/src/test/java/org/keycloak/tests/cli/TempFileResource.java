@@ -12,6 +12,7 @@ public class TempFileResource implements Closeable {
     private File file;
 
     public TempFileResource(String filepath) {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         file = new File(filepath);
     }
 

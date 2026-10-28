@@ -24,6 +24,7 @@ import org.keycloak.scripting.EvaluatableScriptAdapter;
 import org.keycloak.scripting.ScriptCompilationException;
 import org.keycloak.scripting.ScriptingProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 
@@ -37,6 +38,7 @@ import org.jboss.logging.Logger;
  */
 public class ScriptBasedMapper extends AbstractSAMLProtocolMapper implements SAMLAttributeStatementMapper, EnvironmentDependentProviderFactory {
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
     public static final String PROVIDER_ID = "saml-javascript-mapper";
     private static final String SINGLE_VALUE_ATTRIBUTE = "single";
@@ -209,6 +211,7 @@ public class ScriptBasedMapper extends AbstractSAMLProtocolMapper implements SAM
      * @param singleAttribute If true, all groups will be stored under one attribute with multiple attribute values
      * @return a Protocol Mapper for a group mapping
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name, String samlAttributeName, String nameFormat, String friendlyName, String script, boolean singleAttribute) {
         ProtocolMapperModel mapper =  AttributeStatementHelper.createAttributeMapper(name, null, samlAttributeName, nameFormat, friendlyName,
                 PROVIDER_ID);

@@ -30,6 +30,12 @@ import io.quarkus.arc.Arc;
 import io.quarkus.arc.ClientProxy;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.RestMulti;
 import org.jboss.resteasy.reactive.RestResponse;
 import org.jboss.resteasy.reactive.common.core.BlockingOperationSupport;

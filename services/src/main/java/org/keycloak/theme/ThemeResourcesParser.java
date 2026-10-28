@@ -91,6 +91,7 @@ public final class ThemeResourcesParser {
         );
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ThemeResourceDescriptor> parseType(Properties properties, String type, boolean favicon) {
         List<ThemeResourceDescriptor> result = new ArrayList<>();
 

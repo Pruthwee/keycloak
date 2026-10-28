@@ -28,6 +28,8 @@ public class ElytronCryptoJWETest extends JWETest {
 
     @Test
     public void testDirect_Aes256CbcHmacSha512() throws Exception {
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve secrets from AWS Secrets Manager
         final SecretKey aesKey = new SecretKeySpec(AES_256_KEY, "AES");
         final SecretKey hmacKey = new SecretKeySpec(HMAC_SHA512_KEY, "HMACSHA2");
 

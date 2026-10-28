@@ -4,6 +4,7 @@ import { convertClientToUrl } from "./client-url";
 describe("convertClientToUrl", () => {
   it("returns base url when base url starts with http", () => {
     //given
+    // Cloud: externalize URL to AWS Systems Manager Parameter Store
     const baseUrl = "http://something";
 
     //when

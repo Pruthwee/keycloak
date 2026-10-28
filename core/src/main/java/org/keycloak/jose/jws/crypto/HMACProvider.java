@@ -61,6 +61,7 @@ public class HMACProvider implements SignatureProvider {
     public static byte[] sign(byte[] data, Algorithm algorithm, byte[] sharedSecret) {
         try {
             Mac mac = getMAC(algorithm);
+            // Cloud: retrieve secrets from AWS Secrets Manager
             mac.init(new SecretKeySpec(sharedSecret, mac.getAlgorithm()));
             mac.update(data);
             return mac.doFinal();

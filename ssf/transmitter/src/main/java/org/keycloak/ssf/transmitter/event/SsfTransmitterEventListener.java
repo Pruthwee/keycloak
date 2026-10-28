@@ -30,6 +30,7 @@ import org.keycloak.ssf.transmitter.subject.SsfNotifyAttributes;
 import org.keycloak.ssf.transmitter.support.SsfUtil;
 import org.keycloak.storage.ReadOnlyException;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

@@ -33,6 +33,7 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class PayPalIdentityProvider extends AbstractOAuth2IdentityProvider<PayPalIdentityProviderConfig> implements SocialIdentityProvider<PayPalIdentityProviderConfig>{
 
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
   public static final String BASE_URL = "https://api.paypal.com/v1";
   public static final String AUTH_URL = "https://www.paypal.com/signin/authorize";
 	public static final String TOKEN_RESOURCE = "/identity/openidconnect/tokenservice";
@@ -41,6 +42,8 @@ public class PayPalIdentityProvider extends AbstractOAuth2IdentityProvider<PayPa
 
 	public PayPalIdentityProvider(KeycloakSession session, PayPalIdentityProviderConfig config) {
 		super(session, config);
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
 		config.setAuthorizationUrl(config.targetSandbox() ? "https://www.sandbox.paypal.com/signin/authorize" : AUTH_URL);
 		config.setTokenUrl((config.targetSandbox() ? "https://api.sandbox.paypal.com/v1" : BASE_URL) + TOKEN_RESOURCE);
 		config.setUserInfoUrl((config.targetSandbox() ? "https://api.sandbox.paypal.com/v1" : BASE_URL) + PROFILE_RESOURCE);

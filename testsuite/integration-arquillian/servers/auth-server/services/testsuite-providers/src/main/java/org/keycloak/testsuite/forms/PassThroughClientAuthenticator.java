@@ -45,6 +45,7 @@ public class PassThroughClientAuthenticator extends AbstractClientAuthenticator 
     // If this parameter is present in the HTTP request, the error will be thrown during authentication
     public static final String TEST_ERROR_PARAM = "test_error_param";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> clientConfigProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

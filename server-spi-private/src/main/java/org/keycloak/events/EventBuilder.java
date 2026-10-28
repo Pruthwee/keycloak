@@ -43,6 +43,7 @@ import org.keycloak.utils.StringUtil;
 
 import io.opentelemetry.api.common.Attributes;
 import io.opentelemetry.api.trace.StatusCode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -87,6 +88,7 @@ public class EventBuilder {
         return store;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<EventListenerProvider> getEventListeners(KeycloakSession session, RealmModel realm) {
         HashSet<String> realmListeners = new HashSet<>(realm.getEventsListenersStream().toList());
         List<EventListenerProvider> result = session.getKeycloakSessionFactory().getProviderFactoriesStream(EventListenerProvider.class)

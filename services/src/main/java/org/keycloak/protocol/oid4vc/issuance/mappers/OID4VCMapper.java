@@ -45,6 +45,7 @@ import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.utils.JsonUtils;
 
 import org.apache.commons.collections4.ListUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.OID4VCConstants.CLAIM_NAME_SUB;
@@ -66,6 +67,8 @@ public abstract class OID4VCMapper implements ProtocolMapper, OID4VCEnvironmentP
     public static final String CLAIM_NAME = "claim.name";
     public static final String MDOC_NAMESPACE = "mdoc.namespace";
     public static final String USER_ATTRIBUTE_KEY = "userAttribute";
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> OID4VC_CONFIG_PROPERTIES = new ArrayList<>();
     private static final List<ProviderConfigProperty> MDOC_CONFIG_PROPERTIES = new ArrayList<>();
 

@@ -101,6 +101,7 @@ public class ImportTest {
             AtomicReference<Throwable> err = new AtomicReference<>();
 
             // Need a new thread to not get context from thread processing request to run-on-server endpoint
+            // Cloud: use bounded ExecutorService instead of unbounded thread creation
             Thread t = new Thread(() -> {
                 RealmModel realmModel;
                 try (KeycloakSession ses = session.getKeycloakSessionFactory().create()) {

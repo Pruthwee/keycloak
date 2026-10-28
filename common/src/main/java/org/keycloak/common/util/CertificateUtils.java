@@ -28,6 +28,7 @@ import java.util.Date;
 
 import org.keycloak.common.crypto.CryptoIntegration;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

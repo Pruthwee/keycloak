@@ -36,6 +36,7 @@ import org.keycloak.storage.ldap.idm.store.ldap.LDAPUtil;
 import org.keycloak.storage.ldap.mappers.membership.group.GroupTreeResolver;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

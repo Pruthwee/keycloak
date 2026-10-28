@@ -11,6 +11,7 @@ public class SAMLArtifactResolutionServiceParser extends SAMLIndexedEndpointType
         super(SAMLMetadataQNames.ARTIFACT_RESOLUTION_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLArtifactResolutionServiceParser getInstance() {
         return INSTANCE;
     }

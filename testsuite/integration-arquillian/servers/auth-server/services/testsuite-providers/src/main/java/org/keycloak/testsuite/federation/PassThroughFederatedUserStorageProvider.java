@@ -54,6 +54,7 @@ public class PassThroughFederatedUserStorageProvider implements
 
     public static final Set<String> CREDENTIAL_TYPES = Collections.singleton(PasswordCredentialModel.TYPE);
     public static final String PASSTHROUGH_USERNAME = "passthrough";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String INITIAL_PASSWORD = "secret";
     private KeycloakSession session;
     private ComponentModel component;

@@ -29,6 +29,7 @@ import org.keycloak.models.dblock.DBLockProvider;
 import org.keycloak.models.dblock.DBLockProviderFactory;
 import org.keycloak.models.utils.KeycloakModelUtils;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assert;
 import org.junit.Before;
@@ -143,6 +144,7 @@ public class DBLockTest extends KeycloakModelTest {
     }
 
     private void testLockConcurrentlyInternal(KeycloakSession sessionLC, DBLockProvider.Namespace lock) {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long startupTime = System.currentTimeMillis();
 
         final Semaphore semaphore = new Semaphore();

@@ -36,6 +36,7 @@ import org.keycloak.storage.role.RoleStorageProviderFactory;
 import org.keycloak.storage.role.RoleStorageProviderModel;
 import org.keycloak.utils.ServicesUtils;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class RoleStorageManager implements RoleProvider {
@@ -103,6 +104,7 @@ public class RoleStorageManager implements RoleProvider {
             throw new IllegalStateException("RoleStorageProvideFactory (of type " + factory.getClass().getName() + ") produced a null instance");
         }
         session.enlistForClose(instance);
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(model.getId(), instance);
         return instance;
     }

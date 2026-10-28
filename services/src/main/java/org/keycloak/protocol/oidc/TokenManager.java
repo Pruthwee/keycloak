@@ -141,6 +141,7 @@ import org.keycloak.util.JWKSUtils;
 import org.keycloak.util.TokenUtil;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.OAuth2Constants.ORGANIZATION;
@@ -187,6 +188,7 @@ public class TokenManager {
             if (userSession != null) {
 
                 // Revoke timed out offline userSession
+                // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
                 if (!AuthenticationManager.isSessionValid(realm, userSession)) {
                     UserSessionModel offlineSession = userSession;
                     // Revocation must persist even when the error response rolls back the main tx.
@@ -202,6 +204,7 @@ public class TokenManager {
             }
         } else {
             // Find userSession regularly for online tokens
+            // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
             userSession = session.sessions().getUserSession(realm, oldToken.getSessionState());
             if (!AuthenticationManager.isSessionValid(realm, userSession)) {
                 if (userSession != null) {

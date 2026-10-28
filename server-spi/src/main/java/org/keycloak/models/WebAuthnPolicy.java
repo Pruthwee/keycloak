@@ -24,6 +24,7 @@ import java.util.List;
 
 import org.keycloak.crypto.Algorithm;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class WebAuthnPolicy implements Serializable {

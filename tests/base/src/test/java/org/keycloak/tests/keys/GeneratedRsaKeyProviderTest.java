@@ -70,6 +70,7 @@ public class GeneratedRsaKeyProviderTest {
     }
 
     private void defaultKeysize(String providerId, KeyUse keyUse) throws Exception {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long priority = System.currentTimeMillis();
 
         ComponentRepresentation rep = createRep("valid", providerId);

@@ -93,6 +93,7 @@ public class OAuth2Code {
     }
 
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static OAuth2Code deserializeCode(Map<String, String> data) {
         return new OAuth2Code(data);
     }

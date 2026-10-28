@@ -92,6 +92,7 @@ public class HttpClientBuilder {
                                        String authType) throws CertificateException {
         }
 
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         public void checkServerTrusted(X509Certificate[] chain,
                                        String authType) throws CertificateException {
         }

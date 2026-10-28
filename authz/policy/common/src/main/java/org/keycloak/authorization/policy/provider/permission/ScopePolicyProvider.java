@@ -25,6 +25,7 @@ import org.keycloak.authorization.permission.ResourcePermission;
 import org.keycloak.authorization.policy.evaluation.DefaultEvaluation;
 import org.keycloak.authorization.policy.evaluation.Evaluation;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -40,6 +41,7 @@ public class ScopePolicyProvider extends AbstractPermissionProvider {
         DefaultEvaluation defaultEvaluation = DefaultEvaluation.class.cast(evaluation);
         Map<Policy, Map<Object, Decision.Effect>> decisionCache = defaultEvaluation.getDecisionCache();
         Policy policy = defaultEvaluation.getParentPolicy();
+        // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
         Map<Object, Decision.Effect> decisions = decisionCache.computeIfAbsent(policy, p -> new HashMap<>());
         ResourcePermission permission = evaluation.getPermission();
 

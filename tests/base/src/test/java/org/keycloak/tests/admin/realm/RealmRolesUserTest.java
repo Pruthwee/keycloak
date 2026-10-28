@@ -197,6 +197,7 @@ public class RealmRolesUserTest extends AbstractRealmRolesTest {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> extractUsernames(Collection<UserRepresentation> users) {
         return users.stream().map(UserRepresentation::getUsername).collect(Collectors.toList());
     }

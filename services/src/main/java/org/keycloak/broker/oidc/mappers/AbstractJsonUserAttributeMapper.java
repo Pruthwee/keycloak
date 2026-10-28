@@ -34,6 +34,7 @@ import org.keycloak.models.UserModel;
 import org.keycloak.provider.ProviderConfigProperty;
 
 import com.fasterxml.jackson.databind.JsonNode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.utils.JsonUtils.splitClaimPath;
@@ -69,6 +70,7 @@ public abstract class AbstractJsonUserAttributeMapper extends AbstractIdentityPr
 	 */
 	public static final String CONTEXT_JSON_NODE = OIDCIdentityProvider.USER_INFO;
 
+ // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
 	private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
 	static {
@@ -98,6 +100,7 @@ public abstract class AbstractJsonUserAttributeMapper extends AbstractIdentityPr
 	 * @see #preprocessFederatedIdentity(KeycloakSession, RealmModel, IdentityProviderMapperModel, BrokeredIdentityContext)
 	 * @see BrokeredIdentityContext#getContextData()
 	 */
+ // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
 	public static void storeUserProfileForMapper(BrokeredIdentityContext user, JsonNode profile, String provider) {
 		user.getContextData().put(AbstractJsonUserAttributeMapper.CONTEXT_JSON_NODE, profile);
 		if (LOGGER_DUMP_USER_PROFILE.isDebugEnabled())

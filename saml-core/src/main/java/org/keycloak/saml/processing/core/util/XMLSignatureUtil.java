@@ -129,6 +129,7 @@ public class XMLSignatureUtil {
     /**
      * By default, we include the keyinfo in the signature
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static boolean includeKeyInfoInSignature = true;
 
     private static class KeySelectorUtilizingKeyNameHint extends KeySelector {

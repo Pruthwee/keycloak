@@ -36,6 +36,7 @@ public class SingleSignOnServiceParser extends AbstractKeycloakSamlAdapterV1Pars
         super(KeycloakSamlAdapterV1QNames.SINGLE_SIGN_ON_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SingleSignOnServiceParser getInstance() {
         return INSTANCE;
     }

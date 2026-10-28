@@ -23,6 +23,7 @@ import java.net.URLClassLoader;
 import java.util.LinkedList;
 import java.util.List;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -48,6 +49,7 @@ public class FileSystemProviderLoaderFactory implements ProviderLoaderFactory {
 
             for (String f : files) {
                 if (f.endsWith("*")) {
+                    // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                     File dir = new File(f.substring(0, f.length() - 1));
                     if (dir.isDirectory()) {
                         for (File file : dir.listFiles(new JarFilter())) {

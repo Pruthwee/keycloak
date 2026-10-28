@@ -80,6 +80,7 @@ import org.keycloak.util.JsonSerialization;
 import org.keycloak.util.TokenUtil;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.light.LightweightUserAdapter.isLightweightUser;
@@ -1169,6 +1170,7 @@ public class AuthenticationProcessor {
                     LightweightUserAdapter lua = (LightweightUserAdapter) userSession.getUser();
                     lua.setOwningUserSessionId(userSession.getId());
                 }
+            // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
             } else if (userSession.getUser() == null || !AuthenticationManager.isSessionValid(realm, userSession)) {
                 userSession.restartSession(realm, authSession.getAuthenticatedUser(), username, connection.getRemoteHost(), authSession.getProtocol()
                         , remember, brokerSessionId, brokerUserId);

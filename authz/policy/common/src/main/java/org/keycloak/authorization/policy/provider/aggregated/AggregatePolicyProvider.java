@@ -43,6 +43,7 @@ import org.keycloak.representations.idm.authorization.DecisionStrategy;
 import org.keycloak.representations.idm.authorization.Logic;
 import org.keycloak.representations.idm.authorization.ResourceType;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -71,6 +72,7 @@ public class AggregatePolicyProvider implements PolicyProvider, PartialEvaluatio
         ResourcePermission permission = evaluation.getPermission();
 
         for (Policy associatedPolicy : policy.getAssociatedPolicies()) {
+            // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
             Map<Object, Decision.Effect> decisions = decisionCache.computeIfAbsent(associatedPolicy, p -> new HashMap<>());
             Decision.Effect effect = decisions.get(permission);
             DefaultEvaluation eval = new DefaultEvaluation(evaluation.getPermission(), evaluation.getContext(), policy, associatedPolicy, decision, authorization, decisionCache);

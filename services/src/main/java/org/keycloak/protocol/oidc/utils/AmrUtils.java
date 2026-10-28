@@ -25,6 +25,7 @@ import org.keycloak.common.util.Time;
 import org.keycloak.models.Constants;
 import org.keycloak.models.RealmModel;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -42,6 +43,7 @@ public class AmrUtils {
      * @param realmModel The realm the executions are configured in
      * @return The list of amr values.
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static List<String> getAuthenticationExecutionReferences(Map<String, Integer> executions, RealmModel realmModel) {
         return executions.entrySet().stream()
             .map(

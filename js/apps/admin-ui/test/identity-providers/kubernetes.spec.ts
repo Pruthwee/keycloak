@@ -18,6 +18,7 @@ test.describe.serial("Kubernetes identity provider test", () => {
     await createKubernetesProvider(
       page,
       "kubernetes",
+      // Cloud: externalize URL to AWS Systems Manager Parameter Store
       "https://kubernetes.myorg.com",
     );
 

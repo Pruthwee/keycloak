@@ -68,6 +68,7 @@ public class RoleMapperTest extends AbstractSamlTest {
 
     private ClientAttributeUpdater cau;
     private ProtocolMappersUpdater pmu;
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static int COUNTER = 1;
 
     @Before

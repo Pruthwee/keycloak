@@ -27,6 +27,7 @@ public class SAMLUIInfoParser extends AbstractStaxSamlMetadataParser<UIInfoType>
         super(SAMLMetadataQNames.UIINFO);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLUIInfoParser getInstance() {
         return INSTANCE;
     }

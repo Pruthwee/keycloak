@@ -16,6 +16,7 @@ import org.openqa.selenium.WebElement;
 public class SelectAuthenticatorPage extends AbstractLoginPage {
 
     // Corresponds to the PasswordForm
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String PASSWORD = "Password";
 
     // Corresponds to the WebAuthn authenticators

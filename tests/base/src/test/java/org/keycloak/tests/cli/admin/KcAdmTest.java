@@ -334,8 +334,10 @@ public class KcAdmTest extends AbstractAdmCliTest {
         /*
          *  Run the test one more time with stdin redirect
          */
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File tmpFile = new File(KcAdmExec.WORK_DIR + "/" + UUID.randomUUID().toString() + ".tmp");
         try {
+            // Cloud: consider using Amazon S3 for durable storage instead of local file writes
             FileOutputStream tmpos = new FileOutputStream(tmpFile);
             tmpos.write("admin".getBytes());
             tmpos.write(EOL.getBytes());
@@ -424,6 +426,7 @@ public class KcAdmTest extends AbstractAdmCliTest {
             Assertions.assertNotNull(realmcfg.getToken(), "token not null");
             Assertions.assertNotNull(realmcfg.getRefreshToken(), "refresh token not null");
             Assertions.assertNotNull(realmcfg.getExpiresAt(), "token expires not null");
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             Assertions.assertNotNull(realmcfg.getExpiresAt() > System.currentTimeMillis(), "token expires in future");
             Assertions.assertNotNull(realmcfg.getRefreshExpiresAt(), "refresh token expires not null");
             Assertions.assertNotNull(realmcfg.getRefreshExpiresAt() > System.currentTimeMillis(), "refresh token expires in future");

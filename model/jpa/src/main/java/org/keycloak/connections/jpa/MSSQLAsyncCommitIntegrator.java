@@ -24,6 +24,7 @@ import java.sql.Statement;
 
 import org.hibernate.engine.jdbc.connections.spi.JdbcConnectionAccess;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -67,6 +68,7 @@ class MSSQLAsyncCommitIntegrator extends AsyncCommitIntegrator {
 
     @Override
     protected void applyAsyncCommit(Connection connection) throws SQLException {
+        // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
         try (Statement stmt = connection.createStatement()) {
             stmt.execute("COMMIT TRAN WITH (DELAYED_DURABILITY = ON)");
         }
@@ -84,6 +86,7 @@ class MSSQLAsyncCommitIntegrator extends AsyncCommitIntegrator {
     private static boolean isDelayedDurabilityAllowed(SessionFactoryImplementor sf) {
         try {
             JdbcConnectionAccess bootstrapJdbcConnectionAccess = sf.getJdbcServices().getBootstrapJdbcConnectionAccess();
+            // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
             Connection connection = bootstrapJdbcConnectionAccess.obtainConnection();
             try (Statement stmt = connection.createStatement();
                  ResultSet rs = stmt.executeQuery(

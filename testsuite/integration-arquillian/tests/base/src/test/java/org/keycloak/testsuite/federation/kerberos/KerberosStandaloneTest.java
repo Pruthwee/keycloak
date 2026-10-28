@@ -57,6 +57,7 @@ import org.keycloak.testsuite.util.oauth.OAuthClient;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -75,6 +76,7 @@ import static org.keycloak.userprofile.UserProfileUtil.USER_METADATA_GROUP;
  */
 public class KerberosStandaloneTest extends AbstractKerberosSingleRealmTest {
 
+    // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
     private static final String PROVIDER_CONFIG_LOCATION = "classpath:kerberos/kerberos-standalone-connection.properties";
 
     @ClassRule

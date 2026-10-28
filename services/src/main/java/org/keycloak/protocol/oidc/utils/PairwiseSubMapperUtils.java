@@ -14,6 +14,7 @@ import org.keycloak.protocol.oidc.mappers.AbstractPairwiseSubMapper;
 import org.keycloak.representations.idm.ClientRepresentation;
 import org.keycloak.representations.idm.ProtocolMapperRepresentation;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class PairwiseSubMapperUtils {
@@ -149,6 +150,7 @@ public class PairwiseSubMapperUtils {
         return relative;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static List<ProtocolMapperRepresentation> getPairwiseSubMappers(ClientRepresentation client) {
         List<ProtocolMapperRepresentation> pairwiseMappers = new LinkedList<>();
         List<ProtocolMapperRepresentation> mappers = client.getProtocolMappers();

@@ -107,6 +107,7 @@ public final class OID4VCProofTestUtils {
             String certification
     ) {
         KeyAttestationJwtBody body = new KeyAttestationJwtBody();
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long iatSeconds = System.currentTimeMillis() / 1000;
         body.setIat(iatSeconds);
         body.setExp(iatSeconds + 3600);

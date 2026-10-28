@@ -53,6 +53,7 @@ public class WaitConditionShutdownListenerTest {
         var listener = new WaitConditionShutdownListener(condition);
         var completed = new CountDownLatch(1);
 
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         var thread = new Thread(() -> {
             listener.onShutdown(Instant.now(), deadlineFromNow(5000));
             completed.countDown();

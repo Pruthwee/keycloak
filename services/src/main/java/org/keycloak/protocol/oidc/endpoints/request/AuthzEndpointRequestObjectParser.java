@@ -53,6 +53,7 @@ public class AuthzEndpointRequestObjectParser extends AuthzEndpointRequestParser
             throw new RuntimeException("The request_uri claim should not be set in the request object");
         }
 
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(AuthzEndpointRequestParser.AUTHZ_REQUEST_OBJECT, requestParams);
     }
 

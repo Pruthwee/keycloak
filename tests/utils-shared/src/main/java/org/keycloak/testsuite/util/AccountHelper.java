@@ -67,6 +67,7 @@ public class AccountHelper {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static List<Map<String, Object>> getUserConsents(RealmResource realm, String username) {
         UserResource user = getUserResource(realm, username);
         List<Map<String, Object>> consents = user.getConsents();

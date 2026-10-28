@@ -70,6 +70,8 @@ public class UpdateCompatibilityMetadata extends AbstractUpdatesCommand {
         if (noOutputFileSet()) {
             return;
         }
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         var file = new File(outputFile);
         if (file.getParentFile() != null && !file.getParentFile().exists() && !file.getParentFile().mkdirs()) {
             throw new PropertyException("Incorrect argument %s. Unable to create parent directory: %s".formatted(OUTPUT_OPTION_NAME, file.getParentFile().getAbsolutePath()));

@@ -78,6 +78,7 @@ public class ScriptCache {
                 return null;
             }
 
+            // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
             CacheEntry entry = cache.computeIfAbsent(id, key -> new CacheEntry(key, function.apply(id), maxAge));
 
             if (entry != null) {
@@ -137,6 +138,7 @@ public class ScriptCache {
             if(maxAge == -1) {
                 expiration = -1;
             } else {
+                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                 expiration = System.currentTimeMillis() + maxAge;
             }
         }

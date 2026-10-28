@@ -14,6 +14,7 @@ public class PairwiseSubMapperHelper {
     public static final String PAIRWISE_SUB_ALGORITHM_SALT_LABEL = "pairwiseSubAlgorithmSalt.label";
     public static final String PAIRWISE_SUB_ALGORITHM_SALT_HELP_TEXT = "pairwiseSubAlgorithmSalt.tooltip";
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static String getSectorIdentifierUri(ProtocolMapperRepresentation mappingModel) {
         return mappingModel.getConfig().get(SECTOR_IDENTIFIER_URI);
     }

@@ -26,6 +26,7 @@ import org.infinispan.Cache;
 import org.infinispan.commons.configuration.io.ConfigurationWriter;
 import org.infinispan.commons.io.StringBuilderWriter;
 import org.infinispan.configuration.parsing.ParserRegistry;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.keycloak.connections.infinispan.InfinispanConnectionProvider;
 import org.keycloak.connections.jpa.JpaConnectionProvider;

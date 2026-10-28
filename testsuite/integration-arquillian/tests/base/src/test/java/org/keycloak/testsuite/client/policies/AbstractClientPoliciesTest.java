@@ -169,6 +169,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.logging.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -235,6 +237,7 @@ public abstract class AbstractClientPoliciesTest extends AbstractKeycloakTest {
 
     protected static final String CLIENT_NAME = "Zahlungs-App";
     protected static final String TEST_USER_NAME = "test-user@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     protected static final String TEST_USER_PASSWORD = "password";
 
     protected static final String DEVICE_APP = "test-device";

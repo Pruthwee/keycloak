@@ -75,6 +75,7 @@ import org.keycloak.saml.processing.web.util.RedirectBindingUtil;
 import org.keycloak.utils.StringUtil;
 
 import org.apache.xml.security.encryption.XMLCipher;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -218,6 +219,7 @@ public class SamlProtocolUtils {
         verifyRedirectSignature(documentHolder, locator, encodedParams, paramKey);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void verifyRedirectSignature(SAMLDocumentHolder documentHolder, KeyLocator locator, MultivaluedMap<String, String> encodedParams, String paramKey) throws VerificationException {
         String request = encodedParams.getFirst(paramKey);
         String algorithm = encodedParams.getFirst(GeneralConstants.SAML_SIG_ALG_REQUEST_KEY);

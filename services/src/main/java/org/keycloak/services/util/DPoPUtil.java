@@ -120,6 +120,7 @@ public class DPoPUtil {
      * NOTE: The binding was solved with a protocol mapper to have generic solution for DPoP on all implemented
      *       grantTypes, even custom-implemented grantTypes.
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Stream<Map.Entry<ProtocolMapperModel, ProtocolMapper>> getTransientProtocolMapper() {
         final String PROVIDER_ID = DPOP_SCHEME.toLowerCase(Locale.ROOT) + "-protocol-mapper";
 

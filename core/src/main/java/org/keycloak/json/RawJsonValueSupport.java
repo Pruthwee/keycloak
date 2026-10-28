@@ -59,6 +59,7 @@ public interface RawJsonValueSupport {
 
     int valueHashCode(Object value);
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     static RawJsonValueSupport getInstance() {
         return Holder.INSTANCE;
     }

@@ -26,6 +26,7 @@ import org.keycloak.models.cache.UserCache;
 import org.keycloak.storage.UserStoragePrivateUtil;
 import org.keycloak.storage.UserStorageUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class DeleteUserStepProvider implements WorkflowStepProvider {

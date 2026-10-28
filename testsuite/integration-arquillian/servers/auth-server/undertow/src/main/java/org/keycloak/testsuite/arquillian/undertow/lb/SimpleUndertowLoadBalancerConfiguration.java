@@ -18,6 +18,8 @@
 package org.keycloak.testsuite.arquillian.undertow.lb;
 
 import org.arquillian.undertow.UndertowContainerConfiguration;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.spi.ConfigurationException;
 import org.jboss.logging.Logger;
 

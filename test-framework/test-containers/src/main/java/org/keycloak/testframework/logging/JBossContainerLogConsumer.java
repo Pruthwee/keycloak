@@ -2,6 +2,7 @@ package org.keycloak.testframework.logging;
 
 import java.util.function.Consumer;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.testcontainers.containers.output.OutputFrame;
 

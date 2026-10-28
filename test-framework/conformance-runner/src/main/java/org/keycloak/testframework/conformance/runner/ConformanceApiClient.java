@@ -100,6 +100,7 @@ public final class ConformanceApiClient {
         return variants;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> variantMap(JsonNode variant) {
         Map<String, String> map = new LinkedHashMap<>();
         variant.fields().forEachRemaining(field -> map.put(field.getKey(), field.getValue().asText()));

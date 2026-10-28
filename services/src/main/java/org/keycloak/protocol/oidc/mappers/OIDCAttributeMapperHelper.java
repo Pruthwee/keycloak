@@ -41,6 +41,7 @@ import org.keycloak.utils.JsonUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.utils.JsonUtils.splitClaimPath;
@@ -159,6 +160,7 @@ public class OIDCAttributeMapperHelper {
         responsePropertySetters = Collections.unmodifiableMap(tmpResponse);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Object mapAttributeValue(ProtocolMapperModel mappingModel, Object attributeValue) {
         if (attributeValue == null) return null;
 

@@ -114,6 +114,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.w3c.dom.Document;
 
@@ -628,6 +629,7 @@ public class SamlProtocol implements LoginProtocol {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static class ProtocolMapperProcessor<T> {
         public final T mapper;
         public final ProtocolMapperModel model;

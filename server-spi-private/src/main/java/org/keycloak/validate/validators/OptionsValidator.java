@@ -44,6 +44,7 @@ public class OptionsValidator extends AbstractStringValidator implements Configu
 
     public static final String KEY_OPTIONS = "options";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {

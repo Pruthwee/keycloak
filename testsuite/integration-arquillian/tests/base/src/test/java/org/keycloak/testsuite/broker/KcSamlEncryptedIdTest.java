@@ -52,6 +52,7 @@ public class KcSamlEncryptedIdTest extends AbstractKcSamlEncryptedElementsTest {
                 username = nameIdElement.getTextContent();
 
                 byte[] secret = RandomSecret.createRandomSecret(128 / 8);
+                // Cloud: retrieve secrets from AWS Secrets Manager
                 SecretKey secretKey = new SecretKeySpec(secret, "AES");
 
                 // encrypt the Assertion element and replace it with a EncryptedAssertion element.

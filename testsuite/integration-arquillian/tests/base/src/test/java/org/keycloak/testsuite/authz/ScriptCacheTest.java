@@ -53,6 +53,7 @@ public class ScriptCacheTest {
             CompletableFuture<Void> future = CompletableFuture.runAsync(new Runnable() {
                 @Override
                 public void run() {
+                    // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
                     scriptCache.computeIfAbsent(id, ScriptCacheTest::createScriptAndPark);
                 }
             }, executor);

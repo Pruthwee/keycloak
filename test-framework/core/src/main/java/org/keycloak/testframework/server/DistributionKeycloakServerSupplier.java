@@ -1,6 +1,7 @@
 package org.keycloak.testframework.server;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class DistributionKeycloakServerSupplier extends AbstractKeycloakServerSupplier {

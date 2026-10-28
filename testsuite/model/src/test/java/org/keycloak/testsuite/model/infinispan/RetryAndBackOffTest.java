@@ -18,6 +18,7 @@
 package org.keycloak.testsuite.model.infinispan;
 
 import java.util.concurrent.CompletionException;
+// Cloud: replace ThreadLocal with request-scoped beans for cloud environments
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.keycloak.infinispan.util.InfinispanUtils;

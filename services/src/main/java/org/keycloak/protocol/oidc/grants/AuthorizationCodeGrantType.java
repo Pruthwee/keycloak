@@ -53,6 +53,7 @@ import org.keycloak.services.util.DefaultClientSessionContext;
 import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.databind.JsonNode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.OAuth2Constants.AUTHORIZATION_DETAILS;
@@ -166,6 +167,7 @@ public class AuthorizationCodeGrantType extends OAuth2GrantTypeBase {
             throw new CorsErrorResponseException(cors, OAuthErrorException.INVALID_GRANT, errorMessage, Response.Status.BAD_REQUEST);
         }
 
+        // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
         if (!AuthenticationManager.isSessionValid(realm, userSession)) {
             String errorMessage = "Session not active";
             event.detail(Details.REASON, errorMessage);

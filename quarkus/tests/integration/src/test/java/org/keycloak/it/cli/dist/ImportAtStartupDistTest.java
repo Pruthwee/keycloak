@@ -55,6 +55,7 @@ public class ImportAtStartupDistTest {
         Path dir = rawDist.getDistPath().resolve("data").resolve("import");
 
         // add another realm
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         Files.write(dir.resolve("realm2.json"), Files.readAllLines(dir.resolve("realm.json")).stream()
                 .map(s -> s.replace("quickstart-realm", "other-realm")).toList());
 

@@ -160,6 +160,7 @@ public class WildFlyElytronProvider implements CryptoProvider {
 
     @Override
     public CertificateFactory getX509CertFactory() throws CertificateException {
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         return CertificateFactory.getInstance("X.509");
     }
 

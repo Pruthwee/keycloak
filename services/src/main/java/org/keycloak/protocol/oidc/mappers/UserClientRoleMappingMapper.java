@@ -43,6 +43,7 @@ public class UserClientRoleMappingMapper extends AbstractUserRoleMappingMapper {
 
     private static final String TOKEN_CLAIM_NAME_TOOLTIP = "usermodel.clientRoleMapping.tokenClaimName.tooltip";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> CONFIG_PROPERTIES = new ArrayList<>();
 
     static {
@@ -137,6 +138,7 @@ public class UserClientRoleMappingMapper extends AbstractUserRoleMappingMapper {
     }
 
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String clientId, String clientRolePrefix,
                                              String name,
                                              String tokenClaimName,

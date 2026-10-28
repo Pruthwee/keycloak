@@ -28,6 +28,7 @@ import org.keycloak.representations.idm.ClientMappingsRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 
 public class ScopeMappedUtil {
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ClientMappingsRepresentation toClientMappingsRepresentation(ClientModel client, ScopeContainerModel scopeContainer) {
         List<RoleRepresentation> roles = KeycloakModelUtils.getClientScopeMappingsStream(client, scopeContainer)
                 .map(role -> ModelToRepresentation.toBriefRepresentation(role))

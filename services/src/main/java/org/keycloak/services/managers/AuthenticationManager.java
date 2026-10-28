@@ -129,6 +129,7 @@ import org.keycloak.sessions.RootAuthenticationSessionModel;
 import org.keycloak.util.TokenUtil;
 import org.keycloak.utils.RoleResolveUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.UserSessionModel.CORRESPONDING_SESSION_ID;
@@ -194,6 +195,7 @@ public class AuthenticationManager {
 
     private static final TokenTypeCheck VALIDATE_IDENTITY_COOKIE = new TokenTypeCheck(List.of(TokenUtil.TOKEN_TYPE_KEYCLOAK_ID));
 
+    // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
     public static boolean isSessionValid(RealmModel realm, UserSessionModel userSession) {
         if (userSession == null) {
             logger.debug("No user session");
@@ -1255,6 +1257,7 @@ public class AuthenticationManager {
 
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<AuthorizationDetails> getClientScopesToApproveOnConsentScreen(ClientModel client, UserConsentModel grantedConsent, KeycloakSession session, AuthenticationSessionModel authSession) {
         // Client Scopes to be displayed on consent screen
         List<AuthorizationDetails> clientScopesToDisplay = new LinkedList<>();
@@ -1610,6 +1613,7 @@ public class AuthenticationManager {
 
             UserSessionModel userSession = null;
             ClientModel client = null;
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute("state_checker", token.getOtherClaims().get("state_checker"));
 
             if (isCookie) {

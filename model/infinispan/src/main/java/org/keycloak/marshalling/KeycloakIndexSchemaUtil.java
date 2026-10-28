@@ -37,6 +37,7 @@ import org.infinispan.protostream.descriptors.FieldDescriptor;
 import org.infinispan.protostream.descriptors.FileDescriptor;
 import org.infinispan.protostream.impl.AnnotatedDescriptorImpl;
 import org.infinispan.query.remote.client.ProtobufMetadataManagerConstants;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class KeycloakIndexSchemaUtil {
@@ -247,6 +248,7 @@ public class KeycloakIndexSchemaUtil {
 
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Object> getAnnotationValues(AnnotationElement.Annotation annotation) {
         return annotation.getAttributes()
                 .entrySet()

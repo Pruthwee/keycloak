@@ -18,6 +18,8 @@
 package org.keycloak.testsuite.arquillian.undertow;
 
 import org.arquillian.undertow.UndertowContainerConfiguration;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.spi.ConfigurationException;
 import org.jboss.logging.Logger;
 
@@ -27,6 +29,7 @@ public class KeycloakOnUndertowConfiguration extends UndertowContainerConfigurat
 
     protected static final Logger log = Logger.getLogger(KeycloakOnUndertowConfiguration.class);
 
+    // Cloud: remove thread affinity, use JVM natural threading model
     private int workerThreads = Math.max(Runtime.getRuntime().availableProcessors(), 2) * 8;
     private String resourcesHome;
     private boolean remoteMode;

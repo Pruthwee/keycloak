@@ -44,6 +44,7 @@ public class SAMLAttributeQueryParser extends SAMLRequestAbstractParser<Attribut
         super(SAMLProtocolQNames.ATTRIBUTE_QUERY);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAttributeQueryParser getInstance() {
         return INSTANCE;
     }

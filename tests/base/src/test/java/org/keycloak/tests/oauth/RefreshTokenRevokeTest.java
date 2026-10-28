@@ -631,6 +631,7 @@ public class RefreshTokenRevokeTest {
 
         List<Thread> threads = new ArrayList<>();
         for (int i = 0 ; i < THREADS_COUNT ; i++) {
+            // Cloud: use bounded ExecutorService instead of unbounded thread creation
             threads.add(new Thread(runnable));
         }
         for (Thread t : threads) {

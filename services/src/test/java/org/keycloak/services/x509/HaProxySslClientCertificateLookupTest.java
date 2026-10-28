@@ -27,6 +27,10 @@ import org.keycloak.services.resteasy.HttpRequestImpl;
 import org.keycloak.utils.ScopeUtil;
 
 import org.apache.commons.io.IOUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logmanager.Logger;
 import org.jboss.logmanager.formatters.PatternFormatter;
 import org.jboss.logmanager.handlers.WriterHandler;

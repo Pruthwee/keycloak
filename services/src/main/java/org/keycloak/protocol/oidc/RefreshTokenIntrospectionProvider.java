@@ -28,6 +28,7 @@ import org.keycloak.representations.RefreshToken;
 import org.keycloak.services.util.UserSessionUtil;
 import org.keycloak.util.TokenUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

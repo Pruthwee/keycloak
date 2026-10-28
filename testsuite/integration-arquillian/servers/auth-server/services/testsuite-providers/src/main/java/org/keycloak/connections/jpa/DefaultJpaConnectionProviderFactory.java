@@ -68,6 +68,7 @@ import org.hibernate.boot.archive.scan.spi.Scanner;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.cfg.PersistenceSettings;
 import org.hibernate.engine.transaction.jta.platform.internal.AbstractJtaPlatform;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.connections.jpa.util.JpaUtils.configureNamedQuery;
@@ -297,6 +298,7 @@ public class DefaultJpaConnectionProviderFactory implements JpaConnectionProvide
 
     private File getDatabaseUpdateFile() {
         String databaseUpdateFile = config.get("migrationExport", "keycloak-database-update.sql");
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         return new File(databaseUpdateFile);
     }
 

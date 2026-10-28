@@ -118,6 +118,7 @@ import org.keycloak.services.util.LocaleUtil;
 import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.sessions.RootAuthenticationSessionModel;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.authentication.actiontoken.DefaultActionToken.ACTION_TOKEN_BASIC_CHECKS;
@@ -997,6 +998,7 @@ public class LoginActionsService {
             return;
         }
 
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(BrokeredIdentityContext.class.getName(), brokerContext);
 
         OrganizationProvider provider = session.getProvider(OrganizationProvider.class);

@@ -72,6 +72,7 @@ import org.keycloak.testsuite.util.saml.SamlConstants;
 import org.apache.commons.io.FileUtils;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -220,6 +221,7 @@ public class JavaKeystoreKeyProviderTest {
         cryptoHelper.keystore().assumeKeystoreTypeSupported(keystoreType);
         generateKeystore(keystoreType, algorithmType, keyAlgorithm);
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long priority = System.currentTimeMillis();
 
         ComponentRepresentation rep = createRep("valid", priority, keyAlgorithm, vault? "${vault.keystore_password}" : "password");

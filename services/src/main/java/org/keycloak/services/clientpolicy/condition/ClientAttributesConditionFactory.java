@@ -32,6 +32,7 @@ public class ClientAttributesConditionFactory extends AbstractClientPolicyCondit
 
     public static final String ATTRIBUTES = "attributes";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {

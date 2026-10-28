@@ -22,6 +22,7 @@ import java.security.cert.X509Certificate;
 import org.keycloak.http.HttpRequest;
 import org.keycloak.services.x509.X509ClientCertificateLookup;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

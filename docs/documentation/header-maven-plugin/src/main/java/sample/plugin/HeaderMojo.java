@@ -55,9 +55,13 @@ public class HeaderMojo extends AbstractMojo {
         try {
             baseDir = mavenProject.getBasedir();
 
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             copy(new File(baseDir, masterFileName + ".adoc"));
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             copy(new File(baseDir, "topics.adoc"));
 
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             File docInfo = new File(baseDir, "docinfo.html");
             if (docInfo.isFile()) {
                 copy(docInfo);
@@ -111,6 +115,7 @@ public class HeaderMojo extends AbstractMojo {
             includeHeaderPath = includeHeaderPath + "templates/header.adoc";
 
             String header = "\n\n:include_filename: " + filePath + "\ninclude::" + includeHeaderPath + "[]\n\n";
+            // Cloud: consider using Amazon S3 for durable storage instead of local file writes
             try(PrintStream ps = new PrintStream(new FileOutputStream(out));BufferedReader br = new BufferedReader(new FileReader(f));){
                 for (String l = br.readLine(); l != null; l = br.readLine()) {
                     ps.println(l);

@@ -45,6 +45,10 @@ import java.util.List;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.utils.OCSPProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.wildfly.security.asn1.ASN1;
 import org.wildfly.security.asn1.DERDecoder;
@@ -82,6 +86,7 @@ public class ElytronOCSPProvider extends OCSPProvider {
             trustStore.setCertificateEntry("trust", issuerCertificate);
 
             CertPathBuilder cpb = CertPathBuilder.getInstance("PKIX");
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             CertPathValidator cpv = CertPathValidator.getInstance("PKIX");
             PKIXRevocationChecker rc = (PKIXRevocationChecker) cpb.getRevocationChecker();

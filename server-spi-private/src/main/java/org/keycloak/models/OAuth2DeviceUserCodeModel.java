@@ -36,6 +36,7 @@ public class OAuth2DeviceUserCodeModel {
         this.userCode = userCode;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static OAuth2DeviceUserCodeModel fromCache(RealmModel realm, String userCode, Map<String, String> data) {
         return new OAuth2DeviceUserCodeModel(realm, userCode, data);
     }

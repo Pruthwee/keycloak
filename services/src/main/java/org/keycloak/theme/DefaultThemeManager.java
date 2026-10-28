@@ -43,6 +43,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.models.ThemeManager;
 import org.keycloak.services.util.LocaleUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -336,6 +337,7 @@ public class DefaultThemeManager implements ThemeManager {
 
             addlocaleTranslations(locale, currentMessages);
 
+            // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
             messages.computeIfAbsent(baseBundlename, name -> createMessageCache()).putIfAbsent(locale, groupedMessages);
 
             return groupedMessages;
@@ -347,6 +349,7 @@ public class DefaultThemeManager implements ThemeManager {
          * locale still reach this point, the least recently used entry is evicted rather than letting the cache grow
          * without bound, so that the locales actually in use stay cached.
          */
+        // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
         private static Map<Locale, Map<Locale, Properties>> createMessageCache() {
             return Collections.synchronizedMap(
                     new LinkedHashMap<Locale, Map<Locale, Properties>>(16, DEFAULT_LOAD_FACTOR, true) {
@@ -400,6 +403,7 @@ public class DefaultThemeManager implements ThemeManager {
         }
 
         @Override
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         public Properties getProperties() throws IOException {
             if (properties == null) {
                 Properties properties = new Properties();

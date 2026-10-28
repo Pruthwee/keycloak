@@ -25,6 +25,7 @@ import java.util.ServiceLoader;
 
 import org.keycloak.representations.adapters.config.AdapterConfig;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -70,6 +71,7 @@ public class ClientCredentialsProviderUtils {
         return authenticator;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void loadAuthenticators(Map<String, ClientCredentialsProvider> authenticators, ClassLoader classLoader) {
         Iterator<ClientCredentialsProvider> iterator = ServiceLoader.load(ClientCredentialsProvider.class, classLoader).iterator();
         while (iterator.hasNext()) {

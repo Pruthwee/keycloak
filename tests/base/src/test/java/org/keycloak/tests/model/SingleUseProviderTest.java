@@ -34,6 +34,7 @@ import org.keycloak.testframework.annotations.KeycloakIntegrationTest;
 import org.keycloak.testframework.realm.ManagedRealm;
 import org.keycloak.testframework.remote.annotations.TestOnServer;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.Assertions;
 
@@ -105,6 +106,7 @@ public class SingleUseProviderTest {
         // Try to remove all items concurrently
         List<Thread> workers = new ArrayList<>();
         for (int j=0 ; j< THREADS_COUNT ; j++) {
+            // Cloud: use bounded ExecutorService instead of unbounded thread creation
             Thread t = new Thread(runnable);
             workers.add(t);
             t.start();

@@ -128,6 +128,7 @@ const TEST_VALUES = {
   TOKEN_JWS_TYPE: "dc+sd-jwt",
   VISIBLE_CLAIMS: "id,iat,nbf,exp,jti,given_name",
   DISPLAY:
+    // Cloud: externalize URL to AWS Systems Manager Parameter Store
     '[{"name": "Test Credential", "locale": "en-US", "logo": {"uri": "https://example.com/logo.png", "alt_text": "Logo"}, "background_color": "#12107c", "text_color": "#FFFFFF"}]',
   SUPPORTED_CREDENTIAL_TYPES: "VerifiableCredential,UniversityDegreeCredential",
   VERIFIABLE_CREDENTIAL_TYPE: "TestCredentialType",
@@ -159,6 +160,7 @@ async function fillTimeSelectorValue(
 ) {
   const input = page.getByTestId(testId);
   await input.waitFor({ state: "visible" });
+  // Cloud: separate browser DOM types from Node.js server code
   await input.evaluate((el: HTMLElement) => {
     const split = el.closest(".pf-v5-l-split");
     const toggle = split?.querySelector<HTMLButtonElement>(

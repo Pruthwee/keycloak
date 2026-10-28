@@ -48,6 +48,7 @@ import io.undertow.server.handlers.proxy.RouteIteratorFactory.ParsingCompatibili
 import io.undertow.server.handlers.proxy.RouteParsingStrategy;
 import io.undertow.util.AttachmentKey;
 import io.undertow.util.Headers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.xnio.OptionMap;
 
@@ -79,6 +80,7 @@ public class SimpleUndertowLoadBalancer {
         SimpleUndertowLoadBalancer lb = new SimpleUndertowLoadBalancer("localhost", 8180, 8543, nodes);
         lb.start();
 
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         Runtime.getRuntime().addShutdownHook(new Thread() {
 
             @Override
@@ -348,6 +350,7 @@ public class SimpleUndertowLoadBalancer {
 
         @Override
         public void failed(HttpServerExchange exchange) {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             final long time = System.currentTimeMillis();
 
             Integer remainingAttempts = exchange.getAttachment(REMAINING_RETRY_ATTEMPTS);

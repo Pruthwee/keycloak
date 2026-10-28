@@ -40,6 +40,7 @@ public class MessageFormatterMethodTest {
 
         Locale locale = Locale.US;
 
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties properties = new Properties();
         properties.setProperty("backToApplication", "Back to application");
         properties.setProperty("backToClient", "Back to {0}");

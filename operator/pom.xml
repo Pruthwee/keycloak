@@ -129,6 +129,7 @@
             <artifactId>keycloak-admin-client-internal</artifactId>
         </dependency>
         <dependency>
+            <!-- Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis -->
             <groupId>org.jboss.logging</groupId>
             <artifactId>commons-logging-jboss-logging</artifactId>
         </dependency>

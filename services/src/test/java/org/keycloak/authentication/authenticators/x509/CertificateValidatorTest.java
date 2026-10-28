@@ -40,6 +40,7 @@ public class CertificateValidatorTest {
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate = CryptoIntegration.getProvider().getCertificateUtils()
                 .createServicesTestCertificate("CN=keycloak-test", new Date(),
+                        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                         new Date(System.currentTimeMillis() + 1000L * 60), keyPair);
 
         CertificateValidator.CertificateValidatorBuilder builder =
@@ -65,6 +66,7 @@ public class CertificateValidatorTest {
         kpg.initialize(512);
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate = CryptoIntegration.getProvider().getCertificateUtils()
+                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                 .createServicesTestCertificate("CN=keycloak-test", new Date(System.currentTimeMillis() + 1000L * 60),
                         new Date(System.currentTimeMillis() + 1000L * 60), keyPair);
 

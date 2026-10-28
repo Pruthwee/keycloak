@@ -26,6 +26,7 @@ import org.keycloak.jose.jwe.JWEKeyStorage;
 import org.keycloak.jose.jwe.JWEUtils;
 import org.keycloak.jose.jwe.enc.JWEEncryptionProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

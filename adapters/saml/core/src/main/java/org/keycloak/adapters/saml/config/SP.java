@@ -27,6 +27,7 @@ import java.util.Set;
  * @version $Revision: 1 $
  */
 public class SP implements Serializable {
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static class PrincipalNameMapping implements Serializable {
         private String policy;
         private String attributeName;

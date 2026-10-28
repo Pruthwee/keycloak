@@ -29,6 +29,7 @@ public class OsUtil {
 
 
     public static OsArch determineOSAndArch() {
+        // Cloud: use Java NIO Path for platform-independent file handling
         String os = System.getProperty("os.name").toLowerCase();
         String arch = System.getProperty("os.arch");
 

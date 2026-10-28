@@ -712,6 +712,7 @@ public class ResourceOwnerPasswordCredentialsGrantTest extends AbstractKeycloakT
     private long perfTest(int actionsCount, String actionMessage, RunnableWithException action) throws Exception {
         long sumTimeMs = 0;
         for (int i = 0 ; i < actionsCount ; i++) {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             long start = System.currentTimeMillis();
             action.run();
             long took = System.currentTimeMillis() - start;

@@ -11,6 +11,7 @@ public class SAMLSingleLogoutServiceParser extends SAMLEndpointTypeParser {
         super(SAMLMetadataQNames.SINGLE_LOGOUT_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLSingleLogoutServiceParser getInstance() {
         return INSTANCE;
     }

@@ -58,6 +58,7 @@ public class RegistrationPassword implements FormAction, FormActionFactory {
 
     // Authentication note to signal that password fields should not be rendered on the registration page, but rather "update password" required action should be added
     // to the user account
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String UPDATE_PASSWORD_AFTER_EMAIL_VERIFICATION_NOTE = "update_password_after_email_verification_note";
 
     @Override

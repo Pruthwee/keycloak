@@ -80,6 +80,7 @@ public class MdocCredentialTest {
                 () -> credential.getNamespacedClaims().get(0).getClaims().put("age_over_21", true));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Object> claims(Map<String, Object> namespaceClaims) {
         Map<String, Object> claims = new LinkedHashMap<>();
         claims.put(NAMESPACE, namespaceClaims);

@@ -3448,6 +3448,7 @@ public class UserTest extends AbstractScimTest {
 
         private ProviderEventCollector() {}
 
+        // Cloud: consider using AWS DynamoDB for shared singleton state
         public static ProviderEventCollector getInstance() {
             return INSTANCE;
         }

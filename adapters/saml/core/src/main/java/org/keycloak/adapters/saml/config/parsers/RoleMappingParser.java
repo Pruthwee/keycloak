@@ -37,6 +37,7 @@ public class RoleMappingParser extends AbstractKeycloakSamlAdapterV1Parser<Set<S
         super(KeycloakSamlAdapterV1QNames.ROLE_IDENTIFIERS);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static RoleMappingParser getInstance() {
         return INSTANCE;
     }

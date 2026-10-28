@@ -144,6 +144,7 @@ import org.keycloak.storage.DatastoreProvider;
 import org.keycloak.util.JsonSerialization;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.Constants.DEFAULT_PROTOCOL;
@@ -363,6 +364,7 @@ public class RepresentationToModel {
         return createClient(session, realm, resourceRep, null);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ClientModel createClient(KeycloakSession session, RealmModel realm, ClientRepresentation resourceRep, Map<String, String> mappedFlows) {
         logger.debugv("Create client: {0}", resourceRep.getClientId());
 
@@ -1822,6 +1824,7 @@ public class RepresentationToModel {
         boolean granted = representation.isGranted();
 
         if (granted && !ticket.isGranted()) {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             ticket.setGrantedTimestamp(System.currentTimeMillis());
         } else if (!granted) {
             ticketStore.delete(ticket.getId());

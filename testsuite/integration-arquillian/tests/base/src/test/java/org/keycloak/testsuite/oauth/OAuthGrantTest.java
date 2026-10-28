@@ -49,6 +49,7 @@ import org.keycloak.testsuite.util.ProtocolMapperUtil;
 import org.keycloak.testsuite.util.oauth.AccessTokenResponse;
 import org.keycloak.util.TokenUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Rule;
 import org.junit.Test;
@@ -69,6 +70,7 @@ public class OAuthGrantTest extends AbstractKeycloakTest {
     public static final String THIRD_PARTY_APP = "third-party";
     public static final String REALM_NAME = "test";
     private final String DEFAULT_USERNAME = "test-user@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     private final String DEFAULT_PASSWORD = "password";
     @Rule
     public AssertEvents events = new AssertEvents(this);
@@ -89,6 +91,8 @@ public class OAuthGrantTest extends AbstractKeycloakTest {
         testRealms.add(realmRepresentation);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static String ROLE_USER = "Have User privileges";
     private static String ROLE_CUSTOMER = "Have Customer User privileges";
 

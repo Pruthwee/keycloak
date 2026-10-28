@@ -11,6 +11,7 @@ import java.util.zip.GZIPOutputStream;
 import org.keycloak.theme.ResourceLoader;
 
 import org.apache.commons.io.IOUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
@@ -59,8 +60,10 @@ public class GzipResourceEncodingProvider implements ResourceEncodingProvider {
                 logger.warnf("Fail to create cache directory %s", parent.toString());
             }
         }
+        // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
         File tmpEncodedFile = File.createTempFile(target.getName(), "tmp", parent);
 
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (is; GZIPOutputStream gos = new GZIPOutputStream(new FileOutputStream(tmpEncodedFile))) {
             IOUtils.copy(is, gos);
         }

@@ -100,6 +100,7 @@ public class CachingOptions {
                     "By default, it looks up 'cache-mtls-keystore.p12' under conf/ directory.")
             .build();
 
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
     public static final Option<String> CACHE_EMBEDDED_MTLS_KEYSTORE_PASSWORD = new OptionBuilder<>(CACHE_EMBEDDED_MTLS_KEYSTORE_PASSWORD_PROPERTY, String.class)
             .category(OptionCategory.CACHE)
             .description("The password to access the Keystore.")

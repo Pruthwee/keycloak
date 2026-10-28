@@ -37,6 +37,7 @@ import org.keycloak.protocol.oidc.utils.AmrUtils;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.representations.IDToken;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -84,6 +85,7 @@ public class AmrProtocolMapper extends AbstractOIDCProtocolMapper implements OID
         token.setOtherClaims(OAuth2Constants.AUTHENTICATOR_METHOD_REFERENCE, amr);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name, boolean accessToken, boolean idToken) {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
         mapper.setName(name);

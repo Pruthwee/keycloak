@@ -18,6 +18,8 @@ package org.keycloak.testsuite.util;
 
 import java.net.URL;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 
@@ -48,7 +50,9 @@ public class AdapterServletDeployment {
                 .addClasses(servletClasses)
                 .addAsWebInfResource(webXML, "web.xml");
 
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         URL keystore = AdapterServletDeployment.class.getResource(webInfPath + "keystore.jks");
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         if (keystore != null) {
             deployment.addAsWebInfResource(keystore, "classes/keystore.jks");
         }

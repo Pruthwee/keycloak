@@ -3,6 +3,10 @@ package org.keycloak.testsuite.arquillian.h2;
 import java.sql.SQLException;
 
 import org.h2.tools.Server;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.core.api.annotation.Observes;
 import org.jboss.arquillian.test.spi.event.suite.AfterSuite;
 import org.jboss.arquillian.test.spi.event.suite.BeforeSuite;
@@ -51,6 +55,7 @@ public class H2TestEnricher {
             h2Enricher.stopH2(null);
         }
 
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         Runtime.getRuntime().addShutdownHook(new Thread() {
 
             @Override

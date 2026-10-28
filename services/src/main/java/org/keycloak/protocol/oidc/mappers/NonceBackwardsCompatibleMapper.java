@@ -100,6 +100,7 @@ public class NonceBackwardsCompatibleMapper implements OIDCAccessTokenMapper, Pr
         return token;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name) {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
         mapper.setName(name);

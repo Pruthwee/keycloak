@@ -11,6 +11,7 @@ public class SAMLManageNameIDServiceParser extends SAMLEndpointTypeParser {
         super(SAMLMetadataQNames.MANAGE_NAMEID_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLManageNameIDServiceParser getInstance() {
         return INSTANCE;
     }

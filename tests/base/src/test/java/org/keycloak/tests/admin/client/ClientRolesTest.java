@@ -275,6 +275,7 @@ public class ClientRolesTest {
         Assert.assertNull(usersInRole2.get(0).getNotBefore(), "Not in brief representation");
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> createUsernames(int startIndex, int endIndex) {
         List<String> usernames = new ArrayList<>();
         for (int i = startIndex; i < endIndex; i++) {

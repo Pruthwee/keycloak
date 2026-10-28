@@ -33,6 +33,7 @@ import org.keycloak.services.clientpolicy.ClientPolicyContext;
 import org.keycloak.services.clientpolicy.ClientPolicyException;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class SecureSigningAlgorithmForSignedJwtExecutor implements ClientPolicyExecutorProvider<SecureSigningAlgorithmForSignedJwtExecutor.Configuration> {

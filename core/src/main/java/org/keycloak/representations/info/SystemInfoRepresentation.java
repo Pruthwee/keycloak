@@ -46,6 +46,7 @@ public class SystemInfoRepresentation {
         SystemInfoRepresentation rep = new SystemInfoRepresentation();
         rep.version = serverVersion;
         rep.serverTime = new Date().toString();
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         rep.uptimeMillis = System.currentTimeMillis() - serverStartupTime;
         rep.uptime = formatUptime(rep.uptimeMillis);
         rep.javaVersion = System.getProperty("java.version");

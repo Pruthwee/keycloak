@@ -21,6 +21,7 @@ public class CertificateLDAPStorageMapperFactory extends UserAttributeLDAPStorag
     certificateConfigProperties = getCertificateConfigProperties(null);
   }
 
+  // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
   private static List<ProviderConfigProperty> getCertificateConfigProperties(ComponentModel p) {
     List<ProviderConfigProperty> configProps = new ArrayList<>(getConfigProps(null));
 

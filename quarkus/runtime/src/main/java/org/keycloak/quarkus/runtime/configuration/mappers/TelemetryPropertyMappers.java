@@ -21,6 +21,7 @@ import org.keycloak.utils.StringUtil;
 
 import io.quarkus.runtime.configuration.DurationConverter;
 import io.smallrye.config.ConfigSourceInterceptorContext;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.config.TelemetryOptions.TELEMETRY_ENDPOINT;
@@ -241,6 +242,7 @@ public class TelemetryPropertyMappers implements PropertyMapperGrouping{
     }
 
     // cache found prefixes for telemetry headers
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<Option<?>, Map<String, String>> TELEMETRY_HEADERS_CACHE;
 
     // return map with entries for every telemetry option handling headers

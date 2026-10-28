@@ -24,6 +24,7 @@ import org.keycloak.Config;
 import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.transaction.JtaTransactionManagerLookup;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class QuarkusJtaTransactionManagerLookup implements JtaTransactionManagerLookup {

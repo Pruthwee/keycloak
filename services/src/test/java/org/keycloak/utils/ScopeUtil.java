@@ -28,6 +28,7 @@ import org.junit.Assert;
 
 public class ScopeUtil {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static JsonScope createScope(Map<String, String> properties) {
         ObjectMapper mapper = new ObjectMapper();
         try {

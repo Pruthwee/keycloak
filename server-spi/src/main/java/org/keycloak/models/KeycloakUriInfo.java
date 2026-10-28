@@ -30,6 +30,7 @@ import jakarta.ws.rs.core.UriInfo;
 import org.keycloak.urls.HostnameProvider;
 import org.keycloak.urls.UrlType;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl;
 
 import static org.keycloak.common.util.UriUtils.parseQueryParameters;

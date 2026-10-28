@@ -65,6 +65,7 @@ public class KerberosKeytabCreator {
             System.out.println("Example of usage:");
             System.out.println("java -jar embedded-ldap/target/embedded-ldap.jar keytabCreator HTTP/localhost@KEYCLOAK.ORG httppassword http.keytab");
         } else {
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             final File keytabFile = new File(args[2]);
             createKeytab(args[0], args[1], keytabFile);
             System.out.println("Keytab file was created: " + keytabFile.getAbsolutePath() + ", principal: " + args[0] + ", passphrase: " + args[1]);

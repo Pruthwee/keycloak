@@ -58,6 +58,7 @@ class ReloadingX509ExtendedTrustManager extends X509ExtendedTrustManager {
     }
 
     @Override
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
     public void checkServerTrusted(X509Certificate[] chain, String authType, SSLEngine engine) throws CertificateException {
         try {
 

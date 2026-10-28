@@ -17,6 +17,8 @@
 
 package org.keycloak.testsuite.arquillian.galleon;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.test.spi.client.deployment.ApplicationArchiveProcessor;
 import org.jboss.arquillian.core.spi.LoadableExtension;
 import org.keycloak.testsuite.arquillian.galleon.container.EAP8DeploymentArchiveProcessor;

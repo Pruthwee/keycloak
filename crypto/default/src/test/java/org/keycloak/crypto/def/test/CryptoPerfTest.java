@@ -38,6 +38,7 @@ import org.keycloak.representations.AccessToken;
 import org.keycloak.rule.CryptoInitRule;
 import org.keycloak.util.TokenUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assert;
 import org.junit.ClassRule;

@@ -24,6 +24,7 @@ public class SAMLOrganizationParser extends AbstractStaxSamlMetadataParser<Organ
         super(ORGANIZATION);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLOrganizationParser getInstance() {
         return INSTANCE;
     }

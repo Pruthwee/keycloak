@@ -25,6 +25,7 @@ import org.keycloak.models.RequiredActionProviderModel;
 import org.keycloak.models.SingleUseObjectProvider;
 import org.keycloak.provider.ProviderConfigProperty;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class EmailCooldownManager {

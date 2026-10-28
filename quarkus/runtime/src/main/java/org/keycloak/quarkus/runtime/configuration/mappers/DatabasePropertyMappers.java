@@ -37,6 +37,7 @@ import org.keycloak.utils.StringUtil;
 import io.quarkus.datasource.common.runtime.DatabaseKind;
 import io.smallrye.config.ConfigSourceInterceptorContext;
 import io.smallrye.config.ConfigValue;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.config.DatabaseOptions.DB;
@@ -321,6 +322,7 @@ public final class DatabasePropertyMappers implements PropertyMapperGrouping {
         return result;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<PropertyMapper<?>> namedQueryMappers() {
         Set<String> queryKeys = new TreeSet<>();
 
@@ -590,6 +592,7 @@ public final class DatabasePropertyMappers implements PropertyMapperGrouping {
             List<PropertyMapper<?>> datasourceMappers = new ArrayList<>(mappers.size() * 2);
 
             Map<String, Option<?>> cachedDatasourceOptions = new HashMap<>();
+            // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
             cachedDatasourceOptions.put(DB.getKey(), DB_KIND);
             mappers.stream().map(PropertyMapper::getOption).forEach(o -> cachedDatasourceOptions.computeIfAbsent(o.getKey(), k -> getDatasourceOption(o)));
             

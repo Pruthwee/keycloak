@@ -69,6 +69,7 @@ import org.keycloak.userprofile.UserProfileContext;
 import org.keycloak.userprofile.UserProfileProvider;
 import org.keycloak.userprofile.ValidationException;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.services.messages.Messages.EMAIL_VERIFICATION_PENDING;
@@ -110,6 +111,7 @@ public class UpdateEmail implements RequiredActionProvider, RequiredActionFactor
     }
 
     public static void forceEmailVerification(KeycloakSession session) {
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(FORCE_EMAIL_VERIFICATION, true);
     }
 

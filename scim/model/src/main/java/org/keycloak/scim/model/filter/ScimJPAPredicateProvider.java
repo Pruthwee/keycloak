@@ -19,6 +19,7 @@ import org.keycloak.scim.resource.schema.attribute.Attribute;
 import org.keycloak.scim.resource.schema.attribute.ScimDateTimeUtil;
 import org.keycloak.scim.resource.spi.ScimResourceTypeProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

@@ -124,6 +124,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -1344,6 +1345,7 @@ public class ClientPoliciesExecutorTest extends AbstractClientPoliciesTest {
         try {
             updateClientByAdmin(cid, (ClientRepresentation clientRep) -> {
                 // OAuth2 : redirectUris
+                // Cloud: replace FTP with Amazon S3 Transfer Acceleration and presigned URLs
                 clientRep.setRedirectUris(Arrays.asList("https://client.example.com/redirect/", "ftp://client.example.com/callback/"));
             });
             fail();

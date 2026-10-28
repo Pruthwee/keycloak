@@ -71,6 +71,7 @@ public class KEYCLOAK_JDBC_PING2 extends JDBC_PING2 {
     protected boolean allow_multiple_clusters = false;
 
     private static final Executor NETWORK_TIMEOUT_EXECUTOR = Executors.newSingleThreadExecutor(r -> {
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         Thread t = new Thread(r, "jdbc-ping-network-timeout");
         t.setDaemon(true);
         return t;

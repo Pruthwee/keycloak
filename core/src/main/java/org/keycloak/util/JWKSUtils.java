@@ -40,6 +40,7 @@ import org.keycloak.jose.jwk.RSAPublicJWK;
 import org.keycloak.jose.jws.crypto.HashUtils;
 import org.keycloak.json.KeycloakJsonMapperFactory;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -62,6 +63,7 @@ public class JWKSUtils {
      * @deprecated Use {@link #getKeyWrappersForUse(JSONWebKeySet, JWK.Use)}
      **/
     @Deprecated
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, PublicKey> getKeysForUse(JSONWebKeySet keySet, JWK.Use requestedUse) {
         return getKeyWrappersForUse(keySet, requestedUse).getKeys()
                 .stream()

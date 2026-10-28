@@ -13,6 +13,7 @@ public final class KeycloakJsonMapperFactory {
     private KeycloakJsonMapperFactory() {
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static KeycloakJsonMapper mapper() {
         return Holder.INSTANCE;
     }

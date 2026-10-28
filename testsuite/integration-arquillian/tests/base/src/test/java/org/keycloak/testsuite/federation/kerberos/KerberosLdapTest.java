@@ -59,6 +59,7 @@ import static org.keycloak.common.constants.KerberosConstants.KERBEROS_PRINCIPAL
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
  */
 public class KerberosLdapTest extends AbstractKerberosSingleRealmTest {
+    // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
     private static final String PROVIDER_CONFIG_LOCATION = "classpath:kerberos/kerberos-ldap-connection.properties";
 
     @ClassRule

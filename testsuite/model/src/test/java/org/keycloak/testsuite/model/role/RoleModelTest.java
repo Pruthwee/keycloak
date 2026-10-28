@@ -51,6 +51,7 @@ public class RoleModelTest extends KeycloakModelTest {
 
     private String realmId;
     private String mainRoleId;
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> rolesSubset;
 
     @Override

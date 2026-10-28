@@ -8,6 +8,7 @@ public class TestClassLoader extends URLClassLoader {
 
     private static TestClassLoader instance;
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static TestClassLoader getInstance() {
         if (instance == null) {
             ClassLoader parent = TestClassLoader.class.getClassLoader();

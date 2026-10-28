@@ -96,6 +96,7 @@ public class RoleResolveUtil {
      * @param clientSessionCtx
      * @return not-null object (can return empty map)
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, AccessToken.Access> getAllResolvedClientRoles(KeycloakSession session, ClientSessionContext clientSessionCtx) {
         return getAndCacheResolvedRoles(session, clientSessionCtx).getResourceAccess();
     }
@@ -109,6 +110,7 @@ public class RoleResolveUtil {
             AccessToken finalToken = new AccessToken();
             clientSessionCtx.getRolesStream().forEach(role -> addToToken(finalToken, role));
             token = finalToken;
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(resolvedRolesAttrName, token);
         }
 

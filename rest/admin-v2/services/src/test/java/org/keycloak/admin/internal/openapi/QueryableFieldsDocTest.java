@@ -39,6 +39,7 @@ class QueryableFieldsDocTest {
 
     private static JsonNode queryableFields;
     private static JsonNode schemas;
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, List<String>> documented;
 
     @BeforeAll

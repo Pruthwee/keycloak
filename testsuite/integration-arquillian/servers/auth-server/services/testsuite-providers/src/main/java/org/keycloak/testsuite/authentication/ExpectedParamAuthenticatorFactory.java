@@ -99,6 +99,7 @@ public class ExpectedParamAuthenticatorFactory implements AuthenticatorFactory, 
 
     }
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

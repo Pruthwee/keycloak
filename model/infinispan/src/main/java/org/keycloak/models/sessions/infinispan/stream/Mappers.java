@@ -33,6 +33,7 @@ import org.keycloak.models.sessions.infinispan.entities.UserSessionEntity;
  */
 public class Mappers {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Function<Map.Entry<String, SessionEntityWrapper<UserSessionEntity>>, UserSessionEntity> userSessionEntity() {
         return SessionUnwrapMapper.getInstance();
     }

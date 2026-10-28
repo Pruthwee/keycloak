@@ -106,6 +106,7 @@ test.describe
         "JWT Authorization Grant",
         alias,
         realmName,
+        // Cloud: externalize URL to AWS Systems Manager Parameter Store
         { issuer: `https://${alias}.example.com` },
       );
     }

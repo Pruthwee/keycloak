@@ -209,6 +209,7 @@ public class XMLTimeUtil {
         return factory.newXMLGregorianCalendar(timeString);
     }
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<DatatypeFactory> DATATYPE_FACTORY = new ThreadLocal<DatatypeFactory>() {
         @Override
         protected DatatypeFactory initialValue() {

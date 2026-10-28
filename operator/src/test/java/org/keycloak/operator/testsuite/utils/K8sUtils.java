@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
+// Cloud: replace ThreadLocal with request-scoped beans for cloud environments
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -134,6 +135,7 @@ public final class K8sUtils {
         return inClusterCurl(k8sclient, namespace, Map.of(), url);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static String inClusterCurl(KubernetesClient k8sclient, String namespace, Map<String, String> labels, String url) {
         return inClusterCurl(k8sclient, namespace, labels, "--insecure", "-s", "-o", "/dev/null", "-w", "%{http_code}", url).stdout();
     }

@@ -110,6 +110,8 @@ public class SMTPConnectionTest {
     @Test
     @Order(4)
     public void testWithAuthEnabledValidCredentials() throws Exception {
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
         String password = "admin";
 
         mailServer.credentials("admin@localhost", password);
@@ -119,6 +121,7 @@ public class SMTPConnectionTest {
 
     @Test
     @Order(5)
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     public void testAuthEnabledAndSavedCredentials() throws Exception {
         String password = "admin";
         RealmResource realm = adminClient.realms().realm(managedRealm.getName());

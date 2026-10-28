@@ -28,6 +28,7 @@ public class PairwiseSubMapperValidator {
     public static final String PAIRWISE_FAILED_TO_GET_REDIRECT_URIS = "pairwiseFailedToGetRedirectURIs";
     public static final String PAIRWISE_REDIRECT_URIS_MISMATCH = "pairwiseRedirectURIsMismatch";
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void validate(KeycloakSession session, ClientModel client, ProtocolMapperModel mapperModel) throws ProtocolMapperConfigException {
         String sectorIdentifierUri = PairwiseSubMapperHelper.getSectorIdentifierUri(mapperModel);
         String rootUrl = client.getRootUrl();

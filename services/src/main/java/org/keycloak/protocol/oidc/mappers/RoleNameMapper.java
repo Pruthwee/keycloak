@@ -42,6 +42,7 @@ import org.keycloak.utils.RoleResolveUtil;
  */
 public class RoleNameMapper extends AbstractOIDCProtocolMapper implements OIDCAccessTokenMapper, UserInfoTokenMapper, TokenIntrospectionTokenMapper {
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     public static final String ROLE_CONFIG = "role";
@@ -152,6 +153,7 @@ public class RoleNameMapper extends AbstractOIDCProtocolMapper implements OIDCAc
         access.addRole(newRoleName);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name,
                                              String role,
                                              String newName) {

@@ -40,6 +40,7 @@ class DirectoryCopyVisitorTest {
 		Files.createFile(level2b.resolve("l2filea"));
 		Files.createFile(level2b.resolve("l2fileb"));
 
+  // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
 		Files.walkFileTree(srcDir, new DirectoryCopyVisitor(targetDir));
 
 		assertEquals(List.of("level1", "rootfile"), listDirContent(targetDir));

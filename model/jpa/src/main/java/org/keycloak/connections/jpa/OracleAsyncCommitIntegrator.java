@@ -22,6 +22,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.hibernate.engine.spi.SessionFactoryImplementor;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -67,6 +68,7 @@ class OracleAsyncCommitIntegrator extends AsyncCommitIntegrator {
 
     @Override
     protected void applyAsyncCommit(Connection connection) throws SQLException {
+        // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
         try (Statement stmt = connection.createStatement()) {
             stmt.execute("COMMIT WRITE BATCH NOWAIT");
         }

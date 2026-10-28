@@ -68,6 +68,7 @@ public abstract class AbstractClaimMapper extends AbstractIdentityProviderMapper
         return null;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Object getClaimValue(IdentityProviderMapperModel mapperModel, BrokeredIdentityContext context) {
         String claim = mapperModel.getConfig().get(CLAIM);
         return getClaimValue(context, claim);

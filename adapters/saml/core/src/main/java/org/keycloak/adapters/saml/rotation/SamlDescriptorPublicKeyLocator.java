@@ -39,6 +39,7 @@ import org.keycloak.rotation.KeyLocator;
 import org.keycloak.saml.processing.api.util.KeyInfoTools;
 
 import org.apache.http.client.HttpClient;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

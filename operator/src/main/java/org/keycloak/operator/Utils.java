@@ -61,6 +61,7 @@ public final class Utils {
         return Base64.getEncoder().encodeToString(toEncode.getBytes(StandardCharsets.UTF_8));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static String toSelectorString(Map<String, String> labels) {
         if (labels == null || labels.isEmpty()) {
             return null;

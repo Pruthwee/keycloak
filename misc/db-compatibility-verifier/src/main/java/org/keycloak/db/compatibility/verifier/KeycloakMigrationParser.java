@@ -48,6 +48,7 @@ record KeycloakMigrationParser(ClassLoader classLoader, String packageName) {
                     // Should never happen
                     throw new IllegalStateException(e);
                 }
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 classNames.addAll(findNamesInDirectory(new File(uri), packageName));
             } else if (resource.getProtocol().equals("jar")) {
                 classNames.addAll(findNamesInJar(resource, path));

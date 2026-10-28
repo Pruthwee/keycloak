@@ -94,6 +94,7 @@ public class CibaConfig extends AbstractConfig {
         return new CibaConfig(() -> realm, authRequestedUserHint,  backChannelTokenDeliveryMode, expiresIn, poolingInterval);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static CibaConfig fromCache(Supplier<RealmModel> realmForWrite, Map<String, String> realmAttributes) {
         var backChannelTokenDeliveryMode = realmAttributes.getOrDefault(CIBA_BACKCHANNEL_TOKEN_DELIVERY_MODE,  DEFAULT_CIBA_POLICY_TOKEN_DELIVERY_MODE);
         var authRequestedUserHint =  realmAttributes.getOrDefault(CIBA_AUTH_REQUESTED_USER_HINT,  DEFAULT_CIBA_POLICY_AUTH_REQUESTED_USER_HINT);

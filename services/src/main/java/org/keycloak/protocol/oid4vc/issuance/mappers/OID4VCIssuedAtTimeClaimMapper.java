@@ -35,6 +35,7 @@ import org.keycloak.protocol.oid4vc.model.CredentialSubject;
 import org.keycloak.protocol.oid4vc.model.VerifiableCredential;
 import org.keycloak.provider.ProviderConfigProperty;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.OID4VCConstants.CLAIM_NAME_IAT;
@@ -69,6 +70,7 @@ public class OID4VCIssuedAtTimeClaimMapper extends OID4VCMapper {
     // Defaults to VC. Falls back to COMPUTE.
     public static final String VALUE_SOURCE = "valueSource";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> CONFIG_PROPERTIES = new ArrayList<>();
     private static final Logger log = Logger.getLogger(OID4VCIssuedAtTimeClaimMapper.class);
 

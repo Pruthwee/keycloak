@@ -32,6 +32,7 @@ public class DsaKeyValueParser extends AbstractStaxXmlDSigParser<DSAKeyValueType
         super(XmlDSigQNames.DSA_KEY_VALUE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static DsaKeyValueParser getInstance() {
         return INSTANCE;
     }

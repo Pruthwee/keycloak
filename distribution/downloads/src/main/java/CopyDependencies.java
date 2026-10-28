@@ -17,6 +17,7 @@ public class CopyDependencies {
 
     public static void main(String[] args) throws IOException {
         String version = args[2];
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         Path targetRoot = new File(args[1]).toPath().resolve(version);
         Path projectDir = targetRoot.getParent().getParent().getParent().getParent();
         Path mavenRepository = new File(args[0]).toPath().resolve("org").resolve("keycloak");

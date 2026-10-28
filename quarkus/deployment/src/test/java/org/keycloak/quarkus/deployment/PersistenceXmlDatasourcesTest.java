@@ -407,6 +407,7 @@ public class PersistenceXmlDatasourcesTest {
         String xml = PERSISTENCE_XML_BODY.formatted(content);
         Path file = null;
         try {
+            // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
             file = Files.createTempFile("persistence", ".xml");
             Files.writeString(file, xml);
             List<PersistenceUnitDescriptor> descriptors = List.copyOf(parser.parse(List.of(file.toUri().toURL())).values());

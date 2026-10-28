@@ -344,6 +344,7 @@ public enum OrganizationScope {
         value = valueOfScope(session, getRequestedScopes(session));
 
         if (value != null) {
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(OrganizationScope.class.getName(), value);
         }
 
@@ -442,6 +443,7 @@ public enum OrganizationScope {
             }
 
             organizationScopes.add(clientScope);
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             // scope supports organizations, cache the scope in this session to avoid processing it again
             session.setAttribute(ORGANIZATION_SCOPES_SESSION_ATTRIBUTE, organizationScopes);
         }

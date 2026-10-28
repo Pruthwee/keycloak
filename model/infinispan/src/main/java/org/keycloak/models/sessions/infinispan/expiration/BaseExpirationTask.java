@@ -37,6 +37,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.models.session.UserSessionPersisterProvider;
 import org.keycloak.models.utils.KeycloakModelUtils;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -64,6 +65,7 @@ abstract class BaseExpirationTask implements ExpirationTask {
         });
         this.executorService = Executors.newSingleThreadExecutor(r -> {
             //create daemon threads
+            // Cloud: use bounded ExecutorService instead of unbounded thread creation
             Thread t = new Thread(r);
             t.setDaemon(true);
             t.setName("user-session-purge-expired");

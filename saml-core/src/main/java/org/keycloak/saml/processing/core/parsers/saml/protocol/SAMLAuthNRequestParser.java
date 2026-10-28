@@ -44,6 +44,7 @@ public class SAMLAuthNRequestParser extends SAMLRequestAbstractParser<AuthnReque
         super(SAMLProtocolQNames.AUTHN_REQUEST);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAuthNRequestParser getInstance() {
         return INSTANCE;
     }

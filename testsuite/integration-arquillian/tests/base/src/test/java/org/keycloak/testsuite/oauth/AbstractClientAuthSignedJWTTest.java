@@ -291,6 +291,7 @@ public abstract class AbstractClientAuthSignedJWTTest extends AbstractKeycloakTe
         KeystoreUtils.assumeKeystoreTypeSupported(KeystoreFormat.BCFKS);
         KeystoreUtils.KeystoreInfo ksInfo = KeystoreUtils.generateKeystore(folder, KeystoreFormat.BCFKS, "clientkey", "pwd2", "keypass", keyPair);
         try {
+            // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
             Path tempFile = Files.createTempFile("cert_", ".pem");
             try (BufferedWriter writer = Files.newBufferedWriter(tempFile)) {
                 writer.write(ksInfo.getCertificateInfo().getCertificate());
@@ -417,6 +418,8 @@ public abstract class AbstractClientAuthSignedJWTTest extends AbstractKeycloakTe
     protected void testClientWithGeneratedKeys(String format, Integer keySize, Integer validity) throws Exception {
         ClientRepresentation client = app3;
         UserRepresentation user = defaultUser;
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve secrets from AWS Secrets Manager
         final String keyAlias = "somekey";
         final String keyPassword = "pwd1";
         final String storePassword = "pwd2";
@@ -442,6 +445,7 @@ public abstract class AbstractClientAuthSignedJWTTest extends AbstractKeycloakTe
 
         int expectedValidity = validity == null ? 3 : validity;
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         Calendar beforeCreateCalendar = Calendar.getInstance();
         beforeCreateCalendar.add(Calendar.YEAR, expectedValidity);
         long beforeCertCreateTime = beforeCreateCalendar.getTime().getTime();

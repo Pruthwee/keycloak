@@ -47,6 +47,7 @@ import org.keycloak.representations.idm.RealmRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.testsuite.admin.ApiUtil.getCreatedId;
@@ -127,6 +128,7 @@ public class Creator<T> implements AutoCloseable {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Creator<IdentityProviderResource> create(RealmResource realmResource, String identityProviderAlias, IdentityProviderMapperRepresentation rep) {
         final IdentityProvidersResource res = realmResource.identityProviders();
         assertThat("Identity provider alias must be specified", identityProviderAlias, Matchers.notNullValue());

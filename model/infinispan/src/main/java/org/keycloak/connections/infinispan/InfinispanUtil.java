@@ -38,6 +38,7 @@ import org.infinispan.factories.impl.ComponentRef;
 import org.infinispan.manager.EmbeddedCacheManager;
 import org.infinispan.remoting.transport.jgroups.JGroupsTransport;
 import org.infinispan.util.EmbeddedTimeService;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jgroups.JChannel;
 

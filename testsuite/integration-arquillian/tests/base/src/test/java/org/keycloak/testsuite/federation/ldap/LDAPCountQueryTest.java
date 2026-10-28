@@ -48,6 +48,7 @@ import static org.hamcrest.Matchers.hasSize;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LDAPCountQueryTest extends AbstractLDAPTest {
 
+    // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
     private static final File CONFIG_DIR = new File(System.getProperty("auth.server.config.dir", ""));
 
     @ClassRule

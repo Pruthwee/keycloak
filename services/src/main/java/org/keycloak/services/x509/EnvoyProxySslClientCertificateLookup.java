@@ -25,6 +25,7 @@ import java.util.StringTokenizer;
 import org.keycloak.common.util.PemUtils;
 import org.keycloak.http.HttpRequest;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class EnvoyProxySslClientCertificateLookup implements X509ClientCertificateLookup {

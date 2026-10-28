@@ -44,6 +44,7 @@ public class AuthClientSessionSetMapper implements Function<Map.Entry<String, Se
     }
 
     @ProtoFactory
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static AuthClientSessionSetMapper getInstance() {
         return INSTANCE;
     }

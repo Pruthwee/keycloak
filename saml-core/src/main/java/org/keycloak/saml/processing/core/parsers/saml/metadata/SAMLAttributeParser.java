@@ -37,6 +37,7 @@ public class SAMLAttributeParser extends AbstractStaxSamlMetadataParser<Attribut
         super(SAMLMetadataQNames.ATTRIBUTE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAttributeParser getInstance() {
         return INSTANCE;
     }

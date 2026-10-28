@@ -27,6 +27,8 @@ import jakarta.ws.rs.ext.RuntimeDelegate;
 
 import org.keycloak.http.HttpResponse;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.server.core.ResteasyReactiveRequestContext;
 import org.jboss.resteasy.reactive.server.vertx.VertxResteasyReactiveRequestContext;
 

@@ -34,6 +34,7 @@ public class EntityManagers {
 
     static final String ENTITY_MANAGER_PROXIES = "ENTITY_MANAGER_PROXIES";
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<Boolean> batchMode = new ThreadLocal<Boolean>();
 
     static void runInBatchMode(Runnable runnable) {

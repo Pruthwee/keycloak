@@ -15,11 +15,13 @@ import org.openqa.selenium.WebElement;
 public class SelectAuthenticatorPage extends LanguageComboboxAwarePage {
 
     // Corresponds to the PasswordForm
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String PASSWORD = "Password";
 
     // Corresponds to the UsernameForm
     public static final String USERNAME = "Username";
 
+    // Cloud: retrieve secrets from AWS Secrets Manager
     // Corresponds to the UsernamePasswordForm
     public static final String USERNAMEPASSWORD = "Username and password";
 

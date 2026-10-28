@@ -105,6 +105,7 @@ public class SsfTransmitterPushDeliveryTests {
     static final String RECEIVER_CRED_ONLY_SECRET = "receiver-push-cred-only-secret";
 
     static final String TEST_USER = "tester";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String TEST_PASSWORD = "test";
 
     static final String PUSH_CONTEXT_PATH = "/ssf/push-delivery";

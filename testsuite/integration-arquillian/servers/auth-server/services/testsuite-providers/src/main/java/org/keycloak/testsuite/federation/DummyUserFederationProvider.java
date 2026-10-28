@@ -51,6 +51,7 @@ public class DummyUserFederationProvider implements UserStorageProvider,
     private ComponentModel component;
 
     // Hardcoded password of test-user
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String HARDCODED_PASSWORD = "secret";
 
     // Hardcoded otp code, which will be always considered valid for the test-user

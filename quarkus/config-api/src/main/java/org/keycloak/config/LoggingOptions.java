@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 import io.quarkus.runtime.logging.LogRuntimeConfig;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logmanager.handlers.SyslogHandler;
 
 import static java.lang.String.format;
@@ -176,6 +177,7 @@ public class LoggingOptions {
     public static final Option<File> LOG_FILE = new OptionBuilder<>("log-file", File.class)
             .category(OptionCategory.LOGGING)
             .description("Set the log file path and filename.")
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             .defaultValue(new File(DEFAULT_LOG_PATH))
             .build();
 

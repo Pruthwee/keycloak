@@ -219,6 +219,7 @@ public class Picocli {
 
     public void exit(int exitCode) {
         System.exit(exitCode);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
     }
 
     private static boolean wasBuildEverRun() {
@@ -533,6 +534,7 @@ public class Picocli {
                 String.join("\n", properties)));
     }
 
+    // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
     public static Properties getNonPersistedBuildTimeOptions() {
         Properties properties = new Properties();
         // TODO: could get only non-persistent property names

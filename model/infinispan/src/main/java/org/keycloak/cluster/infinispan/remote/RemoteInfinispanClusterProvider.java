@@ -37,6 +37,7 @@ import org.keycloak.cluster.infinispan.TaskCallback;
 import org.keycloak.common.util.Retry;
 
 import org.infinispan.client.hotrod.RemoteCache;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.cluster.infinispan.InfinispanClusterProvider.TASK_KEY_PREFIX;

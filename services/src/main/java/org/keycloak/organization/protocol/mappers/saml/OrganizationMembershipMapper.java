@@ -47,6 +47,7 @@ public class OrganizationMembershipMapper extends AbstractSAMLProtocolMapper imp
     public static final String ID = "saml-organization-membership-mapper";
     public static final String ORGANIZATION_ATTRIBUTE_NAME = "organization";
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create() {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
 

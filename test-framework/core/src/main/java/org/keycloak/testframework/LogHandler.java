@@ -9,6 +9,8 @@ import org.keycloak.testframework.github.GitHubActionReport;
 import io.quarkus.runtime.logging.LoggingSetupRecorder;
 import io.smallrye.config.SmallRyeConfigProviderResolver;
 import org.eclipse.microprofile.config.spi.ConfigProviderResolver;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.logmanager.LogManager;
 import org.junit.jupiter.api.extension.ExtensionContext;

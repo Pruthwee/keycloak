@@ -64,6 +64,7 @@ import org.infinispan.configuration.global.TransportConfigurationBuilder;
 import org.infinispan.configuration.parsing.ConfigurationBuilderHolder;
 import org.infinispan.remoting.transport.jgroups.EmbeddedJGroupsChannelConfigurator;
 import org.infinispan.remoting.transport.jgroups.JGroupsTransport;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jgroups.Address;
 import org.jgroups.Global;
@@ -344,6 +345,7 @@ public final class JGroupsConfigurator {
         return address;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ProtocolConfiguration> getProtocolConfigurations(String tableName, boolean udp, boolean tracingEnabled, boolean fdSockEnabled) {
         var list = new ArrayList<ProtocolConfiguration>(4);
         list.add(new ProtocolConfiguration(KEYCLOAK_JDBC_PING2.class.getName(),

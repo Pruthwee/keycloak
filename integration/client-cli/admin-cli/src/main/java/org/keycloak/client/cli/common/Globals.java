@@ -47,6 +47,7 @@ public class Globals {
         CommandLine cli = createCommandLine(rootCommand, command, new PrintWriter(System.err, true));
         int exitCode = cli.execute(args);
         System.exit(exitCode);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
     }
 
     public static CommandLine createCommandLine(BaseGlobalOptionsCmd rootCommand, String command, PrintWriter errorWriter) {

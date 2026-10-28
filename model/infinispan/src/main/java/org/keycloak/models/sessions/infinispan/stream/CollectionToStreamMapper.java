@@ -47,6 +47,7 @@ public class CollectionToStreamMapper<T> implements Function<Collection<T>, Stre
 
     @ProtoFactory
     @SuppressWarnings("unchecked")
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static <T1> CollectionToStreamMapper<T1> getInstance() {
         return (CollectionToStreamMapper<T1>) INSTANCE;
     }

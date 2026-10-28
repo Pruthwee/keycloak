@@ -44,6 +44,7 @@ import org.keycloak.storage.UserStorageEventListener;
 import org.keycloak.timer.ScheduledTask;
 import org.keycloak.timer.TimerProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class DefaultDatastoreProviderFactory implements DatastoreProviderFactory, ProviderEventListener {

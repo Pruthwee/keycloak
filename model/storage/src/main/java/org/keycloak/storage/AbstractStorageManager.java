@@ -31,6 +31,7 @@ import org.keycloak.provider.Provider;
 import org.keycloak.provider.ProviderFactory;
 import org.keycloak.utils.ServicesUtils;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -231,6 +232,7 @@ public abstract class AbstractStorageManager<ProviderType extends Provider,
             throw new IllegalStateException("StorageProviderFactory (of type " + factory.getClass().getName() + ") produced a null instance");
         }
         session.enlistForClose(instance);
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(model.getId(), instance);
         return capabilityInterface.cast(instance);
     }

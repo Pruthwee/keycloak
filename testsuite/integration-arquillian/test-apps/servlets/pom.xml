@@ -44,6 +44,7 @@
             <artifactId>keycloak-saml-adapter-api-public</artifactId>
         </dependency>
         <dependency>
+            <!-- Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis -->
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-core</artifactId>
         </dependency>

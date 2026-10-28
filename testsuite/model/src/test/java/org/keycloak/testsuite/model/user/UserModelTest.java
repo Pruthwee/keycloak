@@ -311,6 +311,7 @@ public class UserModelTest extends KeycloakModelTest {
                 throw new RuntimeException("UserStorageProvideFactory (of type " + factory.getClass().getName() + ") produced a null instance");
             }
             session.enlistForClose(instance);
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(userFederationId, instance);
         }
 

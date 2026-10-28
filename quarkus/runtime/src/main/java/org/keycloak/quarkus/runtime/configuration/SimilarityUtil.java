@@ -44,6 +44,7 @@ public final class SimilarityUtil {
                 .toList();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Integer> bigramFrequency(String s) {
         Map<String, Integer> freq = new HashMap<>();
         for (int i = 0; i < s.length() - 1; i++) {

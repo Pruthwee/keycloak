@@ -68,6 +68,7 @@ public abstract class AbstractConcurrencyTest extends AbstractTestRealmKeycloakT
                 ? Executors.newSingleThreadExecutor()
                 : Executors.newFixedThreadPool(numThreads);
 
+        // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
         ThreadLocal<Keycloak> keycloaks = new ThreadLocal<Keycloak>() {
             @Override
             protected Keycloak initialValue() {

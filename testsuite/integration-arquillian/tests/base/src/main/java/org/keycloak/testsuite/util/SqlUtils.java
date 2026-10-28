@@ -26,6 +26,7 @@ import java.nio.charset.StandardCharsets;
 import org.apache.commons.io.IOUtils;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.SQLExec;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -61,6 +62,7 @@ public class SqlUtils {
         }
 
         SqlExecuter executer = new SqlExecuter();
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         executer.setSrc(new File(sqlFilePath));
         executer.setDriver(jdbcDriverClass);
         executer.setPassword(dbPassword);
@@ -81,6 +83,7 @@ public class SqlUtils {
             try {
                 String content = IOUtils.toString(new FileInputStream(sqlFilePath), StandardCharsets.UTF_8);
                 content = content.replaceAll("SET DEFINE OFF;", "");
+                // Cloud: consider using Amazon S3 for durable storage instead of local file writes
                 IOUtils.write(content, new FileOutputStream(sqlFilePath), StandardCharsets.UTF_8);
             } catch (IOException fnfe) {
                 throw new RuntimeException(fnfe);

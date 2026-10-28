@@ -42,6 +42,7 @@ test.describe("Referrer", () => {
   }) => {
     const queryParams = new URLSearchParams([
       ["referrer", ADMIN_CLIENT_ID],
+      // Cloud: externalize URL to AWS Systems Manager Parameter Store
       ["referrer_uri", "http://i-am-not-an-allowed-url.com"],
     ]);
 

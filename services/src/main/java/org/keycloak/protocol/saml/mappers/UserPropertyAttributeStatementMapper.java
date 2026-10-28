@@ -36,6 +36,7 @@ import org.keycloak.provider.ProviderConfigProperty;
  * @version $Revision: 1 $
  */
 public class UserPropertyAttributeStatementMapper extends AbstractSAMLProtocolMapper implements SAMLAttributeStatementMapper {
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {
@@ -91,6 +92,7 @@ public class UserPropertyAttributeStatementMapper extends AbstractSAMLProtocolMa
         AttributeStatementHelper.addAttribute(attributeStatement, mappingModel, propertyValue);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel createAttributeMapper(String name, String userAttribute,
                                                             String samlAttributeName, String nameFormat, String friendlyName,
                                                             boolean consentRequired, String consentText) {

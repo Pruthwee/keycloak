@@ -32,6 +32,10 @@ import org.keycloak.testsuite.utils.arquillian.DeploymentArchiveProcessorUtils;
 import org.keycloak.testsuite.utils.io.IOUtil;
 
 import org.apache.commons.io.IOUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.asset.UrlAsset;
@@ -97,7 +101,9 @@ public abstract class AbstractServletsAdapterTest extends AbstractAdapterTest {
         }
         deployment.add(new StringAsset(webXMLContent), "/WEB-INF/web.xml");
 
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         URL keystore = AbstractServletsAdapterTest.class.getResource(webInfPath + "keystore.jks");
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         if (keystore != null) {
             deployment.addAsWebInfResource(keystore, "keystore.jks");
         }

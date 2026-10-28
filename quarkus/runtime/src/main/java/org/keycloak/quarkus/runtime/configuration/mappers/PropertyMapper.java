@@ -607,6 +607,7 @@ public class PropertyMapper<T> {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static <T> PropertyMapper.Builder<T> fromOption(Option<T> opt) {
         return new PropertyMapper.Builder<>(opt);
     }

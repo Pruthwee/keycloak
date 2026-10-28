@@ -154,6 +154,7 @@ public class UserAttributeWorkflowConditionProvider implements WorkflowCondition
      * @return a {@link String} array where the first element is the key and the second element is the value.
      */
     public static String[] parseKeyValuePair(String keyValuePair) {
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties props = new Properties();
         try {
             props.load(new StringReader(keyValuePair));

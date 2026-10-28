@@ -83,6 +83,7 @@ import org.keycloak.testsuite.rest.representation.TestAuthenticationChannelReque
 import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.NoCache;
 
 import static org.keycloak.common.crypto.CryptoConstants.EC_KEY_SECP256R1;
@@ -345,6 +346,7 @@ public class TestingOIDCEndpointsApplicationResource {
                 case Algorithm.HS384:
                 case Algorithm.HS512:
                     KeyWrapper keyWrapper = new KeyWrapper();
+                    // Cloud: retrieve secrets from AWS Secrets Manager
                     SecretKey secretKey = new SecretKeySpec(clientSecret.getBytes(StandardCharsets.UTF_8), JavaAlgorithm.getJavaAlgorithm(jwaAlgorithm));
                     keyWrapper.setSecretKey(secretKey);
                     String kid = KeyUtils.createKeyId(secretKey);

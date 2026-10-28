@@ -39,6 +39,7 @@ import io.smallrye.config.Priorities;
 @Priority(Priorities.LIBRARY + 299)
 public class NestedPropertyMappingInterceptor implements ConfigSourceInterceptor {
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     static final ThreadLocal<LinkedHashSet<String>> recursions = new ThreadLocal<>();
 
     @Override
@@ -73,6 +74,7 @@ public class NestedPropertyMappingInterceptor implements ConfigSourceInterceptor
         return Optional.ofNullable(recursions.get()).filter(s -> !s.isEmpty()).map(s -> s.iterator().next());
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ConfigValue getValueFromPropertyMappers(ConfigSourceInterceptorContext context, String name, boolean augmenting) {
         Function<String, ConfigValue> resolver = (n) -> PropertyMappers.getValue(context, n, augmenting);
         return resolve(resolver, resolver, name, true);

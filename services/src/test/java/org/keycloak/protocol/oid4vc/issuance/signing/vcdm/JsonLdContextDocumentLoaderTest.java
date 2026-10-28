@@ -119,6 +119,7 @@ public class JsonLdContextDocumentLoaderTest {
             exchange.close();
         });
         // A dedicated pool so the blocking /slow handler cannot starve other tests.
+        // Cloud: use dynamic thread pool sizing based on ECS/EKS container resources
         executor = Executors.newFixedThreadPool(4);
         server.setExecutor(executor);
         server.start();

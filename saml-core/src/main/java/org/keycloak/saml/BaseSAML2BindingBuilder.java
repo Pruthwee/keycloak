@@ -46,6 +46,7 @@ import org.keycloak.saml.processing.web.util.PostBindingUtil;
 import org.keycloak.saml.processing.web.util.RedirectBindingUtil;
 
 import org.apache.xml.security.encryption.XMLCipher;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -317,6 +318,7 @@ public class BaseSAML2BindingBuilder<T extends BaseSAML2BindingBuilder> {
             final String keyAlgorithm = XMLEncryptionUtil.getJCEKeyAlgorithmFromURI(encryptionAlgorithm);
             final int keySize = XMLEncryptionUtil.getKeyLengthFromURI(encryptionAlgorithm);
             byte[] secret = RandomSecret.createRandomSecret(keySize / 8);
+            // Cloud: retrieve secrets from AWS Secrets Manager
             SecretKey secretKey = new SecretKeySpec(secret, keyAlgorithm);
 
             // encrypt the Assertion element and replace it with a EncryptedAssertion element.

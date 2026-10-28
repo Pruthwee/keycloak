@@ -25,6 +25,7 @@ public class ClientIdUriSchemeConditionFactory extends AbstractClientPolicyCondi
     public static final String CLIENT_ID_URI_SCHEME = "client-id-uri-scheme";
     public static final String TRUSTED_DOMAINS = "client-id-uri-allow-permitted-domains";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {

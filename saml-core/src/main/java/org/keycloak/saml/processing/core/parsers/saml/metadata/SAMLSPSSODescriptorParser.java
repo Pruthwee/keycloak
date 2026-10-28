@@ -21,6 +21,7 @@ public class SAMLSPSSODescriptorParser extends SAMLSSODescriptorTypeParser<SPSSO
         super(SP_SSO_DESCRIPTOR);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLSPSSODescriptorParser getInstance() {
         return INSTANCE;
     }

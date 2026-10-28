@@ -72,6 +72,7 @@ public class MigrationUtils {
         otpAction.setName("Configure OTP");
     }
     
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void updateProtocolMappers(ProtocolMapperContainerModel client) {
         client.getProtocolMappersStream()
                 .filter(mapper -> !mapper.getConfig().containsKey("userinfo.token.claim") && mapper.getConfig().containsKey("id.token.claim"))

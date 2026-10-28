@@ -40,6 +40,7 @@ import org.keycloak.scripting.EvaluatableScriptAdapter;
 import org.keycloak.scripting.ScriptCompilationException;
 import org.keycloak.scripting.ScriptingProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -196,6 +197,7 @@ public class ScriptBasedOIDCProtocolMapper extends AbstractOIDCProtocolMapper im
     return mapperModel.getConfig().get(SCRIPT);
   }
 
+  // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
   public static ProtocolMapperModel create(String name,
                                            String userAttribute,
                                            String tokenClaimName, String claimType,

@@ -19,6 +19,7 @@ package org.keycloak.models.sessions.infinispan.remote.transaction;
 
 import org.keycloak.models.sessions.infinispan.changes.remote.remover.query.ByRealmIdQueryConditionalRemover;
 import org.keycloak.models.sessions.infinispan.changes.remote.updater.UpdaterFactory;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.keycloak.models.sessions.infinispan.changes.remote.updater.authsession.RootAuthenticationSessionUpdater;
 import org.keycloak.models.sessions.infinispan.entities.RootAuthenticationSessionEntity;
 

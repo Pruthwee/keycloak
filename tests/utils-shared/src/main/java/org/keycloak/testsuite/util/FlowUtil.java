@@ -34,6 +34,7 @@ public class FlowUtil {
     private AuthenticationFlowModel currentFlow;
     private String flowAlias;
     private int maxPriority = 0;
+    // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
     private Random rand = new Random(System.currentTimeMillis());
     private List<AuthenticationExecutionModel> executions = null;
 

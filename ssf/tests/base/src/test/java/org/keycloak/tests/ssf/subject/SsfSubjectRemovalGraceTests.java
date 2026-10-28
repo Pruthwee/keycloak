@@ -96,6 +96,7 @@ public class SsfSubjectRemovalGraceTests {
 
     static final String TEST_USER = "grace-tester";
     static final String TEST_EMAIL = "grace-tester@local.test";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String TEST_PASSWORD = "test";
 
     static final String PUSH_CONTEXT_GRACE = "/ssf/push-grace";

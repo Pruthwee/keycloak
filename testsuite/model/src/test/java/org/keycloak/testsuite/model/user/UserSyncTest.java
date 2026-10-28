@@ -137,6 +137,7 @@ public class UserSyncTest extends KeycloakModelTest {
 
         assertThat(withRealm(realmId, (session, realm) -> UserStoragePrivateUtil.userLocalStorage(session).getUsersCount(realm)), is(0));
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
         SynchronizationResult res = withRealm(realmId, (session, realm) -> {
             UserStorageProviderModel providerModel = new UserStorageProviderModel(realm.getComponent(userFederationId));

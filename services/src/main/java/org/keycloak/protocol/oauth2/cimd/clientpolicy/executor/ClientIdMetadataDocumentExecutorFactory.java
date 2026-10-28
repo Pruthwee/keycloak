@@ -29,6 +29,7 @@ public class ClientIdMetadataDocumentExecutorFactory extends AbstractClientIdMet
     public static final String ONLY_ALLOW_CONFIDENTIAL_CLIENT = "only-allow-confidential-client";
     public static final String ACCEPT_PUBLIC_CLIENT_WITH_CONFIDENTIAL_CLIENT_ONLY_GRANT = "accept-public-client-with-confidential-client-only-grant";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

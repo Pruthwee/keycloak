@@ -26,6 +26,7 @@ import org.keycloak.models.sessions.infinispan.InfinispanAuthenticationSessionPr
 import org.keycloak.models.utils.KeycloakModelUtils;
 import org.keycloak.sessions.AuthenticationSessionProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

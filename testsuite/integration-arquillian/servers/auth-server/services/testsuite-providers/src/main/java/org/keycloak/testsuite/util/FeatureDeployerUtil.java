@@ -38,6 +38,7 @@ import org.keycloak.services.DefaultKeycloakSession;
 import org.keycloak.services.DefaultKeycloakSessionFactory;
 import org.keycloak.services.resources.KeycloakApplication;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -99,6 +100,7 @@ public class FeatureDeployerUtil {
         undeploy(manager);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<ProviderFactory, Spi> getFactoriesDependentOnFeature(Map<ProviderFactory, Spi> factoriesDisabled, Map<ProviderFactory, Spi> factoriesEnabled) {
         Set<Class<? extends ProviderFactory>> disabledFactoriesClasses = factoriesDisabled.keySet().stream()
                 .map(ProviderFactory::getClass)

@@ -83,6 +83,7 @@ public class KeycloakOIDCClientInstallation implements ClientInstallationProvide
         return Response.ok(json, MediaType.TEXT_PLAIN_TYPE).build();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, Object> getClientCredentialsAdapterConfig(KeycloakSession session, ClientModel client) {
         String clientAuthenticator = client.getClientAuthenticatorType();
         ClientAuthenticatorFactory authenticator = (ClientAuthenticatorFactory) session.getKeycloakSessionFactory().getProviderFactory(ClientAuthenticator.class, clientAuthenticator);

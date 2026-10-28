@@ -11,6 +11,7 @@ import com.sun.net.httpserver.HttpExchange;
 
 public class HttpServerUtil {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void sendResponse(HttpExchange exchange, int statusCode, Map<String, List<String>> headers, byte[] bodyBytes) {
 
         try {

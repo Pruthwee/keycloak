@@ -38,6 +38,7 @@ import org.keycloak.common.profile.ProfileConfigResolver.FeatureConfig;
 import org.keycloak.common.profile.ProfileException;
 import org.keycloak.common.util.KerberosJdkProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -472,6 +473,7 @@ public class Profile {
      * <p>
      * Note the {@link Type} enum is ordered based upon priority.
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, TreeSet<Feature>> getOrderedFeatures() {
         if (FEATURES == null) {
             // "natural" ordering low to high between two features (type has precedence and then reversed version is used)

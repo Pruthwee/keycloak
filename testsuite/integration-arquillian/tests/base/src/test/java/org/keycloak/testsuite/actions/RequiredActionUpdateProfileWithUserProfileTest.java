@@ -40,6 +40,7 @@ import org.keycloak.testsuite.util.KeycloakModelUtils;
 import org.keycloak.testsuite.util.userprofile.UserProfileUtil;
 
 import org.apache.commons.lang3.StringUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Rule;
@@ -70,6 +71,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class RequiredActionUpdateProfileWithUserProfileTest extends AbstractTestRealmKeycloakTest {
 
+    // Cloud: retrieve secrets from AWS Secrets Manager
     protected static final String PASSWORD = "password";
     protected static final String USERNAME1 = "test-user@localhost";
 

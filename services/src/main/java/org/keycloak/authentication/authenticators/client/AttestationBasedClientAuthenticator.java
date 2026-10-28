@@ -125,6 +125,7 @@ public class AttestationBasedClientAuthenticator extends AbstractClientAuthentic
 
         try {
             ABCAResult abcaResult = new ABCAResult();
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(ABCAResult.ABCA_RESULT, abcaResult);
 
             validateClientAttestationJwt(context, abcaResult);

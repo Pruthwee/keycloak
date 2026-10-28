@@ -914,6 +914,7 @@ describe("Clients", () => {
   });
 
   describe("nodes", () => {
+    // Cloud: use AWS Service Discovery and environment variables for dynamic endpoints
     const host = "127.0.0.1";
     it("register a node manually", async () => {
       await kcAdminClient.clients.addClusterNode({

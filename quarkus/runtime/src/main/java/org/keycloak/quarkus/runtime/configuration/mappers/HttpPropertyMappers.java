@@ -596,6 +596,7 @@ public final class HttpPropertyMappers implements PropertyMapperGrouping {
     private static String resolveMaxThreads(String value,
             ConfigSourceInterceptorContext configSourceInterceptorContext) {
         if (value == null) {
+            // Cloud: remove thread affinity, use JVM natural threading model
             return String.valueOf(Math.max(MIN_MAX_THREADS, 4 * Runtime.getRuntime().availableProcessors()));
         }
         return value;

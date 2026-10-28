@@ -155,6 +155,7 @@ public abstract class AbstractSessionCacheCommand extends AbstractCommand {
             String id = getArg(1);
             int count = getIntArg(2);
 
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             long start = System.currentTimeMillis();
             for (int i=0 ; i<count ; i++) {
                 UserSessionEntity userSession = (UserSessionEntity) cache.get(id).getEntity();

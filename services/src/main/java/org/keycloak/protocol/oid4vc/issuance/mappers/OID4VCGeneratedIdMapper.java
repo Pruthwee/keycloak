@@ -43,6 +43,7 @@ public class OID4VCGeneratedIdMapper extends OID4VCMapper {
     public static final String MAPPER_ID = "oid4vc-generated-id-mapper";
     private static final String SUBJECT_PROPERTY_CONFIG_KEY_DEFAULT = "id";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> CONFIG_PROPERTIES = new ArrayList<>();
 
     static {

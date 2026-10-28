@@ -83,6 +83,7 @@ public class ImportedRsaKeyProviderTest {
     }
 
     private void privateKeyOnly(String providerId, KeyUse keyUse, String algorithm) throws Exception {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long priority = System.currentTimeMillis();
 
         KeyPair keyPair = KeyUtils.generateRsaKeyPair(2048);

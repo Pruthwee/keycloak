@@ -8,6 +8,7 @@ import org.keycloak.testframework.injection.SupplierOrder;
 import org.keycloak.testframework.server.KeycloakServerConfigBuilder;
 import org.keycloak.testframework.server.KeycloakServerConfigInterceptor;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class InfinispanExternalServerSupplier implements Supplier<InfinispanServer, InjectInfinispanServer>, KeycloakServerConfigInterceptor<InfinispanServer, InjectInfinispanServer> {
@@ -19,6 +20,7 @@ public class InfinispanExternalServerSupplier implements Supplier<InfinispanServ
         InfinispanServer server = InfinispanExternalServer.create();
         getLogger().info("Starting Infinispan Server");
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
 
         server.start();

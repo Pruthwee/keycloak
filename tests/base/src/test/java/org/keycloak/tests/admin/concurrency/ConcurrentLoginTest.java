@@ -84,6 +84,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -155,6 +156,7 @@ public class ConcurrentLoginTest extends AbstractConcurrencyTest {
     @Test
     public void concurrentLoginSingleUser() throws Throwable {
         LOGGER.info("*********************************************");
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
 
         AtomicReference<String> userSessionId = new AtomicReference<>();

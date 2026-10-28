@@ -26,6 +26,7 @@ import org.keycloak.models.sessions.infinispan.changes.remote.remover.Conditiona
 import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.client.hotrod.impl.query.RemoteQuery;
 import org.infinispan.commons.util.concurrent.AggregateCompletionStage;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

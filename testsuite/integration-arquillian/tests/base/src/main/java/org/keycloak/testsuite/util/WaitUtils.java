@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 import org.keycloak.executors.ExecutorsProvider;
 import org.keycloak.testsuite.client.KeycloakTestingClient;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.wait.ElementBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;

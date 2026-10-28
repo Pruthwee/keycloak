@@ -37,6 +37,7 @@ import org.keycloak.models.UserSessionModel;
 import org.keycloak.protocol.oidc.scope.ParameterizedScopeTypeProvider;
 import org.keycloak.services.ServicesLogger;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 

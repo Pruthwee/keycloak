@@ -43,6 +43,7 @@
             <artifactId>httpclient</artifactId>
         </dependency>
         <dependency>
+            <!-- Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis -->
             <groupId>org.jboss.logging</groupId>
             <artifactId>jboss-logging</artifactId>
         </dependency>

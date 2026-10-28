@@ -452,6 +452,7 @@ public final class ClientPoliciesUtil {
         return config;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ClientAttributesCondition.Configuration createClientAttributesConditionConfig(MultivaluedMap<String, String> attributes) {
         ClientAttributesCondition.Configuration config = new ClientAttributesCondition.Configuration();
         String attrsAsString = MapperTypeSerializer.serialize(attributes);

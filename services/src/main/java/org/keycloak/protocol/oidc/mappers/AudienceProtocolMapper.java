@@ -36,6 +36,7 @@ import org.keycloak.representations.IDToken;
  */
 public class AudienceProtocolMapper extends AbstractOIDCProtocolMapper implements OIDCAccessTokenMapper, OIDCIDTokenMapper, TokenIntrospectionTokenMapper {
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     public static final String INCLUDED_CLIENT_AUDIENCE = "included.client.audience";
@@ -118,6 +119,7 @@ public class AudienceProtocolMapper extends AbstractOIDCProtocolMapper implement
         token.addAudience(audienceValue);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel createClaimMapper(String name,
                                                         String includedClientAudience,
                                                         String includedCustomAudience,

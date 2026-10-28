@@ -40,6 +40,7 @@ public class TrustAllSSLContext {
                             return new X509Certificate[0];
                         }
                         public void checkClientTrusted(X509Certificate[] certs, String authType) {}
+                        // Cloud: use AWS Certificate Manager (ACM) for certificate management
                         public void checkServerTrusted(X509Certificate[] certs, String authType) {}
                     }
             };

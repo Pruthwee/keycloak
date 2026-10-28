@@ -36,6 +36,7 @@ public class HttpClientParser extends AbstractKeycloakSamlAdapterV1Parser<HttpCl
         super(KeycloakSamlAdapterV1QNames.HTTP_CLIENT);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static HttpClientParser getInstance() {
         return INSTANCE;
     }

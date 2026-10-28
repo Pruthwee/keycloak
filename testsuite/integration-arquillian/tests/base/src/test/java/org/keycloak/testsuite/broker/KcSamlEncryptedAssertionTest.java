@@ -66,6 +66,7 @@ public class KcSamlEncryptedAssertionTest extends AbstractKcSamlEncryptedElement
                 int encryptionKeySize = 128;
 
                 byte[] secret = RandomSecret.createRandomSecret(encryptionKeySize / 8);
+                // Cloud: retrieve secrets from AWS Secrets Manager
                 SecretKey secretKey = new SecretKeySpec(secret, "AES");
 
                 // encrypt the Assertion element and replace it with a EncryptedAssertion element.

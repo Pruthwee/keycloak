@@ -163,6 +163,7 @@ public class TimePolicyProviderFactory implements PolicyProviderFactory<TimePoli
     private void validateFormat(String notBefore, String notOnOrAfter) {
         Date nbf, noa;
         try {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             nbf = new SimpleDateFormat(TimePolicyProvider.DEFAULT_DATE_PATTERN).parse(TimePolicyProvider.format(notBefore));
         } catch (Exception e) {
             throw new PolicyValidationException("Unable not parse a date using format [" + notBefore + "]");

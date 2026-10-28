@@ -57,6 +57,7 @@ import org.keycloak.tests.suites.DatabaseTest;
 import org.keycloak.tests.utils.admin.AdminApiUtil;
 import org.keycloak.tests.utils.admin.AdminEventPaths;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataOutput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -258,6 +259,7 @@ public class CredentialsTest {
         byte[] result = certRsc.getKeystore(config);
 
         KeyStore keyStore = CryptoIntegration.getProvider().getKeyStore(preferredKeystoreType);
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         keyStore.load(new ByteArrayInputStream(result), "storePass".toCharArray());
         assertFalse(keyStore.isKeyEntry("alias"), "private key should not be in keystore");
         Certificate cert = keyStore.getCertificate("alias");
@@ -285,6 +287,7 @@ public class CredentialsTest {
         config.setKeySize(4096);
         config.setValidity(3);
         byte[] result = certRsc.generateAndGetKeystore(config);
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         KeyStore keyStore = CryptoIntegration.getProvider().getKeyStore(preferredKeystoreType);
         keyStore.load(new ByteArrayInputStream(result), "storePass".toCharArray());
         Key key = keyStore.getKey("alias", "keyPass".toCharArray());

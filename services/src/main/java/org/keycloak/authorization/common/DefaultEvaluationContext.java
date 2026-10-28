@@ -62,6 +62,7 @@ public class DefaultEvaluationContext implements EvaluationContext {
     protected Map<String, Collection<String>> getBaseAttributes() {
         Map<String, Collection<String>> attributes = new HashMap<>(Optional.ofNullable(claims).orElse(Map.of()));
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         attributes.put("kc.time.date_time", Arrays.asList(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())));
         attributes.put("kc.client.network.ip_address", Arrays.asList(this.keycloakSession.getContext().getConnection().getRemoteAddr()));
         attributes.put("kc.client.network.host", Arrays.asList(this.keycloakSession.getContext().getConnection().getRemoteHost()));

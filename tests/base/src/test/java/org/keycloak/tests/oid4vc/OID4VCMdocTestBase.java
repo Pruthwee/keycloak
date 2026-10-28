@@ -206,6 +206,7 @@ public abstract class OID4VCMdocTestBase extends OID4VCIssuerTestBase {
         return getMdocMobileSecurityObjectFromCredential(encodedIssuerSigned);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, Object> getMdocNamespacesFromCredential(String encodedIssuerSigned) {
         return parseCredential(encodedIssuerSigned).getNamespaces();
     }

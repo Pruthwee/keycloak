@@ -135,6 +135,7 @@ public class ProtocolMapperUtils {
      * @param session A KeycloakSession
      * @return The builtin locale mapper.
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel findLocaleMapper(KeycloakSession session) {
         return session.getKeycloakSessionFactory().getProviderFactoriesStream(LoginProtocol.class)
                 .map(LoginProtocolFactory.class::cast)

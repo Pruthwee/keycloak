@@ -29,6 +29,7 @@ public class Config {
     private Map<String, String> guideDirToFragment;
     private Map<String, String> guideFragmentToDir;
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static Config getInstance() {
         return instance;
     }
@@ -65,6 +66,7 @@ public class Config {
     }
 
     public File getVerifiedLinksCache() {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         return new File(docsRootDir, ".verified-links");
     }
 

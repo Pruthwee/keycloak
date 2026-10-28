@@ -298,6 +298,7 @@ public class AuthenticationSessionAdapter implements AuthenticationSessionModel 
             }
 
             LightweightUserAdapter lua = LightweightUserAdapter.fromString(session, parent.getRealm(), getUserSessionNotes().get(SESSION_NOTE_LIGHTWEIGHT_USER));
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute("authSession.user." + parent.getId(), lua);
             lua.setUpdateHandler(lua1 -> {
                 if (lua == lua1) {  // Ensure there is no conflicting user model, only the latest lightweight user can be used

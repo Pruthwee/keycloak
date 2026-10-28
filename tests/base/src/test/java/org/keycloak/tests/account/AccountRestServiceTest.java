@@ -1036,6 +1036,8 @@ public class AccountRestServiceTest extends AbstractRestServiceTest {
     public void testDeletionOfAllUserSessionsWillFireLogoutEvents() throws IOException {
         managedRealm.cleanup().add(RealmResource::logoutAll);
         String username = "manage-account-access";
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
         String password = "password";
         String firstToken = oauth.client("direct-grant", "password").doPasswordGrantRequest(username, password).getAccessToken();
         oauth.client("direct-grant", "password").doPasswordGrantRequest(username, password).getAccessToken();
@@ -2223,6 +2225,7 @@ public class AccountRestServiceTest extends AbstractRestServiceTest {
                 .asStatus();
         Assertions.assertEquals(200, status);
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         int currentTime = (int) (System.currentTimeMillis() / 1000);
 
         org.keycloak.representations.idm.ClientRepresentation clientRep = AdminApiUtil.findClientByClientId(managedRealm.admin(), "direct-grant").toRepresentation();

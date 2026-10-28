@@ -4,8 +4,8 @@
 
 .keycloak__events_search__form {
   --pf-v5-c-form--m-horizontal__group-control--md--GridColumnWidth: 24rem;
-  margin: 0 var(--pf-v5-global--spacer--lg) var(--pf-v5-global--spacer--lg)
-    var(--pf-v5-global--spacer--lg);
+  margin: 0 var(--pf-v5-global--spacer--lg, 1.5rem) var(--pf-v5-global--spacer--lg, 1.5rem)
+    var(--pf-v5-global--spacer--lg, 1.5rem);
   --pf-v5-c-form__group--m-action--MarginTop: 0rem;
   --pf-v5-c-form--m-horizontal__group-label--md--GridColumnWidth: 5rem;
 }

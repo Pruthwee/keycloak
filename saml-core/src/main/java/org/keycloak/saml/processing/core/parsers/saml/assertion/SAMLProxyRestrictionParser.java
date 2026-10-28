@@ -23,6 +23,7 @@ public class SAMLProxyRestrictionParser extends AbstractStaxSamlAssertionParser<
         super(SAMLAssertionQNames.PROXY_RESTRICTION);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLProxyRestrictionParser getInstance() {
         return INSTANCE;
     }

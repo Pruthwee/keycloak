@@ -47,6 +47,7 @@ async function startServer() {
   };
 
   if (scriptArgs["account-dev"]) {
+    // Cloud: externalize config to AWS Systems Manager Parameter Store
     env.KC_ACCOUNT_VITE_URL = "http://localhost:5173";
   }
 

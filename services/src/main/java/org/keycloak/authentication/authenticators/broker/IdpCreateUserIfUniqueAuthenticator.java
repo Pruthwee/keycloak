@@ -39,6 +39,7 @@ import org.keycloak.models.light.LightweightUserAdapter;
 import org.keycloak.services.ServicesLogger;
 import org.keycloak.services.messages.Messages;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.authentication.actiontoken.idpverifyemail.IdpVerifyAccountLinkActionTokenHandler.runIfUserVerified;

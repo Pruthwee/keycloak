@@ -31,6 +31,7 @@ import java.util.Set;
 import org.keycloak.connections.jpa.entityprovider.JpaEntityProvider;
 import org.keycloak.connections.jpa.updater.JpaUpdaterProvider;
 import org.keycloak.connections.jpa.updater.liquibase.LiquibaseConstants;
+// Cloud: replace ThreadLocal with request-scoped beans for cloud environments
 import org.keycloak.connections.jpa.updater.liquibase.ThreadLocalSessionContext;
 import org.keycloak.connections.jpa.updater.liquibase.conn.KeycloakLiquibase;
 import org.keycloak.connections.jpa.updater.liquibase.conn.LiquibaseConnectionProvider;
@@ -96,12 +97,14 @@ public class QuarkusJpaUpdaterProvider implements JpaUpdaterProvider {
     private void update(Connection connection, File file, String defaultSchema) {
         logger.debug("Starting database update");
 
+        // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
         // Need ThreadLocal as liquibase doesn't seem to have API to inject custom objects into tasks
         ThreadLocalSessionContext.setCurrentSession(session);
 
         Writer exportWriter = null;
         try {
             if (file != null) {
+                // Cloud: consider using Amazon S3 for durable storage instead of local file writes
                 exportWriter = new FileWriter(file);
             }
 

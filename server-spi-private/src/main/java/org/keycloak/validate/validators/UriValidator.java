@@ -60,6 +60,7 @@ public class UriValidator extends AbstractSimpleValidator implements ConfiguredP
 
     public static final String ID = "uri";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {

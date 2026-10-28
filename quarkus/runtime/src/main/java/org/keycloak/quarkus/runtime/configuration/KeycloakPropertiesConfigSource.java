@@ -108,6 +108,7 @@ public class KeycloakPropertiesConfigSource extends AbstractLocationConfigSource
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> transform(Map<String, String> properties) {
         Map<String, String> result = new HashMap<>(properties.size());
 

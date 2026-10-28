@@ -51,6 +51,7 @@ public class FolderThemeProvider implements ThemeProvider {
             return Collections.emptySet();
         }
 
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File[] themes = themesDir.listFiles(f -> f.isDirectory() && new File(f, type.name().toLowerCase()).isDirectory());
         if (themes != null && themes.length > 0) {
             Set<String> names = new HashSet<>();

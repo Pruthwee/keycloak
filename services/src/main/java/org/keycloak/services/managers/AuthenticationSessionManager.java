@@ -41,6 +41,7 @@ import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.sessions.RootAuthenticationSessionModel;
 import org.keycloak.sessions.StickySessionEncoderProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.services.managers.AuthenticationManager.authenticateIdentityCookie;
@@ -163,6 +164,7 @@ public class AuthenticationSessionManager {
                 return null;
             }
             //Save the signature to avoid re-verification for the same request
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(authSessionId, signature);
             return authSessionId;
         } catch (Exception e) {

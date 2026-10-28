@@ -105,6 +105,7 @@ public class StartDevCommandDistTest {
         CLIResult result = runner.run("start-dev");
         assertTrue(result.getErrorOutput().isEmpty(), result.getErrorOutput());
 
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File target = new File("./target");
 
         // feature change should trigger a build

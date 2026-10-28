@@ -57,6 +57,7 @@ import org.keycloak.tests.utils.Assert;
 import org.keycloak.tests.utils.KeyUtils;
 import org.keycloak.tests.utils.admin.AdminEventPaths;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataOutput;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.FileUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.runner.Description;
 import org.junit.runner.notification.Failure;
@@ -75,6 +76,7 @@ public class TestEventsLogger extends RunListener {
         try {
             if (driver != null && driver.getPageSource() != null) {
                 String pageSourceLocation = System.getProperty("page.source.location", "target/failed-tests/page-source/");
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 FileUtils.writeStringToFile(new File(pageSourceLocation + d.getTestClass().getSimpleName() + "/" + d.getMethodName() + ".html"), 
                         driver.getPageSource(), StandardCharsets.UTF_8);
             }

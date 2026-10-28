@@ -140,6 +140,7 @@ public class OidcClaimToRoleMapperTest extends AbstractRoleMapperTest {
         return createUserConfig();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static ImmutableMap<String, List<String>> createUserConfig() {
         return ImmutableMap.<String, List<String>>builder()
                 .put(CLAIM, ImmutableList.<String>builder().add(CLAIM_VALUE).build())

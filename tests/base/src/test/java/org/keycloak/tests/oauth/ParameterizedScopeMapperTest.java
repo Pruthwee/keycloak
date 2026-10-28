@@ -62,6 +62,10 @@ public class ParameterizedScopeMapperTest {
     private static final String SECOND_SCOPE_NAME = "other-param-scope";
     private static final String CLIENT_ID = "test-mapper-client";
     private static final String DEFAULT_USERNAME = "test-user@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String DEFAULT_PASSWORD = "password";
     private static final String TARGET_USERNAME = "target-user";
     private static final String UNPRIVILEGED_USERNAME = "unprivileged-user";

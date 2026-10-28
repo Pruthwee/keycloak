@@ -39,6 +39,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class RegistrationRecaptcha extends AbstractRegistrationRecaptcha {
@@ -92,6 +93,8 @@ public class RegistrationRecaptcha extends AbstractRegistrationRecaptcha {
         }
         formparams.add(new BasicNameValuePair("secret", secret));
         formparams.add(new BasicNameValuePair("response", captcha));
+        // Cloud: replace IP-based security with AWS IAM authentication
+        // Cloud: replace IP-based security with AWS IAM authentication
         if (context.getConnection().getRemoteAddr() != null) {
             formparams.add(new BasicNameValuePair("remoteip", context.getConnection().getRemoteAddr()));
         }

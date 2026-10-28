@@ -91,6 +91,7 @@ public class InfinispanTimeServiceTask implements ServerTask<String> {
     public static final TimeService KEYCLOAK_TIME_SERVICE = new EmbeddedTimeService() {
 
         private long getCurrentTimeMillis() {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             return System.currentTimeMillis() + (TimeUnit.SECONDS.toMillis(offset));
         }
 

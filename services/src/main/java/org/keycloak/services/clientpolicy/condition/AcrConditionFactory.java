@@ -32,6 +32,7 @@ public class AcrConditionFactory extends AbstractClientPolicyConditionProviderFa
 
     public static final String ACR_PROPERTY = "acr-property";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

@@ -128,6 +128,7 @@ public class PermissionTicketService {
         
         PermissionTicket ticket = ticketStore.create(resourceServer, resource, scope, user.getId());
         if(representation.isGranted())
+                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                 ticket.setGrantedTimestamp(java.lang.System.currentTimeMillis());
         representation = ModelToRepresentation.toRepresentation(ticket, authorization);
         return Response.ok(representation).build();

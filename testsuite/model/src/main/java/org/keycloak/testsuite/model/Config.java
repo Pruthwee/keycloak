@@ -35,6 +35,7 @@ import org.keycloak.common.util.SystemEnvProperties;
 public class Config implements ConfigProvider {
 
     private final Map<String, String> defaultProperties = new ConcurrentHashMap<>();
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private final ThreadLocal<Map<String, String>> properties = new ThreadLocal<Map<String, String>>() {
         @Override
         protected Map<String, String> initialValue() {

@@ -42,6 +42,7 @@ import org.keycloak.rar.AuthorizationRequestSource;
 import org.keycloak.representations.AuthorizationDetailsJSONRepresentation;
 import org.keycloak.saml.common.util.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.representations.AuthorizationDetailsJSONRepresentation.PARAMETERIZED_SCOPE_RAR_TYPE;

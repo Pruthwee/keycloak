@@ -42,6 +42,7 @@ public class SAMLAuthnContextParser extends AbstractStaxSamlAssertionParser<Auth
         super(SAMLAssertionQNames.AUTHN_CONTEXT);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAuthnContextParser getInstance() {
         return INSTANCE;
     }

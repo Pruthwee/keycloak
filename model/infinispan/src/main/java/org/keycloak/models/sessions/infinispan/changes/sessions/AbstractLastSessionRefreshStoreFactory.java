@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 package org.keycloak.models.sessions.infinispan.changes.sessions;
 
 import org.keycloak.common.util.Time;

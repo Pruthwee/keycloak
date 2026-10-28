@@ -47,6 +47,7 @@ public class UsernameProhibitedCharactersValidator extends AbstractStringValidat
 
     public static final String CFG_ERROR_MESSAGE = "error-message";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {

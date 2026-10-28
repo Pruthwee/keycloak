@@ -29,6 +29,7 @@ public class WindowsOrUnixOsEnvironmentLabeller implements Function0<String> {
     @Override
     public String call()
     {
+        // Cloud: use Java NIO Path for platform-independent file handling
         String osName = System.getProperty("os.name");
 
         if(osName.toLowerCase(Locale.ROOT).contains(WINDOWS_NAME)) {

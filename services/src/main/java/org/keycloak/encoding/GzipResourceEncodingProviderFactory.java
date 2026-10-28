@@ -15,6 +15,7 @@ import org.keycloak.provider.ProviderConfigurationBuilder;
 import org.keycloak.services.resources.KeycloakApplication;
 
 import org.apache.commons.io.FileUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class GzipResourceEncodingProviderFactory implements ResourceEncodingProviderFactory {
@@ -67,6 +68,8 @@ public class GzipResourceEncodingProviderFactory implements ResourceEncodingProv
             return cacheDir;
         }
 
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File cacheRoot = new File(KeycloakApplication.getTmpDirectory(), "kc-gzip-cache");
         File cacheDir = new File(cacheRoot, Version.RESOURCES_VERSION);
 

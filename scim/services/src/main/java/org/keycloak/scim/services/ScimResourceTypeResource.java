@@ -43,6 +43,7 @@ import org.keycloak.services.resources.admin.AdminEventBuilder;
 import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.scim.resource.spi.ScimResourceTypeProvider.DEFAULT_MAX_RESULTS;

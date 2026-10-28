@@ -90,6 +90,8 @@ public class EventStoreProviderTest {
     @DatabaseTest
      // This looks like some database issue, test should get events which are newer or equal to requested time, however it gets only newer events from remote server
     public void query() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long oldest = System.currentTimeMillis() - 30000;
         long newest = System.currentTimeMillis() + 30000;
 
@@ -254,6 +256,9 @@ public class EventStoreProviderTest {
 
     @Test
     public void clear() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
         eventHelper.storeEvent(create(System.currentTimeMillis() - 20000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
         eventHelper.storeEvent(create(System.currentTimeMillis(), EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
@@ -279,6 +284,12 @@ public class EventStoreProviderTest {
 
     @Test
     public void maxLengthWithNull(){
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, EventType.LOGIN, realm1.getId(), null, null, "127.0.0.1", "error"));
     }
 

@@ -491,6 +491,7 @@ public class RegisterWithEmailVerificationTest {
         Assert.assertNotNull(user);
         Assert.assertNotNull(user.getCreatedTimestamp());
         // test that timestamp is current with 10s tollerance
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         assertTrue((System.currentTimeMillis() - user.getCreatedTimestamp()) < 10000);
         assertUserBasicRegisterAttributes(userId, username, email, "firstName", "lastName");
         return user;

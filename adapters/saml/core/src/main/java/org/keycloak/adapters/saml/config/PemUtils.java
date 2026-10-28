@@ -39,6 +39,7 @@ import org.keycloak.common.crypto.CryptoConstants;
 import org.keycloak.common.util.PemException;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

@@ -56,6 +56,7 @@ import org.infinispan.eviction.EvictionStrategy;
 import org.infinispan.transaction.LockingMode;
 import org.infinispan.transaction.TransactionMode;
 import org.infinispan.transaction.lookup.EmbeddedTransactionManagerLookup;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.connections.infinispan.InfinispanConnectionProvider.ACTION_TOKEN_CACHE;
@@ -590,6 +591,7 @@ public final class CacheConfigurator {
                 }
             case USER_SESSION_CACHE_NAME:
             case OFFLINE_USER_SESSION_CACHE_NAME:
+                // Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
                 if (clustered) {
                     builder.clustering().cacheMode(CacheMode.DIST_SYNC).hash().numOwners(1);
                 }

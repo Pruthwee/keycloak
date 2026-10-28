@@ -75,6 +75,7 @@ import org.keycloak.truststore.TruststoreProvider;
 import org.keycloak.util.JsonSerialization;
 import org.keycloak.utils.MediaType;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.NoCache;
 
 import static java.util.Objects.requireNonNull;
@@ -241,6 +242,7 @@ public class TestingResourceProvider implements RealmResourceProvider {
 
     private void doWithProperties(File file, Consumer<Properties> callback) {
 
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties properties = new Properties();
         if (file.isFile() && file.exists()) {
             try (FileInputStream fis = new FileInputStream(file)) {
@@ -256,6 +258,7 @@ public class TestingResourceProvider implements RealmResourceProvider {
             file.getParentFile().mkdirs();
         }
 
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (FileOutputStream fos = new FileOutputStream(file)) {
             properties.store(fos, null);
         } catch (IOException e) {

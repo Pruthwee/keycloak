@@ -43,6 +43,7 @@ public class SAMLSloResponseParser extends SAMLStatusResponseTypeParser<StatusRe
         super(SAMLProtocolQNames.LOGOUT_RESPONSE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLSloResponseParser getInstance() {
         return INSTANCE;
     }

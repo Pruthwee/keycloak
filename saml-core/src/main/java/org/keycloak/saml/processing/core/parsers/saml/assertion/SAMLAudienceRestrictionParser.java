@@ -37,6 +37,7 @@ public class SAMLAudienceRestrictionParser extends AbstractStaxSamlAssertionPars
         super(SAMLAssertionQNames.AUDIENCE_RESTRICTION);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAudienceRestrictionParser getInstance() {
         return INSTANCE;
     }

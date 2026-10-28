@@ -93,6 +93,11 @@ public class ParTest extends AbstractClientPoliciesTest {
 
     // defined in testrealm.json
     private static final String TEST_USER_NAME = "test-user@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String TEST_USER_PASSWORD = "password";
     private static final String TEST_USER2_NAME = "john-doh@localhost";
     private static final String TEST_USER2_PASSWORD = "password";

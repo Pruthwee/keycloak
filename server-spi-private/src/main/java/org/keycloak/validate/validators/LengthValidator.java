@@ -52,6 +52,7 @@ public class LengthValidator extends AbstractStringValidator implements Configur
     public static final String KEY_MAX = "max";
     public static final String KEY_TRIM_DISABLED = "trim-disabled";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {

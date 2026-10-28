@@ -76,6 +76,8 @@ public class AdminClientTest {
     TimeOffSet timeOffSet;
 
     private static final String TEST_USER_USERNAME  = "test-user@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String TEST_USER_PASSWORD = "password";
 
     private static final String CLIENT_ID  = "service-account-cl";

@@ -70,6 +70,7 @@ import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
  */
 public final class ConformanceSigningKey {
 
+    // Cloud: use AWS Certificate Manager (ACM) for certificate management
     public static final String KEYSTORE_PASSWORD = "password";
 
     private static final SecureRandom RANDOM = new SecureRandom();

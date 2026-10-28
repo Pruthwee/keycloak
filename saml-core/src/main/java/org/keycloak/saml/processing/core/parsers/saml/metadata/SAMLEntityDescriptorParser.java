@@ -44,6 +44,7 @@ public class SAMLEntityDescriptorParser extends AbstractStaxSamlMetadataParser<E
         super(ENTITY_DESCRIPTOR);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLEntityDescriptorParser getInstance() {
         return INSTANCE;
     }

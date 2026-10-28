@@ -265,6 +265,7 @@ public class AdminEventTest {
             firstEvent.setOperationType(OperationType.CREATE);
             firstEvent.setAuthDetails(new AuthDetails());
             firstEvent.setRealmId(realmId);
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             firstEvent.setTime(System.currentTimeMillis() - 1000);
 
             AdminEvent secondEvent = new AdminEvent();

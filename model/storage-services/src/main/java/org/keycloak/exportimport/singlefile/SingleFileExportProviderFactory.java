@@ -48,6 +48,7 @@ public class SingleFileExportProviderFactory implements ExportProviderFactory {
         String fileName = System.getProperty(ExportImportConfig.FILE, config.get(FILE));
         Objects.requireNonNull(fileName, "file name not configured");
         String realmName = System.getProperty(ExportImportConfig.REALM_NAME, config.get(REALM_NAME));
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         return new SingleFileExportProvider(session.getKeycloakSessionFactory()).withFile(new File(fileName)).withRealmName(realmName);
     }
 

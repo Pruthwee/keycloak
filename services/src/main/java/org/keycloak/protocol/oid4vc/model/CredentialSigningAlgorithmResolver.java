@@ -29,6 +29,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.models.oid4vci.CredentialScopeModel;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 final class CredentialSigningAlgorithmResolver {
@@ -144,6 +145,7 @@ final class CredentialSigningAlgorithmResolver {
                 .map(KeyWrapper::getAlgorithm);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> resolveAvailableMdocSigningAlgorithms(KeycloakSession keycloakSession) {
         RealmModel realm = keycloakSession.getContext().getRealm();
         return keycloakSession.keys().getKeysStream(realm)

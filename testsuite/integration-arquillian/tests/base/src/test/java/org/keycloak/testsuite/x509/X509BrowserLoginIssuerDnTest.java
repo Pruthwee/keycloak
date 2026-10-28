@@ -24,6 +24,7 @@ import java.security.cert.CertificateFactory;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.keycloak.testsuite.util.HtmlUnitBrowser;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.Assume;
 import org.junit.Before;

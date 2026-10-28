@@ -10,6 +10,7 @@ public class ContainerImages {
     }
 
     private static Properties loadProperties() {
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties properties = new Properties();
         try {
             properties.load(ContainerImages.class.getResourceAsStream("containers.properties"));

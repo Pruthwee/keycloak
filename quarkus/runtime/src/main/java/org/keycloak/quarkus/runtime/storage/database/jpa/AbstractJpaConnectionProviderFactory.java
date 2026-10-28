@@ -42,6 +42,7 @@ import io.quarkus.arc.Arc;
 import io.quarkus.hibernate.orm.PersistenceUnit;
 import liquibase.GlobalConfiguration;
 import org.hibernate.internal.SessionFactoryImpl;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public abstract class AbstractJpaConnectionProviderFactory implements JpaConnectionProviderFactory {

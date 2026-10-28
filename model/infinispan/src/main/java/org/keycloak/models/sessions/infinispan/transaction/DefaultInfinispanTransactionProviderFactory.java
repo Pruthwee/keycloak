@@ -37,6 +37,7 @@ import org.keycloak.provider.ProviderConfigurationBuilder;
 import org.keycloak.provider.ServerInfoAwareProviderFactory;
 
 import org.hibernate.Session;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class DefaultInfinispanTransactionProviderFactory implements InfinispanTransactionProviderFactory, ServerInfoAwareProviderFactory {

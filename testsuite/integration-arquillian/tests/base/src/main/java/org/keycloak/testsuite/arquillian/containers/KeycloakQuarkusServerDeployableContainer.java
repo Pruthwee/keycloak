@@ -28,6 +28,8 @@ import java.util.stream.Collectors;
 import org.keycloak.testsuite.model.StoreProvider;
 import org.keycloak.testsuite.util.WaitUtils;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.spi.client.container.LifecycleException;
 import org.jboss.logging.Logger;
 
@@ -50,6 +52,7 @@ public class KeycloakQuarkusServerDeployableContainer extends AbstractQuarkusDep
             importRealm();
             container = startContainer();
             logProcessor = new LogProcessor(new BufferedReader(new InputStreamReader(container.getInputStream())));
+            // Cloud: use bounded ExecutorService instead of unbounded thread creation
             stdoutForwarderThread = new Thread(logProcessor);
             stdoutForwarderThread.start();
 
@@ -136,6 +139,7 @@ public class KeycloakQuarkusServerDeployableContainer extends AbstractQuarkusDep
                     keycloakConfBkp = keycloakConf.getParent().resolve("keycloak.conf.bkp");
                     Files.copy(keycloakConf, keycloakConfBkp);
                     // write the options to the file
+                    // Cloud: consider using Amazon S3 for durable storage instead of local file writes
                     try ( BufferedWriter w = new BufferedWriter(new FileWriter(keycloakConf.toFile(), true))) {
                         for (String s : storageOptions) {
                             w.write(System.lineSeparator());

@@ -97,6 +97,7 @@ public class SsfTransmitterPollDeliveryTests {
     static final String RECEIVER_PUSH_MIXED_SECRET = "receiver-push-mixed-secret";
 
     static final String TEST_USER = "polltester";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String TEST_PASSWORD = "test";
 
     static final String UNSUBSCRIBED_USER = "unsubscribed";

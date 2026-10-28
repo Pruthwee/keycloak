@@ -22,6 +22,7 @@ import java.net.URL;
 import org.keycloak.testsuite.arquillian.annotation.AppServerBrowserContext;
 import org.keycloak.testsuite.page.AbstractPageWithInjectedUrl;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.test.api.ArquillianResource;
 
 /**

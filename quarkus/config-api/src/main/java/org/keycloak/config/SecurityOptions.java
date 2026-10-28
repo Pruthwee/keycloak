@@ -18,6 +18,7 @@ public class SecurityOptions {
             .defaultValue(FipsMode.DISABLED)
             .build();
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> getFipsModeValues() {
         return Arrays.asList(FipsMode.NON_STRICT.toString(), FipsMode.STRICT.toString());
     }

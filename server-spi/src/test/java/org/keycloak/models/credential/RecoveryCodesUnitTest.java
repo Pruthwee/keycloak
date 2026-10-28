@@ -22,6 +22,7 @@ package org.keycloak.models.credential;
 import org.keycloak.common.util.Time;
 import org.keycloak.models.utils.RecoveryAuthnCodesUtils;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assert;
 import org.junit.Ignore;

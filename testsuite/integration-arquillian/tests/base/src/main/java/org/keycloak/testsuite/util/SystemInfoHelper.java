@@ -32,6 +32,7 @@ public class SystemInfoHelper {
         Runtime runtime = Runtime.getRuntime();
 
         StringBuilder s = new StringBuilder("TEST PROCESS INFO: ");
+        // Cloud: remove thread affinity, use JVM natural threading model
         s.append("\nAvailable processors: " + runtime.availableProcessors());
         s.append("\nTotal memory: " + toMB(runtime.totalMemory()));
         s.append("\nMax memory (Xmx): " + toMB(runtime.maxMemory()));

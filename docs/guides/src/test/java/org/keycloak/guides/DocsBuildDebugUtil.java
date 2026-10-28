@@ -42,6 +42,7 @@ public class DocsBuildDebugUtil {
     }
 
     private static Properties readPropertiesFromPomXml() throws ParserConfigurationException, SAXException, IOException {
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties properties = new Properties();
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -49,6 +50,7 @@ public class DocsBuildDebugUtil {
 
         // parse pom.xml file - avoid adding Maven as a dependency here
         DocumentBuilder db = dbf.newDocumentBuilder();
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         Document doc = db.parse(new File("pom.xml"));
         NodeList propertiesXml = doc.getDocumentElement().getElementsByTagName("properties");
         if (propertiesXml.getLength() == 0)

@@ -44,6 +44,7 @@ import org.keycloak.ssf.transmitter.subject.SubjectManagementService;
 import org.keycloak.ssf.transmitter.support.SsfUtil;
 import org.keycloak.timer.TimerProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class DefaultSsfTransmitterProviderFactory implements SsfTransmitterProviderFactory, SsfTransmitterServiceBuilder {

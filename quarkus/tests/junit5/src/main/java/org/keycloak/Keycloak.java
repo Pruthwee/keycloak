@@ -282,6 +282,7 @@ public class Keycloak {
         Path moduleDir;
 
         try {
+            // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
             moduleDir = Files.createTempDirectory("kc-embedded");
         } catch (IOException e) {
             throw new RuntimeException(e);

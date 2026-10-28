@@ -9,6 +9,7 @@ import org.bouncycastle.crypto.generators.Argon2BytesGenerator;
 import org.bouncycastle.crypto.generators.Argon2BytesGenerator.Block;
 import org.bouncycastle.crypto.generators.Argon2BytesGenerator.BlockPool;
 import org.bouncycastle.crypto.generators.Argon2BytesGenerator.FixedBlockPool;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

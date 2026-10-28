@@ -26,6 +26,7 @@ public class HostsTest {
 
     public static void main(String[] args) throws Exception {
         //Security.setProperty("networkaddress.cache.ttl", "5");
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
 
         for (int i=0 ; i<100 ; i++) {

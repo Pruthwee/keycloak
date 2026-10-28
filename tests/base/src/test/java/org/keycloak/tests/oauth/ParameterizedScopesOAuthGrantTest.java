@@ -78,6 +78,8 @@ public class ParameterizedScopesOAuthGrantTest {
     private static final String THIRD_PARTY_APP = "third-party";
     private static final String DEFAULT_USERNAME = "test-user@localhost";
     private static final String DEFAULT_ADMIN_USERNAME = "administrator@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String DEFAULT_PASSWORD = "password";
 
     private static String PARAMETERIZED_SCOPE_ID;
@@ -775,6 +777,7 @@ public class ParameterizedScopesOAuthGrantTest {
         Assertions.assertEquals(OAuthErrorException.INVALID_SCOPE, oauth.parseLoginResponse().getError());
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> scopesOf(AccessTokenResponse res) {
         return List.of(res.getScope().split(" "));
     }

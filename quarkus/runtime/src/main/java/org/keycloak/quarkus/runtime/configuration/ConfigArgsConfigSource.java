@@ -105,6 +105,7 @@ public class ConfigArgsConfigSource extends PropertiesConfigSource {
         return result;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> parseArguments() {
         final Map<String, String> properties = new HashMap<>();
 

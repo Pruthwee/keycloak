@@ -102,6 +102,7 @@ public class SsfTransmitterEmitOnlyEventsTests {
     static final String RECEIVER_SECRET = "receiver-emit-only-secret";
 
     static final String TEST_USER = "emit-only-tester";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String TEST_PASSWORD = "test";
 
     static final String PUSH_CONTEXT_PATH = "/ssf/push-emit-only";

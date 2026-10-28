@@ -519,6 +519,7 @@ public class KeycloakDeploymentDependentResource extends CRUDKubernetesDependent
         varMap.get(resourceAttributesEnvVar).setValue(convertResourceAttributesToString(existingAttributes));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> convertResourceAttributesToMap(String resourceAttributesEnvVar, Map<String, EnvVar> envVars) {
         return Arrays.stream(Optional.ofNullable(envVars.get(resourceAttributesEnvVar).getValue()).orElse("").split(","))
                 .filter(entry -> entry.contains("="))

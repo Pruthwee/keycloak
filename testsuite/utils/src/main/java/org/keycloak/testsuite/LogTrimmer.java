@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 public class LogTrimmer {
 
     private static Pattern TEST_START_PATTERN = Pattern.compile("(\\[INFO\\] )?Running (.*)");
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static int TEST_NAME_GROUP = 2;
 
     public static void main(String[] args) {

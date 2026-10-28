@@ -22,6 +22,7 @@ public class SAMLAttributeConsumingServiceParser extends AbstractStaxSamlMetadat
         super(SAMLMetadataQNames.ATTRIBUTE_CONSUMING_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAttributeConsumingServiceParser getInstance() {
         return INSTANCE;
     }

@@ -19,6 +19,7 @@ package org.keycloak.quarkus.runtime.services;
 
 import io.vertx.core.Handler;
 import io.vertx.ext.web.RoutingContext;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

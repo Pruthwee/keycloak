@@ -267,6 +267,7 @@ public class AdminEventV2Test extends AbstractClientApiV2Test {
         samlRep.setEnabled(true);
         samlRep.setClientId(SAML_CLIENT_ID);
         samlRep.setSigningCertificate("""
+                // Cloud: use AWS Certificate Manager (ACM) for certificate management
                 -----BEGIN CERTIFICATE-----
                 MIIDqDCCApCgAwIBAgIUY0R7RzJQbQJx9z3Y+0l9v0E2XQkwDQYJKoZIhvcNAQEL
                 BQAwgYUxCzAJBgNVBAYTAkRFMRMwEQYDVQQIDApTb21lLVN0YXRlMRMwEQYDVQQH

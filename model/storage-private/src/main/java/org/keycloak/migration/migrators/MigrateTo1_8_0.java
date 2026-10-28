@@ -62,6 +62,7 @@ public class MigrateTo1_8_0 implements Migration {
                 .forEachOrdered(realm::addComponentModel);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ComponentModel getMapperByName(RealmModel realm, ComponentModel providerModel, String name) {
         return realm.getComponentsStream(providerModel.getId(), "org.keycloak.storage.ldap.mappers.LDAPStorageMapper")
                 .filter(component -> Objects.equals(component.getName(), name))

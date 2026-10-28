@@ -53,6 +53,7 @@ public class UpdateCompatibilityPicocliTest extends AbstractConfigurationTest {
     }
 
     private static File createTempFile(String prefix, String suffix) throws IOException {
+        // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
         var file = File.createTempFile(prefix, suffix);
         file.deleteOnExit();
         return file;
@@ -315,6 +316,7 @@ public class UpdateCompatibilityPicocliTest extends AbstractConfigurationTest {
         assertEquals(CompatibilityResult.ExitCode.ROLLING.value(), result.exitCode);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Map<String, String>> defaultMeta() {
         Map<String, String> keycloak = new HashMap<>(1);
         keycloak.put("version", Version.VERSION);

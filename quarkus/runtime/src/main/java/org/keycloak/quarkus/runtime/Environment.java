@@ -115,6 +115,7 @@ public final class Environment {
         setProfile(org.keycloak.common.util.Environment.DEV_PROFILE_VALUE);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, File> getProviderFiles() {
         Path providersPath = Environment.getProvidersPath().orElse(null);
 
@@ -128,6 +129,7 @@ public final class Environment {
             throw new RuntimeException("The 'providers' directory does not exist or is not a valid directory.");
         }
 
+        // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
         return Arrays.stream(providersDir.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {

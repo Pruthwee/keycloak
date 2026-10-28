@@ -36,6 +36,7 @@ public class KeycloakSamlAdapterV1Parser extends AbstractKeycloakSamlAdapterV1Pa
         super(KeycloakSamlAdapterV1QNames.KEYCLOAK_SAML_ADAPTER);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static KeycloakSamlAdapterV1Parser getInstance() {
         return INSTANCE;
     }

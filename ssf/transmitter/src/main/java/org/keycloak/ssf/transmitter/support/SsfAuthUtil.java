@@ -15,6 +15,7 @@ import org.keycloak.ssf.Ssf;
 import org.keycloak.ssf.transmitter.stream.storage.client.ClientStreamStore;
 import org.keycloak.utils.KeycloakSessionUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class SsfAuthUtil {
@@ -37,6 +38,7 @@ public class SsfAuthUtil {
     }
 
     private static void setAuth(KeycloakSession session, AuthenticationManager.AuthResult auth) {
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(AUTH_KEY, auth);
     }
 

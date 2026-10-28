@@ -164,6 +164,7 @@ public final class ImmutableSession {
         return userSessionMap.values().stream().map(UserSessionModel.class::cast);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static void populateClientSessions(Map<String, ImmutableUserSessionModel> userSessionMap, Set<EmbeddedClientSessionKey> clientSessionKeys, SessionExpirationPredicates expirationPredicates, Cache<EmbeddedClientSessionKey, SessionEntityWrapper<AuthenticatedClientSessionEntity>> cache) {
         StreamsUtil.closing(cache.entrySet().stream()
                         .filterKeys(clientSessionKeys))

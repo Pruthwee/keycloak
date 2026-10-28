@@ -81,6 +81,7 @@ public class KeystoreUtils {
         keyStore.setKeyEntry(subject, privKey, keyPassword.trim().toCharArray(), chain);
 
         File file = folder.newFile(fileName);
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         keyStore.store(new FileOutputStream(file), keystorePassword.trim().toCharArray());
 
         CertificateRepresentation certRep = new CertificateRepresentation();

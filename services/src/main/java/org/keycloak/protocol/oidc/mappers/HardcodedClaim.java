@@ -40,6 +40,7 @@ import org.keycloak.representations.IDToken;
 public class HardcodedClaim extends AbstractOIDCProtocolMapper implements OIDCAccessTokenMapper, OIDCIDTokenMapper, UserInfoTokenMapper,
         OIDCAccessTokenResponseMapper, TokenIntrospectionTokenMapper {
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     public static final String CLAIM_VALUE = "claim.value";
@@ -101,6 +102,7 @@ public class HardcodedClaim extends AbstractOIDCProtocolMapper implements OIDCAc
         OIDCAttributeMapperHelper.mapClaim(accessTokenResponse, mappingModel, attributeValue);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name,
                                              String hardcodedName,
                                              String hardcodedValue, String claimType,

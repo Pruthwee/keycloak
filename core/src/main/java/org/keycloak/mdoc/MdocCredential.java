@@ -214,6 +214,7 @@ public class MdocCredential {
                 .orElseThrow(() -> new MdocException("mDoc signing key is missing alg"));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<X509Certificate> requireCertificateChain(List<X509Certificate> certificateChain) {
         if (certificateChain == null || certificateChain.isEmpty()) {
             throw new MdocException("mDoc signing key is missing certificate chain");

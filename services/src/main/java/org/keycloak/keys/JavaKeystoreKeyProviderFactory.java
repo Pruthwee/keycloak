@@ -46,6 +46,7 @@ import org.keycloak.provider.ConfigurationValidationHelper;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ProviderConfigurationBuilder;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.keys.Attributes.KID_KEY;
@@ -181,6 +182,7 @@ public class JavaKeystoreKeyProviderFactory implements KeyProviderFactory {
 
         params.setRevocationEnabled(false);
 
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         CertPath certPath = CertificateFactory.getInstance("X.509").generateCertPath(certificates);
         CertPathValidator validator = CertPathValidator.getInstance(CertPathValidator.getDefaultType());
 

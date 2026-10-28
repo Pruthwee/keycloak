@@ -33,6 +33,7 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.testsuite.domainextension.CompanyRepresentation;
 import org.keycloak.testsuite.domainextension.spi.ExampleService;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.NoCache;
 
 public class CompanyResource {

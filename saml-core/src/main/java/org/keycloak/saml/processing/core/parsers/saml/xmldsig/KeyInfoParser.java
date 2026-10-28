@@ -32,6 +32,7 @@ public class KeyInfoParser extends AbstractStaxXmlDSigParser<KeyInfoType> {
         super(XmlDSigQNames.KEY_INFO);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static KeyInfoParser getInstance() {
         return INSTANCE;
     }

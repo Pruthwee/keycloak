@@ -35,6 +35,7 @@ export async function editSAMLSettings(page: Page, samlProviderName: string) {
   await setUrl(page, "singleSignOnService", "invalid");
   await clickSaveButton(page);
   await assertInvalidUrlNotification(page, "singleSignOnService");
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
   await setUrl(page, "singleSignOnService", "https://valid.com");
 
   await setUrl(page, "singleLogoutService", "invalid");

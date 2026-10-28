@@ -46,6 +46,7 @@ import org.infinispan.client.hotrod.event.ClientCacheEntryCustomEvent;
 import org.infinispan.client.hotrod.exceptions.HotRodClientException;
 import org.infinispan.commons.io.UnsignedNumeric;
 import org.infinispan.commons.marshall.Marshaller;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.cluster.infinispan.InfinispanClusterProvider.TASK_KEY_PREFIX;

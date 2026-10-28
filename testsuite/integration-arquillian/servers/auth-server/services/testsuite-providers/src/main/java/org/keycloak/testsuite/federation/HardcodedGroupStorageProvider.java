@@ -30,6 +30,7 @@ import org.keycloak.storage.StorageId;
 import org.keycloak.storage.group.GroupStorageProvider;
 import org.keycloak.storage.group.GroupStorageProviderModel;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class HardcodedGroupStorageProvider implements GroupStorageProvider {

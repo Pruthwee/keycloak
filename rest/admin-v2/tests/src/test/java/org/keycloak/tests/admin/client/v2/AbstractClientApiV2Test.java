@@ -62,6 +62,7 @@ public abstract class AbstractClientApiV2Test {
     }
 
     @BeforeAll
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void setupMapper() {
         mapper = new ObjectMapper();
     }

@@ -41,6 +41,7 @@ public class DestinationValidator {
         this.knownProtocols = knownProtocols;
     }
     
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static DestinationValidator forProtocolMap(String[] protocolMappings) {
         if (protocolMappings == null) {
             protocolMappings = DEFAULT_PROTOCOL_TO_PORT_MAP;

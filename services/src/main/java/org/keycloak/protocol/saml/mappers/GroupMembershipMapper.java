@@ -41,6 +41,7 @@ public class GroupMembershipMapper extends AbstractSAMLProtocolMapper implements
     public static final String PROVIDER_ID = "saml-group-membership-mapper";
     public static final String SINGLE_GROUP_ATTRIBUTE = "single";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {
@@ -111,6 +112,7 @@ public class GroupMembershipMapper extends AbstractSAMLProtocolMapper implements
         return PROVIDER_ID;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static boolean useFullPath(ProtocolMapperModel mappingModel) {
         return "true".equals(mappingModel.getConfig().get("full.path"));
     }

@@ -264,6 +264,7 @@ public class OIDCProviderConfig {
         private static final NoopLocalCache<?, ?> INSTANCE = new NoopLocalCache<>();
 
         @SuppressWarnings("unchecked")
+        // Cloud: consider using AWS DynamoDB for shared singleton state
         static <K, V> LocalCache<K, V> getInstance() {
             return (LocalCache<K, V>) INSTANCE;
         }

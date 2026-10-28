@@ -29,6 +29,7 @@ public class HttpUtils {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {
                 try {

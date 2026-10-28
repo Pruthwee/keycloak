@@ -46,6 +46,7 @@ import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
 import io.smallrye.common.annotation.Blocking;
 import org.eclipse.microprofile.context.ManagedExecutor;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.common.util.Environment.isDevMode;
@@ -57,6 +58,7 @@ import static org.keycloak.quarkus.runtime.Environment.hasEarlyExitLaunchMode;
 public class QuarkusKeycloakApplication extends KeycloakApplication {
 
     private static final String KEYCLOAK_ADMIN_ENV_VAR = "KEYCLOAK_ADMIN";
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String KEYCLOAK_ADMIN_PASSWORD_ENV_VAR = "KEYCLOAK_ADMIN_PASSWORD";
 
     private static final Logger logger = Logger.getLogger(QuarkusKeycloakApplication.class);

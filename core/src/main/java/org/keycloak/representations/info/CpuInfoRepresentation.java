@@ -7,6 +7,7 @@ public class CpuInfoRepresentation {
     public static CpuInfoRepresentation create() {
         Runtime runtime = Runtime.getRuntime();
         CpuInfoRepresentation rep = new CpuInfoRepresentation();
+        // Cloud: remove thread affinity, use JVM natural threading model
         rep.setProcessorCount(runtime.availableProcessors());
         return rep;
     }

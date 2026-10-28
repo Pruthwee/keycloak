@@ -13,6 +13,7 @@ import org.keycloak.protocol.saml.util.ArtifactBindingUtils;
 import org.keycloak.saml.common.constants.GeneralConstants;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.protocol.saml.DefaultSamlArtifactResolverFactory.TYPE_CODE;

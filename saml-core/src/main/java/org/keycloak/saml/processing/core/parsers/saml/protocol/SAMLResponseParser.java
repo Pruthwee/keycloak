@@ -44,6 +44,7 @@ public class SAMLResponseParser extends SAMLStatusResponseTypeParser<ResponseTyp
         super(SAMLProtocolQNames.RESPONSE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLResponseParser getInstance() {
         return INSTANCE;
     }

@@ -157,6 +157,7 @@ public class SAMLIdentityProviderFactory extends AbstractIdentityProviderFactory
                 }
 
                 samlIdentityProviderConfig.setEnabledFromMetadata(entityType.getValidUntil() == null
+                        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                         || entityType.getValidUntil().toGregorianCalendar().getTime().after(new Date(System.currentTimeMillis())));
 
                 // check for hide on login attribute

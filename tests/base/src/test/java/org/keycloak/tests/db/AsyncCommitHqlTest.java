@@ -168,6 +168,7 @@ public class AsyncCommitHqlTest {
             event.setId(UUID.randomUUID().toString());
             event.setRealmId(realm.getId());
             event.setType(EventType.LOGIN);
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             event.setTime(System.currentTimeMillis());
             session.getProvider(EventStoreProvider.class).onEvent(event);
             em.flush();

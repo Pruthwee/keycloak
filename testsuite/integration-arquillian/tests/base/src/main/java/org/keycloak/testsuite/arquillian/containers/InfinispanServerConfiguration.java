@@ -19,6 +19,8 @@ package org.keycloak.testsuite.arquillian.containers;
 import java.io.File;
 
 import org.apache.commons.validator.routines.IntegerValidator;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.spi.ConfigurationException;
 import org.jboss.arquillian.container.spi.client.container.ContainerConfiguration;
 
@@ -40,6 +42,7 @@ public class InfinispanServerConfiguration implements ContainerConfiguration {
         if (infinispanHome == null) {
             throw new ConfigurationException("`infinispanHome` cannot be null");
         }
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         if (!new File(infinispanHome).isDirectory()) {
             throw new ConfigurationException(String.format("`infinispanHome` is not a valid directory: '%s'", infinispanHome));
         }

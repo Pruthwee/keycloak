@@ -49,6 +49,7 @@ public class AttributeToRoleMapper extends AbstractAttributeToRoleMapper impleme
 
     public static final String[] COMPATIBLE_PROVIDERS = {SAMLIdentityProviderFactory.PROVIDER_ID};
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     public static final String ATTRIBUTE_NAME = "attribute.name";

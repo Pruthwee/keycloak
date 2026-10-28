@@ -41,6 +41,7 @@ public class OID4VCStaticClaimMapper extends OID4VCMapper {
 
     public static final String STATIC_CLAIM_KEY = "staticValue";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> CONFIG_PROPERTIES = new ArrayList<>();
 
     static {

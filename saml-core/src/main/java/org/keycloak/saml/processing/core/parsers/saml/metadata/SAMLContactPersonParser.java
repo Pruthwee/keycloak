@@ -22,6 +22,7 @@ public class SAMLContactPersonParser extends AbstractStaxSamlMetadataParser<Cont
         super(CONTACT_PERSON);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLContactPersonParser getInstance() {
         return INSTANCE;
     }

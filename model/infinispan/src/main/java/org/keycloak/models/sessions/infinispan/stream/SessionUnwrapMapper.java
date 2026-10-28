@@ -45,6 +45,7 @@ public class SessionUnwrapMapper<K, V extends SessionEntity> implements Function
 
     @ProtoFactory
     @SuppressWarnings("unchecked")
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static <K1, V1 extends SessionEntity> SessionUnwrapMapper<K1, V1> getInstance() {
         return (SessionUnwrapMapper<K1, V1>) INSTANCE;
     }

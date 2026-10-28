@@ -95,6 +95,7 @@ import com.webauthn4j.verifier.exception.BadRpIdException;
 import com.webauthn4j.verifier.exception.BadSignatureException;
 import com.webauthn4j.verifier.exception.UserNotPresentException;
 import com.webauthn4j.verifier.exception.UserNotVerifiedException;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.WebAuthnConstants.REG_ERR_DETAIL_LABEL;
@@ -406,6 +407,7 @@ public class WebAuthnRegister implements RequiredActionProvider, CredentialRegis
      *
      * Returns the list of converted algorithm identifiers.
     **/
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<Long> convertSignatureAlgorithms(List<String> signatureAlgorithmsList) {
         List<Long> algs = new ArrayList<>();
         if (signatureAlgorithmsList == null || signatureAlgorithmsList.isEmpty()) return algs;

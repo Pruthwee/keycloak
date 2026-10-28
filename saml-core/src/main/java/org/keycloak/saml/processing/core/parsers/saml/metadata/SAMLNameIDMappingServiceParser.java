@@ -11,6 +11,7 @@ public class SAMLNameIDMappingServiceParser extends SAMLEndpointTypeParser {
         super(SAMLMetadataQNames.NAMEID_MAPPING_SERVICE);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static SAMLNameIDMappingServiceParser getInstance() {
         return INSTANCE;
     }

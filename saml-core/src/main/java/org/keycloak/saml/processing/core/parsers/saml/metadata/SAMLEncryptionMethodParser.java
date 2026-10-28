@@ -22,6 +22,7 @@ public class SAMLEncryptionMethodParser extends AbstractStaxSamlMetadataParser<E
         super(ENCRYPTION_METHOD);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLEncryptionMethodParser getInstance() {
         return INSTANCE;
     }

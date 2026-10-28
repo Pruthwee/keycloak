@@ -37,6 +37,7 @@ import org.keycloak.representations.userprofile.config.UPConfig;
 import org.keycloak.representations.userprofile.config.UPGroup;
 import org.keycloak.validate.Validators;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -169,6 +170,7 @@ public class UserProfileUtil {
                 am.getDefaultValue());
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Map<String, Object>> toValidatorMetadata(AttributeMetadata am, KeycloakSession session){
         // we return only validators which are instance of ConfiguredProvider. Others are expected as internal.
         return am.getValidators() == null ? null : am.getValidators().stream()

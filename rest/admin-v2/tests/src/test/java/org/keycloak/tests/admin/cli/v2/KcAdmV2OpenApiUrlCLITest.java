@@ -37,6 +37,7 @@ public class KcAdmV2OpenApiUrlCLITest extends AbstractKcAdmV2CLITest {
     @Test
     void testLoginWithOpenApiUrl() {
         Path cacheDir = tempDir.toPath().resolve("openapi-url");
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         String configFile = new File(tempDir, "openapi-url.config").getAbsolutePath();
 
         HttpUtil.clearHttpClient();

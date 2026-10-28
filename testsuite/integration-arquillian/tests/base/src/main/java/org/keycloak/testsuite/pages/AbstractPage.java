@@ -21,6 +21,7 @@ import java.time.Duration;
 
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;

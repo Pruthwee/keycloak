@@ -18,6 +18,7 @@ public class TestReport {
     private static final List<LogParser> LOG_PARSERS = List.of(new SureFireLogParser(), new PlaywrightLogParser());
 
     public static void main(String[] args) throws IOException {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File logDirectory = new File(args[0]);
         ReportGenerator reportGenerator = REPORT_GENERATORS.get(args.length == 2 && !args[1].isBlank() ? args[1] : "text");
 

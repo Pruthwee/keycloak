@@ -16,10 +16,12 @@ public class PropertiesFileProfileConfigResolver extends PropertiesProfileConfig
     }
 
     private static Properties loadProperties() {
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties properties = new Properties();
         try {
             String jbossServerConfigDir = System.getProperty("jboss.server.config.dir");
             if (jbossServerConfigDir != null) {
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 File file = new File(jbossServerConfigDir, "profile.properties");
                 if (file.isFile()) {
                     try (FileInputStream is = new FileInputStream(file)) {

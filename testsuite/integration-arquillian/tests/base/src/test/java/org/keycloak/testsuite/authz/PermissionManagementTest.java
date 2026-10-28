@@ -556,6 +556,7 @@ public class PermissionManagementTest extends AbstractResourceServerTest {
 
             org.keycloak.authorization.model.PermissionTicket ticket1 =
                     ticketStore.create(rs1, resource1, null, requester);
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             ticket1.setGrantedTimestamp(System.currentTimeMillis());
 
             org.keycloak.authorization.model.PermissionTicket ticket2 =

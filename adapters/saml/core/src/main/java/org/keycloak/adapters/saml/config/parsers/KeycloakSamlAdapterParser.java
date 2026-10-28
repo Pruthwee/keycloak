@@ -50,6 +50,7 @@ public class KeycloakSamlAdapterParser extends AbstractParser {
 
     private static final KeycloakSamlAdapterParser INSTANCE = new KeycloakSamlAdapterParser();
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static KeycloakSamlAdapterParser getInstance() {
         return INSTANCE;
     }

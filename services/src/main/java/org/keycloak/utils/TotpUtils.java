@@ -28,6 +28,7 @@ import org.keycloak.models.utils.Base32;
 import org.keycloak.theme.TemplatingUtil;
 import org.keycloak.theme.Theme;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

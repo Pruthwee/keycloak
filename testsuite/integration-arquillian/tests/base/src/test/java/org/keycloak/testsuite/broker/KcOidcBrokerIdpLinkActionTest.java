@@ -53,6 +53,7 @@ import org.keycloak.testsuite.util.runonserver.RunHelpers;
 import org.keycloak.utils.BrokerUtil;
 
 import org.hamcrest.MatcherAssert;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Rule;

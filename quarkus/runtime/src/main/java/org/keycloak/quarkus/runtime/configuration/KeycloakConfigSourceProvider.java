@@ -31,6 +31,7 @@ import org.eclipse.microprofile.config.spi.ConfigSourceProvider;
 
 public class KeycloakConfigSourceProvider implements ConfigSourceProvider, ConfigBuilder {
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ConfigSource> CONFIG_SOURCES = new ArrayList<>();
     private static final Map<String, String> CONFIG_SOURCE_DISPLAY_NAMES = new HashMap<>();
 
@@ -99,6 +100,7 @@ public class KeycloakConfigSourceProvider implements ConfigSourceProvider, Confi
             return "config-keystore";
         }
         if (configSource.contains("PropertiesConfigSource") && configSource.contains("!/application.properties")) {
+            // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
             return "classpath application.properties";
         }
         return configSource; // some other Quarkus configsource

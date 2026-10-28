@@ -25,6 +25,7 @@ import org.keycloak.quarkus.runtime.configuration.Configuration;
 
 import io.quarkus.runtime.configuration.MemorySizeConverter;
 import io.smallrye.config.ConfigSourceInterceptorContext;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logmanager.LogContext;
 
 import static org.keycloak.config.LoggingOptions.DEFAULT_LOG_FORMAT;
@@ -455,6 +456,7 @@ public final class LoggingPropertyMappers implements PropertyMapperGrouping {
         return parseRootLogLevel(parentLogLevelValue).get(category);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> parseRootLogLevel(String values) {
         if (values == null) {
             return Map.of(); // if no value is present, we do not cache the result

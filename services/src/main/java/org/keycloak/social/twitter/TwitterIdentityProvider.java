@@ -62,6 +62,7 @@ import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.util.Booleans;
 import org.keycloak.vault.VaultStringSecret;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import twitter4j.AccessToken;
 import twitter4j.OAuthAuthorization;

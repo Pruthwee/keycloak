@@ -60,6 +60,7 @@ public class ValidatorConfig {
      * @param map
      * @return
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ValidatorConfig configFromMap(Map<String, Object> map) {
         if (map == null || map.isEmpty()) {
             return EMPTY;

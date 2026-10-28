@@ -24,6 +24,7 @@ import java.sql.Statement;
 
 import org.hibernate.engine.jdbc.connections.spi.JdbcConnectionAccess;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -49,6 +50,7 @@ class PostgreSQLAsyncCommitIntegrator extends AsyncCommitIntegrator {
 
     @Override
     protected void applyAsyncCommit(Connection connection) throws SQLException {
+        // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
         try (Statement stmt = connection.createStatement()) {
             stmt.execute("SET LOCAL synchronous_commit TO OFF");
         }
@@ -93,6 +95,7 @@ class PostgreSQLAsyncCommitIntegrator extends AsyncCommitIntegrator {
      * Uses {@code to_regproc} so standard PostgreSQL does not log
      * {@code ERROR: function aurora_version() does not exist}.
      */
+    // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
     static boolean auroraVersionFunctionExists(Connection connection) throws SQLException {
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT to_regproc('pg_catalog.aurora_version') IS NOT NULL")) {

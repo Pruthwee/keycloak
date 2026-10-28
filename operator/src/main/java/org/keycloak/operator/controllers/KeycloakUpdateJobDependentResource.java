@@ -218,6 +218,7 @@ public class KeycloakUpdateJobDependentResource extends CRUDKubernetesDependentR
                 .endVolumeMount();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> replaceStartWithUpdateCommand(List<String> currentArgs, List<String> updateArgs) {
         // note that using start-dev via the unsupported podTemplate will fail - that is fine as rolling updates shouldn't apply
         // TODO: reuse ConfigArgConfigSource parsing, so that we don't confuse what the command is

@@ -44,6 +44,7 @@ import org.keycloak.validation.ClientValidationProvider;
 import org.keycloak.validation.ValidationContext;
 import org.keycloak.validation.ValidationResult;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

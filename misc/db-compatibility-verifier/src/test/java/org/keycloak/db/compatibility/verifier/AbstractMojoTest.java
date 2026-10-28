@@ -18,6 +18,7 @@ abstract class AbstractMojoTest {
 
     @BeforeEach
     void init() throws IOException {
+        // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
         testDir = Files.createTempDirectory(SupportedMojoTest.class.getSimpleName());
         supportedFile = testDir.resolve("supported.json").toFile();
         unsupportedFile = testDir.resolve("unsupported.json").toFile();
@@ -26,6 +27,7 @@ abstract class AbstractMojoTest {
     @AfterEach
     void cleanup() throws IOException {
         if (Files.exists(testDir)) {
+            // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
             Files.walkFileTree(testDir, new SimpleFileVisitor<>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {

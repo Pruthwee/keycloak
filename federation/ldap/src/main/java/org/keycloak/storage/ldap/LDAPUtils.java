@@ -54,6 +54,7 @@ import org.keycloak.storage.ldap.mappers.LDAPMappersComparator;
 import org.keycloak.storage.ldap.mappers.LDAPStorageMapper;
 import org.keycloak.storage.ldap.mappers.membership.MembershipType;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -391,6 +392,7 @@ public class LDAPUtils {
      * Return a map of the user model properties from the getter methods
      * Map key are the attributes names in lower case
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, Property<Object>> getUserModelProperties(){
 
         Map<String, Property<Object>> userModelProps = PropertyQueries.createQuery(UserModel.class)
@@ -439,6 +441,7 @@ public class LDAPUtils {
         String[] timeFraction = parts[0].split("[.,]");
         String time = timeFraction[0];
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(0);
         calendar.setLenient(false);

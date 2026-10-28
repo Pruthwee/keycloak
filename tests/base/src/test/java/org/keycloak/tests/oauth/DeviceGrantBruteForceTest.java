@@ -45,6 +45,8 @@ public class DeviceGrantBruteForceTest {
 
     private static final String CLIENT_ID = "device-bf-client";
     private static final String USERNAME = "device-bf-user";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "password";
 
 

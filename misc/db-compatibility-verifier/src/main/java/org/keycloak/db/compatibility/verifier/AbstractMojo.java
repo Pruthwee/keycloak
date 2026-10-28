@@ -32,6 +32,7 @@ abstract class AbstractMojo extends org.apache.maven.plugin.AbstractMojo {
         List<String> elements = project.getRuntimeClasspathElements();
         URL[] urls = new URL[elements.size()];
         for (int i = 0; i < elements.size(); i++) {
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             urls[i] = new File(elements.get(i)).toURI().toURL();
         }
         return new URLClassLoader(urls, null);

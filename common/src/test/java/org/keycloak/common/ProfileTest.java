@@ -94,6 +94,7 @@ public class ProfileTest {
 
     @Test
     public void checkFailureIfDependencyDisabled() {
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties properties = new Properties();
         properties.setProperty("keycloak.profile.feature.account_api", "disabled");
 
@@ -123,6 +124,7 @@ public class ProfileTest {
     }
 
     @Test
+    // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
     public void wrongProfileInProperties() {
         Properties properties = new Properties();
         properties.setProperty("keycloak.profile", "experimental");

@@ -213,6 +213,7 @@ public class OID4VPSdJwtUserAttributeMapperTest {
     }
 
     @SuppressWarnings("unchecked")
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> attributeValues(BrokeredIdentityContext context, String attribute) {
         return (List<String>) context.getContextData().get("user.attributes." + attribute);
     }

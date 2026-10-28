@@ -134,6 +134,8 @@ public class ClientTest {
     private static final String TEST_CLIENT_ID = "my-app";
     private static final String TEST_CLIENT_DESCRIPTION = "my-app description";
     private static final String TEST_USER_USERNAME = "test-user@localhost";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String TEST_USER_PASSWORD = "password";
 
     @InjectRealm(ref = "default", config = ClientTestRealmConfig.class)

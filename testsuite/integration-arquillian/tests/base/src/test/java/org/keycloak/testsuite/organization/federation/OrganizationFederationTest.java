@@ -45,6 +45,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrganizationFederationTest extends AbstractOrganizationTest {
 
+    // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
     private static final File CONFIG_DIR = new File(System.getProperty("auth.server.config.dir", ""));
 
     @Before

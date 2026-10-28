@@ -34,6 +34,7 @@ import org.keycloak.models.utils.KeycloakModelUtils;
 import io.agroal.api.AgroalPoolInterceptor;
 import io.agroal.pool.wrapper.ConnectionWrapper;
 import io.quarkus.runtime.configuration.DurationConverter;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jspecify.annotations.NonNull;
 import org.postgresql.PGConnection;
@@ -114,6 +115,7 @@ public class UpdateSocketTimeoutOnConnectionAcquireInterceptor implements Agroal
 
         @Override
         public Thread newThread(@NonNull Runnable runnable) {
+            // Cloud: use bounded ExecutorService instead of unbounded thread creation
             Thread thread = new Thread(runnable);
             thread.setName(THREAD_NAME);
             thread.setDaemon(true);

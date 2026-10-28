@@ -22,6 +22,7 @@ import org.keycloak.models.KeycloakSession;
 /**
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
  */
+// Cloud: replace ThreadLocal with request-scoped beans for cloud environments
 public class ThreadLocalSessionContext {
 
     private static final ThreadLocal<KeycloakSession> currentSession = new ThreadLocal<KeycloakSession>();

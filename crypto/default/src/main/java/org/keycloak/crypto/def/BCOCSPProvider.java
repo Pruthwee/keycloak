@@ -339,6 +339,7 @@ public class BCOCSPProvider extends OCSPProvider {
                     // See Sun's OCSP implementation.
                     // https://www.ietf.org/rfc/rfc2560.txt, if nextUpdate is not set,
                     // the responder is indicating that newer update is avilable all the time
+                    // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                     long current = date == null ? System.currentTimeMillis() : date.getTime();
                     Date stop = new Date(current + TIME_SKEW);
                     Date start = new Date(current - TIME_SKEW);

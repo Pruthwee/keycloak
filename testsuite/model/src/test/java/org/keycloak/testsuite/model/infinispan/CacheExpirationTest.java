@@ -152,6 +152,7 @@ public class CacheExpirationTest extends KeycloakModelTest {
             // a test run with adding "-verbose:gc" showed the message "GC(23) Pause Full (Heap Inspection Initiated GC)" that
             // indicates a full GC run
 
+            // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
             tempFile = Files.createTempFile("jmap-output", ".txt"); // not consuming the output directly to avoid potential deadlock
 
             Process proc = new ProcessBuilder("jmap", "-histo:live", pid)

@@ -123,8 +123,10 @@ final class KeycloakVerifierBrowser {
                 + urlEncode(idpAlias) + "/endpoint/" + OID4VPIdentityProviderEndpoint.STATUS_PATH
                 + "?" + OAuth2Constants.STATE + "=" + urlEncode(state));
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long deadline = System.currentTimeMillis() + STATUS_POLL_TIMEOUT.toMillis();
         while (true) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
             JsonNode status = readJson(get(statusUri).body());
             String statusValue = status.path(OID4VPIdentityProviderEndpoint.STATUS_KEY).asText();
             if (OID4VPIdentityProviderEndpoint.STATUS_COMPLETE.equals(statusValue)) {

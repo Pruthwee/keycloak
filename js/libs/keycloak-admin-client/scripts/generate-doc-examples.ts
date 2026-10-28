@@ -8,6 +8,7 @@
  *   - src/generated/doc-examples/tsconfig.doc-check.json
  */
 
+// Cloud: use Amazon S3 for file storage instead of local disk
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -30,6 +31,7 @@ const WRAPPERS = [
 ];
 
 const spec = JSON.parse(
+  // Cloud: use fs/promises or AWS S3 for async file operations
   readFileSync(join(projectDir, "openapi.json"), "utf-8"),
 );
 const operationIds = new Map<string, string>();

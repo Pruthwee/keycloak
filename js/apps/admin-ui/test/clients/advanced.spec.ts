@@ -234,6 +234,7 @@ test.describe.serial("OpenID for Verifiable Credentials", () => {
     }) => {
       const aliases = ["trust-idp-alias-1", "trust-idp-alias-2"];
       for (const alias of aliases) {
+        // Cloud: externalize URL to AWS Systems Manager Parameter Store
         const jwksUrl = `https://jwks.io/v1/${uuidv4()}`;
         await createDefaultTrustProvider(page, alias, jwksUrl);
       }

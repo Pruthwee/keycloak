@@ -179,6 +179,7 @@ public class DefaultEvaluation implements Evaluation {
                 @SuppressWarnings("unchecked") HashMap<String, UserModel> cache = (HashMap<String, UserModel>) session.getAttribute(USER_CACHE_SESSION_ATTRIBUTE);
                 if (cache == null) {
                     cache = new HashMap<>();
+                    // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
                     session.setAttribute(USER_CACHE_SESSION_ATTRIBUTE, cache);
                 }
                 UserModel user = cache.get(id);

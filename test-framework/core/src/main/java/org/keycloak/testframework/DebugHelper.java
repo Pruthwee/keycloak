@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 
 public class DebugHelper {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static boolean IN_TEST = false;
     private static String CURRENT_TEST_CLASS;
     private static String CURRENT_TEST_METHOD;

@@ -56,6 +56,7 @@ import org.keycloak.theme.Theme;
 import org.keycloak.urls.UrlType;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

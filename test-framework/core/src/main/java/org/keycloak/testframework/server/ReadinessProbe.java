@@ -36,6 +36,8 @@ public final class ReadinessProbe {
     }
 
     private static void waitUntilReady(String url, SSLContext sslContext, long timeout) {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         var deadline = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(timeout);
         while (System.currentTimeMillis() < deadline) {
             try {

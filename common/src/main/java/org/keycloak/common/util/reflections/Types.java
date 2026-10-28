@@ -341,6 +341,7 @@ public class Types {
     }
 
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Class getMapKeyType(Type genericType)
     {
         if (genericType instanceof ParameterizedType)

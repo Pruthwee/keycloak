@@ -45,6 +45,7 @@ public class KeyUtils {
     }
 
     public static SecretKey loadSecretKey(byte[] secret, String javaAlgorithmName) {
+        // Cloud: retrieve secrets from AWS Secrets Manager
         return new SecretKeySpec(secret, javaAlgorithmName);
     }
 

@@ -49,6 +49,7 @@ public class DirExportProvider extends MultipleStepsExportProvider<DirExportProv
     private File getRootDirectory() {
         if (rootDirectory == null) {
             if (dir == null) {
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 rootDirectory = new File(KeycloakApplication.getTmpDirectory(), "keycloak-export");
             } else {
                 rootDirectory = new File(dir);
@@ -62,6 +63,7 @@ public class DirExportProvider extends MultipleStepsExportProvider<DirExportProv
     @Override
     public void writeRealm(String fileName, RealmRepresentation rep) throws IOException {
         File file = new File(getRootDirectory(), fileName);
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (FileOutputStream is = new FileOutputStream(file)) {
             JsonSerialization.prettyMapper.writeValue(is, rep);
         }

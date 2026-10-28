@@ -58,6 +58,7 @@ public class UriUtils {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static MultivaluedHashMap<String, String> parseQueryParameters(String queryString, boolean decode) {
         MultivaluedHashMap<String, String> map = new MultivaluedHashMap<String, String>();
         if (queryString == null || queryString.equals("")) return map;

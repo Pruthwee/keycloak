@@ -502,6 +502,7 @@ public class Reflections {
     }
 
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<Class<?>, Type> buildTypeMap(Set<Type> types) {
         Map<Class<?>, Type> map = new HashMap<Class<?>, Type>();
         for (Type type : types) {

@@ -45,6 +45,7 @@ import org.keycloak.representations.idm.RealmRepresentation;
 import org.keycloak.testsuite.admin.ApiUtil;
 import org.keycloak.testsuite.arquillian.TestContext;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class TokenSignatureUtil {
@@ -140,6 +141,7 @@ public class TokenSignatureUtil {
     }
 
     private static void registerKeyProvider(String realm, String providerSpecificKey, String providerSpecificValue, String providerId, Keycloak adminClient, TestContext testContext) {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long priority = System.currentTimeMillis();
 
         ComponentRepresentation rep = createKeyRep("valid", providerId, adminClient);

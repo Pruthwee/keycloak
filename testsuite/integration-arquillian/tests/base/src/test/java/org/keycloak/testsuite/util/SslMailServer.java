@@ -39,6 +39,7 @@ import javax.net.ssl.TrustManagerFactory;
 
 import jakarta.mail.internet.MimeMessage;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.subethamail.smtp.server.SMTPServer;
 
@@ -63,6 +64,7 @@ public class SslMailServer {
 
     private static SMTPServer smtpServer;
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> serverConfiguration = new HashMap<>();
 
 
@@ -98,6 +100,7 @@ public class SslMailServer {
         try {
             keyStoreIS = new FileInputStream(privateKey);
             char[] keyStorePassphrase = "secret".toCharArray();
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
             KeyStore ksKeys = null;
             ksKeys = KeyStore.getInstance("JKS");
             ksKeys.load(keyStoreIS, keyStorePassphrase);
@@ -107,6 +110,7 @@ public class SslMailServer {
             kmf.init(ksKeys, keyStorePassphrase);
 
             // Trust store for client authentication.
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
             InputStream trustStoreIS = new FileInputStream(String.valueOf(MailServer.class.getClassLoader().getResource(TRUSTED_CERTIFICATE).getFile()));
             char[] trustStorePassphrase = "secret".toCharArray();
             KeyStore ksTrust = KeyStore.getInstance("JKS");

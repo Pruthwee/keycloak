@@ -46,10 +46,13 @@ public class FailableHardcodedStorageProvider implements UserStorageProvider, Us
         ImportedUserValidation, CredentialInputUpdater, CredentialInputValidator {
 
     public static String username = "billb";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     public static String password = "password";
     public static String email = "billb@nowhere.com";
     public static String first = "Bill";
     public static String last = "Burke";
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static MultivaluedHashMap<String, String> attributes = new MultivaluedHashMap<>();
 
     public static boolean fail;

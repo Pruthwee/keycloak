@@ -10,6 +10,8 @@ public class BasicAuthHelperTest {
     @Test
     public void createHeader() {
         String username = "Aladdin";
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
         String password = "open sesameopen sesameopen sesameopen sesameopen sesameopen sesame";
 
         String actual = BasicAuthHelper.createHeader(username, password);

@@ -62,6 +62,7 @@ public class UserPropertyFileStorage implements UserLookupProvider, UserStorageP
     protected KeycloakSession session;
     protected boolean federatedStorageEnabled;
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, List<UserPropertyFileStorageCall>> storageCalls = new HashMap<>();
 
     public static class UserPropertyFileStorageCall implements Serializable {

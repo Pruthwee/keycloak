@@ -20,6 +20,9 @@ import java.lang.reflect.Method;
 
 import org.keycloak.testsuite.arquillian.migration.Migration;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.test.spi.execution.ExecutionDecision;
 import org.jboss.arquillian.test.spi.execution.TestExecutionDecider;
 import org.jboss.logging.Logger;

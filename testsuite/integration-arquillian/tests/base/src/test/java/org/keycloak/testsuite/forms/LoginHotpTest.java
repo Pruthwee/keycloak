@@ -33,6 +33,7 @@ import org.keycloak.testsuite.pages.LoginTotpPage;
 import org.keycloak.testsuite.util.MailServer;
 import org.keycloak.testsuite.util.RealmRepUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Rule;
@@ -75,6 +76,7 @@ public class LoginHotpTest extends AbstractChangeImportedUserPasswordsTest {
 
     private int lifespan;
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static int counter = 0;
 
     @Before

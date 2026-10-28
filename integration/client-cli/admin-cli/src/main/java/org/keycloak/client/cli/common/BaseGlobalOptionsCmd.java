@@ -39,6 +39,7 @@ public abstract class BaseGlobalOptionsCmd implements Runnable {
         if (Globals.help) {
             printOut(help());
             System.exit(CommandLine.ExitCode.OK);
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
         } else if (nothingToDo()) {
             printOut(help());
             System.exit(CommandLine.ExitCode.USAGE);

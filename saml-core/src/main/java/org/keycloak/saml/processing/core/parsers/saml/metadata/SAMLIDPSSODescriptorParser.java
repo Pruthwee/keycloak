@@ -21,6 +21,7 @@ public class SAMLIDPSSODescriptorParser extends SAMLSSODescriptorTypeParser<IDPS
         super(IDP_SSO_DESCRIPTOR);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLIDPSSODescriptorParser getInstance() {
         return INSTANCE;
     }

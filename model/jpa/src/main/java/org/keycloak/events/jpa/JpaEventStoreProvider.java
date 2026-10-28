@@ -44,6 +44,7 @@ import org.keycloak.models.jpa.entities.RealmAttributes;
 import org.keycloak.models.utils.KeycloakModelUtils;
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static jakarta.persistence.PersistenceConfiguration.LOCK_TIMEOUT;
@@ -279,6 +280,7 @@ public class JpaEventStoreProvider implements EventStoreProvider {
     private int deleteByIdBatches(String selectIdsQuery, Consumer<TypedQuery<String>> queryConfigurator, String deleteByIdsQuery, long deadline) {
         int deleted = 0;
         while (true) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
             if (Time.currentTimeMillis() > deadline) {
                 logger.debugf("Batch delete reached time limit after deleting %d rows", deleted);
                 return deleted;

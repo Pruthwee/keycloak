@@ -41,6 +41,7 @@ public class JsonSerialization {
     public static final ObjectMapper mapper = createObjectMapperWithDefaults();
     public static final ObjectMapper prettyMapper = createPrettyObjectMapperWithDefaults();
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ObjectMapper createObjectMapperWithDefaults() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new Jdk8Module());

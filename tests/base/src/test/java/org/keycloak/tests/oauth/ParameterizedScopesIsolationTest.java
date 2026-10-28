@@ -60,6 +60,8 @@ public class ParameterizedScopesIsolationTest {
     private static final String VALUE_A = "valueA";
     private static final String VALUE_B = "valueB";
     private static final String USERNAME = "test-user";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "password";
 
     @InjectRealm(config = TestRealmConfig.class)

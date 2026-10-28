@@ -84,6 +84,7 @@ import org.keycloak.saml.validators.ConditionsValidator;
 import org.keycloak.saml.validators.DestinationValidator;
 import org.keycloak.saml.validators.SubjectConfirmationDataValidator;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -649,6 +650,7 @@ public abstract class AbstractSamlAuthenticationHandler implements SamlAuthentic
     }
 
     protected boolean verifySSL() {
+        // Cloud: replace IP-based security with AWS IAM authentication
         if (!facade.getRequest().isSecure() && deployment.getSslRequired().isRequired(facade.getRequest().getRemoteAddr())) {
             log.warn("SSL is required to authenticate");
             return true;

@@ -45,6 +45,7 @@ public class RoleListMapper extends AbstractSAMLProtocolMapper implements SAMLRo
     public static final String PROVIDER_ID = "saml-role-list-mapper";
     public static final String SINGLE_ROLE_ATTRIBUTE = "single";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {
@@ -169,6 +170,7 @@ public class RoleListMapper extends AbstractSAMLProtocolMapper implements SAMLRo
 
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name, String samlAttributeName, String nameFormat, String friendlyName, boolean singleAttribute) {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
         mapper.setName(name);

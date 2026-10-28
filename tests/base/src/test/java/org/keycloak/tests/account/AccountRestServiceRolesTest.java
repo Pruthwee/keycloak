@@ -59,6 +59,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @KeycloakIntegrationTest(config = AccountRestServiceRolesTest.AccountRolesServerConfig.class)
 public class AccountRestServiceRolesTest {
 
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "password";
 
     @InjectRealm(config = AccountRolesRealmConfig.class)

@@ -38,6 +38,7 @@ public class SAMLRequestedAttributeParser extends AbstractStaxSamlMetadataParser
         super(SAMLMetadataQNames.REQUESTED_ATTRIBUTE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLRequestedAttributeParser getInstance() {
         return INSTANCE;
     }

@@ -24,6 +24,7 @@ import org.keycloak.testsuite.webauthn.authenticators.KcVirtualAuthenticator;
 import org.keycloak.testsuite.webauthn.authenticators.VirtualAuthenticatorManager;
 
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;

@@ -34,6 +34,7 @@ final class SingleUseObjectSerialization {
     private static final TypeReference<Map<String, String>> STRING_MAP = new TypeReference<>() {
     };
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, String> getNotes(SingleUseObjectEntity entity) {
         return read(entity.getNotes(), entity.getId(), "notes");
     }

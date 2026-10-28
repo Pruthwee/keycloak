@@ -38,6 +38,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.logging.Logger.Level;
 
@@ -182,6 +184,7 @@ public abstract class OCSPProvider {
 
             @Override
             public Date getRevocationTime() {
+                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                 return new Date(System.currentTimeMillis());
             }
 

@@ -20,6 +20,7 @@ public class VerifyMojoTest {
 
     @Test
     void testFilesDoNotExist() {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File noneExistingFile = new File("noneExistingFile");
         assertFalse(noneExistingFile.exists());
 

@@ -48,6 +48,7 @@ import liquibase.statement.core.CreateIndexStatement;
 import liquibase.statement.core.RawParameterizedSqlStatement;
 import liquibase.structure.core.Schema;
 import liquibase.structure.core.Table;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

@@ -62,6 +62,7 @@ public class LoadPersistentSessionsCommand extends AbstractCommand {
 
             for (int workerId = 0 ; workerId < workersCount ; workerId++) {
                 lastWorker = new MyWorker(workerId, lastSessionId.get(), limit, sessionFactory);
+                // Cloud: use bounded ExecutorService instead of unbounded thread creation
                 Thread worker = new Thread(lastWorker);
                 workers.add(worker);
             }

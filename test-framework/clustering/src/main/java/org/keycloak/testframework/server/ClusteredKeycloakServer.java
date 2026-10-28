@@ -32,6 +32,7 @@ import org.keycloak.testframework.clustering.LoadBalancer;
 import org.keycloak.testframework.infinispan.CacheType;
 import org.keycloak.testframework.logging.JBossContainerLogConsumer;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.testcontainers.images.RemoteDockerImage;
 import org.testcontainers.utility.DockerImageName;
@@ -40,7 +41,7 @@ import org.testcontainers.utility.LazyFuture;
 public class ClusteredKeycloakServer implements KeycloakServer {
 
     private static final String CLUSTER_VIEW_REGEX = ".*ISPN000093.*(?<=\\()(%1$d)(?=\\)).*|.*ISPN000094.*(?<=\\()(%1$d)(?=\\)).*";
-    private static final int REQUEST_PORT = 8080;
+    private static final int REQUEST_PORT = System.getenv().getOrDefault("APP_PORT", "8080");
     private static final int MANAGEMENT_PORT = 9000;
     public static final String SNAPSHOT_IMAGE = "-";
 

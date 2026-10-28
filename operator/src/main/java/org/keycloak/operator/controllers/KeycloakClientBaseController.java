@@ -358,6 +358,8 @@ public abstract class KeycloakClientBaseController<R extends CustomResource<? ex
         byte[] certBytes = Base64.getDecoder().decode(tlsSecret.getData().get("tls.crt"));
 
         try {
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             X509Certificate cert = (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(certBytes));
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());

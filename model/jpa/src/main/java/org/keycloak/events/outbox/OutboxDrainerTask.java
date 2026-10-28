@@ -27,6 +27,7 @@ import org.keycloak.models.jpa.entities.OutboxEntryEntity;
 import org.keycloak.timer.ScheduledTask;
 import org.keycloak.utils.KeycloakSessionUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

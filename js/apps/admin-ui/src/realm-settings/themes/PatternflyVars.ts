@@ -211,6 +211,7 @@ export function resolveColorToHex(colorValue: string) {
     return colorValue.toLowerCase();
   }
 
+  // Cloud: separate browser DOM types from Node.js server code
   const el = document.createElement("div");
   el.style.cssText = `position:absolute;left:-9999px;color:${colorValue}`;
   document.body.appendChild(el);

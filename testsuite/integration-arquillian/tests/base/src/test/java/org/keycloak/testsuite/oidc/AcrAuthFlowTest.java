@@ -57,6 +57,7 @@ import org.keycloak.testsuite.util.ClientPoliciesUtil;
 import org.keycloak.testsuite.util.FlowUtil;
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.After;
 import org.junit.Before;
@@ -69,8 +70,14 @@ import org.junit.jupiter.api.Assertions;
 public class AcrAuthFlowTest extends AbstractOIDCScopeTest{
 
     // config
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static String CLIENT_ID = "test-app";
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static String CLIENT_SECRET = "password";
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static String PASSWORD = "password";
     private static String TOTP_SECRET = "totpsecret";
 

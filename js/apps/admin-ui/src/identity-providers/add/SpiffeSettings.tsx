@@ -32,6 +32,7 @@ export const SpiffeSettings = () => {
       <TextControl
         name="config.bundleEndpoint"
         label={t("spiffeBundleEndpoint")}
+        // Cloud: externalize URL to AWS Systems Manager Parameter Store
         labelIcon={t("Specify a URL starting with 'https://'.")}
         rules={{
           required: t("required"),

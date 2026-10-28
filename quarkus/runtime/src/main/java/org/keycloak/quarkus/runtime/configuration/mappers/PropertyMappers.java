@@ -55,6 +55,7 @@ public final class PropertyMappers {
                 new ServerPropertyMappers());
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static List<PropertyMapperGrouping> getPropertyMapperGroupings() {
         return GROUPINGS;
     }

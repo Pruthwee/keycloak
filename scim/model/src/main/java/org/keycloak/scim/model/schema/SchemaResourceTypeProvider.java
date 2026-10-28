@@ -85,6 +85,7 @@ public class SchemaResourceTypeProvider implements ScimResourceTypeProvider<Sche
 
                     String cacheKey = modelSchema.isCore() ? topName : parentName + ":" + topName;
 
+                    // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
                     Attribute parent = topLevelAttributes.computeIfAbsent(cacheKey, k -> {
                         Attribute p = new Attribute();
                         p.setName(topName);
@@ -148,6 +149,7 @@ public class SchemaResourceTypeProvider implements ScimResourceTypeProvider<Sche
                     }
                     subAttributes.add(subAttr);
                 } else {
+                    // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
                     String cacheKey = parentName + ":" + relativeName;
                     topLevelAttributes.computeIfAbsent(cacheKey, k -> {
                         Attribute attr = createTopLevelAttribute(attribute, relativeName);

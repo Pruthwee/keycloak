@@ -319,6 +319,7 @@ class KcAdmV2RequestExecutor extends AbstractTargetAuthOptionsCmd implements Run
                 throw new RuntimeException(
                         "Options -f/--file and field options are mutually exclusive");
             }
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             Path filePath = new File(file).toPath();
             if (!Files.isRegularFile(filePath)) {
                 throw new RuntimeException("File not found: " + file);

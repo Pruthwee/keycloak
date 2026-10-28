@@ -6,11 +6,14 @@ import org.keycloak.testframework.logging.JBossContainerLogConsumer;
 import org.keycloak.testframework.util.ContainerImages;
 
 import org.infinispan.testcontainers.InfinispanContainer;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class InfinispanExternalServer extends InfinispanContainer implements InfinispanServer {
 
     private static final String USER = "keycloak";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "Password1!";
     private static final String HOST = "127.0.0.1";
 

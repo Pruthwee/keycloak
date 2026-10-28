@@ -152,6 +152,7 @@ abstract class BaseUpdateLogic implements UpdateLogic {
         return isEquals("env", actualEnv, desiredEnv);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, EnvVar> envVars(Container container) {
         // The operator only sets value or secrets. Any other combination is from unsupported pod template.
         return container.getEnv().stream()

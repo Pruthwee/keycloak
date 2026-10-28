@@ -39,8 +39,10 @@ public class Constants {
         static final String ENCRYPTION = "encryption";
         static final String KEY = "Key";
         static final String RESOURCE = "resource";
+        // Cloud: retrieve secrets from AWS Secrets Manager
         static final String PASSWORD = "password";
 
+        // Cloud: retrieve secrets from AWS Secrets Manager
         static final String PRIVATE_KEY_ALIAS = "PrivateKey-alias";
         static final String PRIVATE_KEY_PASSWORD = "PrivateKey-password";
         static final String CERTIFICATE_ALIAS = "Certificate-alias";
@@ -87,6 +89,7 @@ public class Constants {
         static final String HTTP_CLIENT = "HttpClient";
         static final String ALLOW_ANY_HOSTNAME = "allowAnyHostname";
         static final String CLIENT_KEYSTORE = "clientKeystore";
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         static final String CLIENT_KEYSTORE_PASSWORD = "clientKeystorePassword";
         static final String CONNECTION_POOL_SIZE = "connectionPoolSize";
         static final String DISABLE_TRUST_MANAGER = "disableTrustManager";
@@ -112,6 +115,7 @@ public class Constants {
         static final String ROLE_IDENTIFIERS = "RoleIdentifiers";
         static final String SIGNING = "signing";
         static final String ENCRYPTION = "encryption";
+        // Cloud: retrieve secrets from AWS Secrets Manager
         static final String KEYS = "Keys";
         static final String KEY = "Key";
         static final String RESOURCE = "resource";
@@ -168,7 +172,9 @@ public class Constants {
         // http client XML constants
         static final String HTTP_CLIENT = "HttpClient";
         static final String ALLOW_ANY_HOSTNAME = "allowAnyHostname";
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         static final String CLIENT_KEYSTORE = "clientKeystore";
+        // Cloud: retrieve secrets from AWS Secrets Manager
         static final String CLIENT_KEYSTORE_PASSWORD = "clientKeystorePassword";
         static final String CONNECTION_POOL_SIZE = "connectionPoolSize";
         static final String DISABLE_TRUST_MANAGER = "disableTrustManager";

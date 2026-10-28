@@ -36,6 +36,7 @@ public class PrincipalNameMappingParser extends AbstractKeycloakSamlAdapterV1Par
         super(KeycloakSamlAdapterV1QNames.PRINCIPAL_NAME_MAPPING);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static PrincipalNameMappingParser getInstance() {
         return INSTANCE;
     }

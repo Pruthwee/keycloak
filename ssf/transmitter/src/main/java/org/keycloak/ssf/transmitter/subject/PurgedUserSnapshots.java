@@ -73,6 +73,7 @@ class PurgedUserSnapshots {
         PurgedUserSnapshots snapshots = find(session);
         if (snapshots == null) {
             snapshots = new PurgedUserSnapshots();
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(SESSION_ATTRIBUTE_KEY, snapshots);
         }
         return snapshots;

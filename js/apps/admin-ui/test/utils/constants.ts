@@ -1,3 +1,4 @@
+// Cloud: externalize URL to AWS Systems Manager Parameter Store
 const DEFAULT_SERVER_URL = "http://localhost:8080";
 const normalizeServerUrl = (url: string) => url.replace(/\/$/, "");
 

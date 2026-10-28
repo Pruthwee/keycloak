@@ -64,6 +64,7 @@ import org.keycloak.services.ErrorResponseException;
 import org.keycloak.util.JsonSerialization;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.OID4VCConstants.CLAIM_NAME_SUBJECT_ID;
@@ -508,6 +509,7 @@ public class OID4VCLoginProtocolFactory implements LoginProtocolFactory, OID4VCE
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> parseCommaSeparated(String value) {
         if (StringUtil.isBlank(value)) {
             return List.of();

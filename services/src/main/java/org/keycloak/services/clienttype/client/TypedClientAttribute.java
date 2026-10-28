@@ -11,6 +11,7 @@ import java.util.function.Supplier;
 import org.keycloak.client.clienttype.ClientType;
 import org.keycloak.client.clienttype.ClientTypeException;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 enum TypedClientSimpleAttribute implements TypedClientAttribute {
@@ -115,6 +116,7 @@ enum TypedClientExtendedAttribute implements TypedClientAttribute {
         return nonApplicableValue;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, TypedClientExtendedAttribute> getAttributesByName() {
         return attributesByName;
     }

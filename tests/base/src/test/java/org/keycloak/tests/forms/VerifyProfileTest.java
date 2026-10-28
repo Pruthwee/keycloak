@@ -1005,6 +1005,7 @@ public class VerifyProfileTest {
     }
 
     // The same input types the legacy RegisterWithUserProfileTest#UP_CONFIG_PART_INPUT_TYPES covers, keep the two in sync until that test is migrated.
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<UPAttribute> inputTypeAttributes() {
         return List.of(
                 attribute("defaultType", ALL),

@@ -28,6 +28,7 @@ public abstract class AbstractUserSessionLimitsBrokerTest {
     protected static final String PROVIDER_REALM = "provider";
     protected static final String CONSUMER_REALM = "consumer";
     protected static final String USER_LOGIN = "testuser";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     protected static final String USER_PASSWORD = "password";
     protected static final String USER_EMAIL = "user@localhost.com";
     protected static final String CONSUMER_CLIENT_ID = "broker-app";

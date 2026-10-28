@@ -11,6 +11,7 @@ public class SAMLAssertinIDRequestServiceParser extends SAMLEndpointTypeParser {
         super(SAMLMetadataQNames.ASSERTION_ID_REQUEST_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAssertinIDRequestServiceParser getInstance() {
         return INSTANCE;
     }

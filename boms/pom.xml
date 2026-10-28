@@ -19,6 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
+        <!-- Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis -->
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
         <version>39</version>

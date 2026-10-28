@@ -29,6 +29,7 @@ public class TokenIdGenerator {
     private static final AtomicLong counter = new AtomicLong();
 
     public static String generateId() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         return SecretGenerator.getInstance().generateSecureID() + "-" + System.currentTimeMillis();
     }
 }

@@ -46,6 +46,7 @@ public class AttributeStatementHelper {
     public static final String URI_REFERENCE = "URI Reference";
     public static final String UNSPECIFIED = "Unspecified";
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void addAttribute(AttributeStatementType attributeStatement, ProtocolMapperModel mappingModel,
                                     String attributeValue) {
         AttributeType attribute = createAttributeType(mappingModel);

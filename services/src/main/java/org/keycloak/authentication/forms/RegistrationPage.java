@@ -45,6 +45,7 @@ import org.keycloak.services.messages.Messages;
 public class RegistrationPage implements FormAuthenticator, FormAuthenticatorFactory {
 
     public static final String FIELD_PASSWORD_CONFIRM = "password-confirm";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String FIELD_PASSWORD = "password";
     public static final String FIELD_EMAIL = "email";
     public static final String FIELD_USERNAME = "username";

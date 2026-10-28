@@ -256,6 +256,7 @@ public class OIDCWellKnownProvider implements WellKnownProvider {
     public void close() {
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> list(String... values) {
         return Arrays.asList(values);
     }

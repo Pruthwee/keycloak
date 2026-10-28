@@ -30,6 +30,7 @@ import org.keycloak.models.KeycloakSession;
  */
 public class ClusterProviderTaskCommand extends AbstractCommand {
 
+    // Cloud: use dynamic thread pool sizing based on ECS/EKS container resources
     private static final ExecutorService executors = Executors.newCachedThreadPool();
 
     @Override

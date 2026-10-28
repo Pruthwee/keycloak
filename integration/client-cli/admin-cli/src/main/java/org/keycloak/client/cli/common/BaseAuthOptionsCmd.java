@@ -48,6 +48,7 @@ public abstract class BaseAuthOptionsCmd extends BaseGlobalOptionsCmd {
     @Option(names = "--config", description = "Path to the config file (${sys:"+DEFAULT_CONFIG_PATH_STRING_KEY+"} by default)")
     protected String config;
 
+    // Cloud: use AWS Secrets Manager and Amazon Cognito for authentication
     @Option(names = "--no-config", description = "Don't use config file - no authentication info is loaded or saved")
     protected boolean noconfig;
 
@@ -182,6 +183,7 @@ public abstract class BaseAuthOptionsCmd extends BaseGlobalOptionsCmd {
             }
 
             try {
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 HttpUtil.setTruststore(new File(truststore), pass);
             } catch (Exception e) {
                 throw new RuntimeException("Failed to load truststore: " + truststore, e);

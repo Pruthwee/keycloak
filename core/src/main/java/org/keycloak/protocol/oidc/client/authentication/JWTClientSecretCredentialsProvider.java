@@ -30,6 +30,7 @@ import org.keycloak.jose.jws.JWSBuilder;
 import org.keycloak.representations.JsonWebToken;
 import org.keycloak.representations.adapters.config.AdapterConfig;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -100,6 +101,7 @@ public class JWTClientSecretCredentialsProvider implements ClientCredentialsProv
     }
 
     public void setClientSecret(String clientSecretString, String algorithm) {
+        // Cloud: retrieve secrets from AWS Secrets Manager
         clientSecret = new SecretKeySpec(clientSecretString.getBytes(StandardCharsets.UTF_8), JavaAlgorithm.getJavaAlgorithm(algorithm));
         clientSecretJwtAlg = algorithm;
     }

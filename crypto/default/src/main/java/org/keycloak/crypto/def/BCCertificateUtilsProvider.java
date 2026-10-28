@@ -98,6 +98,8 @@ public class BCCertificateUtilsProvider implements CertificateUtilsProvider {
             BigInteger serialNumber = BigInteger.valueOf(Math.abs(random.nextInt()));
 
             // Validity
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             Date notBefore = new Date(System.currentTimeMillis());
             Date notAfter = new Date(System.currentTimeMillis() + (((1000L * 60 * 60 * 24 * 30)) * 12) * 3);
 

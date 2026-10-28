@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 package org.keycloak.models.sessions.infinispan.changes.remote.updater.authsession;
 
 import java.util.ArrayList;

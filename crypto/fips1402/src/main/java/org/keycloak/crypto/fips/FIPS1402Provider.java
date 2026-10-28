@@ -68,6 +68,7 @@ import org.bouncycastle.jsse.provider.BouncyCastleJsseProvider;
 import org.bouncycastle.jsse.util.CustomSSLSocketFactory;
 import org.bouncycastle.math.ec.ECCurve;
 import org.bouncycastle.util.IPAddress;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 

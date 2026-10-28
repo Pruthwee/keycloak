@@ -35,6 +35,14 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.spi.client.container.DeployableContainer;
 import org.jboss.arquillian.container.spi.client.container.DeploymentException;
 import org.jboss.arquillian.container.spi.client.container.LifecycleException;
@@ -68,6 +76,7 @@ public class InfinispanServerDeployableContainer implements DeployableContainer<
     @Override
     public void setup(InfinispanServerConfiguration configuration) {
         this.configuration = configuration;
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         pidFile = new File(configuration.getInfinispanHome(), "bin/server.pid");
     }
 
@@ -111,6 +120,7 @@ public class InfinispanServerDeployableContainer implements DeployableContainer<
 
             trustAllCertificates();
 
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             long startTimeMillis = System.currentTimeMillis();
             long startupTimeoutMillis = 30 * 1000;
             URL consoleURL = new URL(String.format("%s://localhost:%s/console/",
@@ -118,6 +128,7 @@ public class InfinispanServerDeployableContainer implements DeployableContainer<
                     11222 + configuration.getPortOffset()));
 
             while (true) {
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
                 Thread.sleep(1000);
                 if (System.currentTimeMillis() > startTimeMillis + startupTimeoutMillis) {
                     stop();

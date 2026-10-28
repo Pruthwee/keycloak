@@ -60,6 +60,7 @@ class DriverUtils {
         // Environment variable can point to directory where the driver is located, or the driver directly
         String driverPathFromEnv = System.getenv(envName);
         if (driverPathFromEnv != null) {
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             driver = new File(driverPathFromEnv);
             if (driver.isFile()) {
                 return driver;
@@ -71,6 +72,7 @@ class DriverUtils {
         return null;
     }
 
+    // Cloud: use Java NIO Path for platform-independent file handling
     private static boolean isWindows() {
         return System.getProperty("os.name").toLowerCase().contains("win");
     }

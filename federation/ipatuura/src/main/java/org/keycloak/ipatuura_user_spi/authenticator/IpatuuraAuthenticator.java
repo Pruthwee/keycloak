@@ -22,6 +22,7 @@ import jakarta.ws.rs.core.HttpHeaders;
 import org.keycloak.common.constants.KerberosConstants;
 import org.keycloak.models.KeycloakSession;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

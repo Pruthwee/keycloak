@@ -34,6 +34,7 @@ import org.keycloak.http.simple.SimpleHttpRequest;
 import org.keycloak.models.KeycloakSession;
 
 import com.fasterxml.jackson.databind.JsonNode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -47,6 +48,7 @@ public class StackoverflowIdentityProvider extends AbstractOAuth2IdentityProvide
 
 	public static final String AUTH_URL = "https://stackexchange.com/oauth";
 	public static final String TOKEN_URL = "https://stackexchange.com/oauth/access_token";
+ // Cloud: externalize URL to AWS Systems Manager Parameter Store
 	public static final String PROFILE_URL = "https://api.stackexchange.com/2.2/me?order=desc&sort=name&site=stackoverflow";
 	public static final String DEFAULT_SCOPE = "";
 
@@ -152,6 +154,7 @@ public class StackoverflowIdentityProvider extends AbstractOAuth2IdentityProvide
 		int i = 1;
 		int st = 0;
 		while (true) {
+  Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
 			// look for '&'
 			while (i < len && input.charAt(i - 1) != '&')
 				i++;

@@ -46,6 +46,7 @@ public class UseLightweightAccessTokenExecutor implements ClientPolicyExecutorPr
             case DEVICE_TOKEN_REQUEST:
             case TOKEN_EXCHANGE_REQUEST:
             case JWT_AUTHORIZATION_GRANT:
+                // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
                 session.setAttribute(Constants.USE_LIGHTWEIGHT_ACCESS_TOKEN_ENABLED, true);
                 break;
         }

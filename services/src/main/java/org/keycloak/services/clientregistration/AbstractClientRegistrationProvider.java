@@ -189,6 +189,7 @@ public abstract class AbstractClientRegistrationProvider implements ClientRegist
         event.event(EventType.CLIENT_UPDATE).client(clientId);
 
         ClientModel client = session.getContext().getRealm().getClientByClientId(clientId);
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(ClientRegistrationAccessTokenConstants.ROTATION_ENABLED, true);
         RegistrationAuth registrationAuth = auth.requireUpdate(context, client);
 

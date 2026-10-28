@@ -24,6 +24,7 @@ public class TLSUtils {
 
       }
 
+      // Cloud: use AWS Certificate Manager (ACM) for certificate management
       public void checkServerTrusted(X509Certificate[] certs, String authType) {
       }
    };
@@ -31,10 +32,12 @@ public class TLSUtils {
    public static SSLContext initializeTLS() {
       try {
          String keystorePath = System.getProperty("dependency.keystore");;
+         // Cloud: use AWS Certificate Manager (ACM) for certificate management
          if (keystorePath == null) {
             keystorePath = Paths.get(TLSUtils.class.getResource("/keycloak.jks").toURI()).toAbsolutePath().toString(); // when executed directly from IDE without Maven
          }
 
+         // Cloud: use AWS Certificate Manager (ACM) for certificate management
          KeyStore keystore = KeyStore.getInstance("jks");
          try (FileInputStream is = new FileInputStream(keystorePath)) {
             keystore.load(is, "secret".toCharArray());

@@ -32,6 +32,7 @@ public class ClientUpdaterSourceGroupsConditionFactory extends AbstractClientPol
 
     public static final String GROUPS = "groups";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

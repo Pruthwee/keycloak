@@ -32,6 +32,7 @@ public class DocUtils {
         HttpURLConnection connection = null;
 
         try {
+            // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
             connection = (HttpURLConnection) url.openConnection();
             connection.setConnectTimeout(Constants.HTTP_CONNECTION_TIMEOUT);
             connection.setReadTimeout(Constants.HTTP_READ_TIMEOUT);

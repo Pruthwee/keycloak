@@ -26,6 +26,7 @@ import org.keycloak.models.UserModel;
 import org.keycloak.models.utils.UserModelDelegate;
 
 import org.apache.http.HttpStatus;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class IpatuuraUserModelDelegate extends UserModelDelegate {

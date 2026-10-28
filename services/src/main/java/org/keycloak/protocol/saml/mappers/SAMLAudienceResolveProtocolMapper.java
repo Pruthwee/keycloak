@@ -31,6 +31,7 @@ import org.keycloak.models.UserSessionModel;
 import org.keycloak.protocol.saml.SamlProtocol;
 import org.keycloak.provider.ProviderConfigProperty;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -46,6 +47,7 @@ public class SAMLAudienceResolveProtocolMapper extends AbstractSAMLProtocolMappe
 
     public static final String PROVIDER_ID = "saml-audience-resolve-mapper";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     @Override

@@ -22,6 +22,7 @@ import javax.naming.ldap.Control;
 
 import org.keycloak.storage.ldap.idm.store.ldap.BERDecoder;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 

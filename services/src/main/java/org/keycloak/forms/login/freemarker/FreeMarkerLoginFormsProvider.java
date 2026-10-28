@@ -109,6 +109,7 @@ import org.keycloak.utils.MediaType;
 import org.keycloak.utils.MediaTypeMatcher;
 
 import io.opentelemetry.api.trace.SpanContext;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.UserModel.RequiredAction.UPDATE_PASSWORD;

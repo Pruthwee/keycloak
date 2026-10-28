@@ -24,6 +24,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.models.workflow.WorkflowExecutionContext;
 import org.keycloak.models.workflow.WorkflowStepProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class DeleteClientStepProvider implements WorkflowStepProvider {

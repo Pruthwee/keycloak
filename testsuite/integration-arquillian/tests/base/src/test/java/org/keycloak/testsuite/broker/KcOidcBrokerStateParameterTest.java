@@ -27,6 +27,7 @@ import org.keycloak.testsuite.AssertEvents;
 import org.keycloak.testsuite.pages.LoginExpiredPage;
 
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Rule;
 import org.junit.Test;

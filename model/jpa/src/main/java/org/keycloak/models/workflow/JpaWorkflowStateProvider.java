@@ -38,6 +38,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.models.jpa.entities.ComponentEntity;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class JpaWorkflowStateProvider implements WorkflowStateProvider {

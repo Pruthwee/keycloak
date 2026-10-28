@@ -37,6 +37,7 @@ public class IdpParser extends AbstractKeycloakSamlAdapterV1Parser<IDP> {
         super(KeycloakSamlAdapterV1QNames.IDP);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static IdpParser getInstance() {
         return INSTANCE;
     }

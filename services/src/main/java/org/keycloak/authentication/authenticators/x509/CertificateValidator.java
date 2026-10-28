@@ -78,6 +78,7 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.authentication.authenticators.x509.AbstractX509ClientCertificateAuthenticator.CERTIFICATE_POLICY_MODE_ANY;
@@ -358,6 +359,7 @@ public class CertificateValidator {
         }
 
         private X509CRL loadCRL() throws GeneralSecurityException {
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             X509CRL crl = null;
             if (cRLPath.startsWith("http") || cRLPath.startsWith("https")) {
@@ -437,6 +439,7 @@ public class CertificateValidator {
             try {
                 String configDir = System.getProperty("jboss.server.config.dir");
                 if (configDir != null) {
+                    // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                     File f = new File(configDir + File.separator + relativePath);
                     if (f.isFile()) {
                         logger.debugf("Loading CRL from %s", f.getAbsolutePath());

@@ -82,6 +82,7 @@
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
+            <!-- Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis -->
             <artifactId>keycloak-jboss-adapter-core</artifactId>
             <exclusions>
                 <exclusion>

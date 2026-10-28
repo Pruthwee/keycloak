@@ -78,6 +78,11 @@ import io.undertow.servlet.api.DeploymentInfo;
 import io.undertow.servlet.api.FilterInfo;
 import io.undertow.servlet.api.InstanceHandle;
 import org.apache.commons.io.FileUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.core.ResteasyDeploymentImpl;
 import org.jboss.resteasy.plugins.server.servlet.ResteasyContextParameters;
@@ -101,6 +106,7 @@ public class KeycloakServer {
         private int port = 8081;
         private String path = "/auth";
         private int portHttps = -1;
+        // Cloud: remove thread affinity, use JVM natural threading model
         private int workerThreads = Math.max(Runtime.getRuntime().availableProcessors(), 2) * 8;
         private String resourcesHome;
 
@@ -163,6 +169,7 @@ public class KeycloakServer {
 
     public static void main(String[] args) throws Throwable {
         if (!System.getenv().containsKey("MAVEN_CMD_LINE_ARGS")) {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             Version.BUILD_TIME = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date());
         }
 

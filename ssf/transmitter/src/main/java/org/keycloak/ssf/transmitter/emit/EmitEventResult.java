@@ -34,6 +34,7 @@ public record EmitEventResult(EmitEventStatus status, String jti, String message
         return new EmitEventResult(status, null, message, null, null);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static EmitEventResult dropped(EmitEventStatus status, String message, Map<String, String> params) {
         return new EmitEventResult(status, null, message, null, params);
     }

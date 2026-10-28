@@ -158,6 +158,7 @@ public class PlainTextVaultProviderTest {
     @Test
     public void shouldReflectChangesInASecretFile() throws Exception {
         //given
+        // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
         Path temporarySecretFile = Files.createTempFile("vault", null);
         Path vaultDirectory = temporarySecretFile.getParent();
         String secretName = temporarySecretFile.getFileName().toString();
@@ -169,6 +170,7 @@ public class PlainTextVaultProviderTest {
         String secret1AsString = null;
         String secret2AsString = null;
 
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         Files.write(temporarySecretFile, "secret1".getBytes());
         try (VaultRawSecret secret1 = provider.obtainSecret(secretName)) {
             secret1AsString = StandardCharsets.UTF_8.decode(secret1.get().get()).toString();

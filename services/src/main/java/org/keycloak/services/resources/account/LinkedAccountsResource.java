@@ -68,6 +68,7 @@ import org.keycloak.theme.Theme;
 import org.keycloak.utils.BrokerUtil;
 import org.keycloak.utils.StreamsUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.Constants.ACCOUNT_CONSOLE_CLIENT_ID;

@@ -100,6 +100,7 @@ public class MigrateTest {
     }
 
     private Path getOldTestsuitePath(Path testPath) throws IOException {
+        // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
         try (Stream<Path> paths = Files.walk(oldTestsuitePath)) {
             List<Path> foundPath = paths
                     .filter(Files::isRegularFile)
@@ -152,6 +153,7 @@ public class MigrateTest {
     }
 
     private void writeFile(List<String> content, Path destinationPath) throws IOException {
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(destinationPath.toFile()))) {
             for (String l : content) {
                 bw.write(l);

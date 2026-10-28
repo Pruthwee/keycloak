@@ -19,6 +19,7 @@ import org.keycloak.testframework.injection.Supplier;
 import org.keycloak.testframework.injection.SupplierHelpers;
 import org.keycloak.testframework.injection.SupplierOrder;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public abstract class AbstractKeycloakServerSupplier implements Supplier<KeycloakServer, KeycloakIntegrationTest> {
@@ -86,6 +87,7 @@ public abstract class AbstractKeycloakServerSupplier implements Supplier<Keycloa
             getLogger().debugv("Startup command and options: \n\t{0}", String.join("\n\t", command.toArgs()));
         }
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
 
         KeycloakServer server = getServer();

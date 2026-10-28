@@ -44,6 +44,7 @@ test.describe.serial("Masthead tests", () => {
       await clickGlobalHelp(page);
       await expect(getDocumentationLink(page)).toHaveAttribute(
         "href",
+        // Cloud: externalize URL to AWS Systems Manager Parameter Store
         "https://www.keycloak.org/docs/latest/server_admin/index.html",
       );
     });

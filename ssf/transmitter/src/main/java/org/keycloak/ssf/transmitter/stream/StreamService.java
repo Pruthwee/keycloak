@@ -48,6 +48,7 @@ import org.keycloak.ssf.transmitter.support.SsfPushUrlValidator.SsfPushUrlValida
 import org.keycloak.ssf.transmitter.support.SsfTransmitterUrls;
 import org.keycloak.utils.KeycloakSessionUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

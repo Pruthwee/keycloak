@@ -26,6 +26,7 @@ public class EnvUtilTest {
         // Backslashes (e.g. Windows keystore paths) must still be preserved literally.
         String key = "keycloak.test.envutil.backslash";
         try {
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
             System.setProperty(key, "C:\\keys\\truststore.jks");
             assertEquals("C:\\keys\\truststore.jks", EnvUtil.replace("${" + key + "}"));
         } finally {

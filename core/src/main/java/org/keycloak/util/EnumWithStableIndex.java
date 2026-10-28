@@ -37,6 +37,7 @@ public interface EnumWithStableIndex {
      */
     public int getStableIndex();   
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static <E extends EnumWithStableIndex> Map<Integer, E> getReverseIndex(E[] values) {
         return Stream.of(values).collect(Collectors.toMap(EnumWithStableIndex::getStableIndex, Function.identity()));
     }

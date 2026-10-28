@@ -34,6 +34,7 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.provider.ProviderFactory;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.exportimport.ExportImportConfig.PROVIDER;
@@ -127,6 +128,7 @@ public class ExportImportManager {
             if ("singleFile".equals(providerId)) {
                 Set<String> filesToImport = new HashSet<>();
 
+                // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
                 File[] files = Paths.get(dir).toFile().listFiles();
                 Objects.requireNonNull(files, "directory not found");
                 for (File file : files) {

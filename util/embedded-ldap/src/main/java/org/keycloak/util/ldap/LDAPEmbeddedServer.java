@@ -56,6 +56,7 @@ import org.apache.directory.server.ldap.handlers.extended.PwdModifyHandler;
 import org.apache.directory.server.ldap.handlers.extended.StartTlsHandler;
 import org.apache.directory.server.protocol.shared.transport.TcpTransport;
 import org.apache.directory.server.protocol.shared.transport.Transport;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -93,6 +94,8 @@ public class LDAPEmbeddedServer {
     private static final String DEFAULT_BIND_LDAPS_PORT = "10636";
     private static final String DEFAULT_LDIF_FILE = "classpath:ldap/default-users.ldif";
     private static final String PROPERTY_KEYSTORE_FILE = "keystoreFile";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PROPERTY_CERTIFICATE_PASSWORD = "certificatePassword";
 
     public static final String DSF_INMEMORY = "mem";
@@ -214,6 +217,7 @@ public class LDAPEmbeddedServer {
 
 
     public void start() throws Exception {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long t0 = System.currentTimeMillis();
         log.info("Starting LDAP server..");
         ldapServer.start();

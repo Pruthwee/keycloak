@@ -47,6 +47,7 @@ public class StaxUtil {
 
     private static final PicketLinkLogger logger = PicketLinkLoggerFactory.getLogger();
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<Stack<String>> registeredNSStack = new ThreadLocal<Stack<String>>();
 
     /**

@@ -7,6 +7,7 @@ import org.keycloak.jose.jws.JWSInput;
 import org.keycloak.representations.JsonWebToken;
 
 import org.apache.commons.io.FileUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.broker.kubernetes.KubernetesConstants.SERVICE_ACCOUNT_TOKEN_PATH;
@@ -29,6 +30,7 @@ final class KubernetesUtils {
     }
 
     static String getServiceAccountToken() {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         return getServiceAccountToken(new File(SERVICE_ACCOUNT_TOKEN_PATH));
     }
 

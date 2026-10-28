@@ -25,6 +25,7 @@ import org.keycloak.testsuite.KerberosEmbeddedServer;
 import org.keycloak.testsuite.client.resources.TestingResource;
 import org.keycloak.util.ldap.LDAPEmbeddedServer;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -48,6 +49,7 @@ public class KerberosRule extends LDAPRule {
 
     private String getKrb5ConfPath() {
         URL krb5ConfURL = LDAPTestConfiguration.class.getResource("/kerberos/test-krb5.conf");
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         String krb5ConfPath = new File(krb5ConfURL.getFile()).getAbsolutePath();
         log.info("Krb5.conf file location is: " + krb5ConfPath);
         return krb5ConfPath;

@@ -5,6 +5,7 @@ import jakarta.ws.rs.core.MediaType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.plugins.providers.jackson.ResteasyJackson2Provider;
 
 public class JacksonProvider extends ResteasyJackson2Provider {

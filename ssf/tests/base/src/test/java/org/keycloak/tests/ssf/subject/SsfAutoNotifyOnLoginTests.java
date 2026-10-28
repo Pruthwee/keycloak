@@ -51,6 +51,7 @@ public class SsfAutoNotifyOnLoginTests {
 
     static final String TEST_USER = "auto-notify-user";
     static final String TEST_EMAIL = "auto-notify-user@local.test";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String TEST_PASSWORD = "p@ssw0rd";
 
     static final String NOTIFY_ATTR = "ssf.notify." + RECEIVER;

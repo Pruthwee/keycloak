@@ -11,6 +11,7 @@ public class SAMLAssertionConsumerServiceParser extends SAMLIndexedEndpointTypeP
         super(SAMLMetadataQNames.ASSERTION_CONSUMER_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAssertionConsumerServiceParser getInstance() {
         return INSTANCE;
     }

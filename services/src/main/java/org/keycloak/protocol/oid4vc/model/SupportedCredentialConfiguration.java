@@ -33,6 +33,7 @@ import org.keycloak.protocol.oid4vc.issuance.keybinding.ProofValidator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 
@@ -291,6 +292,7 @@ public class SupportedCredentialConfiguration {
         return this;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<Object> toCredentialSigningAlgValuesSupported(String format, List<String> signingAlgorithmsSupported) {
         if (!VCFormat.MSO_MDOC.equals(format)) {
             return List.copyOf(signingAlgorithmsSupported);

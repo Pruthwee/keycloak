@@ -81,6 +81,7 @@ public class ProtocolMappers {
     }
 
     private static Properties loadMessages(Path projectRootDir) {
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties props = new Properties();
         Path messagesFile = projectRootDir.resolve(MESSAGES_RELATIVE_PATH);
         if (Files.exists(messagesFile)) {

@@ -20,6 +20,7 @@ package org.keycloak.testsuite.auth.page.login;
 import org.keycloak.models.UserModel;
 import org.keycloak.testsuite.auth.page.PasswordFields;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 
 /**

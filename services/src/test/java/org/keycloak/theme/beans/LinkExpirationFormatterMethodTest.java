@@ -156,6 +156,7 @@ public class LinkExpirationFormatterMethodTest {
         for (Path path : Files.list(Paths.get("../themes/src/main/resources-community/theme/base/email/messages" )).collect(Collectors.toList())) {
             Properties p = new Properties();
             p.load(Files.newBufferedReader(path, StandardCharsets.UTF_8));
+            // Cloud: consider using Amazon S3 for durable storage instead of local file writes
             FileWriter fw = new FileWriter(path.toFile(), true);
             boolean firstEntry = true;
             for (String unit : units) {

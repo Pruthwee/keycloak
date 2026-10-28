@@ -105,6 +105,7 @@ public final class RoleMappingRepresentation {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static class ClientMappingRepresentation {
         private String id;
         private String client;

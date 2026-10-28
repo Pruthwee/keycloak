@@ -43,6 +43,7 @@ public class RegistrationAccessTokenRotationDisabledExecutor implements ClientPo
 		if (session.getAttribute(ClientRegistrationAccessTokenConstants.ROTATION_ENABLED) == null){
 			return;
 		}
+  // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
 		session.setAttribute(ClientRegistrationAccessTokenConstants.ROTATION_ENABLED, false);
 	}
 

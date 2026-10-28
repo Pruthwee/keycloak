@@ -42,6 +42,7 @@ public class SAMLAssertionParser extends AbstractStaxSamlAssertionParser<Asserti
         super(SAMLAssertionQNames.ASSERTION);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAssertionParser getInstance() {
         return INSTANCE;
     }

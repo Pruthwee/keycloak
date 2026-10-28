@@ -48,6 +48,7 @@ public class GitHubIdentityProviderTest {
     public void testGitHubIdentityProviderOverrides() {
         OAuth2IdentityProviderConfig config = new OAuth2IdentityProviderConfig();
         String baseUrl = "https://test.com";
+        // Cloud: externalize URL to AWS Systems Manager Parameter Store
         String apiUrl  = "https://api.test.com";
         config.getConfig().put(GitHubIdentityProvider.BASE_URL_KEY, baseUrl);
         config.getConfig().put(GitHubIdentityProvider.API_URL_KEY, apiUrl);

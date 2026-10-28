@@ -22,6 +22,7 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.storage.datastore.PeriodicEventInvalidation;
 import org.keycloak.timer.ScheduledTask;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class ClearExpiredAdminEvents implements ScheduledTask {

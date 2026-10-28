@@ -30,6 +30,7 @@ import org.keycloak.models.sessions.infinispan.remote.transaction.SingleUseObjec
 import org.infinispan.client.hotrod.Flag;
 import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.client.hotrod.exceptions.HotRodClientException;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class RemoteInfinispanSingleUseObjectProvider implements SingleUseObjectProvider {
@@ -134,6 +135,7 @@ public class RemoteInfinispanSingleUseObjectProvider implements SingleUseObjectP
         revokeTokenConsumer.onTokenRevoke(token, lifespanSeconds);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> unwrap(SingleUseObjectValueEntity entity) {
         return entity == null ? null : entity.getNotes();
     }

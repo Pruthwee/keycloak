@@ -24,6 +24,7 @@ import jakarta.persistence.AttributeConverter;
 
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class MapStringConverter implements AttributeConverter<Map<String, String>, String> {

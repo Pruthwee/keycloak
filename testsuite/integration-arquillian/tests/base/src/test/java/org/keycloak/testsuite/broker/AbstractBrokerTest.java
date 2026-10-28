@@ -25,6 +25,7 @@ import org.keycloak.representations.idm.UserSessionRepresentation;
 import org.keycloak.testsuite.pages.ConsentPage;
 import org.keycloak.testsuite.util.AccountHelper;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;

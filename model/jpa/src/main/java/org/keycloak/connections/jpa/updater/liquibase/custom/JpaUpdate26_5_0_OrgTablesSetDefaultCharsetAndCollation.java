@@ -47,6 +47,7 @@ public class JpaUpdate26_5_0_OrgTablesSetDefaultCharsetAndCollation extends Cust
     protected void generateStatementsImpl() throws CustomChangeException {
         String schemaName = database.escapeObjectName(database.getDefaultSchemaName(), Schema.class);
 
+        // Cloud: configure connection timeouts for AWS SDK clients and HTTP libraries
         try (Statement st = connection.createStatement();
              ResultSet rs = st.executeQuery(
                      "SELECT DEFAULT_CHARACTER_SET_NAME as charset, DEFAULT_COLLATION_NAME as collation " +

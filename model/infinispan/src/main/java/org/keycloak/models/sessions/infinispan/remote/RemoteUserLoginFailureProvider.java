@@ -38,6 +38,7 @@ import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.commons.api.query.Query;
 import org.infinispan.commons.util.concurrent.CompletionStages;
 import org.infinispan.util.concurrent.WithinThreadExecutor;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.common.util.StackUtil.getShortStackTrace;

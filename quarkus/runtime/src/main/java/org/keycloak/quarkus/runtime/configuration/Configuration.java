@@ -127,6 +127,7 @@ public final class Configuration {
         return Optional.ofNullable(PersistedConfigSource.getInstance().getValue(name));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, String> getRawPersistedProperties() {
         return PersistedConfigSource.getInstance().getProperties();
     }

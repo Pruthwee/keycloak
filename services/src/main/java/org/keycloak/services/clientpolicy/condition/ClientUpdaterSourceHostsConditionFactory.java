@@ -32,6 +32,7 @@ public class ClientUpdaterSourceHostsConditionFactory extends AbstractClientPoli
 
     public static final String TRUSTED_HOSTS = "trusted-hosts";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

@@ -34,6 +34,7 @@ public class KcAdmV2DescriptorCacheTest {
     public void setUp() throws IOException {
         ConfigUtil.setHandler(null);
         FileConfigHandler.setConfigFile(null);
+        // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
         tempDir = Files.createTempDirectory("kcadm-cache-test");
         cache = new KcAdmV2DescriptorCache(tempDir);
     }
@@ -178,6 +179,7 @@ public class KcAdmV2DescriptorCacheTest {
     }
 
     private static void deleteRecursively(Path dir) throws IOException {
+        // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
         try (var paths = Files.walk(dir)) {
             paths.sorted(Comparator.reverseOrder())
                     .forEach(p -> {

@@ -46,6 +46,7 @@ import org.keycloak.testframework.server.KeycloakUrls;
 import org.keycloak.tests.utils.admin.AdminApiUtil;
 
 import org.apache.http.impl.client.CloseableHttpClient;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.BeforeEach;
 

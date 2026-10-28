@@ -40,6 +40,7 @@ public abstract class AbstractBrokerTest {
     protected static final String CONSUMER_REALM = "consumer";
     protected static final String USER_LOGIN = "testuser";
     protected static final String USER_EMAIL = "user@localhost.com";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     protected static final String USER_PASSWORD = "password";
     protected static final String CONSUMER_BROKER_APP_CLIENT_ID = "broker-app";
     protected static final String CONSUMER_BROKER_APP_SECRET = "broker-app-secret";

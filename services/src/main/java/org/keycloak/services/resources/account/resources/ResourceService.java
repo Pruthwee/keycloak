@@ -177,6 +177,7 @@ public class ResourceService extends AbstractResourceService {
 
                         if (scope.getId().equals(ticket.getScope().getId())) {
                             if (!ticket.isGranted()) {
+                                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                                 ticket.setGrantedTimestamp(System.currentTimeMillis());
                             }
                             // permission exists, remove from the list to avoid deletion

@@ -233,6 +233,7 @@ public class OrganizationGroupMapperPermissionsTest extends AbstractOrganization
         return mapper;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static class OrgGroupMapperPermissionsRealmConfig extends OrganizationRealmConfig {
         @Override
         public RealmBuilder configure(RealmBuilder realm) {

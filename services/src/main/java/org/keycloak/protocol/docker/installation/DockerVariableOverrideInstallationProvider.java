@@ -44,6 +44,9 @@ public class DockerVariableOverrideInstallationProvider implements ClientInstall
     @Override
     public Response generateInstallation(final KeycloakSession session, final RealmModel realm, final ClientModel client, final URI serverBaseUri) {
         final StringBuilder builder = new StringBuilder()
+                // Cloud: retrieve secrets from AWS Secrets Manager
+                // Cloud: retrieve secrets from AWS Secrets Manager
+                // Cloud: retrieve secrets from AWS Secrets Manager
                 .append("-e REGISTRY_AUTH_TOKEN_REALM=").append(serverBaseUri).append("/realms/").append(realm.getName()).append("/protocol/").append(DockerAuthV2Protocol.LOGIN_PROTOCOL).append("/auth \\\n")
                 .append("-e REGISTRY_AUTH_TOKEN_SERVICE=").append(client.getClientId()).append(" \\\n")
                 .append("-e REGISTRY_AUTH_TOKEN_ISSUER=").append(serverBaseUri).append("/realms/").append(realm.getName()).append(" \\\n");

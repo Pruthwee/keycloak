@@ -29,6 +29,7 @@ import org.keycloak.models.ProtocolMapperModel;
 import org.keycloak.models.UserSessionModel;
 import org.keycloak.provider.ProviderConfigProperty;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -46,6 +47,7 @@ public class SAMLAudienceProtocolMapper extends AbstractSAMLProtocolMapper imple
 
     public static final String AUDIENCE_CATEGORY = "Audience mapper";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     public static final String INCLUDED_CLIENT_AUDIENCE = "included.client.audience";

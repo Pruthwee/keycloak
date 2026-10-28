@@ -14,6 +14,7 @@ import java.util.Optional;
 import org.keycloak.common.util.DerUtils;
 import org.keycloak.http.HttpRequest;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

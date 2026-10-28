@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class KeycloakRecorderTest {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Object> reappliedRuntimeProperties(Map<String, String> persistenceXmlProperties) {
         HibernateOrmIntegrationRuntimeInitListener listener =
                 new KeycloakRecorder().createUserDefinedUnitRuntimeListener(persistenceXmlProperties);

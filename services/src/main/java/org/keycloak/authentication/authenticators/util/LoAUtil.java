@@ -44,6 +44,7 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.cache.CachedRealmModel;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.Constants.NO_LOA;
@@ -86,6 +87,7 @@ public class LoAUtil {
      * @param realm
      * @return All LoA numbers configured in the conditions in the realm browser flow. Key is level, Value is maxAge for particular level
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<Integer, Integer> getLoaMaxAgesConfiguredInRealmBrowserFlow(RealmModel realm) {
       return getLoaMaxAgesConfiguredInRealmFlow(realm, realm.getBrowserFlow().getId());
     }

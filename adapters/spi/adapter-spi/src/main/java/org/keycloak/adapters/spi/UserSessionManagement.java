@@ -27,5 +27,6 @@ public interface UserSessionManagement {
 
     void logoutAll();
 
+    // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
     void logoutHttpSessions(List<String> ids);
 }

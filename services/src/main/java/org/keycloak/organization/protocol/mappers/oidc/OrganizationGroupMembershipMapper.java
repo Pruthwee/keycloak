@@ -199,6 +199,7 @@ public class OrganizationGroupMembershipMapper extends AbstractOIDCProtocolMappe
         return Boolean.parseBoolean(model.getConfig().getOrDefault(ADD_GROUP_ROLE_MAPPINGS, Boolean.FALSE.toString()));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name, boolean accessToken, boolean idToken, boolean introspectionEndpoint) {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
         mapper.setName(name);

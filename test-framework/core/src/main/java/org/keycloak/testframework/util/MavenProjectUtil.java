@@ -14,6 +14,9 @@ import org.keycloak.testframework.server.KeycloakDependency;
 import io.quarkus.bootstrap.resolver.maven.BootstrapMavenContext;
 import io.quarkus.bootstrap.resolver.maven.workspace.LocalProject;
 import org.eclipse.aether.artifact.Artifact;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.exporter.ZipExporter;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
@@ -86,6 +89,7 @@ public final class MavenProjectUtil {
     public static void buildJar(String jarName, Path classesPath, Path targetPath) {
         JavaArchive providerJar = ShrinkWrap.create(JavaArchive.class, jarName);
 
+        // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
         try (Stream<Path> sourcePathStream = Files.walk(classesPath)) {
             sourcePathStream.filter(Files::isRegularFile)
                     .forEach(p -> {

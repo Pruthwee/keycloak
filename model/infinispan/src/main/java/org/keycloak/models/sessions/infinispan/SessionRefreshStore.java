@@ -17,6 +17,7 @@
 
 package org.keycloak.models.sessions.infinispan;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.keycloak.models.sessions.infinispan.changes.sessions.PersisterLastSessionRefreshStore;
 
 public interface SessionRefreshStore {

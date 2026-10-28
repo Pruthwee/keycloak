@@ -34,6 +34,7 @@ public final class ClearCacheEvent implements ClusterEvent {
     private ClearCacheEvent() {}
 
     @ProtoFactory
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static ClearCacheEvent getInstance() {
         return INSTANCE;
     }

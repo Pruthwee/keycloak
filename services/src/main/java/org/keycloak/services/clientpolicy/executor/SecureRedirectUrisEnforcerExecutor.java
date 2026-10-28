@@ -44,6 +44,7 @@ import org.keycloak.services.clientpolicy.context.PreAuthorizationRequestContext
 import org.keycloak.services.clientpolicy.executor.SecureRedirectUrisEnforcerExecutorFactory.UriType;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class SecureRedirectUrisEnforcerExecutor implements ClientPolicyExecutorProvider<SecureRedirectUrisEnforcerExecutor.Configuration> {
@@ -336,6 +337,7 @@ public class SecureRedirectUrisEnforcerExecutor implements ClientPolicyExecutorP
 
             InetAddress addr;
             try {
+                // Cloud: replace IP-based security with AWS IAM authentication
                 addr = InetAddress.getByName(uri.getHost());
             } catch (UnknownHostException e) {
                 return false;

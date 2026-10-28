@@ -89,6 +89,7 @@ import org.keycloak.userprofile.ValidationException;
 import org.keycloak.userprofile.ValidationException.Error;
 
 import freemarker.template.TemplateModelException;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.NoCache;
 
 /**

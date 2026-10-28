@@ -14,6 +14,7 @@ import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class SsfUtil {
@@ -91,6 +92,7 @@ public class SsfUtil {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, Object> treeToMap(JsonNode node) {
         return JsonSerialization.mapper.convertValue(node, new TypeReference<Map<String, Object>>() {});
     }

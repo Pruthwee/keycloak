@@ -175,6 +175,7 @@ public class LoginEventsTest {
             Event firstEvent = new Event();
             firstEvent.setRealmId(realmId);
             firstEvent.setType(EventType.LOGIN);
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             firstEvent.setTime(System.currentTimeMillis() - 1000);
 
             Event secondEvent = new Event();

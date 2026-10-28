@@ -214,6 +214,7 @@ public class ClusterConfigDistTest {
         File customCacheFile = tempDir.resolve("my-custom-cache.xml").toFile();
         File missingCacheFile = tempDir.resolve("my-missing-cache.xml").toFile();
         try (InputStream is = ClusterConfigDistTest.class.getResourceAsStream("/cache-ispn-custom-cache.xml")) {
+            // Cloud: consider using Amazon S3 for durable storage instead of local file writes
             Files.write(is.readAllBytes(), customCacheFile);
         }
 

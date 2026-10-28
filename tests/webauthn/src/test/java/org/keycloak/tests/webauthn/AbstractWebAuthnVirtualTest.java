@@ -72,6 +72,7 @@ import org.keycloak.tests.webauthn.page.WebAuthnRegisterPage;
 import org.keycloak.truststore.FileTruststoreProviderFactory;
 import org.keycloak.truststore.TruststoreProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;

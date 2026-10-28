@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 
 import jakarta.ws.rs.BadRequestException;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -74,6 +75,7 @@ public class ReservedCharValidator {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void validateSecurityHeaders(Map<String, String> headers) {
         if (headers == null) return;
 

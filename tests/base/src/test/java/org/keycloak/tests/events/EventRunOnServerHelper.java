@@ -212,6 +212,7 @@ public class EventRunOnServerHelper {
         }
 
         private Date formatDate(String date, String paramName) {
+            // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             try {
                 return df.parse(date);

@@ -98,6 +98,7 @@ public class FAPI2DPoPTest extends AbstractFAPI2Test {
         jwsEcHeader = new JWSHeader(org.keycloak.jose.jws.Algorithm.ES256, DPOP_JWT_HEADER_TYPE, jwkEc.getKeyId(), jwkEc);
     }
 
+    // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
     private final Random rand = new Random(System.currentTimeMillis());
 
     @Test

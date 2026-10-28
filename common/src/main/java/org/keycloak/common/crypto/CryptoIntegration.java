@@ -14,6 +14,7 @@ import javax.net.ssl.TrustManagerFactory;
 
 import org.keycloak.common.util.BouncyIntegration;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

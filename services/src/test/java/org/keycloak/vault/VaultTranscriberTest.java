@@ -38,6 +38,7 @@ public class VaultTranscriberTest {
 
     private final VaultTranscriber transcriber = new DefaultVaultTranscriber(new TestVaultProvider());
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, String> validExpressions;
 
     private static String[] invalidExpressions;

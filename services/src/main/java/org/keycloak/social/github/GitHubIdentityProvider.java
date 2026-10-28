@@ -55,6 +55,7 @@ public class GitHubIdentityProvider extends AbstractOAuth2IdentityProvider imple
     @Deprecated
     public static final String TOKEN_URL = DEFAULT_TOKEN_URL;
 
+    // Cloud: externalize URL to AWS Systems Manager Parameter Store
     public static final String DEFAULT_API_URL = "https://api.github.com";
     public static final String APPLICATIONS_FRAGMENT = "/applications";
     public static final String PROFILE_FRAGMENT = "/user";

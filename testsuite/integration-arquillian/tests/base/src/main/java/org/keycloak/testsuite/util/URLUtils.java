@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 import org.keycloak.common.util.KeycloakUriBuilder;
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -120,6 +121,7 @@ public final class URLUtils {
      * @param postRequestUrl
      * @param formParams form params in key/value form
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void sendPOSTRequestWithWebDriver(String postRequestUrl, Map<String, String> formParams) {
         StringBuilder sb = new StringBuilder();
         boolean first = true;

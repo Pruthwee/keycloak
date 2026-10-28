@@ -23,6 +23,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.keycloak.common.util.Retry;
 import org.keycloak.common.util.Time;
 import org.keycloak.models.KeycloakSession;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.keycloak.models.sessions.infinispan.changes.sessions.AbstractLastSessionRefreshStore;
 import org.keycloak.models.sessions.infinispan.changes.sessions.PersisterLastSessionRefreshStore;
 import org.keycloak.models.sessions.infinispan.changes.sessions.PersisterLastSessionRefreshStoreFactory;
@@ -68,6 +72,7 @@ public class LastSessionRefreshUnitTest {
 
         @Override
         public void run(KeycloakSession session) {
+            // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
             AbstractLastSessionRefreshStore customStore = createStoreInstance(session, 1000000, 1000);
             System.out.println("sss");
 

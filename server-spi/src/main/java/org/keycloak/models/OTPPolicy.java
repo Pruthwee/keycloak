@@ -27,6 +27,7 @@ import org.keycloak.models.utils.Base32;
 import org.keycloak.models.utils.HmacOTP;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static java.nio.charset.StandardCharsets.UTF_8;

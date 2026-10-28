@@ -47,6 +47,7 @@ public class TextFileCheckerTest {
 
     @Before
     public void before() throws IOException {
+        // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
         tempFile = File.createTempFile("TextFileCheckerTest-", ".tmp");
         tfc = new TextFileChecker(tempFile.toPath());
     }
@@ -58,6 +59,7 @@ public class TextFileCheckerTest {
 
     @Test
     public void testFileChecker() throws Exception {
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (FileWriter fw = new FileWriter(tempFile)) {
             assertCheckedOutputIs();
 

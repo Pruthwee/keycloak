@@ -17,6 +17,7 @@
 
 package org.keycloak.testsuite.webauthn.pages.fragments;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.openqa.selenium.WebDriver;
 

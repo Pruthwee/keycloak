@@ -15,6 +15,7 @@ import org.keycloak.protocol.oid4vc.utils.CredentialScopeUtils;
 import org.keycloak.protocol.oidc.verifier.TokenVerifierProvider;
 import org.keycloak.representations.AccessToken;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

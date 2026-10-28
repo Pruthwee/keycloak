@@ -3,6 +3,7 @@ export const DELIVERY_METHOD_POLL_URI = "urn:ietf:rfc:8936";
 
 export const isPollDeliveryMethod = (method: string | undefined): boolean =>
   method === DELIVERY_METHOD_POLL_URI ||
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
   method === "https://schemas.openid.net/secevent/risc/delivery-method/poll";
 
 /**

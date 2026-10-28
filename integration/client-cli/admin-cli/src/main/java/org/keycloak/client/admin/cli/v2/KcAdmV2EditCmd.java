@@ -122,6 +122,7 @@ final class KcAdmV2EditCmd extends KcAdmV2RequestExecutor {
 
     private String openInEditor(String editor, String content) throws IOException, InterruptedException {
         // this narrows TOCTOU window
+        // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
         Path tempDir = Path.of(System.getProperty("java.io.tmpdir"), "kcadm-edit-" + UUID.randomUUID());
         // we don't want the file to exist, so that directory has already owner permissions and user couldn't open
         // the empty file before we write to the file on Windows
@@ -153,6 +154,7 @@ final class KcAdmV2EditCmd extends KcAdmV2RequestExecutor {
             return Files.readString(tempFile);
         } finally {
             // walk all files in case the editor left some own files
+            // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
             try (var stream = Files.walk(tempDir)) {
                 stream.sorted(Comparator.reverseOrder()).forEach(path -> {
                             try {

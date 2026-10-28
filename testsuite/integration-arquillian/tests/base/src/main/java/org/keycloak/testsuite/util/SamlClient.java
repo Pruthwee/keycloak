@@ -89,6 +89,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.LaxRedirectStrategy;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
@@ -683,6 +684,7 @@ public class SamlClient {
                 .findFirst().map(NameValuePair::getValue).orElse(null);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static MultivaluedMap<String, String> parseEncodedQueryParameters(String queryString) throws IOException {
         MultivaluedMap<String, String> encodedParams = new MultivaluedHashMap<>();
         if (queryString != null) {

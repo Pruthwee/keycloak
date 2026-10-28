@@ -29,6 +29,7 @@ import org.keycloak.common.util.Time;
 import org.keycloak.crl.CrlStorageProvider;
 
 import org.infinispan.Cache;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

@@ -51,6 +51,7 @@ public class ImportDistTest {
     void testImport(KeycloakRunner runner) throws IOException {
         CLIResult cliResult = runner.run("build");
 
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File dir = new File("target");
 
         cliResult = runner.run("export", "--realm=master", "--dir=" + dir.getAbsolutePath());
@@ -99,6 +100,7 @@ public class ImportDistTest {
         newRealm.setEnabled(true);
 
         ObjectMapper mapper = new ObjectMapper();
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (FileOutputStream fos = new FileOutputStream(file)) {
             mapper.writeValue(fos, newRealm);
         }

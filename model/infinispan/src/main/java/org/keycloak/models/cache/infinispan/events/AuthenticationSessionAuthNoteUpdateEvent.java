@@ -50,6 +50,7 @@ public class AuthenticationSessionAuthNoteUpdateEvent implements ClusterEvent {
      * @return Event. Note that {@code authNotesFragment} property is not thread safe which is fine for now.
      */
     @ProtoFactory
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static AuthenticationSessionAuthNoteUpdateEvent create(String authSessionId, String tabId, Map<String, String> authNotesFragment) {
         return new AuthenticationSessionAuthNoteUpdateEvent(authNotesFragment, authSessionId, tabId);
     }

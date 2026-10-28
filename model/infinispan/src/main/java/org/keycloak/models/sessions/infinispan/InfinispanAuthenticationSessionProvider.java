@@ -176,6 +176,7 @@ public class InfinispanAuthenticationSessionProvider implements AuthenticationSe
     @Override
     public void migrate(String modelVersion) {
         if ("26.1.0".equals(modelVersion)) {
+            // Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
             InfinispanConnectionProvider infinispanConnectionProvider = session.getProvider(InfinispanConnectionProvider.class);
             Cache<String, RootAuthenticationSessionEntity> authSessionsCache = infinispanConnectionProvider.getCache(AUTHENTICATION_SESSIONS_CACHE_NAME);
             CompletionStages.join(ComponentRegistry.componentOf(authSessionsCache, PersistenceManager.class).clearAllStores(PersistenceManager.AccessMode.BOTH));

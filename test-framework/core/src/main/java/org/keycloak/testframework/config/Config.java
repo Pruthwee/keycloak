@@ -132,6 +132,7 @@ public class Config {
             URL testConfig;
             String testConfigFile = System.getProperty("kc.test.config", System.getenv("KC_TEST_CONFIG"));
             if (testConfigFile != null) {
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 testConfig = new File(testConfigFile).toURI().toURL();
             } else {
                 testConfig = Thread.currentThread().getContextClassLoader().getResource("keycloak-test.properties");

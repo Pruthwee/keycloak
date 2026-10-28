@@ -177,6 +177,7 @@ public class KcAdmV2DescriptorBuilderTest {
         return KcAdmV2DescriptorBuilder.convert(openApi);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, KcAdmV2CommandDescriptor.CommandDescriptor> commandsByName() {
         return commandsByName(buildDescriptor());
     }

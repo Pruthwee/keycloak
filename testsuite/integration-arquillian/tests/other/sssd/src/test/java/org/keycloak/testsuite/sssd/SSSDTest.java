@@ -36,6 +36,7 @@ import org.keycloak.testsuite.admin.ApiUtil;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assume;
 import org.junit.Before;

@@ -30,6 +30,7 @@ public enum ClientSessionKeyGrouper implements Grouper<EmbeddedClientSessionKey>
     INSTANCE;
 
     // The Infinispan parser expects a constructor or a static "getInstance" method; fixes ClusterConfigKeepAliveDistTest.
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static ClientSessionKeyGrouper getInstance() {
         return INSTANCE;
     }

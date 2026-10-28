@@ -76,6 +76,7 @@ public class UserPropertyFileStorageFactory implements UserStorageProviderFactor
             throw new ComponentValidationException(VALIDATION_PROP_FILE_NOT_CONFIGURED);
         }
         fp = EnvUtil.replace(fp);
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File file = new File(fp);
         if (!file.exists()) {
             throw new ComponentValidationException(VALIDATION_PROP_FILE_DOESNT_EXIST);

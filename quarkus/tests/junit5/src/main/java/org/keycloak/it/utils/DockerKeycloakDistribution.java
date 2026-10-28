@@ -17,6 +17,7 @@ import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.KillContainerCmd;
 import com.github.dockerjava.api.exception.NotFoundException;
 import org.awaitility.Awaitility;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.testcontainers.DockerClientFactory;

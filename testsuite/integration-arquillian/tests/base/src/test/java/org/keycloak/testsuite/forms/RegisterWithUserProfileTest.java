@@ -37,6 +37,7 @@ import org.keycloak.testsuite.util.userprofile.UserProfileUtil;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Rule;
@@ -706,6 +707,7 @@ public class RegisterWithUserProfileTest extends AbstractTestRealmKeycloakTest {
         Assertions.assertNotNull(user);
         Assertions.assertNotNull(user.getCreatedTimestamp());
         // test that timestamp is current with 10s tollerance
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         Assertions.assertTrue((System.currentTimeMillis() - user.getCreatedTimestamp()) < 10000);
         // test user info is set from form
         assertThat(username, Matchers.equalToIgnoringCase(user.getUsername()));

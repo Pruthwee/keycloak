@@ -38,6 +38,7 @@ public class SAMLRequestedAuthnContextParser extends AbstractStaxSamlProtocolPar
         super(SAMLProtocolQNames.REQUESTED_AUTHN_CONTEXT);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLRequestedAuthnContextParser getInstance() {
         return INSTANCE;
     }

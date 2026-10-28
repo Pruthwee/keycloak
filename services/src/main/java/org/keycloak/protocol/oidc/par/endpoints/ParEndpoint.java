@@ -215,6 +215,7 @@ public class ParEndpoint extends AbstractParEndpoint {
      * @param decodedFormParameters form parameters sent in request body
      * @param params target parameter Map
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void flattenDecodedFormParametersToParamsMap(
             MultivaluedMap<String, String> decodedFormParameters,
             Map<String, String> params) {

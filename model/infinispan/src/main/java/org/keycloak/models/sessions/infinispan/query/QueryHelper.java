@@ -168,6 +168,7 @@ public final class QueryHelper {
 
         private void fetchNext() {
             while (true) {
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
                 while (currentResults.hasNext()) {
                     next = mapping.apply(currentResults.next());
                     if (next != null) {

@@ -39,6 +39,7 @@ import org.keycloak.services.clientregistration.ClientRegistrationProvider;
 import org.keycloak.services.clientregistration.policy.ClientRegistrationPolicy;
 import org.keycloak.services.clientregistration.policy.ClientRegistrationPolicyException;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -96,6 +97,7 @@ public class TrustedHostClientRegistrationPolicy implements ClientRegistrationPo
             return;
         }
 
+        // Cloud: replace IP-based security with AWS IAM authentication
         String hostAddress = session.getContext().getConnection().getRemoteAddr();
 
         logger.debugf("Verifying remote host : %s", session.getContext().getConnection().getRemoteHost());

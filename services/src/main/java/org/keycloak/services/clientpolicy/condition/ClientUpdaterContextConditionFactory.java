@@ -38,6 +38,7 @@ public class ClientUpdaterContextConditionFactory extends AbstractClientPolicyCo
     public static final String BY_INITIAL_ACCESS_TOKEN = "ByInitialAccessToken";
     public static final String BY_REGISTRATION_ACCESS_TOKEN = "ByRegistrationAccessToken";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

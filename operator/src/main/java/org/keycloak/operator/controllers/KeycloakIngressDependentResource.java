@@ -37,6 +37,7 @@ import io.javaoperatorsdk.operator.processing.dependent.kubernetes.CRUDKubernete
 import io.javaoperatorsdk.operator.processing.dependent.kubernetes.KubernetesDependent;
 import io.javaoperatorsdk.operator.processing.dependent.workflow.Condition;
 import io.quarkus.logging.Log;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.operator.crds.v2beta1.CRDUtils.isTlsConfigured;
@@ -56,6 +57,7 @@ public class KeycloakIngressDependentResource extends CRUDKubernetesDependentRes
         }
     }
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<Boolean> USE_SSA = new ThreadLocal<>();
 
     public KeycloakIngressDependentResource() {

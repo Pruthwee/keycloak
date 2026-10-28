@@ -36,6 +36,7 @@ public class SingleLogoutServiceParser extends AbstractKeycloakSamlAdapterV1Pars
         super(KeycloakSamlAdapterV1QNames.SINGLE_LOGOUT_SERVICE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SingleLogoutServiceParser getInstance() {
         return INSTANCE;
     }

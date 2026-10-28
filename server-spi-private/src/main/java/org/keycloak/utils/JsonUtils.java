@@ -93,6 +93,7 @@ public class JsonUtils {
      * @param isMultivalued whether the claim should be treated as multivalued (i.e., multiple values for the same
      *                      claim should be built into a JSON array).
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void mapClaim(List<String> split, Object attributeValue, Map<String, Object> jsonObject, boolean isMultivalued) {
         final int length = split.size();
         int i = 0;

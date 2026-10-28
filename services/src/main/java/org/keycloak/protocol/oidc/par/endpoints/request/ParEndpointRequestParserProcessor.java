@@ -40,6 +40,7 @@ import org.keycloak.services.util.AuthorizationContextUtil;
  */
 public class ParEndpointRequestParserProcessor {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static AuthorizationEndpointRequest parseRequest(EventBuilder event, KeycloakSession session, ClientModel client, MultivaluedMap<String, String> requestParams) {
         try {
             AuthorizationEndpointRequest request = new AuthorizationEndpointRequest();

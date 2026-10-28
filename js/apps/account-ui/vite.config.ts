@@ -30,6 +30,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: "",
     server: {
+      // Cloud: externalize URL to AWS Systems Manager Parameter Store
       origin: "http://localhost:5173",
       port: 5173,
     },

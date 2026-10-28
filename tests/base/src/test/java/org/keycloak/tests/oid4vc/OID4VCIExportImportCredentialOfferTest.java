@@ -55,12 +55,14 @@ public class OID4VCIExportImportCredentialOfferTest extends OID4VCIssuerTestBase
     @BeforeAll
     public static void createTempDir() throws IOException {
         if (tempDir == null) {
+            // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
             tempDir = Files.createTempDirectory("kc-tests").toAbsolutePath().toString();
         }
     }
 
     @AfterAll
     public static void deleteTempDir() throws IOException {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         FileUtils.deleteDirectory(new File(tempDir));
     }
 

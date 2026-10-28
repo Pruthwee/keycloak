@@ -291,6 +291,7 @@ public class OrganizationIdentityProviderLinkTest extends AbstractOrganizationTe
                 () -> organizations.countByIdentityProvider("does-not-exist", null, null));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> names(List<OrganizationRepresentation> organizations) {
         return organizations.stream().map(OrganizationRepresentation::getName).toList();
     }

@@ -39,6 +39,7 @@ public class ClaimsParameterTokenMapper extends AbstractOIDCProtocolMapper imple
 
     public static final String PROVIDER_ID = "oidc-claims-param-token-mapper";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {
@@ -124,6 +125,7 @@ public class ClaimsParameterTokenMapper extends AbstractOIDCProtocolMapper imple
             });
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel createMapper(String name, boolean idToken, boolean userInfo) {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
         mapper.setName(name);

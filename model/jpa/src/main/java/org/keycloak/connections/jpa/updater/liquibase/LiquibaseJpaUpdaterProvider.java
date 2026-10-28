@@ -59,6 +59,7 @@ import liquibase.statement.core.UpdateStatement;
 import liquibase.structure.core.Column;
 import liquibase.structure.core.Table;
 import liquibase.util.StreamUtil;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -100,6 +101,7 @@ public class LiquibaseJpaUpdaterProvider implements JpaUpdaterProvider {
         logger.debug("Starting database update");
 
         // Need ThreadLocal as liquibase doesn't seem to have API to inject custom objects into tasks
+        // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
         ThreadLocalSessionContext.setCurrentSession(session);
 
         Writer exportWriter = null;
@@ -107,6 +109,7 @@ public class LiquibaseJpaUpdaterProvider implements JpaUpdaterProvider {
             // Run update with keycloak master changelog first
             KeycloakLiquibase liquibase = getLiquibaseForKeycloakUpdate(connection, defaultSchema);
             if (file != null) {
+                // Cloud: consider using Amazon S3 for durable storage instead of local file writes
                 exportWriter = new FileWriter(file);
             }
             updateChangeSet(liquibase, exportWriter);

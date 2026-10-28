@@ -39,6 +39,7 @@ public class MaxClientsClientRegistrationPolicyFactory extends AbstractClientReg
 
     public static final int DEFAULT_MAX_CLIENTS = 200;
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ProviderConfigProperty> configProperties = new LinkedList<>();
 
     static {

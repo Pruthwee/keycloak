@@ -46,6 +46,7 @@ import org.keycloak.truststore.JSSETruststoreConfigurator;
 import org.keycloak.utils.EmailValidationUtil;
 import org.keycloak.utils.SMTPUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.utils.StringUtil.isNotBlank;
@@ -110,6 +111,7 @@ public class DefaultEmailSenderProvider implements EmailSenderProvider {
     }
 
     Properties buildEmailProperties(Map<String, String> config, String from) throws EmailException {
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties props = new Properties();
 
         if (config.containsKey("host")) {

@@ -34,6 +34,7 @@ import org.keycloak.testframework.util.ProcessUtils;
 import org.keycloak.testframework.util.TmpDir;
 
 import io.quarkus.fs.util.ZipUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class DistributionKeycloakServer implements KeycloakServer {
@@ -137,6 +138,7 @@ public class DistributionKeycloakServer implements KeycloakServer {
             } catch (Throwable t) {
                 throw new RuntimeException("Non-managed Keycloak server or other process running on " + getBaseUrl());
             }
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             File userDir = new File(serverInfo.getSystemInfo().getUserDir()).getParentFile();
             if (!userDir.equals(keycloakHomeDir)) {
                 throw new RuntimeException("Non-managed Keycloak server running from " + userDir);

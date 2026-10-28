@@ -12,6 +12,7 @@ import org.keycloak.rule.RunInThreadRule;
 
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.bouncycastle.crypto.fips.FipsUnapprovedOperationError;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assert;
 import org.junit.Assume;

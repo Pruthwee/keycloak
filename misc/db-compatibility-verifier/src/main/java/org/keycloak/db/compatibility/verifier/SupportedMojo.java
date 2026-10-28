@@ -16,6 +16,8 @@ public class SupportedMojo extends AbstractNewEntryMojo {
         }
 
         File root = project.getBasedir();
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File sFile = new File(root, supportedFile);
         File uFile = new File(root, unsupportedFile);
         checkFileExist("supported", sFile);

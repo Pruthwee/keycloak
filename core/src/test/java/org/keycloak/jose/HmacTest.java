@@ -26,6 +26,7 @@ import org.keycloak.jose.jws.JWSInput;
 import org.keycloak.jose.jws.crypto.HMACProvider;
 import org.keycloak.rule.CryptoInitRule;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assert;
 import org.junit.ClassRule;
@@ -44,11 +45,13 @@ public abstract class HmacTest {
 
     @Test
     public void testHmacSignaturesWithRandomSecretKey() throws Exception {
+        // Cloud: retrieve secrets from AWS Secrets Manager
         SecretKey secretKey = new SecretKeySpec(UUID.randomUUID().toString().getBytes(), "HmacSHA256");
         testHMACSignAndVerify(secretKey, "testHmacSignaturesWithRandomSecretKey");
     }
 
     @Test
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public void testHmacSignaturesWithShortSecretKey() throws Exception {
         SecretKey secretKey = new SecretKeySpec("secret".getBytes(), "HmacSHA256");
         testHMACSignAndVerify(secretKey, "testHmacSignaturesWithShortSecretKey");

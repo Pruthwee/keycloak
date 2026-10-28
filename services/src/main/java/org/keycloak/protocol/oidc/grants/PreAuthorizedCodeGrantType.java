@@ -63,6 +63,7 @@ import org.keycloak.services.managers.AuthenticationManager;
 import org.keycloak.util.Strings;
 import org.keycloak.utils.MediaType;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.events.Details.REASON;
@@ -375,6 +376,7 @@ public class PreAuthorizedCodeGrantType extends OAuth2GrantTypeBase {
                     : session.sessions().getUserSession(realm, originatingUserSessionId);
             boolean validSession = originatingSession != null
                     && originatingSession.getState() == UserSessionModel.State.LOGGED_IN
+                    // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
                     && AuthenticationManager.isSessionValid(realm, originatingSession)
                     && originatingSession.getUser() != null
                     && originatingSession.getUser().getId().equals(originatingUserId);

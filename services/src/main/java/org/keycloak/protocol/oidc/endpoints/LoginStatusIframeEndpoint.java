@@ -38,6 +38,7 @@ import org.keycloak.utils.FreemarkerUtils;
 import org.keycloak.utils.MediaType;
 import org.keycloak.utils.SecureContextResolver;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

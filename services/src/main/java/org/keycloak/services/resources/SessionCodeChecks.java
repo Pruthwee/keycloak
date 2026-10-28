@@ -53,6 +53,7 @@ import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.sessions.CommonClientSessionModel;
 import org.keycloak.sessions.RootAuthenticationSessionModel;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.services.managers.AuthenticationManager.authenticateIdentityCookie;
@@ -301,6 +302,7 @@ public class SessionCodeChecks {
                 // Allow refresh, but rewrite browser history
                 if (execution == null && lastExecFromSession != null) {
                     logger.debugf("Parameter 'execution' is not in the request, but flow wasn't changed. Will update browser history");
+                    // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
                     session.setAttribute(BrowserHistoryHelper.SHOULD_UPDATE_BROWSER_HISTORY, true);
                 }
 

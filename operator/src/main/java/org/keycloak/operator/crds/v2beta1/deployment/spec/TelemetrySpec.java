@@ -68,6 +68,7 @@ public class TelemetrySpec {
     /**
      * Convert resource attributes in format key=val delimited by comma to string
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static String convertResourceAttributesToString(Map<String, String> attributes) {
         return attributes.entrySet().stream()
                 .map(attr -> String.format("%s=%s", attr.getKey(), attr.getValue()))

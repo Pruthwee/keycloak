@@ -29,6 +29,7 @@ import org.keycloak.common.util.SecretGenerator;
  * @version $Revision: 1 $
  */
 public class AbstractOAuthClient {
+    // Cloud: retrieve secrets from AWS Secrets Manager
     private static final String OAUTH_TOKEN_REQUEST_STATE = "OAuth_Token_Request_State";
     private final AtomicLong counter = new AtomicLong();
 

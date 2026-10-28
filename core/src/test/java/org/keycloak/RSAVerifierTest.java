@@ -123,6 +123,7 @@ public abstract class RSAVerifierTest {
         // Took 44 seconds with 50000 iterations
         byte[] tokenBytes = JsonSerialization.writeValueAsBytes(token);
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
         int count = 50000;
         for (int i = 0; i < count; i++) {

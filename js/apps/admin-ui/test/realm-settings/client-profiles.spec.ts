@@ -84,6 +84,7 @@ test.describe.serial("Realm settings client profiles tab tests", () => {
       await selectExecutorType(page, executorType);
       await assertIntentClient(
         page,
+        // Cloud: externalize URL to AWS Systems Manager Parameter Store
         "https://rs.keycloak-fapi.org/check-intent-client-bound",
       );
 

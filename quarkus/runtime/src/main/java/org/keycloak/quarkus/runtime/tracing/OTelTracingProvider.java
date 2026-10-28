@@ -35,6 +35,7 @@ import io.opentelemetry.context.Scope;
 import io.opentelemetry.sdk.trace.ReadableSpan;
 import io.opentelemetry.semconv.ExceptionAttributes;
 import org.apache.commons.lang3.exception.ExceptionUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

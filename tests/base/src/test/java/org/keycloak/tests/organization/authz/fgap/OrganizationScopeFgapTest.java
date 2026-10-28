@@ -56,6 +56,8 @@ import static org.hamcrest.Matchers.notNullValue;
 public class OrganizationScopeFgapTest {
 
     private static final String MEMBER_USERNAME = "orguser";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String MEMBER_PASSWORD = "password";
 
     @InjectRealm(config = OrganizationFgapConfig.class, lifecycle = LifeCycle.METHOD)

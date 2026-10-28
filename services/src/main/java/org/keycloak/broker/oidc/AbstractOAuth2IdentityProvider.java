@@ -112,6 +112,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -737,6 +738,7 @@ public abstract class AbstractOAuth2IdentityProvider<C extends OAuth2IdentityPro
                 String alg = getConfig().getClientAssertionSigningAlg() != null ? getConfig().getClientAssertionSigningAlg() : Algorithm.HS256;
                 key.setAlgorithm(alg);
                 byte[] decodedSecret = vaultStringSecret.get().orElse(getConfig().getClientSecret()).getBytes();
+                // Cloud: retrieve secrets from AWS Secrets Manager
                 SecretKey secret = new SecretKeySpec(decodedSecret, 0, decodedSecret.length, alg);
                 key.setSecretKey(secret);
                 return new MacSignatureSignerContext(key);

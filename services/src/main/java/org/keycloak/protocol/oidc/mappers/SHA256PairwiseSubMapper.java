@@ -20,6 +20,7 @@ import org.keycloak.protocol.oidc.OIDCLoginProtocol;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.representations.idm.ProtocolMapperRepresentation;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class SHA256PairwiseSubMapper extends AbstractPairwiseSubMapper {
@@ -32,6 +33,7 @@ public class SHA256PairwiseSubMapper extends AbstractPairwiseSubMapper {
         charset = StandardCharsets.UTF_8;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperRepresentation createPairwiseMapper(String sectorIdentifierUri, String salt) {
         Map<String, String> config;
         ProtocolMapperRepresentation pairwise = new ProtocolMapperRepresentation();

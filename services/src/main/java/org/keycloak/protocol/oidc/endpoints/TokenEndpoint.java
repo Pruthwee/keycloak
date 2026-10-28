@@ -70,6 +70,7 @@ import org.keycloak.services.cors.Cors;
 import org.keycloak.services.util.DPoPUtil;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

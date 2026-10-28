@@ -110,6 +110,7 @@ public class UserSessionLimitsTest {
     @InjectPage
     protected LoginPasswordUpdatePage updatePasswordPage;
     
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static String realmName = "test";
     private static final String username = "test-user@localhost";
     private static final String password = "password";

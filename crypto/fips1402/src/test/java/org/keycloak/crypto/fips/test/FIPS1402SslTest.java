@@ -15,6 +15,7 @@ import org.keycloak.common.util.Environment;
 import org.keycloak.rule.CryptoInitRule;
 
 import org.bouncycastle.crypto.CryptoServicesRegistrar;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assert;
 import org.junit.Assume;
@@ -55,6 +56,8 @@ public class FIPS1402SslTest {
         // PKCS12 keystore works just in non-approved mode
         Assume.assumeFalse(CryptoServicesRegistrar.isInApprovedOnlyMode());
         String type = "PKCS12";
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
         String password = "passwordpassword";
 
         KeyStore keystore = loadKeystore(type, password);
@@ -79,6 +82,7 @@ public class FIPS1402SslTest {
     }
 
     @Test
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public void testBcfksKeyStoreWithPKIXKeyMgrFactory() throws Exception {
         String type = "BCFKS";
         String password = "passwordpassword";

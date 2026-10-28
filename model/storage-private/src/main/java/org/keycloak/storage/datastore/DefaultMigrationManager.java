@@ -81,6 +81,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.representations.idm.RealmRepresentation;
 import org.keycloak.storage.MigrationManager;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -152,6 +153,8 @@ public class DefaultMigrationManager implements MigrationManager {
 
     @Override
     public void migrate() {
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         session.setAttribute(Constants.STORAGE_BATCH_ENABLED, Boolean.getBoolean("keycloak.migration.batch-enabled"));
         session.setAttribute(Constants.STORAGE_BATCH_SIZE, Integer.getInteger("keycloak.migration.batch-size"));
         MigrationModel model = session.getProvider(DeploymentStateProvider.class).getMigrationModel();

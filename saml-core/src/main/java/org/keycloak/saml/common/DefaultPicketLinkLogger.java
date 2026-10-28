@@ -38,6 +38,7 @@ import org.keycloak.saml.common.exceptions.fed.IssuerNotTrustedException;
 import org.keycloak.saml.common.exceptions.fed.SignatureValidationException;
 import org.keycloak.saml.common.exceptions.fed.WSTrustException;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.w3c.dom.Element;
 

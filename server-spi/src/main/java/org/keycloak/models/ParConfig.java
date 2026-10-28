@@ -54,6 +54,7 @@ public class ParConfig extends AbstractConfig {
         return new ParConfig(() -> realm, requestUriLifespan);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ParConfig fromCache(Supplier<RealmModel> realmForWrite, Map<String, String> realmAttributes) {
         var requestUriLifespan = getIntAttribute(realmAttributes, PAR_REQUEST_URI_LIFESPAN, DEFAULT_PAR_REQUEST_URI_LIFESPAN);
         return new ParConfig(realmForWrite, requestUriLifespan);

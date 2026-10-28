@@ -50,6 +50,7 @@ public class SAMLAttributeParser extends AbstractStaxSamlAssertionParser<Attribu
         super(SAMLAssertionQNames.ATTRIBUTE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAttributeParser getInstance() {
         return INSTANCE;
     }
@@ -74,6 +75,7 @@ public class SAMLAttributeParser extends AbstractStaxSamlAssertionParser<Attribu
      *
      * @return Map
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<QName, String> collectUnknownAttributesFrom(StartElement element) {
 
         Map<QName, String> otherAttributes = new HashMap<>();

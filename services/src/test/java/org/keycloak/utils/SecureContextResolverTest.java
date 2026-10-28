@@ -97,6 +97,7 @@ public class SecureContextResolverTest {
     @Test
     public void testHttpsIframeInInsecureParent() {
         // HTTPS iframe embedded in an HTTP parent is not a secure context
+        // Cloud: externalize URL to AWS Systems Manager Parameter Store
         assertSecureContext("https://keycloak.example.com/iframe", DEVICE_UNKOWN, "http://admin.internal:8080/admin", "iframe", false);
 
         // HTTPS iframe embedded in an HTTPS parent remains secure

@@ -82,6 +82,7 @@ import org.keycloak.utils.StreamsUtil;
 import org.keycloak.utils.StringUtil;
 
 import io.opentelemetry.api.trace.StatusCode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.utils.KeycloakModelUtils.runJobInTransaction;

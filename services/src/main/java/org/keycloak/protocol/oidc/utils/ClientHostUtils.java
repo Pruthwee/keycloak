@@ -29,6 +29,7 @@ import org.keycloak.models.ClientModel;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.services.util.ResolveRelative;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -115,6 +116,7 @@ public class ClientHostUtils {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<String> extractHostsFromClientManagedHosts(ClientModel client, String hostname) {
         List<String> allowedHosts = new ArrayList<>();
         if (hostname == null || hostname.trim().isEmpty()) {

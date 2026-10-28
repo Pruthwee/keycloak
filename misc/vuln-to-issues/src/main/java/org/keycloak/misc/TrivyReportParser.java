@@ -30,7 +30,8 @@ public class TrivyReportParser {
     public static void main(String[] args) throws IOException {
         GitHub github = new GitHubBuilder().withJwtToken(GH_TOKEN).build();
 
-        File runDir = new File("/tmp/trivy-logs");
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+        File runDir = new File(System.getenv().getOrDefault("APP_DATA_DIR", "/tmp")));
 
         Map<String, Vulnerability> vulnerabilities = parseTrivyReports(runDir);
         updateGitHubIssues(github, vulnerabilities);
@@ -158,7 +159,9 @@ public class TrivyReportParser {
         }
 
         try {
+            // Cloud: consider using Amazon S3 for durable storage instead of local file writes
             PrintWriter pw = new PrintWriter(new FileWriter(GITHUB_STEP_SUMMARY, true));
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
             pw.print(sb);
             pw.close();
         } catch (IOException e) {

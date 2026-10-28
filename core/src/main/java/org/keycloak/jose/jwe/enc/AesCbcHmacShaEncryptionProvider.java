@@ -165,6 +165,8 @@ public abstract class AesCbcHmacShaEncryptionProvider implements JWEEncryptionPr
         byte[] cekMacKey = Arrays.copyOf(cekBytes, cekLength / 2);
         byte[] cekAesKey = Arrays.copyOfRange(cekBytes, cekLength / 2, cekLength);
 
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve secrets from AWS Secrets Manager
         SecretKeySpec aesKey = new SecretKeySpec(cekAesKey, "AES");
         SecretKeySpec hmacKey = new SecretKeySpec(cekMacKey, "HMACSHA2");
 

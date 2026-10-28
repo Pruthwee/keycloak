@@ -7,12 +7,14 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public final class IdentityProviderMapperSyncModeDelegate {
 
     protected static final Logger logger = Logger.getLogger(IdentityProviderMapperSyncModeDelegate.class);
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void delegateUpdateBrokeredUser(KeycloakSession session, RealmModel realm, UserModel user, IdentityProviderMapperModel mapperModel, BrokeredIdentityContext context, IdentityProviderMapper mapper) {
         IdentityProviderSyncMode idpSyncMode = context.getIdpConfig().getSyncMode();
         if (idpSyncMode == null) {

@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.smallrye.config.ConfigValue;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.quarkus.runtime.configuration.Configuration.getConfigValue;
@@ -71,6 +72,7 @@ public class DatabaseCompatibilityMetadataProvider implements CompatibilityMetad
     record Migration(@JsonProperty("class") String clazz) {
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void addUnsupportedDatabaseChanges(Map<String, String> metadata) {
         try {
             // Load JSON into memory and write to a JSON String in order to avoid whitespace changes impacting the hash

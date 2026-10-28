@@ -42,6 +42,7 @@ import org.keycloak.utils.MediaTypeMatcher;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 @Provider
@@ -180,6 +181,7 @@ public class KeycloakErrorHandler implements ExceptionMapper<Throwable> {
         return realm;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Object> initAttributes(KeycloakSession session, RealmModel realm, Theme theme, Locale locale, Response.Status responseStatus) throws IOException {
         Map<String, Object> attributes = new HashMap<>();
         Properties messagesBundle = theme.getEnhancedMessages(realm, locale);

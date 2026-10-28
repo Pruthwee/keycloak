@@ -26,6 +26,7 @@ import liquibase.exception.CustomChangeException;
 import liquibase.statement.core.DeleteStatement;
 import liquibase.statement.core.InsertStatement;
 import liquibase.structure.core.Table;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

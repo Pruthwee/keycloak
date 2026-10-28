@@ -51,6 +51,7 @@ public class ElytronHmacTest extends HmacTest {
         Assert.assertTrue(HMACProvider.verify(input, secret));
     }
     private boolean isWindows(){
+        // Cloud: use Java NIO Path for platform-independent file handling
         return System.getProperty("os.name").startsWith("Windows");
     }
 }

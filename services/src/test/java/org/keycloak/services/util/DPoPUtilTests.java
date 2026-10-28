@@ -9,6 +9,7 @@ import org.keycloak.http.HttpRequest;
 import org.keycloak.services.resteasy.HttpRequestImpl;
 import org.keycloak.utils.AbstractUtilSessionTest;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.mock.MockHttpRequest;
 import org.junit.jupiter.api.Test;
 

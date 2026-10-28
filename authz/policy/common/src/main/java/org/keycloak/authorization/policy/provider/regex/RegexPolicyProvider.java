@@ -33,6 +33,7 @@ import org.keycloak.representations.idm.authorization.RegexPolicyRepresentation;
 import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.databind.JsonNode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.utils.JsonUtils.getJsonValue;

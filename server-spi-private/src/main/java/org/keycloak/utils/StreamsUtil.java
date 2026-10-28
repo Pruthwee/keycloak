@@ -153,6 +153,7 @@ public class StreamsUtil {
      * @param originalStream The original stream
      * @return The stream that is lazily evaluating
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static <T> Stream<T> prepareSortedStreamToWorkInsideOfFlatMapWithTerminalOperations(Stream<T> originalStream) {
         return StreamSupport.stream(originalStream.spliterator(), false);
     }

@@ -50,6 +50,7 @@ public class FileConfigHandler implements ConfigHandler {
 
     public ConfigData loadConfig() {
         // for now just dumb impl ignoring file locks for read
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File file = new File(configFile);
         if (!file.isFile() || file.length() == 0) {
             return new ConfigData();

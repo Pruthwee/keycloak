@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.apache.commons.io.IOUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
@@ -49,6 +50,8 @@ public class Timer {
 
     protected final Logger log = Logger.getLogger(Timer.class);
 
+    // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+    // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
     protected static final File DATA_DIR = new File(PROJECT_BUILD_DIRECTORY, "stats/data");
     protected static final File CHARTS_DIR = new File(PROJECT_BUILD_DIRECTORY, "stats/charts");
 
@@ -132,6 +135,7 @@ public class Timer {
             if (!f.createNewFile()) {
                 throw new IOException("Couldn't create file: " + f);
             }
+            // Cloud: consider using Amazon S3 for durable storage instead of local file writes
             OutputStream stream = new BufferedOutputStream(new FileOutputStream(f));
             for (Long duration : stats.get(op)) {
                 IOUtils.write(duration.toString(), stream, StandardCharsets.UTF_8);

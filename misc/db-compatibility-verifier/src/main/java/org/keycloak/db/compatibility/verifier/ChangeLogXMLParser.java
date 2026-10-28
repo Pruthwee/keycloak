@@ -114,6 +114,7 @@ record ChangeLogXMLParser(ClassLoader classLoader) {
    }
 
    private List<String> listFromPath(Path path) throws IOException {
+      // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
       try (Stream<Path> walk = Files.walk(path, 1)) {
          return walk.filter(Files::isRegularFile)
                .map(p -> p.getFileName().toString())

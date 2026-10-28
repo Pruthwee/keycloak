@@ -45,6 +45,8 @@ public class BitbucketIdentityProvider extends AbstractOAuth2IdentityProvider im
 
 	public static final String AUTH_URL = "https://bitbucket.org/site/oauth2/authorize";
 	public static final String TOKEN_URL = "https://bitbucket.org/site/oauth2/access_token";
+ // Cloud: externalize URL to AWS Systems Manager Parameter Store
+ // Cloud: externalize URL to AWS Systems Manager Parameter Store
 	public static final String USER_URL = "https://api.bitbucket.org/2.0/user";
 	public static final String USER_EMAIL_URL = "https://api.bitbucket.org/2.0/user/emails";
 	public static final String EMAIL_SCOPE = "email";

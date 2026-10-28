@@ -415,6 +415,7 @@ public class KcAdmV2HelpTest {
     // technically not a help test, but it tests that the help suggestion works
     @Test
     public void testConfigEditorUsesRootConfigOption() throws Exception {
+        // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
         File configFile = File.createTempFile("kcadm-test", ".config");
         configFile.deleteOnExit();
         Files.writeString(configFile.toPath(), "{}");

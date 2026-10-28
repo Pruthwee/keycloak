@@ -32,6 +32,7 @@ public class PasswordCredentialModel extends CredentialModel {
         return createFromValues(algorithm, salt, hashIterations, null, encodedPassword);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static PasswordCredentialModel createFromValues(String algorithm, byte[] salt, int hashIterations, Map<String, List<String>> additionalParameters, String encodedPassword){
         PasswordCredentialData credentialData = new PasswordCredentialData(hashIterations, algorithm, additionalParameters);
         PasswordSecretData secretData = new PasswordSecretData(encodedPassword, salt);

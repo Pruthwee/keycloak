@@ -32,6 +32,7 @@ import org.keycloak.services.clientpolicy.context.ClientCRUDContext;
 import org.keycloak.services.clientpolicy.context.ClientPolicyCRUDContext;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -89,6 +90,7 @@ public class ClientUpdaterSourceHostsCondition extends AbstractClientPolicyCondi
     }
 
     private boolean isHostMatched() {
+        // Cloud: replace IP-based security with AWS IAM authentication
         String hostAddress = session.getContext().getConnection().getRemoteAddr();
 
         logger.tracev("Verifying remote host = {0}", session.getContext().getConnection().getRemoteHost());

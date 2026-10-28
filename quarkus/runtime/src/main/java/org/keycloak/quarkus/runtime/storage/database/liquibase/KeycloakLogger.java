@@ -20,6 +20,7 @@ package org.keycloak.quarkus.runtime.storage.database.liquibase;
 import java.util.logging.Level;
 
 import liquibase.logging.core.AbstractLogger;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

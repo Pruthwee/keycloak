@@ -73,6 +73,7 @@ public class BaseConfigTruststoreCmd extends BaseAuthOptionsCmd {
                 throw new IllegalArgumentException("No truststore specified");
             }
 
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             if (!new File(store).isFile()) {
                 throw new RuntimeException("Truststore file not found: " + store);
             }

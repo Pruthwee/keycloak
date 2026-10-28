@@ -39,6 +39,7 @@ import org.keycloak.testframework.annotations.InjectRealm;
 import org.keycloak.testframework.config.Config;
 import org.keycloak.testframework.realm.ManagedRealm;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -72,6 +73,7 @@ public abstract class AbstractConcurrencyTest {
                 ? Executors.newSingleThreadExecutor()
                 : Executors.newFixedThreadPool(numThreads);
 
+        // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
         ThreadLocal<Keycloak> keycloaks = new ThreadLocal<Keycloak>() {
             @Override
             protected Keycloak initialValue() {

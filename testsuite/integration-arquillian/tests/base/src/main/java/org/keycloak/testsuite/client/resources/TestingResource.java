@@ -37,6 +37,7 @@ import org.keycloak.representations.idm.EventRepresentation;
 import org.keycloak.utils.MediaType;
 
 import org.infinispan.commons.time.TimeService;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.resteasy.reactive.NoCache;
 
 /**

@@ -57,6 +57,7 @@ test.describe.serial("Fine Grain SAML Endpoint Configuration", () => {
   });
 
   test("should set Terms of service URL", async ({ page }) => {
+    // Cloud: externalize URL to AWS Systems Manager Parameter Store
     const termsOfServiceUrl = "http://some.url/terms-of-service.html";
 
     // Set and save URL

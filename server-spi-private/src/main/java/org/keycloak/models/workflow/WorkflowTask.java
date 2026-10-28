@@ -75,6 +75,7 @@ public final class WorkflowTask extends AbstractKeycloakTransaction implements R
     @Override
     public String toString() {
         String status = isScheduled() ? "SCHEDULED" : isActive() ? "ACTIVE" : isCompletedExceptionally() ? "FAILED" : "SUCCESS";
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         return "id: " + id + ", executionTime: " + (System.currentTimeMillis() - startTime) + "ms , status: " + status + ", task: [" + task.toString() + "]";
     }
 

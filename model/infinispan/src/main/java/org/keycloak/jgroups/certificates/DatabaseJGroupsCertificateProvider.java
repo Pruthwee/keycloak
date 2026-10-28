@@ -38,6 +38,7 @@ import org.keycloak.models.utils.KeycloakModelUtils;
 import org.keycloak.spi.infinispan.JGroupsCertificateProvider;
 import org.keycloak.storage.configuration.ServerConfigStorageProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.jgroups.certificates.JGroupsCertificate.fromJson;

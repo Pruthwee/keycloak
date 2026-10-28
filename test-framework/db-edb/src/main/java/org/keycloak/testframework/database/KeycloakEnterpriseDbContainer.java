@@ -9,8 +9,10 @@ import org.testcontainers.utility.DockerImageName;
 public class KeycloakEnterpriseDbContainer extends JdbcDatabaseContainer<KeycloakEnterpriseDbContainer> {
     private String databaseName = "keycloak";
     private String username = "enterprisedb";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private String password = "password";
-    private static final int PORT = 5432;
+    private static final int PORT = System.getenv().getOrDefault("DB_PORT", "5432");
 
     public KeycloakEnterpriseDbContainer(DockerImageName dockerImageName) {
         super(dockerImageName);

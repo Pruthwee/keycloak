@@ -97,6 +97,8 @@ public class KeycloakRecorder {
     public void createHttpAccessLogDirectory() {
         if (Configuration.isTrue(HttpAccessLogOptions.HTTP_ACCESS_LOG_FILE_ENABLED)) {
             Environment.getHomeDir().ifPresent(homeDir -> {
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 File logDir = new File(homeDir, "data" + File.separator + "log");
                 if (!logDir.exists() && !logDir.mkdirs() && !logDir.exists()) {
                     throw new RuntimeException("Failed to create HTTP Access log directory");

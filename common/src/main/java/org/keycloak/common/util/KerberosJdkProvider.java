@@ -40,6 +40,7 @@ import org.ietf.jgss.GSSCredential;
 import org.ietf.jgss.GSSManager;
 import org.ietf.jgss.GSSName;
 import org.ietf.jgss.Oid;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -208,6 +209,7 @@ public abstract class KerberosJdkProvider {
 
         private String getKeytabURL(String keytab) {
             try {
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 return new File(keytab).toURI().toURL().toString();
             } catch (MalformedURLException mfe) {
                 System.err.println("Invalid keytab location specified in configuration: " + keytab);

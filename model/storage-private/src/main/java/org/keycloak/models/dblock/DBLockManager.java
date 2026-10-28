@@ -19,6 +19,7 @@ package org.keycloak.models.dblock;
 
 import org.keycloak.models.KeycloakSession;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

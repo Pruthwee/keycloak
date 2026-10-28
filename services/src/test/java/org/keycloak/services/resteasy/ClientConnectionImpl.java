@@ -20,6 +20,7 @@ public class ClientConnectionImpl implements ClientConnection {
             return forwardedFor;
         }
 
+        // Cloud: replace IP-based security with AWS IAM authentication
         return request.getRemoteAddr();
     }
 

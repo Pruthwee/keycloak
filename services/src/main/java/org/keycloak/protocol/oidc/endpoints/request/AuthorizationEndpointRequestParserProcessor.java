@@ -42,6 +42,7 @@ import org.keycloak.services.messages.Messages;
 import org.keycloak.services.util.AuthorizationContextUtil;
 import org.keycloak.util.TokenUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -51,6 +52,7 @@ public class AuthorizationEndpointRequestParserProcessor {
 
     private static final Logger logger = Logger.getLogger(AuthorizationEndpointRequestParserProcessor.class);
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static AuthorizationEndpointRequest parseRequest(EventBuilder event, KeycloakSession session, ClientModel client, MultivaluedMap<String, String> requestParams, EndpointType endpointType) {
         try {
             AuthorizationEndpointRequest request = new AuthorizationEndpointRequest();

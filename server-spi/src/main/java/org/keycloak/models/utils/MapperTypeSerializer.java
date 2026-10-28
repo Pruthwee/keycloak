@@ -41,6 +41,7 @@ public class MapperTypeSerializer {
     private static final TypeReference<List<StringPair>> MAP_TYPE_REPRESENTATION = new TypeReference<>() {
     };
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, List<String>> deserialize(String configString) {
         if (configString == null) {
             return emptyMap();

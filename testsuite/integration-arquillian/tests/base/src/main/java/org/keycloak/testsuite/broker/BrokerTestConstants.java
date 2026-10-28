@@ -17,6 +17,7 @@ public class BrokerTestConstants {
 
     public final static String USER_LOGIN = "testuser";
     public final static String USER_EMAIL = "user@localhost.com";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public final static String USER_PASSWORD = "password";
 
     public final static String IDP_SAML_SIGN_KEY = "MIICWwIBAAKBgQDVG8a7xGN6ZIkDbeecySygc" +

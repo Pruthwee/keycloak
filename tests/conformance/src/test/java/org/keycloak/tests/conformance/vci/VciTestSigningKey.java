@@ -65,6 +65,7 @@ import static org.keycloak.tests.conformance.vci.VciConformanceRealmUtil.REALM;
 final class VciTestSigningKey {
 
     static final String KEY_ALIAS = "oid4vci-conformance-signing";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String PASSWORD = "password";
 
     private static final String KEY_STORE_PATH;
@@ -95,6 +96,7 @@ final class VciTestSigningKey {
             X509Certificate caCertificate = generateCaCertificate(caName, caKeyPair);
             X509Certificate leafCertificate = generateLeafCertificate(caName, leafKeyPair, caKeyPair, caCertificate);
 
+            // Cloud: use AWS Certificate Manager (ACM) for certificate management
             KeyStore keyStore = KeyStore.getInstance("PKCS12");
             keyStore.load(null, null);
             keyStore.setKeyEntry(KEY_ALIAS, leafKeyPair.getPrivate(), PASSWORD.toCharArray(),

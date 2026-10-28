@@ -38,6 +38,7 @@ import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class KerberosStandaloneCrossRealmTrustTest extends AbstractKerberosTest {
 
+    // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
     private static final String PROVIDER_CONFIG_LOCATION = "classpath:kerberos/kerberos-standalone-connection.properties";
 
 

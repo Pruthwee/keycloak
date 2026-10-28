@@ -48,6 +48,7 @@ import org.infinispan.client.hotrod.configuration.ClientIntelligence;
 import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
 import org.infinispan.client.hotrod.configuration.ExhaustedAction;
 import org.infinispan.client.hotrod.impl.ConfigurationProperties;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.connections.infinispan.InfinispanConnectionProvider.CLUSTERED_CACHE_NAMES;
@@ -74,6 +75,8 @@ public class DefaultCacheRemoteConfigProviderFactory implements CacheRemoteConfi
     private static final String TLS_ENABLED = "tlsEnabled";
     private static final String TLS_SNI_HOSTNAME = "tlsSniHostname";
     private static final String USERNAME = "username";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "password";
     private static final String CONNECTION_POOL_MAX_ACTIVE = "connectionPoolMaxActive";
     private static final String CONNECTION_POOL_EXHAUSTED_ACTION = "connectionPoolExhaustedAction";
@@ -170,6 +173,7 @@ public class DefaultCacheRemoteConfigProviderFactory implements CacheRemoteConfi
             logger.debug("Hot Rod properties file not configured.");
             return;
         }
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         var file = new File(path);
         if (!file.exists()) {
             throw new RuntimeException("Hot Rod properties file not found: " + path);

@@ -78,6 +78,7 @@ public class ClientDelegationTest {
 
     static final String USERNAME = "test-user@localhost";
     static final String OTHER_USERNAME = "otheruser";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     static final String PASSWORD = "password";
     static final String TEST_CLIENT_ID = "test-app";
     static final String TEST_CLIENT_SECRET = "test-secret";

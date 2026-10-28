@@ -40,6 +40,7 @@ import org.keycloak.testsuite.pages.TermsAndConditionsPage;
 import org.keycloak.testsuite.pages.VerifyProfilePage;
 import org.keycloak.testsuite.util.MailServer;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Rule;
@@ -61,6 +62,8 @@ public class RequiredActionPriorityTest extends AbstractTestRealmKeycloakTest {
 
     private static final String EMAIL = "test-user@localhost";
     private static final String USERNAME = EMAIL;
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "password";
     private static final String NEW_EMAIL = "new@email.com";
     private static final String NEW_FIRST_NAME = "New first";

@@ -30,6 +30,7 @@ import org.keycloak.scripting.InvocableScriptAdapter;
 import org.keycloak.scripting.ScriptExecutionException;
 import org.keycloak.scripting.ScriptingProvider;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

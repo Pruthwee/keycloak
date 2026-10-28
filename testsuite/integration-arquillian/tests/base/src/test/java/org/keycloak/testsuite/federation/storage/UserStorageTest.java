@@ -73,6 +73,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.After;
 import org.junit.Before;
@@ -130,6 +131,7 @@ public class UserStorageTest extends AbstractAuthTest {
     @Page
     protected VerifyEmailPage verifyEmailPage;
 
+    // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
     private static final File CONFIG_DIR = new File(System.getProperty("auth.server.config.dir", ""));
 
     @Before
@@ -289,6 +291,7 @@ public class UserStorageTest extends AbstractAuthTest {
         thor.setFirstName("Stian");
         thor.setLastName("Thorgersen");
         thor.setEmailVerified(true);
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long thorCreated = System.currentTimeMillis() - 100;
         thor.setCreatedTimestamp(thorCreated);
         thor.setEmail("thor@hammer.com");

@@ -29,6 +29,7 @@ public class Validation {
 
     public static final String FIELD_PASSWORD_CONFIRM = "password-confirm";
     public static final String FIELD_EMAIL = "email";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String FIELD_PASSWORD = "password";
     public static final String FIELD_USERNAME = "username";
     public static final String FIELD_OTP_CODE = "totp";

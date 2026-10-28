@@ -47,6 +47,7 @@ import org.keycloak.common.enums.SslRequired;
 import org.keycloak.saml.SignatureAlgorithm;
 import org.keycloak.saml.common.exceptions.ParsingException;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -287,6 +288,7 @@ public class DeploymentBuilder {
         }
         InputStream is;
         if (key.getKeystore().getFile() != null) {
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             File fp = new File(key.getKeystore().getFile());
             if (!fp.exists()) {
             }

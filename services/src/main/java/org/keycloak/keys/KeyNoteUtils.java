@@ -24,6 +24,7 @@ import org.keycloak.component.ComponentModel;
 import org.keycloak.crypto.KeyStatus;
 import org.keycloak.crypto.KeyWrapper;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

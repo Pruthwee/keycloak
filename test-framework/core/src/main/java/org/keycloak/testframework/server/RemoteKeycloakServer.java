@@ -107,6 +107,8 @@ public class RemoteKeycloakServer implements KeycloakServer {
     }
 
     private void waitForStartup() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long waitUntil = System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(5);
         while (!verifyRunningKeycloak() && System.currentTimeMillis() < waitUntil) {
             try {

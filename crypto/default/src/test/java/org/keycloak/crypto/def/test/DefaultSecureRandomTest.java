@@ -6,6 +6,7 @@ import org.keycloak.common.crypto.CryptoIntegration;
 import org.keycloak.common.util.Environment;
 import org.keycloak.rule.CryptoInitRule;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Assert;
 import org.junit.Assume;

@@ -148,6 +148,7 @@ public abstract class AesGcmEncryptionProvider implements JWEEncryptionProvider 
     @Override
     public void deserializeCEK(JWEKeyStorage keyStorage) {
         byte[] cekBytes = keyStorage.getCekBytes();
+        // Cloud: retrieve secrets from AWS Secrets Manager
         SecretKeySpec aesKey = new SecretKeySpec(cekBytes, "AES");
         keyStorage.setCEKKey(aesKey, JWEKeyStorage.KeyUse.ENCRYPTION);
     }

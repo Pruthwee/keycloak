@@ -42,6 +42,7 @@ import org.keycloak.provider.EnvironmentDependentProviderFactory;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.sessions.AuthenticationSessionModel;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -151,6 +152,7 @@ public class AuthnContextClassRefMapper extends AbstractSAMLProtocolMapper imple
         return Profile.isFeatureEnabled(Profile.Feature.STEP_UP_AUTHENTICATION_SAML);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name) {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
         mapper.setName(name);

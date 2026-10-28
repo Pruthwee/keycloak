@@ -40,6 +40,7 @@ public class PasswordCredentialProviderFactory implements CredentialProviderFact
     private static final String HASHES_COUNTER_TAGS = "validations-counter-tags";
     private static final String KEYCLOAK_METER_NAME_PREFIX = "keycloak.";
     private static final String LOGIN_PASSWORD_VERIFY_METER_NAME = KEYCLOAK_METER_NAME_PREFIX + "credentials.password.hashing";
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String LOGIN_PASSWORD_VERIFY_METER_DESCRIPTION = "Password validations";
 
     public static final String METER_REALM_TAG = "realm";

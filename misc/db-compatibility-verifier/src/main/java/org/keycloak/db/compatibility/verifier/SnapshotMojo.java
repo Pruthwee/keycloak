@@ -23,6 +23,8 @@ public class SnapshotMojo extends AbstractMojo {
 
         try {
             File root = project.getBasedir();
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             File sFile = new File(root, supportedFile);
             File uFile = new File(root, unsupportedFile);
 

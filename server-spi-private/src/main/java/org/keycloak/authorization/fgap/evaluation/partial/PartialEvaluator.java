@@ -138,9 +138,11 @@ public final class PartialEvaluator {
             cache = new HashMap<>();
         }
 
+        // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
         cache.computeIfAbsent(adminUser.getId(), s -> new HashMap<>()).computeIfAbsent(resourceType.getType(), s -> context);
 
         if (session.getAttribute(PARTIAL_EVALUATION_CONTEXT_CACHE) == null) {
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(PARTIAL_EVALUATION_CONTEXT_CACHE, cache);
         }
 

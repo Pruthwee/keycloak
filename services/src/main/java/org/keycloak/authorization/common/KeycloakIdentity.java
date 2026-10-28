@@ -151,6 +151,7 @@ public class KeycloakIdentity implements Identity {
                 throw new RuntimeException("No active session associated with the token");
             }
 
+            // Cloud: use Amazon ElastiCache for Redis with Spring Session for distributed sessions
             if (AuthenticationManager.isSessionValid(realm, userSession) && token.isIssuedBeforeSessionStart(userSession.getStarted())) {
                 throw new RuntimeException("Invalid token");
             }

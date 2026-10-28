@@ -136,6 +136,7 @@ import org.keycloak.util.JsonSerialization;
 import org.keycloak.utils.StringUtil;
 import org.keycloak.validation.ValidationUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.Constants.DEFAULT_ACCESS_CODE_LIFESPAN;
@@ -591,6 +592,7 @@ public class DefaultExportImportManager implements ExportImportManager {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, ClientModel> createClients(KeycloakSession session, ModelVersion version, RealmRepresentation rep, RealmModel realm, Map<String, String> mappedFlows) {
         Map<String, ClientModel> appMap = new HashMap<>();
         final boolean samlEncryptionAttributes = version != null && version.lessThan(new ModelVersion(26, 4, 0));

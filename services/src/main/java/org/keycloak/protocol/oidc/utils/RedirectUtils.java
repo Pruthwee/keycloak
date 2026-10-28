@@ -40,6 +40,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.services.Urls;
 import org.keycloak.services.util.ResolveRelative;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

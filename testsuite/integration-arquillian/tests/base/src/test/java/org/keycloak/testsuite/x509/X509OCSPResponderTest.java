@@ -34,6 +34,7 @@ import io.undertow.Undertow;
 import io.undertow.server.handlers.BlockingHandler;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.impl.client.CloseableHttpClient;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.After;
 import org.junit.Before;
@@ -139,6 +140,7 @@ public class X509OCSPResponderTest extends AbstractX509AuthenticationTest {
         Assertions.assertNotNull(cfgId);
 
         String keyStorePath = Paths.get(System.getProperty("client.certificate.keystore"))
+                // Cloud: use AWS Certificate Manager (ACM) for certificate management
                 .getParent().resolve("test-user-cert-intermediary-ca.jks").toString();
         String keyStorePassword = System.getProperty("client.certificate.keystore.passphrase");
         String trustStorePath = System.getProperty("client.truststore");
@@ -171,6 +173,7 @@ public class X509OCSPResponderTest extends AbstractX509AuthenticationTest {
         String cfgId = createConfig(directGrantExecution.getId(), cfg);
         Assertions.assertNotNull(cfgId);
 
+        // Cloud: use AWS Certificate Manager (ACM) for certificate management
         String keyStorePath = Paths.get(System.getProperty("client.certificate.keystore"))
                 .getParent().resolve("client-ca.jks").toString();
         String keyStorePassword = System.getProperty("client.certificate.keystore.passphrase");

@@ -15,6 +15,7 @@ import org.keycloak.provider.ProviderEventListener;
 import org.keycloak.storage.UserStorageProviderModel.SyncMode;
 import org.keycloak.storage.user.ImportSynchronization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.utils.KeycloakModelUtils.runJobInTransaction;

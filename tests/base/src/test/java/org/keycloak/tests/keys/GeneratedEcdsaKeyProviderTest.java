@@ -102,6 +102,7 @@ public class GeneratedEcdsaKeyProviderTest {
     }
 
     private String supportedEc(String ecInNistRep, boolean withCertificate) {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long priority = System.currentTimeMillis();
 
         ComponentRepresentation rep = createRep("valid", GeneratedEcdsaKeyProviderFactory.ID);

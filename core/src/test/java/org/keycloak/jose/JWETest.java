@@ -64,6 +64,8 @@ public abstract class JWETest {
 
     @Test
     public void testDirect_Aes128CbcHmacSha256() throws Exception {
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve secrets from AWS Secrets Manager
         SecretKey aesKey = new SecretKeySpec(AES_128_KEY, "AES");
         SecretKey hmacKey = new SecretKeySpec(HMAC_SHA256_KEY, "HMACSHA2");
 
@@ -116,6 +118,7 @@ public abstract class JWETest {
     public void testPerfDirect() throws Exception {
         int iterations = 50000;
 
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
         for (int i=0 ; i<iterations ; i++) {
             // took around 2950 ms with 50000 iterations
@@ -317,6 +320,8 @@ public abstract class JWETest {
     }
 
     private void testKeyEncryption_ContentEncryptionAesHmacSha(String jweAlgorithmName, String jweEncryptionName) throws Exception {
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve secrets from AWS Secrets Manager
         // generate key pair for KEK
         KeyPair keyPair = KeyUtils.generateRsaKeyPair(2048);
         // generate CEK

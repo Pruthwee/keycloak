@@ -58,6 +58,7 @@ public class OrganizationGroupMembershipMapper extends AbstractSAMLProtocolMappe
     public static final String ID = "saml-organization-group-membership-mapper";
     public static final String ADD_GROUP_ROLE_MAPPINGS = "addGroupRoleMappings";
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create() {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
 

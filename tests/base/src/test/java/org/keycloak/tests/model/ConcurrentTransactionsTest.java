@@ -36,6 +36,7 @@ import org.keycloak.testframework.annotations.KeycloakIntegrationTest;
 import org.keycloak.testframework.realm.ManagedRealm;
 import org.keycloak.testframework.remote.annotations.TestOnServer;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.Assertions;
 
@@ -79,6 +80,7 @@ public class ConcurrentTransactionsTest {
                 final CountDownLatch readLatch = new CountDownLatch(1);
                 final CountDownLatch updateLatch = new CountDownLatch(1);
 
+                // Cloud: use bounded ExecutorService instead of unbounded thread creation
                 Thread thread1 = new Thread(() -> {
                     KeycloakModelUtils.runJobInTransaction(sessionFactory, session11 -> {
                         try {
@@ -245,6 +247,7 @@ public class ConcurrentTransactionsTest {
                     }
                 };
 
+                // Cloud: use bounded ExecutorService instead of unbounded thread creation
                 Thread thread1 = new Thread(runnable);
                 Thread thread2 = new Thread(runnable);
 
@@ -279,6 +282,7 @@ public class ConcurrentTransactionsTest {
                 sessionSet.getContext().setRealm(realm);
                 realm.setDefaultRole(sessionSet.roles().addRealmRole(realm, Constants.DEFAULT_ROLES_ROLE_PREFIX + "-" + realm.getName()));
                 RoleModel roleModel = realm.getDefaultRole();
+                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                 roleModel.setSingleAttribute("foo", String.valueOf(System.currentTimeMillis()));
 
             });

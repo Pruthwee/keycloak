@@ -19,6 +19,7 @@ public class SAMLAuthnAuthorityDescriptorParser extends SAMLRoleDecriptorTypePar
         super(SAMLMetadataQNames.AUTHN_AUTHORITY_DESCRIPTOR);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLAuthnAuthorityDescriptorParser getInstance() {
         return INSTANCE;
     }

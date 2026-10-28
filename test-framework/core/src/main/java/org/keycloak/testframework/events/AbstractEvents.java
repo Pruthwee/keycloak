@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.keycloak.common.util.Time;
 import org.keycloak.testframework.realm.ManagedRealm;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.Assertions;
 
@@ -133,6 +134,7 @@ public abstract class AbstractEvents<R> {
     protected abstract Logger getLogger();
 
     protected long getCurrentTime() {
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         return System.currentTimeMillis();
     }
 

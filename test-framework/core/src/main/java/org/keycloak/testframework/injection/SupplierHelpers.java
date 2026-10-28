@@ -80,6 +80,7 @@ public class SupplierHelpers {
         return instanceContext.getRef() != null ? instanceContext.getRef() : "default";
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<Dependency> findAllDependencies(List<Dependency> allDependencies, List<Dependency> dependencies, List<InstanceContext<?, ?>> deployedInstances) {
         for (Dependency dependency : dependencies) {
             if (allDependencies.stream().noneMatch(DependencyPredicates.matches(dependency.valueType(), dependency.ref()))) {

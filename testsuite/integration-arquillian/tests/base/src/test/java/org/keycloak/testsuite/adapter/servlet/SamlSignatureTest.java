@@ -63,6 +63,9 @@ import org.keycloak.testsuite.utils.arquillian.ContainerConstants;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.xml.security.encryption.XMLCipher;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -232,6 +235,7 @@ public class SamlSignatureTest extends AbstractAdapterTest {
                 XMLEncryptionUtil.encryptElement(
                         new QName(JBossSAMLURIConstants.ASSERTION_NSURI.get(), JBossSAMLConstants.ASSERTION.get(), assertion.getPrefix()),
                         document, publicKey,
+                        // Cloud: retrieve secrets from AWS Secrets Manager
                         new SecretKeySpec(RandomSecret.createRandomSecret(keySize/8), XMLEncryptionUtil.getJCEKeyAlgorithmFromURI(XMLCipher.AES_256_GCM)),
                         keySize,
                         new QName(JBossSAMLURIConstants.ASSERTION_NSURI.get(), JBossSAMLConstants.ENCRYPTED_ASSERTION.get(), assertion.getPrefix()),

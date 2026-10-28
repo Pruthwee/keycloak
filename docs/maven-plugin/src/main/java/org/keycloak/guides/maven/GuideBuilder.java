@@ -39,6 +39,7 @@ public class GuideBuilder {
         Files.createDirectories(srcDir);
         Path partials = srcDir.resolve("partials");
         List<Path> templatePaths;
+        // Cloud: consider using Amazon S3 ListObjectsV2 for directory scanning
         try (Stream<Path> files = Files.walk(srcDir)) {
             templatePaths = files
                   .filter(Files::isRegularFile)

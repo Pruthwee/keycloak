@@ -33,6 +33,7 @@ import org.keycloak.storage.UserStorageProvider;
 import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.commons.configuration2.convert.DisabledListDelimiterHandler;
 import org.apache.commons.configuration2.io.FileHandler;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -110,6 +111,7 @@ public class LDAPTestConfiguration {
 
     public static String getResource(String resourcePath) {
         URL urlPath = LDAPTestConfiguration.class.getResource(resourcePath);
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         String absolutePath = new File(urlPath.getFile()).getAbsolutePath();
         return absolutePath;
     }

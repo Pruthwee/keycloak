@@ -48,6 +48,7 @@ public class ThemeVerifierMojo extends AbstractMojo {
         List<String> messages = new ArrayList<>();
         while (resources.hasNext()) {
             Resource resource = resources.next();
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             File dir = new File(resource.getDirectory());
             Iterator<File> fileIterator = FileUtils.iterateFiles(dir, MessagePropertiesFilter.INSTANCE, DirectoryFileFilter.INSTANCE);
             while (fileIterator.hasNext()) {

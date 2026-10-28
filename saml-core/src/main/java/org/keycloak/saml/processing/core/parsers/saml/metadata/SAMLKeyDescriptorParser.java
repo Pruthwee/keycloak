@@ -21,6 +21,7 @@ public class SAMLKeyDescriptorParser extends AbstractStaxSamlMetadataParser<KeyD
         super(KEY_DESCRIPTOR);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLKeyDescriptorParser getInstance() {
         return INSTANCE;
     }

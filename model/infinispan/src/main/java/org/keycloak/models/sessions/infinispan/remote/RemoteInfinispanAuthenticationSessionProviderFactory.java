@@ -33,6 +33,7 @@ import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.models.sessions.infinispan.InfinispanAuthenticationSessionProviderFactory;
 import org.keycloak.models.sessions.infinispan.changes.remote.remover.query.ByRealmIdQueryConditionalRemover;
 import org.keycloak.models.sessions.infinispan.changes.remote.updater.UpdaterFactory;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.keycloak.models.sessions.infinispan.changes.remote.updater.authsession.RootAuthenticationSessionUpdater;
 import org.keycloak.models.sessions.infinispan.entities.RootAuthenticationSessionEntity;
 import org.keycloak.models.sessions.infinispan.remote.transaction.AuthenticationSessionChangeLogTransaction;
@@ -46,6 +47,7 @@ import org.keycloak.provider.ServerInfoAwareProviderFactory;
 import org.keycloak.sessions.AuthenticationSessionProviderFactory;
 
 import org.infinispan.client.hotrod.RemoteCache;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.infinispan.util.concurrent.BlockingManager;
 import org.jboss.logging.Logger;
 

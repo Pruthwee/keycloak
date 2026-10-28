@@ -27,6 +27,8 @@ import java.util.Queue;
 import org.keycloak.testsuite.page.AbstractPage;
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.context.GrapheneContext;
 import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebDriver;

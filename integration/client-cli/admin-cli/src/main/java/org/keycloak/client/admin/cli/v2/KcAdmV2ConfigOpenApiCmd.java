@@ -71,6 +71,7 @@ class KcAdmV2ConfigOpenApiCmd implements Runnable {
         if (isUrl(source)) {
             descriptor = fetchDescriptorFromUrl(source);
         } else {
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             File file = new File(source);
             if (!file.isFile()) {
                 throw new RuntimeException("Not a valid URL (must start with http:// or https://) and no file found at: " + source);

@@ -33,6 +33,7 @@ import org.keycloak.representations.idm.ComponentRepresentation;
 import org.keycloak.storage.OnCreateComponent;
 import org.keycloak.storage.OnUpdateComponent;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -42,6 +43,7 @@ public class ComponentUtil {
 
     private static final Logger logger = Logger.getLogger(ComponentUtil.class);
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, ProviderConfigProperty> getComponentConfigProperties(KeycloakSession session, ComponentRepresentation component) {
         return getComponentConfigProperties(session, component.getProviderType(), component.getProviderId());
     }

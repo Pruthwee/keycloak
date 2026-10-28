@@ -50,6 +50,7 @@ public class FolderTheme extends FileBasedTheme {
         this.type = type;
         this.properties = new Properties();
 
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File propertiesFile = new File(themeDir, "theme.properties");
         if (propertiesFile.isFile()) {
             try (InputStream stream = Files.newInputStream(propertiesFile.toPath())) {

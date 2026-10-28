@@ -57,6 +57,7 @@ public class ResetPasswordTest {
     protected static final String IDP_CLIENT_SECRET = "test-idp-secret";
     protected static final String USER_LOGIN = "testuser";
     protected static final String USER_EMAIL = "spam@vnagy.eu";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     protected static final String USER_PASSWORD = "password";
     protected static final String BROKER_APP_CLIENT_ID = "broker-app";
     protected static final String BASE_URL = "http://localhost:8080";

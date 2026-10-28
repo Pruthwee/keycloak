@@ -34,6 +34,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
  */
 public class OutputUtil {
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ObjectMapper MAPPER = new ObjectMapper();
 
     static {

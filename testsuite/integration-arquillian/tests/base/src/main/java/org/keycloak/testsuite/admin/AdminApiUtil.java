@@ -25,6 +25,7 @@ import org.keycloak.representations.idm.RequiredActionProviderRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.representations.idm.CredentialRepresentation.PASSWORD;
@@ -73,6 +74,7 @@ public class AdminApiUtil {
         return client.roles().get(role);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperRepresentation findProtocolMapperByName(ClientResource client, String name) {
         for (ProtocolMapperRepresentation p : client.getProtocolMappers().getMappers()) {
             if (p.getName().equals(name)) {

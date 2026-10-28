@@ -33,6 +33,7 @@ import org.infinispan.factories.ComponentRegistry;
 import org.infinispan.manager.EmbeddedCacheManager;
 import org.infinispan.persistence.manager.PersistenceManager;
 import org.infinispan.persistence.remote.RemoteStore;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -45,6 +46,7 @@ public class InfinispanSessionCacheIdMapperUpdater {
 
     public static final String DEFAULT_CACHE_CONTAINER_JNDI_NAME = "java:jboss/infinispan/container";
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static SessionIdMapperUpdater addTokenStoreUpdaters(ServletContext servletContext, SessionIdMapper mapper, SessionIdMapperUpdater previousIdMapperUpdater) {
         String containerName = servletContext.getInitParameter(AdapterConstants.REPLICATION_CONFIG_CONTAINER_PARAM_NAME);
         String cacheName = servletContext.getInitParameter(AdapterConstants.REPLICATION_CONFIG_SSO_CACHE_PARAM_NAME);

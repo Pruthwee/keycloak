@@ -59,6 +59,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @KeycloakIntegrationTest(config = DefaultAuthzServicesServerConfig.class)
 public class GroupPolicyTest {
 
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PASSWORD = "password";
     private static final String NESTED_USER = "nested-user";
     private static final String ROOT_USER = "root-user";

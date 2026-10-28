@@ -62,6 +62,7 @@ public class ArtifactBindingWithResolutionServiceTest extends AbstractSamlTest {
                 SamlClient.Binding.POST, builder);
 
         ArtifactResolutionService ars = new ArtifactResolutionService("http://127.0.0.1:8082/").setResponseDocument(doc);
+        // Cloud: use bounded ExecutorService instead of unbounded thread creation
         Thread arsThread = new Thread(ars);
         try {
             synchronized (ars) {

@@ -19,6 +19,7 @@ package org.keycloak.testsuite.arquillian.container;
 
 import java.util.List;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.shrinkwrap.descriptor.spi.node.Node;
 
 /**

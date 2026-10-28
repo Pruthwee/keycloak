@@ -71,6 +71,7 @@ public class MdocIssuerSignedDocumentTest {
         return Base64.getUrlEncoder().withoutPadding().encodeToString(CborUtil.encode(issuerSigned));
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, Object> namespaces() {
         Map<String, Object> namespaceClaims = new LinkedHashMap<>();
         namespaceClaims.put(NAMESPACE, Arrays.asList(

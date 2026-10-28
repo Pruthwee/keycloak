@@ -14,6 +14,7 @@ public class ParameterizedScopeAudienceMapper extends ParameterizedScopeMapper {
 
     public static final String PROVIDER_ID = "oidc-parameterized-scope-audience-mapper";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {
@@ -48,6 +49,7 @@ public class ParameterizedScopeAudienceMapper extends ParameterizedScopeMapper {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel createClaimMapper(String name, boolean accessToken, boolean idToken, boolean introspectionEndpoint) {
         ProtocolMapperModel mapper = new ProtocolMapperModel();
         mapper.setName(name);

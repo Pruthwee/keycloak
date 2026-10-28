@@ -257,6 +257,8 @@ public class KcOIDCBrokerWithSignatureTest extends AbstractBaseBrokerTest {
         cfg.setValidateSignature(true);
         cfg.setUseJwksUrl(false);
 
+        // Cloud: retrieve secrets from AWS Secrets Manager
+        // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
         String base64secret = Base64Url.encode("01234567890123456789012345678912".getBytes(StandardCharsets.UTF_8));
         createHSKey(Algorithm.HS512, "32", base64secret);
         cfg.setPublicKeySignatureVerifier(base64secret);
@@ -563,6 +565,7 @@ public class KcOIDCBrokerWithSignatureTest extends AbstractBaseBrokerTest {
         keys.setParentId(realmId);
         MultivaluedHashMap<String, String> config = new MultivaluedHashMap<>(extra);
         keys.setConfig(config);
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         config.putSingle("priority", Long.toString(System.currentTimeMillis()));
         config.putSingle("algorithm", algorithm);
         return keys;

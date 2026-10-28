@@ -41,6 +41,7 @@ import org.keycloak.userprofile.UserProfileContext;
 import com.google.common.collect.ImmutableMap;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.Rule;
 import org.junit.Test;

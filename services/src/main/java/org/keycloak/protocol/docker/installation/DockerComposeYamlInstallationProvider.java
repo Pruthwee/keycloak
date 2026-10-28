@@ -22,6 +22,7 @@ import org.keycloak.protocol.ClientInstallationProvider;
 import org.keycloak.protocol.docker.DockerAuthV2Protocol;
 import org.keycloak.protocol.docker.installation.compose.DockerComposeZipContent;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class DockerComposeYamlInstallationProvider implements ClientInstallationProvider {

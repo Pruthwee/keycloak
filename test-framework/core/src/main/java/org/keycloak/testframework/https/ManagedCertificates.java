@@ -30,8 +30,10 @@ import org.apache.http.ssl.SSLContextBuilder;
  */
 public class ManagedCertificates {
 
+    // Cloud: use Amazon S3 for persistent intermediate data instead of local temp storage
     private final static Path KEYSTORES_DIR = Path.of(System.getProperty("java.io.tmpdir"));
 
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String STORE_PASSWORD = "mysuperstrongstorepassword";
     private static final char[] STORE_PASSWORD_CHARS = STORE_PASSWORD.toCharArray();
 
@@ -247,6 +249,7 @@ public class ManagedCertificates {
     }
 
     private void save(KeyStore store, Path storePath) throws CertificateException, KeyStoreException, IOException, NoSuchAlgorithmException {
+        // Cloud: consider using Amazon S3 for durable storage instead of local file writes
         try (FileOutputStream fos = new FileOutputStream(storePath.toFile())) {
             store.store(fos, STORE_PASSWORD_CHARS);
         }

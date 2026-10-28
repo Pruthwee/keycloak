@@ -133,6 +133,7 @@ public class LoggingDistTest {
     @Launch({ "start-dev", "--log=console,file"})
     void testKeycloakLogFileCreated(RawDistRootPath path) {
         Path logFilePath = Paths.get(path.getDistRootPath() + File.separator + LoggingOptions.DEFAULT_LOG_PATH);
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File logFile = new File(logFilePath.toString());
         assertTrue(logFile.isFile(), "Log file does not exist!");
     }

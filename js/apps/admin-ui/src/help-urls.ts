@@ -1,4 +1,5 @@
 const adminGuide =
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
   "https://www.keycloak.org/docs/latest/server_admin/index.html";
 
 const keycloakHomepageURL = "https://www.keycloak.org";

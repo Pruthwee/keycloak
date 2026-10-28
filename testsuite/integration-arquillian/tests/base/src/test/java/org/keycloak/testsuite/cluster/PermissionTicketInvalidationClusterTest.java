@@ -17,6 +17,7 @@
 
 package org.keycloak.testsuite.cluster;
 
+// Cloud: replace ThreadLocal with request-scoped beans for cloud environments
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.keycloak.authorization.AuthorizationProvider;

@@ -48,6 +48,7 @@ import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ProviderConfigurationBuilder;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -112,6 +113,7 @@ public class FileTruststoreProviderFactory implements TruststoreProviderFactory 
                 }
             }
             if (truststore == null) {
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 throw new RuntimeException("Failed to initialize TruststoreProviderFactory: " + new File(storepath).getAbsolutePath() + ", truststore type: " + type, e);
             }
         }

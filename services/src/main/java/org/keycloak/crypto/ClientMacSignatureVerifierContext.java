@@ -34,6 +34,7 @@ public class ClientMacSignatureVerifierContext extends MacSignatureVerifierConte
         if (algorithm == null) algorithm = Algorithm.HS256;
         String secretRef = client.getSecret();
         String clientSecretString = session.vault().getStringSecret(secretRef).get().orElse(secretRef);
+        // Cloud: retrieve secrets from AWS Secrets Manager
         SecretKey clientSecret = new SecretKeySpec(clientSecretString.getBytes(StandardCharsets.UTF_8), JavaAlgorithm.getJavaAlgorithm(algorithm));
         KeyWrapper key = new KeyWrapper();
         key.setSecretKey(clientSecret);

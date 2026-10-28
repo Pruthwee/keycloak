@@ -114,6 +114,7 @@ public class Assert extends Assertions {
      * then assertMap(config, "key1", "value1", "key2", "value2" will return true
      *
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void assertMap(Map<String, String> config, String... expected) {
         if (expected == null) {
             expected = new String[] {};

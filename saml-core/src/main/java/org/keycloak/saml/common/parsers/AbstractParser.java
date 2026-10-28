@@ -51,6 +51,7 @@ public abstract class AbstractParser implements StaxParser {
 
     protected static final PicketLinkLogger logger = PicketLinkLoggerFactory.getLogger();
 
+    // Cloud: replace ThreadLocal with request-scoped beans for cloud environments
     private static final ThreadLocal<XMLInputFactory> XML_INPUT_FACTORY = new ThreadLocal<XMLInputFactory>() {
         @Override
         protected XMLInputFactory initialValue() {

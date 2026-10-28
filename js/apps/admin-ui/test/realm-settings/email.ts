@@ -54,6 +54,7 @@ export async function assertEmailPageWithPasswordAuth(page: Page) {
 
 export async function populateEmailPageWithTokenAuth(page: Page) {
   await getAuthTypeToken(page).check();
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
   await getAuthTokenUrl(page).fill("https://auth.token.url");
   await getAuthTokenScope(page).fill("scope");
   await getAuthTokenClientId(page).fill("client-id");

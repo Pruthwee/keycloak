@@ -26,6 +26,7 @@ import org.keycloak.common.crypto.PemUtilsProvider;
 import org.keycloak.common.util.DerUtils;
 import org.keycloak.common.util.PemException;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

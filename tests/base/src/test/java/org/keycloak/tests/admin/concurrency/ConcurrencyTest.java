@@ -147,6 +147,7 @@ public class ConcurrencyTest extends AbstractConcurrencyTest {
 
     public void concurrentTest(KeycloakRunnable... tasks) throws Throwable {
         System.out.println("***************************");
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         long start = System.currentTimeMillis();
         run(tasks);
         long end = System.currentTimeMillis() - start;

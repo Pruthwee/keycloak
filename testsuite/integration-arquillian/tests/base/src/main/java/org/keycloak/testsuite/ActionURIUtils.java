@@ -47,6 +47,7 @@ public class ActionURIUtils {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, String> parseQueryParamsFromActionURI(String actionURI) {
         Matcher m = QUERY_STRING_PATTERN.matcher(actionURI);
         if (m.find()) {

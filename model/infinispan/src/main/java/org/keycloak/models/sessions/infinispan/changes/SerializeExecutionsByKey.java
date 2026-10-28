@@ -20,6 +20,7 @@ package org.keycloak.models.sessions.infinispan.changes;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -36,6 +37,7 @@ public class SerializeExecutionsByKey<K> {
     public void runSerialized(K key, Runnable task) {
         // this locking is only to ensure that if there is a computation for the same id in the "synchronized" block below,
         // it will have the same object instance to lock the current execution until the other is finished.
+        // Cloud: consider using Amazon ElastiCache for Redis with TTL for distributed caching
         ReentrantLock lock = cacheInteractions.computeIfAbsent(key, s -> new ReentrantLock());
         try {
             lock.lock();

@@ -33,6 +33,7 @@ import io.undertow.server.handlers.PathHandler;
 import io.undertow.util.HeaderMap;
 import io.undertow.util.Headers;
 import org.apache.commons.io.IOUtils;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.rules.ExternalResource;
 
@@ -136,6 +137,7 @@ public class CRLRule extends ExternalResource {
 
             counter++;
             String fullFile = AbstractX509AuthenticationTest.getAuthServerHome() + File.separator + crlFileName;
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             InputStream is = new FileInputStream(new File(fullFile));
 
             final byte[] responseBytes = IOUtils.toByteArray(is);

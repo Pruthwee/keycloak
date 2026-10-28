@@ -8,6 +8,7 @@ import { FormFields } from "../ClientDetails";
 export const SamlEncryption = () => {
   const { t } = useTranslation();
   const { watch, setValue } = useFormContext();
+  // Cloud: externalize URL to AWS Systems Manager Parameter Store
   const ALGORITHM_RSA_OAEP = "http://www.w3.org/2009/xmlenc11#rsa-oaep";
   const ALGORITHM_RSA_OAEP_MGF1P =
     "http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p";

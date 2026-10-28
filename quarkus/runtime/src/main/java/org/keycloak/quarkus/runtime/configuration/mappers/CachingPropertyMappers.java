@@ -259,6 +259,7 @@ final class CachingPropertyMappers implements PropertyMapperGrouping {
 
     private static void checkValidKeystore(String store, Option<String> option, Option<String> requiredOption) {
         checkOptionPresent(option, requiredOption);
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         if (!new File(store).exists()) {
             throw new IllegalArgumentException("The '%s' file '%s' does not exist.".formatted(option.getKey(), store));
         }

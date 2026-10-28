@@ -86,6 +86,7 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -127,6 +128,8 @@ public class LightWeightAccessTokenTest extends AbstractClientPoliciesTest {
 
     protected ManagedRealm managedRealm = new ManagedRealm(this, REALM_NAME);
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static String RESOURCE_SERVER_CLIENT_ID = "resource-server";
     private static String RESOURCE_SERVER_CLIENT_PASSWORD = "password";
     @Before

@@ -34,6 +34,7 @@ import org.keycloak.testsuite.AbstractAuthTest;
 import org.keycloak.testsuite.auth.page.AuthRealm;
 import org.keycloak.testsuite.federation.DummyUserFederationProviderFactory;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -100,6 +101,7 @@ public class SyncFederationTest extends AbstractAuthTest {
 
             // This sync is here just to ensure that we have lock (doublecheck that periodic sync, which was possibly triggered before canceling timer is finished too)
             while (true) {
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
                 SynchronizationResult result = UserStoragePrivateUtil.runPeriodicSync(session.getKeycloakSessionFactory(), dummyModel);
                 if (result.isIgnored()) {
                     log.infof("Still waiting for lock before periodic sync is finished: %s", result.toString());

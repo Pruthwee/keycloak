@@ -92,6 +92,7 @@ public class Organizations {
      * @param idp the identity provider owning the mapper
      * @param mapper the mapper to validate
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static void validateGroupMapperOrganization(KeycloakSession session, IdentityProviderModel idp, IdentityProviderMapperModel mapper) {
         Map<String, String> config = mapper.getConfig();
 

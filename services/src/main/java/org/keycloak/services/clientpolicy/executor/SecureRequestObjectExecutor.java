@@ -36,6 +36,7 @@ import org.keycloak.services.clientpolicy.context.AuthorizationRequestContext;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static org.keycloak.OAuthErrorException.INVALID_REQUEST_OBJECT;

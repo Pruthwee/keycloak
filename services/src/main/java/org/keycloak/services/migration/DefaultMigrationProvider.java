@@ -145,6 +145,7 @@ public class DefaultMigrationProvider implements MigrationProvider {
 
     // With change to client scopes, there are not default protocolMappers dedicated to single client anymore. Instead, there are default client scopes
     // and mappers dedicated to those scopes. So returning empty map for now
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, ProtocolMapperRepresentation> getAllDefaultMappers(KeycloakSession session) {
         return Collections.emptyMap();
     }

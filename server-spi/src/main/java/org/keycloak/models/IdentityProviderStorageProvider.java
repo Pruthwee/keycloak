@@ -263,6 +263,7 @@ public interface IdentityProviderStorageProvider extends Provider {
             return filter;
         }
 
+        // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
         public static Map<String, String> getLoginSearchOptions() {
             return Stream.of(values()).collect(Collectors.toMap(LoginFilter::getKey, LoginFilter::getValue, (v1, v2) -> v1, LinkedHashMap::new));
         }

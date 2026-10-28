@@ -27,6 +27,7 @@ import java.util.Set;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.ptr.PointerByReference;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jvnet.libpam.impl.CLibrary.passwd;
 import org.jvnet.libpam.impl.PAMLibrary.pam_conv;

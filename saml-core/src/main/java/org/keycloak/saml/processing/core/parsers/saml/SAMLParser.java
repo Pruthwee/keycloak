@@ -94,6 +94,7 @@ public class SAMLParser extends AbstractParser {
 
     private static final SAMLParser INSTANCE = new SAMLParser();
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLParser getInstance() {
         return INSTANCE;
     }

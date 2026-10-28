@@ -29,6 +29,7 @@ public final class LdapHelper {
      * @param importEnabled specify if LDAP provider will have import enabled
      * @return ID of newly created provider
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static FetchOnServer createLDAPProvider(Map<String,String> ldapCfg, boolean importEnabled) {
         return session -> {
             MultivaluedHashMap<String, String> ldapConfig = toComponentConfig(ldapCfg);

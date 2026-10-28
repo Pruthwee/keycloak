@@ -37,6 +37,7 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.theme.Theme;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -59,6 +60,7 @@ public class LocaleUtil {
                     authSession.setAuthNote(LocaleSelectorProvider.USER_REQUEST_LOCALE, locale);
                 } else {
                     // Might be on info/error page when we don't have authenticationSession
+                    // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
                     session.setAttribute(LocaleSelectorProvider.USER_REQUEST_LOCALE, locale);
                 }
 

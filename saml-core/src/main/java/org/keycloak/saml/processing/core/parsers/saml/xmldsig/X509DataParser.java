@@ -37,6 +37,7 @@ public class X509DataParser extends AbstractStaxXmlDSigParser<X509DataType> {
         super(XmlDSigQNames.X509_DATA);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static X509DataParser getInstance() {
         return INSTANCE;
     }

@@ -48,6 +48,7 @@ import org.keycloak.rar.AuthorizationRequestContext;
 import org.keycloak.rar.AuthorizationRequestSource;
 import org.keycloak.util.TokenUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -86,6 +87,7 @@ public class DefaultClientSessionContext implements ClientSessionContext {
         this.clientSession = clientSession;
         this.requestedScopeString = requestedScopeString;
         this.session = session;
+        // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
         this.session.setAttribute(ClientSessionContext.class.getName(), this);
     }
 

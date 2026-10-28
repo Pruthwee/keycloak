@@ -786,6 +786,7 @@ public class UserManagedAccessTest extends AbstractResourceServerTest {
 
                 String requesterId = session.users().getUserByUsername(realm, requesterUsername).getId();
                 PermissionTicket ticket = sf.getPermissionTicketStore().create(rs, resource, scope, requesterId);
+                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                 ticket.setGrantedTimestamp(System.currentTimeMillis());
             };
         }

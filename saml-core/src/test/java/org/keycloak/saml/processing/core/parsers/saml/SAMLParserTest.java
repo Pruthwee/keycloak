@@ -1038,6 +1038,7 @@ public class SAMLParserTest {
                     break;
                 case "organization_id":
                     assertThat(value, instanceOf(String.class));
+                    // Cloud: replace FTP with Amazon S3 Transfer Acceleration and presigned URLs
                     assertThat((String) value, containsString("<n3:stuff xmlns:n3=\"ftp://example.org\">00DD0000000F7L5</n3:stuff>"));
                     break;
                 case "has_sub_organization":

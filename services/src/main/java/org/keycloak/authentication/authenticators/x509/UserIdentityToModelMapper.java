@@ -78,6 +78,7 @@ public abstract class UserIdentityToModelMapper {
         }
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static UserIdentityToModelMapper getUsernameOrEmailMapper() {
         return new UsernameOrEmailMapper();
     }

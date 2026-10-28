@@ -11,6 +11,7 @@ import org.keycloak.common.Profile;
 import org.infinispan.configuration.global.TransportConfiguration;
 import org.infinispan.manager.EmbeddedCacheManager;
 import org.infinispan.test.TestingUtil;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jgroups.Address;
 import org.jgroups.JChannel;

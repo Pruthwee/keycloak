@@ -36,6 +36,7 @@ public class SAMLExtensionsParser extends AbstractStaxSamlProtocolParser<Extensi
         super(SAMLProtocolQNames.EXTENSIONS);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLExtensionsParser getInstance() {
         return INSTANCE;
     }

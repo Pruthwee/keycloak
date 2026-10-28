@@ -131,6 +131,7 @@ public abstract class AbstractKcSamlMetadataBrokerTest extends AbstractBrokerTes
         keys.setProviderId(providerId);
         keys.setParentId(realmId);
         keys.setConfig(new MultivaluedHashMap<>());
+        // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
         keys.getConfig().putSingle("priority", Long.toString(System.currentTimeMillis()));
         keys.getConfig().putSingle("algorithm", algorithm);
         return keys;

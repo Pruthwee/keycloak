@@ -25,6 +25,7 @@ public class ParameterizedScopeMapper extends AbstractOIDCProtocolMapper
 
     public static final String PROVIDER_ID = "oidc-parameterized-scope-mapper";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
 
     static {
@@ -123,6 +124,7 @@ public class ParameterizedScopeMapper extends AbstractOIDCProtocolMapper
         return Profile.isFeatureEnabled(Profile.Feature.PARAMETERIZED_SCOPES);
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static ProtocolMapperModel create(String name, String tokenClaimName, String claimType,
                                               boolean accessToken, boolean idToken, boolean introspectionEndpoint) {
         ProtocolMapperModel mapper = OIDCAttributeMapperHelper.createClaimMapper(

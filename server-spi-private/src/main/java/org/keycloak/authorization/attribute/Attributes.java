@@ -125,6 +125,7 @@ public interface Attributes {
 
         public Date asDate(int idx, String pattern) {
             try {
+                // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
                 return new SimpleDateFormat(pattern).parse(asString(idx));
             } catch (ParseException e) {
                 throw new RuntimeException("Error parsing date.", e);

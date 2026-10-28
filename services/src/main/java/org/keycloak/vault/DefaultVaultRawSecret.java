@@ -18,6 +18,7 @@ package org.keycloak.vault;
 
 import java.nio.ByteBuffer;
 import java.util.Optional;
+// Cloud: replace ThreadLocal with request-scoped beans for cloud environments
 import java.util.concurrent.ThreadLocalRandom;
 
 /**

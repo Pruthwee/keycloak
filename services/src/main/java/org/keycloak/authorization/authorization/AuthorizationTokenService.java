@@ -100,6 +100,7 @@ import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.sessions.RootAuthenticationSessionModel;
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -114,6 +115,7 @@ public class AuthorizationTokenService {
     private static final String RESPONSE_MODE_DECISION = "decision";
     private static final String RESPONSE_MODE_PERMISSIONS = "permissions";
     private static final String RESPONSE_MODE_DECISION_RESULT = "result";
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static Map<String, BiFunction<KeycloakAuthorizationRequest, AuthorizationProvider, Identity>> CLAIM_TOKEN_FORMAT_HANDLERS;
 
     static {

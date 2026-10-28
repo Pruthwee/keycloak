@@ -34,6 +34,7 @@ import org.keycloak.urls.UrlType;
 import org.keycloak.wellknown.WellKnownProvider;
 
 import org.apache.http.HttpHeaders;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

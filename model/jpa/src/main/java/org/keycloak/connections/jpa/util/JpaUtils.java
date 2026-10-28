@@ -47,6 +47,7 @@ import org.hibernate.jpa.boot.internal.ParsedPersistenceXmlDescriptor;
 import org.hibernate.jpa.boot.spi.Bootstrap;
 import org.hibernate.jpa.boot.spi.PersistenceUnitDescriptor;
 import org.hibernate.jpa.boot.spi.PersistenceXmlParser;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -77,6 +78,7 @@ public class JpaUtils {
         return (schema==null) ? tableName : identifierHelper.toIdentifier(schema).render(dialect) + "." + tableName;
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ParsedPersistenceXmlDescriptor> transformPersistenceUnits(Collection<PersistenceUnitDescriptor> descriptors) {
         return descriptors.stream().map(descriptor -> (ParsedPersistenceXmlDescriptor) descriptor).collect(Collectors.toList());
     }

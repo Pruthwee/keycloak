@@ -37,6 +37,7 @@ public final class ReloadCertificateFunction implements Function<EmbeddedCacheMa
     private ReloadCertificateFunction() {}
 
     @ProtoFactory
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static ReloadCertificateFunction getInstance() {
         return INSTANCE;
     }

@@ -28,6 +28,7 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.utils.MediaType;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -67,6 +68,7 @@ public abstract class BrowserHistoryHelper {
 
 
     // Always rely on javascript for now
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static BrowserHistoryHelper getInstance() {
         return new JavascriptHistoryReplace();
         //return new RedirectAfterPostHelper();

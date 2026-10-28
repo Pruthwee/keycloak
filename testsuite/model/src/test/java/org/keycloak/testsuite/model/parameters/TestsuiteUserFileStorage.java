@@ -48,6 +48,7 @@ public class TestsuiteUserFileStorage extends KeycloakModelParameters {
 
     static {
         try {
+            // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
             CONFIG_DIR = new File(TestsuiteUserFileStorage.class.getClassLoader().getResource("file-storage-provider").toURI());
         } catch (URISyntaxException e) {
             throw new RuntimeException("Cannot get resource directory");

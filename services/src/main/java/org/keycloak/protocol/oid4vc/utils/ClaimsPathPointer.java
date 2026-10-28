@@ -25,6 +25,7 @@ import java.util.Objects;
 import org.keycloak.protocol.oid4vc.model.ClaimsDescription;
 import org.keycloak.utils.StringUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -178,6 +179,7 @@ public class ClaimsPathPointer {
      * @return filtered map containing only the requested claims
      * @throws IllegalArgumentException if mandatory claims are missing
      */
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     public static Map<String, Object> filterClaimsByAuthorizationDetails(
             Map<String, Object> allClaims,
             List<ClaimsDescription> requestedClaims) {

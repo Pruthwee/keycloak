@@ -29,6 +29,8 @@ test.describe.serial("JWT Authorization Grant identity provider test", () => {
     await createJwtAuthorizationGrantProvider(
       page,
       "jwt-authorization-grant",
+      // Cloud: externalize URL to AWS Systems Manager Parameter Store
+      // Cloud: externalize URL to AWS Systems Manager Parameter Store
       "https://localhost/realms/test",
       "https://localhost/realms/test/protocol/openid-connect/certs",
     );

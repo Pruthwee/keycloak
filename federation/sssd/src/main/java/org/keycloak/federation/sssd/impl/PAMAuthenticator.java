@@ -17,6 +17,7 @@
 
 package org.keycloak.federation.sssd.impl;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jvnet.libpam.PAM;
 import org.jvnet.libpam.PAMException;

@@ -87,6 +87,7 @@ public class KcAdmV2Cmd extends AbstractTargetAuthOptionsCmd {
         out.println("Use '" + CMD + " " + V2_FLAG + " <command> --help' for more information about a command.");
         out.println("Find more information at: https://www.keycloak.org/docs/latest");
         System.exit(CommandLine.ExitCode.OK);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> { /* graceful shutdown */ }));
     }
 
     @Override

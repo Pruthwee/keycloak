@@ -63,6 +63,7 @@ public class FederatedStorageExportImportTest extends AbstractAuthTest {
 
     @Before
     public void setDirs() {
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File baseDir = new File(System.getProperty("auth.server.config.dir", "target"));
 
         exportFileAbsolutePath = new File (baseDir, "singleFile-full.json").getAbsolutePath();

@@ -51,6 +51,7 @@ import org.keycloak.testsuite.util.SamlClient.Binding;
 import org.keycloak.testsuite.util.SamlClientBuilder;
 import org.keycloak.testsuite.utils.io.IOUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Test;
@@ -83,6 +84,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class KcSamlIdPInitiatedSsoTest extends AbstractKeycloakTest {
 
     private static final String PROVIDER_REALM_USER_NAME = "test";
+    // Cloud: retrieve secrets from AWS Secrets Manager
+    // Cloud: retrieve credentials from AWS Secrets Manager instead of hard-coded values
     private static final String PROVIDER_REALM_USER_PASSWORD = "test";
 
     private static final String CONSUMER_CHOSEN_USERNAME = "mytest";

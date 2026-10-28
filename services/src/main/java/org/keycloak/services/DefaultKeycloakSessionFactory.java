@@ -53,6 +53,7 @@ import org.keycloak.provider.Spi;
 import org.keycloak.services.resources.admin.fgap.AdminPermissions;
 import org.keycloak.theme.ThemeManagerFactory;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public abstract class DefaultKeycloakSessionFactory implements KeycloakSessionFactory {
@@ -65,6 +66,7 @@ public abstract class DefaultKeycloakSessionFactory implements KeycloakSessionFa
     protected CopyOnWriteArrayList<ProviderEventListener> listeners = new CopyOnWriteArrayList<>();
 
     // TODO: Likely should be changed to int and use Time.currentTime() to be compatible with all our "time" reps
+    // UTC: use java.time.Instant.now() for UTC-based time in cloud deployments
     protected long serverStartupTimestamp = System.currentTimeMillis();
 
     protected ComponentFactoryProviderFactory componentFactoryPF;

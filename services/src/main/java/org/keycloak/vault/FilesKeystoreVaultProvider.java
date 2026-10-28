@@ -16,6 +16,7 @@ import java.util.Optional;
 
 import jakarta.annotation.Nonnull;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class FilesKeystoreVaultProvider extends AbstractVaultProvider {

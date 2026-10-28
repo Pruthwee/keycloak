@@ -5,6 +5,7 @@ import java.util.List;
 import org.keycloak.representations.idm.EventRepresentation;
 import org.keycloak.testframework.realm.ManagedRealm;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 public class Events extends AbstractEvents<EventRepresentation> {

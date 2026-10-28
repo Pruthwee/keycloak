@@ -38,6 +38,7 @@ public class SAMLExtensionsParser extends AbstractStaxSamlMetadataParser<Extensi
         super(SAMLMetadataQNames.EXTENSIONS);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLExtensionsParser getInstance() {
         return INSTANCE;
     }

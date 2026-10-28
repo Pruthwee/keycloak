@@ -47,6 +47,7 @@ public class GroupAndCountCollectorSupplier<T> implements Supplier<Collector<T, 
 
     @ProtoFactory
     @SuppressWarnings("unchecked")
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static <T1> GroupAndCountCollectorSupplier<T1> getInstance() {
         return (GroupAndCountCollectorSupplier<T1>) INSTANCE;
     }

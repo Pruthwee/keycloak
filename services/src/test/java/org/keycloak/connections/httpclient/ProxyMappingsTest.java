@@ -46,6 +46,7 @@ public class ProxyMappingsTest {
     ".*\\.facebook\\.com;http://proxy2:8080" //
   );
 
+  // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
   private static final List<String> MAPPINGS_WITH_FALLBACK = new ArrayList<>();
 
   private static final List<String> MAPPINGS_WITH_FALLBACK_AND_PROXY_EXCEPTION = new ArrayList<>();

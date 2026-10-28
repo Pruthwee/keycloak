@@ -43,6 +43,7 @@ public class SAMLArtifactResponseParser extends SAMLStatusResponseTypeParser<Art
         super(SAMLProtocolQNames.ARTIFACT_RESPONSE);
     }
 
+    // Cloud: consider using AWS DynamoDB for shared singleton state
     public static SAMLArtifactResponseParser getInstance() {
         return INSTANCE;
     }

@@ -32,6 +32,7 @@ public class ClientUpdaterSourceRolesConditionFactory extends AbstractClientPoli
 
     public static final String ROLES = "roles";
 
+    // Cloud: use Amazon ElastiCache for Redis with LRU eviction for bounded collections
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<ProviderConfigProperty>();
 
     static {

@@ -60,6 +60,7 @@ public class RequestContextHelper {
             return ctxHelper;
         } else {
             ctxHelper = new RequestContextHelper(session);
+            // Cloud: consider using Amazon ElastiCache for Redis for distributed session storage
             session.setAttribute(SESSION_ATTRIBUTE, ctxHelper);
             return ctxHelper;
         }

@@ -202,6 +202,7 @@ public class IgnoredArtifactsTest extends AbstractConfigurationTest {
     }
 
     private Profile getProfileWithEnabledFeature(Profile.Feature feature) {
+        // Cloud: retrieve configuration from AWS Systems Manager Parameter Store
         Properties properties = new Properties();
         properties.setProperty("keycloak.profile.feature.%s".formatted(feature.name().toLowerCase()), "enabled");
         return Profile.configure(new PropertiesProfileConfigResolver(properties));

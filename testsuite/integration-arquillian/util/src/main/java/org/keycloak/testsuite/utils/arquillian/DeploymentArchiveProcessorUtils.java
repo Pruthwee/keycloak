@@ -27,6 +27,12 @@ import org.keycloak.representations.adapters.config.AdapterConfig;
 import org.keycloak.testsuite.utils.io.IOUtil;
 import org.keycloak.util.JsonSerialization;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.Node;
@@ -62,6 +68,7 @@ public class DeploymentArchiveProcessorUtils {
     public static final String JBOSS_DEPLOYMENT_XML_PATH = "/WEB-INF/jboss-deployment-structure.xml";
     public static final String SAML_ADAPTER_CONFIG_PATH_TENANT1 = "/WEB-INF/classes/tenant1-keycloak-saml.xml";
     public static final String SAML_ADAPTER_CONFIG_PATH_TENANT2 = "/WEB-INF/classes/tenant2-keycloak-saml.xml";
+    // Cloud: retrieve secrets from AWS Secrets Manager
     public static final String TRUSTSTORE_PASSWORD = "secret";
     public static final Collection<String> SAML_CONFIGS = Arrays.asList(SAML_ADAPTER_CONFIG_PATH,
             SAML_ADAPTER_CONFIG_PATH_TENANT1, SAML_ADAPTER_CONFIG_PATH_TENANT2);
@@ -94,6 +101,7 @@ public class DeploymentArchiveProcessorUtils {
                 adapterConfig.setTruststorePassword(TRUSTSTORE_PASSWORD);
 
                 String truststoreUrl = System.getProperty("dependency.keystore.root", "") + "/keycloak.truststore";
+                // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
                 File truststore = new File(truststoreUrl);
 
                 if (!truststore.exists()) {

@@ -111,6 +111,7 @@ public class AssertionUtilTest {
         try (Scanner sc = new Scanner(getEncryptedIdTestFileInputStream())) {
             while (sc.hasNextLine()) {
                 if (sc.nextLine().contains("BEGIN RSA PRIVATE KEY")) {
+                    // Cloud: use AWS Certificate Manager (ACM) for certificate management
                     sb.append("-----BEGIN RSA PRIVATE KEY-----").append("\n");
                     while (sc.hasNextLine()) {
                         String line = sc.nextLine();

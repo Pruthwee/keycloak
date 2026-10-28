@@ -41,6 +41,7 @@ import org.keycloak.storage.UserStorageProviderFactory;
 import org.keycloak.storage.UserStorageProviderModel;
 import org.keycloak.utils.CredentialHelper;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -75,6 +76,7 @@ public class KerberosFederationProviderFactory implements UserStorageProviderFac
         configProperties = getConfigProps();
     }
 
+    // Cloud: consider using Amazon ElastiCache for Redis for shared mutable state
     private static List<ProviderConfigProperty> getConfigProps() {
         return ProviderConfigurationBuilder.create()
                 .property().name(KerberosConstants.KERBEROS_REALM)

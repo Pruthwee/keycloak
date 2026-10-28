@@ -111,6 +111,7 @@ public class TruststoreBuilderTest {
 
         TruststoreBuilder.setSystemTruststore(new String[] { url.getPath() }, false, dataDir.getAbsolutePath());
 
+        // Cloud: consider using Amazon S3 for durable storage instead of java.io.File
         File generated = new File(dataDir, "keycloak-truststore.p12");
         assertEquals(generated.getAbsolutePath(), System.getProperty(TruststoreBuilder.SYSTEM_TRUSTSTORE_KEY));
         assertEquals(TruststoreBuilder.PKCS12, System.getProperty(TruststoreBuilder.SYSTEM_TRUSTSTORE_TYPE_KEY));

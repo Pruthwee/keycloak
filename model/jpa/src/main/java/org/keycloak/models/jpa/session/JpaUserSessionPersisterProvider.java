@@ -55,6 +55,7 @@ import org.keycloak.storage.StorageId;
 import org.keycloak.utils.StreamsUtil;
 
 import org.hibernate.jpa.HibernateHints;
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 import static jakarta.persistence.PersistenceConfiguration.LOCK_TIMEOUT;

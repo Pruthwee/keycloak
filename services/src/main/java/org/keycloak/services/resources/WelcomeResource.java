@@ -66,6 +66,7 @@ import org.keycloak.urls.UrlType;
 import org.keycloak.utils.MediaType;
 import org.keycloak.utils.SecureContextResolver;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
@@ -300,6 +301,7 @@ public class WelcomeResource {
         }
 
         ClientConnection clientConnection = session.getContext().getConnection();
+        // Cloud: replace IP-based security with AWS IAM authentication
         String remoteAddress = clientConnection.getRemoteAddr();
         String localAddress = clientConnection.getLocalAddr();
         HttpRequest request = session.getContext().getHttpRequest();

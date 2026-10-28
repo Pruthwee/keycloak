@@ -24,6 +24,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import org.keycloak.dom.saml.v2.assertion.SubjectConfirmationDataType;
 import org.keycloak.saml.processing.core.saml.v2.util.XMLTimeUtil;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**

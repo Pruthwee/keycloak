@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
 
 import org.keycloak.models.light.LightweightUserAdapter;
 
+// Cloud: replace stateful middleware clustering with Amazon ElastiCache for Redis
 import org.jboss.logging.Logger;
 
 /**
