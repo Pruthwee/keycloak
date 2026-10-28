@@ -17,6 +17,7 @@
 
 package org.keycloak.events.log;
 
+import static org.jboss.logging.Logger.Level;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -28,7 +29,6 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ProviderConfigurationBuilder;
-
 import org.jboss.logging.Logger;
 
 /**

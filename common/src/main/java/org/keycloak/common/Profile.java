@@ -17,6 +17,8 @@
 
 package org.keycloak.common;
 
+import org.jboss.logging.Logger.Level;
+import static org.jboss.logging.Logger.Level;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -37,7 +39,6 @@ import org.keycloak.common.profile.ProfileConfigResolver;
 import org.keycloak.common.profile.ProfileConfigResolver.FeatureConfig;
 import org.keycloak.common.profile.ProfileException;
 import org.keycloak.common.util.KerberosJdkProvider;
-
 import org.jboss.logging.Logger;
 
 /**

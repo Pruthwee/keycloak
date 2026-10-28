@@ -18,6 +18,7 @@
 package org.keycloak;
 
 import java.util.concurrent.atomic.AtomicLong;
+import java.time.Instant;
 
 import org.keycloak.common.util.SecretGenerator;
 
@@ -29,6 +30,6 @@ public class TokenIdGenerator {
     private static final AtomicLong counter = new AtomicLong();
 
     public static String generateId() {
-        return SecretGenerator.getInstance().generateSecureID() + "-" + System.currentTimeMillis();
+        return SecretGenerator.getInstance().generateSecureID() + "-" + Instant.now().toEpochMilli();
     }
 }

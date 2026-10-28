@@ -17,6 +17,7 @@
 package org.keycloak.storage.adapter;
 
 import java.util.Collections;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -295,7 +296,7 @@ public abstract class AbstractUserAdapter extends UserModelDefaultMethods {
         throw new ReadOnlyException("user is read only for this update");
     }
 
-    protected long created = System.currentTimeMillis();
+    protected long created = Instant.now().toEpochMilli();
 
     @Override
     public Long getCreatedTimestamp() {

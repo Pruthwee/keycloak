@@ -175,12 +175,12 @@ public class LoginEventsTest {
             Event firstEvent = new Event();
             firstEvent.setRealmId(realmId);
             firstEvent.setType(EventType.LOGIN);
-            firstEvent.setTime(System.currentTimeMillis() - 1000);
+            firstEvent.setTime(Instant.now().toEpochMilli() - 1000);
 
             Event secondEvent = new Event();
             secondEvent.setRealmId(realmId);
             secondEvent.setType(EventType.LOGOUT);
-            secondEvent.setTime(System.currentTimeMillis());
+            secondEvent.setTime(Instant.now().toEpochMilli());
 
             provider.onEvent(firstEvent);
             provider.onEvent(secondEvent);
@@ -200,7 +200,7 @@ public class LoginEventsTest {
 
     @Test
     public void filterByEpochTimeStamp() {
-        long currentTime = System.currentTimeMillis();
+        long currentTime = Instant.now().toEpochMilli();
         String realmId = managedRealm.getId();
 
         runOnServerClient.run(session -> {

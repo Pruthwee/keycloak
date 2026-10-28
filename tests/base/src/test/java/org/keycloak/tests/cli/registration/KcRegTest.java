@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.time.Instant;
 import java.util.UUID;
 
 import org.keycloak.client.cli.config.ConfigData;
@@ -389,9 +390,9 @@ public class KcRegTest extends AbstractRegCliTest {
             Assertions.assertNotNull(realmcfg.getToken(), "token not null");
             Assertions.assertNotNull(realmcfg.getRefreshToken(), "refresh token not null");
             Assertions.assertNotNull(realmcfg.getExpiresAt(), "token expires not null");
-            Assertions.assertNotNull(realmcfg.getExpiresAt() > System.currentTimeMillis(), "token expires in future");
+            Assertions.assertNotNull(realmcfg.getExpiresAt() > Instant.now().toEpochMilli(), "token expires in future");
             Assertions.assertNotNull(realmcfg.getRefreshExpiresAt(), "refresh token expires not null");
-            Assertions.assertNotNull(realmcfg.getRefreshExpiresAt() > System.currentTimeMillis(), "refresh token expires in future");
+            Assertions.assertNotNull(realmcfg.getRefreshExpiresAt() > Instant.now().toEpochMilli(), "refresh token expires in future");
             Assertions.assertTrue(realmcfg.getClients().isEmpty(), "clients is empty");
 
         } finally {

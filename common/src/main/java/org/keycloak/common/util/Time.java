@@ -18,6 +18,7 @@
 package org.keycloak.common.util;
 
 import java.util.Date;
+import java.time.Instant;
 
 /**
  * @author <a href="mailto:sthorger@redhat.com">Stian Thorgersen</a>
@@ -33,7 +34,7 @@ public class Time {
      */
     @Deprecated
     public static int currentTime() {
-        return ((int) (System.currentTimeMillis() / 1000)) + offset;
+        return ((int) (Instant.now().toEpochMilli() / 1000)) + offset;
     }
 
     /**
@@ -42,7 +43,7 @@ public class Time {
      * @return see description
      */
     public static long currentTimeSeconds() {
-        return (System.currentTimeMillis() / 1000) + offset;
+        return (Instant.now().toEpochMilli() / 1000) + offset;
     }
 
     /**
@@ -50,7 +51,7 @@ public class Time {
      * @return see description
      */
     public static long currentTimeMillis() {
-        return System.currentTimeMillis() + (offset * 1000L);
+        return Instant.now().toEpochMilli() + (offset * 1000L);
     }
 
     /**

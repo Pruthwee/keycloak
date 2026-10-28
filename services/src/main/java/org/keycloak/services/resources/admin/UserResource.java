@@ -16,6 +16,7 @@
  */
 package org.keycloak.services.resources.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -131,8 +132,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 import static java.util.Collections.emptyList;
 import static java.util.Optional.ofNullable;
 

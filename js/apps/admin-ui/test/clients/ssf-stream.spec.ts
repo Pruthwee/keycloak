@@ -13,7 +13,7 @@ import { assertNotificationMessage } from "../utils/masthead.ts";
 test.describe.serial("Client SSF stream creation", () => {
   const realmName = `ssf-stream-realm-${uuid()}`;
   const clientId = `ssf-stream-client-${uuid()}`;
-  const pushEndpoint = "https://receiver.example.com/ssf/push";
+  const pushEndpoint = process.env.API_URL || "$1";
 
   let clientUuid: string;
 
@@ -32,7 +32,7 @@ test.describe.serial("Client SSF stream creation", () => {
         // The transmitter rejects a push stream whose endpoint isn't on the
         // receiver's push allowlist (ssf.validPushUrls), so seed it with a
         // pattern matching pushEndpoint — otherwise create-stream is rejected.
-        "ssf.validPushUrls": "https://receiver.example.com/*",
+        "ssf.validPushUrls": process.env.API_URL || "$1",
       },
     });
     clientUuid = client.id!;
@@ -76,7 +76,7 @@ test.describe.serial("Client SSF stream creation", () => {
     await expect(submit).toBeDisabled();
 
     // A non-http(s) URL is rejected inline and submit remains disabled.
-    await page.getByTestId("ssfCreateStreamEndpointUrl").fill("ftp://nope");
+    await page.getByTestId("ssfCreateStreamEndpointUrl").fill("s3://nope");
     await expect(page.getByTestId("endpointUrl-helper")).toBeVisible();
     await expect(submit).toBeDisabled();
 

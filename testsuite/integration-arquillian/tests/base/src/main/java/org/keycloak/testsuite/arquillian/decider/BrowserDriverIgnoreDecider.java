@@ -26,10 +26,6 @@ import org.keycloak.testsuite.arquillian.TestContext;
 import org.keycloak.testsuite.arquillian.annotation.IgnoreBrowserDriver;
 import org.keycloak.testsuite.arquillian.annotation.IgnoreBrowserDrivers;
 
-import org.jboss.arquillian.core.api.Instance;
-import org.jboss.arquillian.core.api.annotation.Inject;
-import org.jboss.arquillian.test.spi.execution.ExecutionDecision;
-import org.jboss.arquillian.test.spi.execution.TestExecutionDecider;
 import org.openqa.selenium.WebDriver;
 
 import static org.keycloak.testsuite.util.BrowserDriverUtil.isDriverInstanceOf;

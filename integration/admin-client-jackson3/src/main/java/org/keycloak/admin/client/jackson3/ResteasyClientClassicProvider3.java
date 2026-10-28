@@ -7,8 +7,6 @@ import jakarta.ws.rs.client.WebTarget;
 
 import org.keycloak.admin.client.spi.ResteasyClientProvider;
 
-import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
-import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 
 public class ResteasyClientClassicProvider3 implements ResteasyClientProvider {
 

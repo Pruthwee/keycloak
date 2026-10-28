@@ -10,8 +10,6 @@ import jakarta.ws.rs.core.Response;
 import org.keycloak.quarkus.runtime.integration.QuarkusKeycloakSessionFactory;
 
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.server.ServerRequestFilter;
-
 /**
  * Pre-matching request filter that returns a 503 Service Unavailable response while the server bootstrap is in progress.
  */

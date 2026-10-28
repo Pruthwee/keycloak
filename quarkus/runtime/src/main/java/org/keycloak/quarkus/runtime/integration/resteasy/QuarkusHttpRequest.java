@@ -38,12 +38,9 @@ import org.keycloak.quarkus.runtime.configuration.Configuration;
 import org.keycloak.quarkus.runtime.integration.jaxrs.EmptyMultivaluedMap;
 import org.keycloak.services.FormPartValueImpl;
 
-import io.vertx.ext.web.RoutingContext;
-import org.jboss.resteasy.reactive.common.util.QuarkusMultivaluedHashMap;
 import org.jboss.resteasy.reactive.server.core.ResteasyReactiveRequestContext;
-import org.jboss.resteasy.reactive.server.core.multipart.FormData;
-import org.jboss.resteasy.reactive.server.multipart.FormValue;
-
+import io.vertx.ext.web.RoutingContext;
+import org.jboss.arquillian.core.api.Instance;
 public final class QuarkusHttpRequest implements HttpRequest {
 
     private static final MultivaluedMap<String, String> EMPTY_FORM_PARAM = new EmptyMultivaluedMap<>();

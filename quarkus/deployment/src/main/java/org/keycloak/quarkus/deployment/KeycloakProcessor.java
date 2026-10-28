@@ -17,6 +17,7 @@
 
 package org.keycloak.quarkus.deployment;
 
+import org.jboss.jandex.DotName;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -177,14 +178,7 @@ import org.hibernate.cfg.JdbcSettings;
 import org.hibernate.jpa.boot.spi.PersistenceUnitDescriptor;
 import org.hibernate.jpa.boot.spi.PersistenceXmlParser;
 import org.infinispan.protostream.SerializationContextInitializer;
-import org.jboss.jandex.AnnotationTransformation;
-import org.jboss.jandex.ClassInfo;
-import org.jboss.jandex.DotName;
-import org.jboss.jandex.MethodInfo;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.server.model.HandlerChainCustomizer;
-import org.jboss.resteasy.reactive.server.processor.scanning.MethodScanner;
-
 import static org.keycloak.config.DatabaseOptions.DB;
 import static org.keycloak.quarkus.runtime.Environment.getCurrentOrCreateFeatureProfile;
 import static org.keycloak.quarkus.runtime.Providers.getProviderManager;

@@ -17,6 +17,7 @@
 package org.keycloak.authorization.protection.permission;
 
 import java.util.EnumMap;
+import java.time.Instant;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -128,7 +129,7 @@ public class PermissionTicketService {
         
         PermissionTicket ticket = ticketStore.create(resourceServer, resource, scope, user.getId());
         if(representation.isGranted())
-                ticket.setGrantedTimestamp(java.lang.System.currentTimeMillis());
+                ticket.setGrantedTimestamp(Instant.now().toEpochMilli());
         representation = ModelToRepresentation.toRepresentation(ticket, authorization);
         return Response.ok(representation).build();
     }

@@ -44,7 +44,7 @@ test.describe.serial("Masthead tests", () => {
       await clickGlobalHelp(page);
       await expect(getDocumentationLink(page)).toHaveAttribute(
         "href",
-        "https://www.keycloak.org/docs/latest/server_admin/index.html",
+        process.env.API_URL || "$1",
       );
     });
 

@@ -45,11 +45,6 @@ import org.keycloak.testsuite.authz.AbstractAuthzTest;
 import org.keycloak.testsuite.util.ContainerAssume;
 import org.keycloak.util.JsonSerialization;
 
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.container.test.api.TargetsContainer;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.StringAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;

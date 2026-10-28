@@ -57,7 +57,6 @@ import org.apache.xml.security.encryption.EncryptedData;
 import org.apache.xml.security.encryption.XMLCipher;
 import org.apache.xml.security.utils.EncryptionConstants;
 import org.hamcrest.Matcher;
-import org.jboss.resteasy.util.Encode;
 import org.junit.Test;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;

@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.util.Arrays;
+import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -1257,7 +1258,7 @@ public class RefreshTokenTest {
                 .clientId("test-app")
                 .type(EventType.CODE_TO_TOKEN);
 
-        int currentTime = (int) (System.currentTimeMillis() / 1000);
+        int currentTime = (int) (Instant.now().toEpochMilli() / 1000);
 
         ClientRepresentation clientRep = oauth.clientResource().toRepresentation();
         int originalClientNotBefore = clientRep.getNotBefore() != null ? clientRep.getNotBefore() : 0;
@@ -1316,7 +1317,7 @@ public class RefreshTokenTest {
                 .clientId("test-app")
                 .type(EventType.CODE_TO_TOKEN);
 
-        int currentTime = (int) (System.currentTimeMillis() / 1000);
+        int currentTime = (int) (Instant.now().toEpochMilli() / 1000);
 
         RealmRepresentation realmRep = realm.admin().toRepresentation();
         int originalRealmNotBefore = realmRep.getNotBefore() != null ? realmRep.getNotBefore() : 0;

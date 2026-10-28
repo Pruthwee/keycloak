@@ -27,7 +27,6 @@
     <description>Keycloak Wildfly SAML Adapter</description>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>keycloak-saml-wildfly-adapter-dist-pom</artifactId>
     <packaging>pom</packaging>
 
     <modules>

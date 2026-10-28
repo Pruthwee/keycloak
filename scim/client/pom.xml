@@ -19,6 +19,7 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-scim-core</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
 
@@ -26,10 +27,12 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-server-spi</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-server-spi-private</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>

@@ -1,5 +1,6 @@
 package org.keycloak.services.x509;
 
+import static org.jboss.logging.Logger.Level;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.NoSuchAlgorithmException;
@@ -24,9 +25,7 @@ import org.keycloak.common.crypto.CryptoIntegration;
 import org.keycloak.common.util.PemException;
 import org.keycloak.common.util.PemUtils;
 import org.keycloak.http.HttpRequest;
-
 import org.jboss.logging.Logger;
-import org.jboss.logging.Logger.Level;
 
 /**
  * The NGINX Provider extract end user X.509 certificate send during TLS mutual authentication,

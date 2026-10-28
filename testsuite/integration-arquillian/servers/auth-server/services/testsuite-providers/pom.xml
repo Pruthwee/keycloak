@@ -37,6 +37,7 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-dependencies-server-all</artifactId>
+            <version>${project.version}</version>
             <type>pom</type>
         </dependency>
 
@@ -48,18 +49,22 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-core</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-services</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-model-storage-services</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.wildfly.core</groupId>
+            <groupId>org.wildfly</groupId>
             <artifactId>wildfly-controller</artifactId>
+            <version>${wildfly.version}</version>
         </dependency>
         <!-- pick up the transitive dependencies for the quarkus logmanager -->
         <dependency>
@@ -75,6 +80,7 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-core</artifactId>
+            <version>${resteasy.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.persistence</groupId>

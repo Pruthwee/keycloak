@@ -16,11 +16,9 @@
  */
 package org.keycloak.subsystem.adapter.saml.extension;
 
+import org.jboss.as.controller.SimpleAttributeDefinitionBuilder;
 import java.util.HashMap;
 
-import org.jboss.as.controller.SimpleAttributeDefinition;
-import org.jboss.as.controller.SimpleAttributeDefinitionBuilder;
-import org.jboss.dmr.ModelType;
 
 /**
  * This class contains the definitions for the {@code HttpClient} attributes, as specified in the schema's {@code http-client-type}

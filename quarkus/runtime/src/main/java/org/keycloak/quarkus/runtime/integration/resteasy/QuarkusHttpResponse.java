@@ -27,8 +27,6 @@ import jakarta.ws.rs.ext.RuntimeDelegate;
 
 import org.keycloak.http.HttpResponse;
 
-import org.jboss.resteasy.reactive.server.core.ResteasyReactiveRequestContext;
-import org.jboss.resteasy.reactive.server.vertx.VertxResteasyReactiveRequestContext;
 
 public final class QuarkusHttpResponse implements HttpResponse {
 

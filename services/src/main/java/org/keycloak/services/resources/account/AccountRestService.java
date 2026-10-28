@@ -16,6 +16,7 @@
  */
 package org.keycloak.services.resources.account;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,8 +90,6 @@ import org.keycloak.userprofile.ValidationException;
 import org.keycloak.userprofile.ValidationException.Error;
 
 import freemarker.template.TemplateModelException;
-import org.jboss.resteasy.reactive.NoCache;
-
 /**
  * @author <a href="mailto:sthorger@redhat.com">Stian Thorgersen</a>
  */

@@ -22,24 +22,7 @@ import java.util.Map;
 
 import org.keycloak.testsuite.arquillian.container.AppServerContainerService;
 
-import org.jboss.arquillian.config.descriptor.api.ArquillianDescriptor;
-import org.jboss.arquillian.config.descriptor.api.ContainerDef;
-import org.jboss.arquillian.config.descriptor.api.GroupDef;
-import org.jboss.arquillian.config.descriptor.impl.ContainerDefImpl;
-import org.jboss.arquillian.config.descriptor.impl.GroupDefImpl;
-import org.jboss.arquillian.container.spi.ContainerRegistry;
-import org.jboss.arquillian.container.spi.client.container.DeployableContainer;
-import org.jboss.arquillian.core.api.Injector;
-import org.jboss.arquillian.core.api.Instance;
-import org.jboss.arquillian.core.api.InstanceProducer;
-import org.jboss.arquillian.core.api.annotation.ApplicationScoped;
-import org.jboss.arquillian.core.api.annotation.Inject;
-import org.jboss.arquillian.core.api.annotation.Observes;
-import org.jboss.arquillian.core.spi.ServiceLoader;
-import org.jboss.arquillian.core.spi.Validate;
 import org.jboss.logging.Logger;
-import org.jboss.shrinkwrap.descriptor.spi.node.Node;
-import org.jboss.shrinkwrap.descriptor.spi.node.NodeDescriptor;
 import org.mvel2.MVEL;
 
 import static org.keycloak.testsuite.arquillian.containers.SecurityActions.isClassPresent;

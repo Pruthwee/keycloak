@@ -18,6 +18,7 @@
 package org.keycloak.tests.model;
 
 import java.util.ArrayList;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -75,7 +76,7 @@ public class UserModelTest {
             user.setEmail("email");
             assertNotNull(user.getCreatedTimestamp());
             // test that timestamp is current with 10s tollerance
-            Assertions.assertTrue((System.currentTimeMillis() - user.getCreatedTimestamp()) < 10000);
+            Assertions.assertTrue((Instant.now().toEpochMilli() - user.getCreatedTimestamp()) < 10000);
 
             user.addRequiredAction(RequiredAction.CONFIGURE_TOTP);
             user.addRequiredAction(RequiredAction.UPDATE_PASSWORD);

@@ -26,10 +26,6 @@ import org.keycloak.testsuite.arquillian.TestContext;
 import org.keycloak.testsuite.arquillian.annotation.AuthServerContainerExclude;
 import org.keycloak.testsuite.arquillian.annotation.AuthServerContainerExclude.AuthServer;
 
-import org.jboss.arquillian.core.api.Instance;
-import org.jboss.arquillian.core.api.annotation.Inject;
-import org.jboss.arquillian.test.spi.execution.ExecutionDecision;
-import org.jboss.arquillian.test.spi.execution.TestExecutionDecider;
 
 public class AuthServerExcludeExecutionDecider implements TestExecutionDecider {
 

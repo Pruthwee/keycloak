@@ -40,7 +40,6 @@ import org.keycloak.testsuite.util.LDAPTestConfiguration;
 import org.keycloak.testsuite.util.LDAPTestUtils;
 
 import org.hamcrest.Matchers;
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.ClassRule;
 import org.junit.FixMethodOrder;
 import org.junit.Ignore;

@@ -8,9 +8,9 @@ import { FormFields } from "../ClientDetails";
 export const SamlEncryption = () => {
   const { t } = useTranslation();
   const { watch, setValue } = useFormContext();
-  const ALGORITHM_RSA_OAEP = "http://www.w3.org/2009/xmlenc11#rsa-oaep";
+  const ALGORITHM_RSA_OAEP = process.env.API_URL || "$1";
   const ALGORITHM_RSA_OAEP_MGF1P =
-    "http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p";
+    process.env.API_URL || "$1";
   const keyEncryptionAlgorithm = watch(
     convertAttributeNameToForm<FormFields>(
       "attributes.saml.encryption.keyAlgorithm",
@@ -52,27 +52,27 @@ export const SamlEncryption = () => {
         options={[
           { key: "", value: t("choose") },
           {
-            key: "http://www.w3.org/2009/xmlenc11#aes256-gcm",
+            key: process.env.API_URL || "$1",
             value: "AES_256_GCM",
           },
           {
-            key: "http://www.w3.org/2009/xmlenc11#aes192-gcm",
+            key: process.env.API_URL || "$1",
             value: "AES_192_GCM",
           },
           {
-            key: "http://www.w3.org/2009/xmlenc11#aes128-gcm",
+            key: process.env.API_URL || "$1",
             value: "AES_128_GCM",
           },
           {
-            key: "http://www.w3.org/2001/04/xmlenc#aes256-cbc",
+            key: process.env.API_URL || "$1",
             value: "AES_256_CBC",
           },
           {
-            key: "http://www.w3.org/2001/04/xmlenc#aes192-cbc",
+            key: process.env.API_URL || "$1",
             value: "AES_192_CBC",
           },
           {
-            key: "http://www.w3.org/2001/04/xmlenc#aes128-cbc",
+            key: process.env.API_URL || "$1",
             value: "AES_128_CBC",
           },
         ]}
@@ -97,7 +97,7 @@ export const SamlEncryption = () => {
             key: ALGORITHM_RSA_OAEP_MGF1P,
             value: "RSA-OAEP-MGF1P",
           },
-          { key: "http://www.w3.org/2001/04/xmlenc#rsa-1_5", value: "RSA1_5" },
+          { key: process.env.API_URL || "$1", value: "RSA1_5" },
         ]}
       />
 
@@ -115,14 +115,14 @@ export const SamlEncryption = () => {
           options={[
             { key: "", value: t("choose") },
             {
-              key: "http://www.w3.org/2001/04/xmlenc#sha512",
+              key: process.env.API_URL || "$1",
               value: "SHA-512",
             },
             {
-              key: "http://www.w3.org/2001/04/xmlenc#sha256",
+              key: process.env.API_URL || "$1",
               value: "SHA-256",
             },
-            { key: "http://www.w3.org/2000/09/xmldsig#sha1", value: "SHA-1" },
+            { key: process.env.API_URL || "$1", value: "SHA-1" },
           ]}
         />
       )}
@@ -140,23 +140,23 @@ export const SamlEncryption = () => {
           options={[
             { key: "", value: t("choose") },
             {
-              key: "http://www.w3.org/2009/xmlenc11#mgf1sha512",
+              key: process.env.API_URL || "$1",
               value: "mgf1sha512",
             },
             {
-              key: "http://www.w3.org/2009/xmlenc11#mgf1sha384",
+              key: process.env.API_URL || "$1",
               value: "mgf1sha384",
             },
             {
-              key: "http://www.w3.org/2009/xmlenc11#mgf1sha256",
+              key: process.env.API_URL || "$1",
               value: "mgf1sha256",
             },
             {
-              key: "http://www.w3.org/2009/xmlenc11#mgf1sha224",
+              key: process.env.API_URL || "$1",
               value: "mgf1sha224",
             },
             {
-              key: "http://www.w3.org/2009/xmlenc11#mgf1sha1",
+              key: process.env.API_URL || "$1",
               value: "mgf1sha1",
             },
           ]}

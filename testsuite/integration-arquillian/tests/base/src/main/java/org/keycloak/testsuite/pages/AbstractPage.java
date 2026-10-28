@@ -21,7 +21,6 @@ import java.time.Duration;
 
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 
-import org.jboss.arquillian.test.api.ArquillianResource;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;

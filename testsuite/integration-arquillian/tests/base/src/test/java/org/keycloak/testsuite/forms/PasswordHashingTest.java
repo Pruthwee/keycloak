@@ -63,7 +63,6 @@ import org.keycloak.testsuite.util.AccountHelper;
 import org.keycloak.testsuite.util.DefaultPasswordHash;
 
 import org.bouncycastle.crypto.generators.Argon2BytesGenerator;
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Assume;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;

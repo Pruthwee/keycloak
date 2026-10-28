@@ -84,7 +84,7 @@ test.describe.serial("Realm settings client profiles tab tests", () => {
       await selectExecutorType(page, executorType);
       await assertIntentClient(
         page,
-        "https://rs.keycloak-fapi.org/check-intent-client-bound",
+        process.env.API_URL || "$1",
       );
 
       await clickSaveClientProfile(page);

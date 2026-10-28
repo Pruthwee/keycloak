@@ -62,7 +62,6 @@ import org.keycloak.testsuite.webauthn.updaters.PasswordLessRealmAttributeUpdate
 import org.keycloak.testsuite.webauthn.updaters.WebAuthnRealmAttributeUpdater;
 import org.keycloak.testsuite.webauthn.utils.WebAuthnRealmData;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { stripForeignAuthResponse } from "./stripForeignAuthResponse";
 
-const CONSOLE_URL = "https://localhost:8443/realms/master/account/";
+const CONSOLE_URL = process.env.API_URL || "$1";
 
 describe("stripForeignAuthResponse", () => {
   it("strips a response this application did not request", () => {

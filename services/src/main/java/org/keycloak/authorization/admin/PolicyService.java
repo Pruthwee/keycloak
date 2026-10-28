@@ -16,6 +16,7 @@
  */
 package org.keycloak.authorization.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.IOException;
 import java.util.EnumMap;
 import java.util.List;
@@ -73,7 +74,6 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.jboss.resteasy.reactive.NoCache;
-
 /**
  * @author <a href="mailto:psilva@redhat.com">Pedro Igor</a>
  */

@@ -23,17 +23,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.jboss.arquillian.config.descriptor.api.ContainerDef;
-import org.jboss.arquillian.container.impl.ContainerCreationException;
-import org.jboss.arquillian.container.impl.ContainerImpl;
-import org.jboss.arquillian.container.spi.ConfigurationException;
-import org.jboss.arquillian.container.spi.Container;
-import org.jboss.arquillian.container.spi.ContainerRegistry;
-import org.jboss.arquillian.container.spi.client.container.DeployableContainer;
-import org.jboss.arquillian.container.spi.client.deployment.TargetDescription;
-import org.jboss.arquillian.core.api.Injector;
-import org.jboss.arquillian.core.spi.ServiceLoader;
-import org.jboss.arquillian.core.spi.Validate;
 
 import static org.keycloak.testsuite.arquillian.containers.RegistryCreator.ADAPTER_IMPL_CONFIG_STRING;
 import static org.keycloak.testsuite.arquillian.containers.RegistryCreator.getAdapterImplClassValue;

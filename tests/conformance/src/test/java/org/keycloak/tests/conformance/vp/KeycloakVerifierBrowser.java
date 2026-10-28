@@ -28,6 +28,7 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.regex.Matcher;
+import java.time.Instant;
 import java.util.regex.Pattern;
 import javax.net.ssl.SSLContext;
 
@@ -123,7 +124,7 @@ final class KeycloakVerifierBrowser {
                 + urlEncode(idpAlias) + "/endpoint/" + OID4VPIdentityProviderEndpoint.STATUS_PATH
                 + "?" + OAuth2Constants.STATE + "=" + urlEncode(state));
 
-        long deadline = System.currentTimeMillis() + STATUS_POLL_TIMEOUT.toMillis();
+        long deadline = Instant.now().toEpochMilli() + STATUS_POLL_TIMEOUT.toMillis();
         while (true) {
             JsonNode status = readJson(get(statusUri).body());
             String statusValue = status.path(OID4VPIdentityProviderEndpoint.STATUS_KEY).asText();
@@ -135,7 +136,7 @@ final class KeycloakVerifierBrowser {
             if (!OID4VPIdentityProviderEndpoint.STATUS_PENDING.equals(statusValue)) {
                 throw new IllegalStateException("Cross device status poll ended with status " + statusValue);
             }
-            if (System.currentTimeMillis() > deadline) {
+            if (Instant.now().toEpochMilli() > deadline) {
                 throw new IllegalStateException("Cross device presentation did not arrive within " + STATUS_POLL_TIMEOUT);
             }
             try {

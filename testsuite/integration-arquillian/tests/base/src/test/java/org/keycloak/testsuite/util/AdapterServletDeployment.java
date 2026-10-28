@@ -18,8 +18,6 @@ package org.keycloak.testsuite.util;
 
 import java.net.URL;
 
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
 
 /**
  * Expects a structure like adapter-test directory

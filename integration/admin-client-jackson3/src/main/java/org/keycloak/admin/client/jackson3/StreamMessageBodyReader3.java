@@ -1,5 +1,6 @@
 package org.keycloak.admin.client.jackson3;
 
+import org.jboss.jandex.Type;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
@@ -21,7 +22,6 @@ import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.ext.MessageBodyReader;
 
 import dev.resteasy.providers.jackson.ResteasyJacksonProvider;
-import org.jboss.resteasy.plugins.providers.sse.EventInput;
 import tools.jackson.core.JsonParser;
 import tools.jackson.core.JsonToken;
 import tools.jackson.databind.json.JsonMapper;

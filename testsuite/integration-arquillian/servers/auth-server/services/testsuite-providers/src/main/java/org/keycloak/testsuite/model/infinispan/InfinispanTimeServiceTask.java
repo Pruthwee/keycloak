@@ -91,7 +91,7 @@ public class InfinispanTimeServiceTask implements ServerTask<String> {
     public static final TimeService KEYCLOAK_TIME_SERVICE = new EmbeddedTimeService() {
 
         private long getCurrentTimeMillis() {
-            return System.currentTimeMillis() + (TimeUnit.SECONDS.toMillis(offset));
+            return Instant.now().toEpochMilli() + (TimeUnit.SECONDS.toMillis(offset));
         }
 
         @Override

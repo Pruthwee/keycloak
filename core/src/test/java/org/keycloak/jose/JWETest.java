@@ -17,6 +17,7 @@
 
 package org.keycloak.jose;
 
+import java.time.Instant;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.security.KeyPair;
@@ -116,7 +117,7 @@ public abstract class JWETest {
     public void testPerfDirect() throws Exception {
         int iterations = 50000;
 
-        long start = System.currentTimeMillis();
+        long start = Instant.now().toEpochMilli();
         for (int i=0 ; i<iterations ; i++) {
             // took around 2950 ms with 50000 iterations
             SecretKey aesKey = new SecretKeySpec(AES_128_KEY, "AES");
@@ -132,7 +133,7 @@ public abstract class JWETest {
             testDirectEncryptAndDecrypt(aesKey, hmacKey, encAlg, payload, false);
         }
 
-        long took = System.currentTimeMillis() - start;
+        long took = Instant.now().toEpochMilli() - start;
         System.out.println("Iterations: " + iterations + ", took: " + took);
     }
 

@@ -26,6 +26,7 @@
     </parent>
 
     <artifactId>keycloak-saml-wildfly-subsystem</artifactId>
+
     <name>Keycloak Wildfly SAML Adapter Subsystem</name>
     <description>Keycloak Wildfly SAML Adapter Subsystem</description>
     <packaging>jar</packaging>
@@ -56,12 +57,14 @@
         <dependency>
             <groupId>org.wildfly.core</groupId>
             <artifactId>wildfly-controller</artifactId>
+            <version>${wildfly.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.wildfly.core</groupId>
             <artifactId>wildfly-server</artifactId>
             <scope>provided</scope>
+            <version>${wildfly.version}</version>
         </dependency>
         <dependency>
             <groupId>${ee.maven.groupId}</groupId>

@@ -16,6 +16,7 @@
  */
 package org.keycloak.services.resources.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -53,8 +54,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 /**
  * Base resource class for managing a realm's client scopes.
  *

@@ -16,6 +16,7 @@
  */
 package org.keycloak.services.resources.account;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -50,7 +51,6 @@ import org.keycloak.representations.account.SessionRepresentation;
 import org.keycloak.services.managers.Auth;
 import org.keycloak.services.managers.AuthenticationManager;
 
-import org.jboss.resteasy.reactive.NoCache;
 
 /**
  * @author <a href="mailto:psilva@redhat.com">Pedro Igor</a>

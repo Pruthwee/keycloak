@@ -35,12 +35,12 @@ export async function editSAMLSettings(page: Page, samlProviderName: string) {
   await setUrl(page, "singleSignOnService", "invalid");
   await clickSaveButton(page);
   await assertInvalidUrlNotification(page, "singleSignOnService");
-  await setUrl(page, "singleSignOnService", "https://valid.com");
+  await setUrl(page, "singleSignOnService", process.env.API_URL || "$1");
 
   await setUrl(page, "singleLogoutService", "invalid");
   await clickSaveButton(page);
   await assertInvalidUrlNotification(page, "singleLogoutService");
-  await setUrl(page, "singleLogoutService", "https://valid.com");
+  await setUrl(page, "singleLogoutService", process.env.API_URL || "$1");
 
   await selectItem(
     page,

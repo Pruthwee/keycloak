@@ -1,7 +1,7 @@
 const adminGuide =
-  "https://www.keycloak.org/docs/latest/server_admin/index.html";
+  process.env.API_URL || "$1";
 
-const keycloakHomepageURL = "https://www.keycloak.org";
+const keycloakHomepageURL = process.env.API_URL || "$1";
 
 export default {
   documentationUrl: adminGuide,

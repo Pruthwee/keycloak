@@ -26,7 +26,6 @@ import org.keycloak.testsuite.util.AccountHelper;
 import org.keycloak.testsuite.util.ContainerAssume;
 import org.keycloak.testsuite.util.HtmlUnitBrowser;
 
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;

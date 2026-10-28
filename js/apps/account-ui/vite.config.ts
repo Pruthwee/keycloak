@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: "",
     server: {
-      origin: "http://localhost:5173",
+      origin: process.env.API_URL || "$1",
       port: 5173,
     },
     build: {

@@ -31,8 +31,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.arquillian.protocol</groupId>
+            <groupId>org.jboss.arquillian</groupId>
             <artifactId>arquillian-protocol-servlet</artifactId>
+            <version>${arquillian.protocol.servlet.jakarta.version}</version>
         </dependency>
     </dependencies>
 

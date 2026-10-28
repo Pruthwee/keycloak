@@ -6,7 +6,6 @@ import jakarta.ws.rs.client.ClientBuilder;
 
 import org.keycloak.admin.client.spi.ResteasyClientClassicProvider;
 
-import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 
 /**
  * Use {@link ResteasyClientClassicProvider#createClientBuilder()} instead

@@ -37,7 +37,6 @@ import org.keycloak.representations.idm.EventRepresentation;
 import org.keycloak.utils.MediaType;
 
 import org.infinispan.commons.time.TimeService;
-import org.jboss.resteasy.reactive.NoCache;
 
 /**
  * For an implementation see TestingResourceProvider

@@ -1,5 +1,6 @@
 package org.keycloak.quarkus.deployment;
 
+import org.jboss.jandex.DotName;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,10 +25,6 @@ import liquibase.parser.ChangeLogParser;
 import liquibase.parser.core.xml.XMLChangeLogSAXParser;
 import liquibase.servicelocator.LiquibaseService;
 import liquibase.sqlgenerator.SqlGenerator;
-import org.jboss.jandex.AnnotationInstance;
-import org.jboss.jandex.ClassInfo;
-import org.jboss.jandex.DotName;
-import org.jboss.jandex.IndexView;
 
 import static org.keycloak.quarkus.deployment.KeycloakProcessor.getDefaultDataSource;
 

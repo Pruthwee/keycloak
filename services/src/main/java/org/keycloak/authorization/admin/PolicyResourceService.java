@@ -16,6 +16,7 @@
  */
 package org.keycloak.authorization.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -51,7 +52,6 @@ import org.keycloak.services.resources.admin.AdminEventBuilder;
 import org.keycloak.services.resources.admin.fgap.AdminPermissionEvaluator;
 import org.keycloak.util.JsonSerialization;
 
-import org.jboss.resteasy.reactive.NoCache;
 
 /**
  * @author <a href="mailto:psilva@redhat.com">Pedro Igor</a>

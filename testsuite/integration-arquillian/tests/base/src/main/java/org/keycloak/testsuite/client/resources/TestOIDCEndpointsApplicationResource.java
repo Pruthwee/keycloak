@@ -35,7 +35,6 @@ import org.keycloak.protocol.oidc.grants.ciba.endpoints.ClientNotificationEndpoi
 import org.keycloak.services.clientpolicy.executor.IntentClientBindCheckExecutor;
 import org.keycloak.testsuite.rest.representation.TestAuthenticationChannelRequest;
 
-import org.jboss.resteasy.reactive.NoCache;
 
 /**
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>

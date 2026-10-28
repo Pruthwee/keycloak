@@ -19,6 +19,7 @@ package org.keycloak.models.utils;
 
 import java.io.IOException;
 import java.util.AbstractMap;
+import java.time.Instant;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -143,7 +144,6 @@ import org.keycloak.representations.idm.oid4vc.UserVerifiableCredentialRepresent
 import org.keycloak.storage.DatastoreProvider;
 import org.keycloak.util.JsonSerialization;
 import org.keycloak.utils.StringUtil;
-
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.Constants.DEFAULT_PROTOCOL;
@@ -1822,7 +1822,7 @@ public class RepresentationToModel {
         boolean granted = representation.isGranted();
 
         if (granted && !ticket.isGranted()) {
-            ticket.setGrantedTimestamp(System.currentTimeMillis());
+            ticket.setGrantedTimestamp(Instant.now().toEpochMilli());
         } else if (!granted) {
             ticketStore.delete(ticket.getId());
         }

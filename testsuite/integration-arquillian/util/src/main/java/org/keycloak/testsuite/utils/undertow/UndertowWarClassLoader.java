@@ -23,8 +23,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.Node;
 
 /**
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>

@@ -19,7 +19,6 @@ package org.keycloak.testsuite.page;
 
 import java.time.Duration;
 
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.logging.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

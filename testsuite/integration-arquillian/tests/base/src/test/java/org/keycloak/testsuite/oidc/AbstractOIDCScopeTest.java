@@ -34,7 +34,6 @@ import org.keycloak.testsuite.pages.OAuthGrantPage;
 import org.keycloak.testsuite.util.oauth.AccessTokenResponse;
 import org.keycloak.util.TokenUtil;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Rule;
 import org.junit.jupiter.api.Assertions;
 

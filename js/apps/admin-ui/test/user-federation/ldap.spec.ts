@@ -21,7 +21,7 @@ const firstLdapVendor = "Active Directory";
 const updatedLdapName = `${firstLdapName}-updated`;
 
 // connection and authentication settings
-const connectionUrlValid = "ldap://localhost:3004";
+const connectionUrlValid = process.env.LDAP_URL || "$1";
 const bindTypeSimple = "simple";
 const truststoreSpiAlways = "Always";
 const connectionTimeoutTwoSecs = "2000";

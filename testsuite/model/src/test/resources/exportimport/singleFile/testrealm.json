@@ -184,24 +184,24 @@
     {
       "clientId": "test-app",
       "enabled": true,
-      "baseUrl": "http://localhost:8180/auth/realms/master/app/auth",
+      "baseUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/auth",
       "redirectUris": [
-        "http://localhost:8180/auth/realms/master/app/auth/*",
+        "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/auth/*",
         "https://localhost:8543/auth/realms/master/app/auth/*",
-        "http://localhost:8180/auth/realms/test/app/auth/*",
+        "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/test/app/auth/*",
         "https://localhost:8543/auth/realms/test/app/auth/*"
       ],
-      "adminUrl": "http://localhost:8180/auth/realms/master/app/admin",
+      "adminUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/admin",
       "secret": "password"
     },
     {
       "clientId": "root-url-client",
       "enabled": true,
-      "rootUrl": "http://localhost:8180/foo/bar",
-      "adminUrl": "http://localhost:8180/foo/bar",
+      "rootUrl": "${KEYCLOAK_URL:http://localhost:8180}/foo/bar",
+      "adminUrl": "${KEYCLOAK_URL:http://localhost:8180}/foo/bar",
       "baseUrl": "/baz",
       "redirectUris": [
-        "http://localhost:8180/foo/bar/*",
+        "${KEYCLOAK_URL:http://localhost:8180}/foo/bar/*",
         "https://localhost:8543/foo/bar/*"
       ],
       "directAccessGrantsEnabled": true,
@@ -212,7 +212,7 @@
       "enabled": true,
 
       "redirectUris": [
-        "http://localhost:8180/auth/realms/master/app/*",
+        "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/*",
         "https://localhost:8543/auth/realms/master/app/*"
       ],
       "secret": "password",
@@ -224,9 +224,9 @@
       "enabled": true,
       "consentRequired": true,
 
-      "baseUrl": "http://localhost:8180/auth/realms/master/app/auth",
+      "baseUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/auth",
       "redirectUris": [
-        "http://localhost:8180/auth/realms/master/app/*",
+        "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/*",
         "https://localhost:8543/auth/realms/master/app/*"
       ],
       "secret": "password"
@@ -393,24 +393,24 @@
       "clientId": "named-test-app",
       "name": "My Named Test App",
       "enabled": true,
-      "baseUrl": "http://localhost:8180/namedapp/base",
+      "baseUrl": "${KEYCLOAK_URL:http://localhost:8180}/namedapp/base",
       "redirectUris": [
-        "http://localhost:8180/namedapp/base/*",
+        "${KEYCLOAK_URL:http://localhost:8180}/namedapp/base/*",
         "https://localhost:8543/namedapp/base/*"
       ],
-      "adminUrl": "http://localhost:8180/namedapp/base/admin",
+      "adminUrl": "${KEYCLOAK_URL:http://localhost:8180}/namedapp/base/admin",
       "secret": "password"
     },
     {
       "clientId": "var-named-test-app",
       "name": "Test App Named - ${client_account}",
       "enabled": true,
-      "baseUrl": "http://localhost:8180/varnamedapp/base",
+      "baseUrl": "${KEYCLOAK_URL:http://localhost:8180}/varnamedapp/base",
       "redirectUris": [
-        "http://localhost:8180/varnamedapp/base/*",
+        "${KEYCLOAK_URL:http://localhost:8180}/varnamedapp/base/*",
         "https://localhost:8543/varnamedapp/base/*"
       ],
-      "adminUrl": "http://localhost:8180/varnamedapp/base/admin",
+      "adminUrl": "${KEYCLOAK_URL:http://localhost:8180}/varnamedapp/base/admin",
       "secret": "password"
     },
     {

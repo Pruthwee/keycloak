@@ -19,17 +19,16 @@ import org.keycloak.representations.admin.v2.validation.PutClient;
 
 import org.eclipse.microprofile.openapi.models.media.Schema;
 import org.hibernate.validator.constraints.URL;
-import org.jboss.jandex.AnnotationInstance;
-import org.jboss.jandex.AnnotationTarget;
-import org.jboss.jandex.AnnotationValue;
-import org.jboss.jandex.ClassInfo;
-import org.jboss.jandex.DotName;
-import org.jboss.jandex.FieldInfo;
-import org.jboss.jandex.IndexView;
-import org.jboss.jandex.Type;
-import org.jboss.jandex.TypeTarget;
 import org.jboss.logging.Logger;
-
+import org.jboss.jandex.DotName;
+import org.jboss.jandex.IndexView;
+import org.jboss.jandex.AnnotationInstance;
+import org.jboss.jandex.AnnotationValue;
+import org.jboss.jandex.FieldInfo;
+import org.jboss.jandex.ClassInfo;
+import org.jboss.jandex.Type;
+import org.jboss.jandex.AnnotationTarget;
+import org.jboss.jandex.TypeTarget;
 /**
  * Builds human-readable validation descriptions for OpenAPI schemas based on validation annotations.
  * <p>

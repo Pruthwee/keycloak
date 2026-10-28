@@ -47,11 +47,11 @@ async function startServer() {
   };
 
   if (scriptArgs["account-dev"]) {
-    env.KC_ACCOUNT_VITE_URL = "http://localhost:5173";
+    env.KC_ACCOUNT_VITE_URL = process.env.KEYCLOAK_URL || "$1";
   }
 
   if (scriptArgs["admin-dev"]) {
-    env.KC_ADMIN_VITE_URL = "http://localhost:5174";
+    env.KC_ADMIN_VITE_URL = process.env.KEYCLOAK_URL || "$1";
   }
 
   console.info("Starting server…");

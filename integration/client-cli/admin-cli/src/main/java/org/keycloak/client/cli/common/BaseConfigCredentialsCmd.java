@@ -16,6 +16,7 @@
  */
 package org.keycloak.client.cli.common;
 
+import java.time.Instant;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -178,7 +179,7 @@ public class BaseConfigCredentialsCmd extends BaseAuthOptionsCmd {
                         getAuthTokensBySecret(server, realm, user, password, clientId, secret) :
                         getAuthTokens(server, realm, user, password, clientId);
 
-        Long sigExpiresAt = signedRequestToken == null ? null : System.currentTimeMillis() + sigLifetime * 1000;
+        Long sigExpiresAt = signedRequestToken == null ? null : Instant.now().toEpochMilli() + sigLifetime * 1000;
 
         // save tokens to config file
         saveTokens(tokens, server, realm, clientId, signedRequestToken, sigExpiresAt, secret, grantTypeForAuthentication);

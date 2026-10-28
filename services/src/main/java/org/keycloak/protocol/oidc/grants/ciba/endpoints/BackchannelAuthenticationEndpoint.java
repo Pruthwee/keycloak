@@ -16,6 +16,7 @@
  */
 package org.keycloak.protocol.oidc.grants.ciba.endpoints;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.regex.Pattern;
@@ -60,8 +61,6 @@ import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 import static org.keycloak.protocol.oidc.OIDCLoginProtocol.ID_TOKEN_HINT;
 import static org.keycloak.protocol.oidc.OIDCLoginProtocol.LOGIN_HINT_PARAM;
 

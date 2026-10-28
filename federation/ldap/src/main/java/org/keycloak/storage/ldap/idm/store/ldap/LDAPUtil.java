@@ -81,7 +81,7 @@ public class LDAPUtil {
             if (date.endsWith("Z")) {
                 dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
             } else {
-                dateFormat.setTimeZone(TimeZone.getDefault());
+                dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
             }
 
             return dateFormat.parse(date);

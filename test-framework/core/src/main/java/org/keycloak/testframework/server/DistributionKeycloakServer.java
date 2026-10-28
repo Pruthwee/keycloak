@@ -1,5 +1,6 @@
 package org.keycloak.testframework.server;
 
+import static org.jboss.logging.Logger.Level;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;

@@ -4,7 +4,7 @@ import { convertClientToUrl } from "./client-url";
 describe("convertClientToUrl", () => {
   it("returns base url when base url starts with http", () => {
     //given
-    const baseUrl = "http://something";
+    const baseUrl = process.env.API_URL || "$1";
 
     //when
     //@ts-ignore
@@ -64,7 +64,7 @@ describe("convertClientToUrl", () => {
   it("when rootUrl starts with http and baseUrl is set", () => {
     //given
     const baseUrl = "/another";
-    const rootUrl = "http://test.nl";
+    const rootUrl = process.env.API_URL || "$1";
 
     //when
     const result = convertClientToUrl(
@@ -74,12 +74,12 @@ describe("convertClientToUrl", () => {
     );
 
     //then
-    expect(result).toBe("http://test.nl/another");
+    expect(result).toBe(process.env.API_URL || "$1");
   });
 
   it("when rootUrl starts with http and baseUrl not set return it", () => {
     //given
-    const rootUrl = "http://test.nl";
+    const rootUrl = process.env.API_URL || "$1";
 
     //when
     const result = convertClientToUrl(
@@ -89,6 +89,6 @@ describe("convertClientToUrl", () => {
     );
 
     //then
-    expect(result).toBe("http://test.nl");
+    expect(result).toBe(process.env.API_URL || "$1");
   });
 });

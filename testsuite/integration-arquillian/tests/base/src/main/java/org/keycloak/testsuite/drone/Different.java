@@ -22,7 +22,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.jboss.arquillian.drone.api.annotation.Qualifier;
 
 /**
  * Taken from Drone example https://docs.jboss.org/author/display/ARQ/Drone

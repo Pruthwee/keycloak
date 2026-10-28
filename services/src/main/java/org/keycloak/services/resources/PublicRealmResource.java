@@ -16,6 +16,7 @@
  */
 package org.keycloak.services.resources;
 
+import org.jboss.resteasy.reactive.NoCache;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.OPTIONS;
 import jakarta.ws.rs.Path;
@@ -35,8 +36,6 @@ import org.keycloak.services.Urls;
 import org.keycloak.services.cors.Cors;
 
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 /**
  * Resource class for public realm information
  *

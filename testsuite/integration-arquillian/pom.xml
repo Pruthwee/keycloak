@@ -208,6 +208,7 @@
             <dependency>
                 <groupId>org.keycloak</groupId>
                 <artifactId>keycloak-rest-admin-ui-ext</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
             <!-- Pin aesh versions for WildFly CLI compatibility, see https://github.com/keycloak/keycloak/issues/50220 -->

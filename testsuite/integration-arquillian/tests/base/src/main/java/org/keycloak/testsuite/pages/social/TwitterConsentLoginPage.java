@@ -17,7 +17,6 @@
 
 package org.keycloak.testsuite.pages.social;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

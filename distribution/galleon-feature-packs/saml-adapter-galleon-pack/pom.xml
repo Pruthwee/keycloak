@@ -82,7 +82,6 @@
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
-            <artifactId>keycloak-jboss-adapter-core</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

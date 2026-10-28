@@ -17,6 +17,7 @@
 
 package org.keycloak.services.clientregistration.policy.impl;
 
+import java.time.Instant;
 import java.net.InetAddress;
 
 /**
@@ -26,7 +27,7 @@ public class HostsTest {
 
     public static void main(String[] args) throws Exception {
         //Security.setProperty("networkaddress.cache.ttl", "5");
-        long start = System.currentTimeMillis();
+        long start = Instant.now().toEpochMilli();
 
         for (int i=0 ; i<100 ; i++) {
             //Foo f = test1();
@@ -36,7 +37,7 @@ public class HostsTest {
             //Foo f = test5();
             //Foo f = test6();
 
-            long end = System.currentTimeMillis();
+            long end = Instant.now().toEpochMilli();
             System.out.println("IPAddr=" + f.ipAddr + ", Hostname=" + f.hostname + ", Took: " + (end-start) + " ms");
         }
     }

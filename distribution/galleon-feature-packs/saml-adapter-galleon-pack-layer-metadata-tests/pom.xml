@@ -39,6 +39,7 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-saml-adapter-galleon-pack</artifactId>
+            <version>${project.version}</version>
             <type>zip</type>
             <scope>test</scope>
         </dependency>

@@ -17,6 +17,7 @@
 package org.keycloak.quarkus.runtime.services.health;
 
 import java.time.Instant;
+import java.time.ZoneOffset;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -53,7 +54,7 @@ public class KeycloakReadyHealthCheck implements AsyncHealthCheck {
      * Date formatter, the same as used by Quarkus. This enables users to quickly compare the date printed
      * by the probe with the logs.
      */
-    static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss,SSS").withZone(ZoneId.systemDefault());
+    static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss,SSS").withZone(ZoneOffset.UTC);
 
     @Inject
     DataSourceHealthCheck dataSourceHealthCheck;

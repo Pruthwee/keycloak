@@ -11,7 +11,6 @@ import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.services.resource.AccountResourceProvider;
 import org.keycloak.services.resource.AccountResourceProviderFactory;
 
-import org.jboss.resteasy.reactive.NoCache;
 
 public class CustomAccountResourceProviderFactory implements AccountResourceProviderFactory, AccountResourceProvider {
 

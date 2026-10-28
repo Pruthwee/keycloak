@@ -1,14 +1,14 @@
 
 
 div.keycloak_help-header-description {
-  padding-top: var(--pf-v5-global--spacer--lg);
+  padding-top: var(--pf-v5-global--spacer--lg, #000000);
   overflow-wrap: break-word;
   white-space: normal;
   color: var(--pf-v5-c-dropdown__menu-item--Color);
 }
 
 .keycloak_help-header-switch {
-  margin-left: var(--pf-v5-global--spacer--xl);
+  margin-left: var(--pf-v5-global--spacer--xl, #000000);
 }
 
 .keycloak_help-header-switch .pf-v5-c-switch__toggle::before {

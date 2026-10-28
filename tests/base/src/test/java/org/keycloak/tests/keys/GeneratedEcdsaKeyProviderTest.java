@@ -21,6 +21,7 @@ import java.security.cert.X509Certificate;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
+import java.time.Instant;
 
 import jakarta.ws.rs.core.Response;
 
@@ -102,7 +103,7 @@ public class GeneratedEcdsaKeyProviderTest {
     }
 
     private String supportedEc(String ecInNistRep, boolean withCertificate) {
-        long priority = System.currentTimeMillis();
+        long priority = Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", GeneratedEcdsaKeyProviderFactory.ID);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -159,7 +160,7 @@ public class GeneratedEcdsaKeyProviderTest {
     }
 
     private void unsupportedEc(String ecInNistRep) {
-        long priority = System.currentTimeMillis();
+        long priority = Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", GeneratedEcdsaKeyProviderFactory.ID);
         rep.setConfig(new MultivaluedHashMap<>());

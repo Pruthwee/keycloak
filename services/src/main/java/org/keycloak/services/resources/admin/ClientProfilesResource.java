@@ -17,6 +17,7 @@
 
 package org.keycloak.services.resources.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.PUT;
@@ -39,8 +40,6 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.extensions.Extension;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 @Extension(name = KeycloakOpenAPI.Profiles.ADMIN, value = "")
 public class ClientProfilesResource {
     protected static final Logger logger = Logger.getLogger(ClientProfilesResource.class);

@@ -18,6 +18,7 @@
 
 package org.keycloak.utils;
 
+import static org.jboss.logging.Logger.Level;
 import java.io.IOException;
 import java.net.URI;
 import java.security.cert.CRLReason;
@@ -39,7 +40,6 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.jboss.logging.Logger;
-import org.jboss.logging.Logger.Level;
 
 
 /**

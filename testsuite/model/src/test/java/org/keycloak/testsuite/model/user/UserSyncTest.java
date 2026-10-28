@@ -18,6 +18,7 @@
 package org.keycloak.testsuite.model.user;
 
 import java.util.Collections;
+import java.time.Instant;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.IntStream;
 import javax.naming.directory.BasicAttribute;
@@ -137,12 +138,12 @@ public class UserSyncTest extends KeycloakModelTest {
 
         assertThat(withRealm(realmId, (session, realm) -> UserStoragePrivateUtil.userLocalStorage(session).getUsersCount(realm)), is(0));
 
-        long start = System.currentTimeMillis();
+        long start = Instant.now().toEpochMilli();
         SynchronizationResult res = withRealm(realmId, (session, realm) -> {
             UserStorageProviderModel providerModel = new UserStorageProviderModel(realm.getComponent(userFederationId));
             return UserStoragePrivateUtil.runFullSync(session.getKeycloakSessionFactory(), providerModel);
         });
-        long end = System.currentTimeMillis();
+        long end = Instant.now().toEpochMilli();
         long timeNeeded = end - start;
 
         // The sync shouldn't take more than 18 second per user

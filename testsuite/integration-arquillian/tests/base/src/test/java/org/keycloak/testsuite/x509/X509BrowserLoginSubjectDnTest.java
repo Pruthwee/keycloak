@@ -20,7 +20,6 @@ package org.keycloak.testsuite.x509;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.keycloak.testsuite.util.HtmlUnitBrowser;
 
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;

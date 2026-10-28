@@ -8,7 +8,7 @@
  *   - src/generated/doc-examples/tsconfig.doc-check.json
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFile, writeFile, mkdir } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { NavigationMetadata } from "@microsoft/kiota-abstractions";
@@ -30,7 +30,7 @@ const WRAPPERS = [
 ];
 
 const spec = JSON.parse(
-  readFileSync(join(projectDir, "openapi.json"), "utf-8"),
+  readFile(join(projectDir, "openapi.json"), "utf-8"),
 );
 const operationIds = new Map<string, string>();
 for (const [path, methods] of Object.entries(spec.paths || {})) {
@@ -136,9 +136,9 @@ if (Object.keys(examples).length === 0) {
   );
 }
 
-mkdirSync(outputDir, { recursive: true });
+mkdir(outputDir, { recursive: true });
 
-writeFileSync(
+writeFile(
   join(outputDir, "admin-v2-js-examples.json"),
   JSON.stringify(examples, null, 2) + "\n",
 );
@@ -158,9 +158,9 @@ const verifyContent =
     .join("\n") +
   "\n";
 
-writeFileSync(join(outputDir, "admin-v2-doc-examples-check.ts"), verifyContent);
+writeFile(join(outputDir, "admin-v2-doc-examples-check.ts"), verifyContent);
 
-writeFileSync(
+writeFile(
   join(outputDir, "tsconfig.doc-check.json"),
   JSON.stringify(
     {

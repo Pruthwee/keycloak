@@ -17,6 +17,7 @@
 
 package org.keycloak.adapters.saml.elytron;
 
+import org.wildfly.security.http.HttpAuthenticationException;
 import java.io.IOException;
 import java.security.Principal;
 import javax.security.auth.callback.Callback;
@@ -26,12 +27,6 @@ import javax.security.sasl.AuthorizeCallback;
 
 import org.keycloak.adapters.saml.SamlPrincipal;
 
-import org.wildfly.security.auth.callback.AuthenticationCompleteCallback;
-import org.wildfly.security.auth.callback.EvidenceVerifyCallback;
-import org.wildfly.security.auth.callback.SecurityIdentityCallback;
-import org.wildfly.security.auth.server.SecurityIdentity;
-import org.wildfly.security.evidence.Evidence;
-import org.wildfly.security.http.HttpAuthenticationException;
 
 /**
  * @author <a href="mailto:psilva@redhat.com">Pedro Igor</a>

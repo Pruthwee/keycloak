@@ -17,6 +17,7 @@
 
 package org.keycloak.organization.admin.resource;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -69,7 +70,6 @@ import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.jboss.resteasy.reactive.NoCache;
 
 @Extension(name = KeycloakOpenAPI.Profiles.ADMIN, value = "")
 public class OrganizationMemberResource {

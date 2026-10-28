@@ -18,18 +18,6 @@ package org.keycloak.testsuite.arquillian.containers;
 
 import java.util.List;
 
-import org.jboss.arquillian.container.impl.client.container.ContainerDeployController;
-import org.jboss.arquillian.container.spi.Container;
-import org.jboss.arquillian.container.spi.ContainerRegistry;
-import org.jboss.arquillian.container.spi.client.deployment.Deployment;
-import org.jboss.arquillian.container.spi.client.deployment.DeploymentScenario;
-import org.jboss.arquillian.container.spi.event.DeployDeployment;
-import org.jboss.arquillian.container.spi.event.DeployManagedDeployments;
-import org.jboss.arquillian.container.spi.event.DeploymentEvent;
-import org.jboss.arquillian.core.api.Event;
-import org.jboss.arquillian.core.api.Injector;
-import org.jboss.arquillian.core.api.Instance;
-import org.jboss.arquillian.core.api.annotation.Inject;
 
 /**
  * Overrides a condition that container cannot be in manual mode, and deploys the deployment

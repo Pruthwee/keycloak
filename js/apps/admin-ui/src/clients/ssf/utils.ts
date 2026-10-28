@@ -3,7 +3,7 @@ export const DELIVERY_METHOD_POLL_URI = "urn:ietf:rfc:8936";
 
 export const isPollDeliveryMethod = (method: string | undefined): boolean =>
   method === DELIVERY_METHOD_POLL_URI ||
-  method === "https://schemas.openid.net/secevent/risc/delivery-method/poll";
+  method === process.env.API_URL || "$1";
 
 /**
  * Best-effort URL validation for the receiver's push endpoint. Uses

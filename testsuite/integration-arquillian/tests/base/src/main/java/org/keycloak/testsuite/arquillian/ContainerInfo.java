@@ -7,8 +7,6 @@ import java.util.Objects;
 
 import org.keycloak.common.util.KeycloakUriBuilder;
 
-import org.jboss.arquillian.container.spi.Container;
-import org.jboss.arquillian.container.spi.Container.State;
 
 /**
  *

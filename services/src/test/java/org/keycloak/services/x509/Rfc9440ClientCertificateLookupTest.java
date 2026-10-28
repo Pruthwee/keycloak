@@ -17,10 +17,10 @@ import org.keycloak.services.resteasy.HttpRequestImpl;
 
 import com.google.common.base.Splitter;
 import org.apache.commons.io.IOUtils;
-import org.jboss.resteasy.mock.MockHttpRequest;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import org.jboss.resteasy.mock.MockHttpRequest;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;

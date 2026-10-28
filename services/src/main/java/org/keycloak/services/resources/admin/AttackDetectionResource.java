@@ -16,6 +16,7 @@
  */
 package org.keycloak.services.resources.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,8 +44,6 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.extensions.Extension;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 /**
  * Base resource class for the admin REST api of one realm
  *

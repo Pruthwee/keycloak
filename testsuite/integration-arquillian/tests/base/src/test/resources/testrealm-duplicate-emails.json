@@ -75,12 +75,12 @@
     {
       "clientId": "test-app",
       "enabled": true,
-      "baseUrl": "http://localhost:8180/auth/realms/master/app/auth",
+      "baseUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/auth",
       "redirectUris": [
-        "http://localhost:8180/auth/realms/master/app/auth/*",
+        "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/auth/*",
         "https://localhost:8543/auth/realms/master/app/auth/*"
       ],
-      "adminUrl": "http://localhost:8180/auth/realms/master/app/admin",
+      "adminUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/admin",
       "secret": "password"
     }
   ],

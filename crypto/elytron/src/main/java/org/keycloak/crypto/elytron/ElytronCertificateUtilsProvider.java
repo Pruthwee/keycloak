@@ -38,24 +38,6 @@ import javax.security.auth.x500.X500Principal;
 import org.keycloak.common.crypto.CertificateUtilsProvider;
 
 import org.jboss.logging.Logger;
-import org.wildfly.security.asn1.ASN1;
-import org.wildfly.security.asn1.DERDecoder;
-import org.wildfly.security.x500.GeneralName;
-import org.wildfly.security.x500.X500;
-import org.wildfly.security.x500.X500AttributeTypeAndValue;
-import org.wildfly.security.x500.X500PrincipalBuilder;
-import org.wildfly.security.x500.cert.AuthorityKeyIdentifierExtension;
-import org.wildfly.security.x500.cert.BasicConstraintsExtension;
-import org.wildfly.security.x500.cert.CertificatePoliciesExtension;
-import org.wildfly.security.x500.cert.CertificatePoliciesExtension.PolicyInformation;
-import org.wildfly.security.x500.cert.ExtendedKeyUsageExtension;
-import org.wildfly.security.x500.cert.KeyUsage;
-import org.wildfly.security.x500.cert.KeyUsageExtension;
-import org.wildfly.security.x500.cert.SubjectKeyIdentifierExtension;
-import org.wildfly.security.x500.cert.X509CertificateBuilder;
-import org.wildfly.security.x500.cert.X509CertificateExtension;
-import org.wildfly.security.x500.cert.util.KeyUtil;
-
 /**
  * The Class CertificateUtils provides utility functions for generation
  * and usage of X.509 certificates

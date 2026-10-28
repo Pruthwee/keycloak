@@ -17,6 +17,7 @@
 
 package org.keycloak.services.resources.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -41,7 +42,6 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.extensions.Extension;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.resteasy.reactive.NoCache;
-
 /**
  * @resource Client Registration Policy
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>

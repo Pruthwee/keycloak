@@ -16,6 +16,7 @@
  */
 package org.keycloak.events.log;
 
+import org.jboss.resteasy.mock.MockHttpRequest;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.net.URI;
@@ -43,12 +44,10 @@ import org.keycloak.utils.ScopeUtil;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.jboss.logmanager.Logger;
-import org.jboss.logmanager.formatters.PatternFormatter;
-import org.jboss.logmanager.handlers.WriterHandler;
-import org.jboss.resteasy.mock.MockHttpRequest;
 import org.junit.Test;
-
+import java.util.logging.Logger;
+import org.jboss.logmanager.handlers.WriterHandler;
+import org.jboss.logmanager.formatters.PatternFormatter;
 /**
  *
  * @author rmartinc

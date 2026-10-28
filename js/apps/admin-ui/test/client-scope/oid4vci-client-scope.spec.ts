@@ -128,7 +128,7 @@ const TEST_VALUES = {
   TOKEN_JWS_TYPE: "dc+sd-jwt",
   VISIBLE_CLAIMS: "id,iat,nbf,exp,jti,given_name",
   DISPLAY:
-    '[{"name": "Test Credential", "locale": "en-US", "logo": {"uri": "https://example.com/logo.png", "alt_text": "Logo"}, "background_color": "#12107c", "text_color": "#FFFFFF"}]',
+    '[{"name": "Test Credential", "locale": "en-US", "logo": {"uri": process.env.API_URL || "$1", "alt_text": "Logo"}, "background_color": "#12107c", "text_color": "#FFFFFF"}]',
   SUPPORTED_CREDENTIAL_TYPES: "VerifiableCredential,UniversityDegreeCredential",
   VERIFIABLE_CREDENTIAL_TYPE: "TestCredentialType",
   KEY_ATTESTATION_KEY_STORAGE: "iso_18045_high,iso_18045_moderate",

@@ -24,8 +24,6 @@ import jakarta.ws.rs.client.WebTarget;
 
 import org.keycloak.admin.client.JacksonProvider;
 
-import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
-import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 
 /**
  * An implementation of {@link ResteasyClientProvider} based on RESTEasy classic.

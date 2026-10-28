@@ -16,14 +16,9 @@
  */
 package org.keycloak.subsystem.adapter.saml.extension;
 
+import org.jboss.dmr.ModelNode;
 import java.util.List;
 
-import org.jboss.as.controller.OperationFailedException;
-import org.jboss.as.server.deployment.DeploymentUnit;
-import org.jboss.as.web.common.WarMetaData;
-import org.jboss.dmr.ModelNode;
-import org.jboss.dmr.Property;
-import org.jboss.metadata.web.jboss.JBossWebMetaData;
 
 /**
  * @author <a href="mailto:mstrukel@redhat.com">Marko Strukelj</a>

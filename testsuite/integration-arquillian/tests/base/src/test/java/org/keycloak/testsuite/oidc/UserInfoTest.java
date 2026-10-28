@@ -106,7 +106,6 @@ import org.keycloak.util.TokenUtil;
 import org.keycloak.utils.MediaType;
 
 import org.hamcrest.CoreMatchers;
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

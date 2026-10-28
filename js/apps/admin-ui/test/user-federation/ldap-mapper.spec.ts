@@ -45,7 +45,7 @@ test.describe.serial("User Fed LDAP mapper tests", () => {
       providerId: provider,
       name: ldapName,
       config: {
-        connectionUrl: ["ldap://localhost:3004"],
+        connectionUrl: [process.env.LDAP_URL || "$1"],
         bindType: ["simple"],
         bindDn: ["cn=user,dc=test"],
         bindCredential: ["user"],

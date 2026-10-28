@@ -17,12 +17,9 @@
 
 package org.keycloak.testsuite.arquillian.galleon.container;
 
-import org.jboss.arquillian.container.test.spi.client.deployment.ApplicationArchiveProcessor;
-import org.jboss.arquillian.test.spi.TestClass;
 import org.jboss.logging.Logger;
-import org.jboss.shrinkwrap.api.Archive;
 import org.keycloak.testsuite.utils.arquillian.DeploymentArchiveProcessorUtils;
-
+import org.jboss.arquillian.container.test.api.Deployment;
 public class EAP8DeploymentArchiveProcessor implements ApplicationArchiveProcessor {
 
     private final Logger log = Logger.getLogger(EAP8DeploymentArchiveProcessor.class);

@@ -27,7 +27,6 @@ import org.keycloak.testsuite.util.oauth.AccessTokenResponse;
 
 import io.undertow.Undertow;
 import io.undertow.server.handlers.BlockingHandler;
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

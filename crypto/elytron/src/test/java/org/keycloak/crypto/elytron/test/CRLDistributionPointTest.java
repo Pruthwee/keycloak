@@ -31,15 +31,8 @@ import javax.security.auth.x500.X500Principal;
 import org.keycloak.crypto.elytron.ElytronCertificateUtilsProvider;
 
 import org.junit.Test;
-import org.wildfly.security.x500.GeneralName;
-import org.wildfly.security.x500.cert.CRLDistributionPoint;
-import org.wildfly.security.x500.cert.CRLDistributionPoint.DistributionPointName;
-import org.wildfly.security.x500.cert.CRLDistributionPoint.FullNameDistributionPointName;
-import org.wildfly.security.x500.cert.CRLDistributionPointsExtension;
-import org.wildfly.security.x500.cert.X509CertificateBuilder;
-
+import static org.wildfly.common.Assert.assertNotNull;
 import static org.junit.Assert.assertArrayEquals;
-
 /**
  * @author <a href="mailto:david.anderson@redhat.com">David Anderson</a>
  */

@@ -26,13 +26,12 @@ import org.eclipse.microprofile.openapi.models.media.Schema;
 import org.eclipse.microprofile.openapi.models.parameters.Parameter;
 import org.eclipse.microprofile.openapi.models.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.models.security.SecurityScheme;
+import org.jboss.logging.Logger;
+import org.jboss.jandex.IndexView;
+import org.jboss.jandex.ClassInfo;
 import org.jboss.jandex.AnnotationInstance;
 import org.jboss.jandex.AnnotationValue;
-import org.jboss.jandex.ClassInfo;
 import org.jboss.jandex.FieldInfo;
-import org.jboss.jandex.IndexView;
-import org.jboss.logging.Logger;
-
 import static org.keycloak.utils.StringUtil.isBlank;
 import static org.keycloak.utils.StringUtil.isNullOrEmpty;
 

@@ -24,8 +24,6 @@ import org.keycloak.representations.idm.UserRepresentation;
 import org.keycloak.testsuite.pages.LoginPage;
 import org.keycloak.testsuite.util.WaitUtils;
 
-import org.jboss.arquillian.container.test.api.OperateOnDeployment;
-import org.jboss.arquillian.test.api.ArquillianResource;
 import org.openqa.selenium.By;
 
 /**

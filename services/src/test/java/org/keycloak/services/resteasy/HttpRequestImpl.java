@@ -17,6 +17,9 @@
 
 package org.keycloak.services.resteasy;
 
+import org.jboss.resteasy.core.ResteasyContext;
+import org.jboss.resteasy.reactive.server.multipart.FormValue;
+import org.jboss.resteasy.reactive.server.multipart.MultipartFormDataInput;
 import java.io.IOException;
 import java.security.cert.X509Certificate;
 import java.util.Collection;
@@ -35,9 +38,6 @@ import org.keycloak.http.FormPartValue;
 import org.keycloak.http.HttpRequest;
 import org.keycloak.services.FormPartValueImpl;
 
-import org.jboss.resteasy.core.ResteasyContext;
-import org.jboss.resteasy.reactive.server.multipart.FormValue;
-import org.jboss.resteasy.reactive.server.multipart.MultipartFormDataInput;
 
 import static jakarta.ws.rs.core.MediaType.MULTIPART_FORM_DATA_TYPE;
 

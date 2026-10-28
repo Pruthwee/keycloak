@@ -17,6 +17,7 @@
 
 package org.keycloak.services.resteasy;
 
+import org.jboss.resteasy.core.ResteasyContext;
 import java.util.Optional;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,7 +28,6 @@ import org.keycloak.http.HttpResponse;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.services.DefaultKeycloakContext;
 
-import org.jboss.resteasy.core.ResteasyContext;
 
 public class ResteasyKeycloakContext extends DefaultKeycloakContext {
 

@@ -16,6 +16,7 @@
  */
 package org.keycloak.services.resources.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.IOException;
 import java.net.URI;
 import java.util.HashMap;
@@ -67,8 +68,6 @@ import org.keycloak.utils.SecureContextResolver;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 import static org.keycloak.models.UserModel.IS_TEMP_ADMIN_ATTR_NAME;
 
 /**

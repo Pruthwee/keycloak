@@ -73,7 +73,6 @@ import org.keycloak.userprofile.UserProfileConstants;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.logging.Logger;
 import org.junit.AfterClass;
 import org.junit.Assume;

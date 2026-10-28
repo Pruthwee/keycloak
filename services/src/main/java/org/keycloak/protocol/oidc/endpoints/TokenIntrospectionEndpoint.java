@@ -16,6 +16,7 @@
  */
 package org.keycloak.protocol.oidc.endpoints;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.List;
 
 import jakarta.ws.rs.POST;
@@ -50,7 +51,6 @@ import org.keycloak.services.clientpolicy.ClientPolicyException;
 import org.keycloak.services.clientpolicy.context.TokenIntrospectContext;
 import org.keycloak.util.TokenUtil;
 
-import org.jboss.resteasy.reactive.NoCache;
 
 /**
  * A token introspection endpoint based on RFC-7662.

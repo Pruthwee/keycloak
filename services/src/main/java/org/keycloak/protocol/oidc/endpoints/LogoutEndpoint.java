@@ -17,6 +17,7 @@
 
 package org.keycloak.protocol.oidc.endpoints;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -94,8 +95,6 @@ import org.keycloak.util.TokenUtil;
 import org.keycloak.utils.StringUtil;
 
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 import static org.keycloak.models.UserSessionModel.State.LOGGED_OUT;
 import static org.keycloak.models.UserSessionModel.State.LOGGING_OUT;
 import static org.keycloak.services.resources.LoginActionsService.SESSION_CODE;

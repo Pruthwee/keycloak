@@ -21,7 +21,6 @@ import org.keycloak.authentication.authenticators.x509.X509AuthenticatorConfigMo
 import org.keycloak.authentication.authenticators.x509.X509AuthenticatorConfigModel.MappingSourceType;
 import org.keycloak.testsuite.util.HtmlUnitBrowser;
 
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;

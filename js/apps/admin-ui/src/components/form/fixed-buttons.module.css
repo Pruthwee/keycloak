@@ -2,10 +2,10 @@
   position: fixed;
   bottom: 0px;
   background-color: var(--pf-v5-c-page__main-section--m-light--BackgroundColor);
-  padding-top: var(--pf-v5-global--spacer--md);
-  padding-bottom: var(--pf-v5-global--spacer--sm);
-  padding-left: var(--pf-v5-global--spacer--md);
+  padding-top: var(--pf-v5-global--spacer--md, #000000);
+  padding-bottom: var(--pf-v5-global--spacer--sm, #000000);
+  padding-left: var(--pf-v5-global--spacer--md, #000000);
   width: 100%;
-  border-top: 1px solid var(--pf-v5-global--BorderColor--100);
-  margin-left: calc(-1 * var(--pf-v5-global--spacer--lg));
+  border-top: 1px solid var(--pf-v5-global--BorderColor--100, #000000);
+  margin-left: calc(-1 * var(--pf-v5-global--spacer--lg, #000000));
 }

@@ -28,11 +28,6 @@ import javax.security.auth.login.LoginException;
 import org.keycloak.adapters.spi.KeycloakAccount;
 
 import org.jboss.logging.Logger;
-import org.jboss.security.SimpleGroup;
-import org.jboss.security.SimplePrincipal;
-import org.jboss.security.auth.callback.ObjectCallback;
-import org.jboss.security.auth.spi.AbstractServerLoginModule;
-
 /**
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
  * @version $Revision: 1 $

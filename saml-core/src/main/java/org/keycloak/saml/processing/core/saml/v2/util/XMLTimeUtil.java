@@ -119,7 +119,7 @@ public class XMLTimeUtil {
 
         TimeZone timezone;
         if (GeneralConstants.TIMEZONE_DEFAULT.equals(timezonePropertyValue)) {
-            timezone = TimeZone.getDefault();
+            timezone = TimeZone.getTimeZone("UTC");
         } else {
             timezone = TimeZone.getTimeZone(timezonePropertyValue);
         }

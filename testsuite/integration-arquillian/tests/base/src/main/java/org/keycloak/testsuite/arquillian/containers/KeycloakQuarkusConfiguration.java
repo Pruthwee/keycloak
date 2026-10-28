@@ -5,8 +5,6 @@ import java.nio.file.Paths;
 
 import org.keycloak.common.crypto.FipsMode;
 
-import org.jboss.arquillian.container.spi.ConfigurationException;
-import org.jboss.arquillian.container.spi.client.container.ContainerConfiguration;
 import org.jboss.logging.Logger;
 
 /**

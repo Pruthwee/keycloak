@@ -29,8 +29,8 @@ test.describe.serial("JWT Authorization Grant identity provider test", () => {
     await createJwtAuthorizationGrantProvider(
       page,
       "jwt-authorization-grant",
-      "https://localhost/realms/test",
-      "https://localhost/realms/test/protocol/openid-connect/certs",
+      process.env.API_URL || "$1",
+      process.env.API_URL || "$1",
     );
 
     await assertNotificationMessage(
@@ -42,29 +42,29 @@ test.describe.serial("JWT Authorization Grant identity provider test", () => {
     await clickTableRowItem(page, "jwt-authorization");
 
     await expect(page.getByTestId("config.issuer")).toHaveValue(
-      "https://localhost/realms/test",
+      process.env.API_URL || "$1",
     );
     await expect(page.getByTestId("config.useJwksUrl")).toBeChecked();
     await expect(page.getByTestId("config.jwksUrl")).toHaveValue(
-      "https://localhost/realms/test/protocol/openid-connect/certs",
+      process.env.API_URL || "$1",
     );
 
     await page
       .getByTestId("config.issuer")
-      .fill("https://localhost/realms/test2");
+      .fill(process.env.API_URL || "$1");
     await page
       .getByTestId("config.jwksUrl")
-      .fill("https://localhost/realms/test2/protocol/openid-connect/certs");
+      .fill(process.env.API_URL || "$1");
 
     await clickSaveButton(page);
 
     await assertNotificationMessage(page, "Provider successfully updated");
 
     await expect(page.getByTestId("config.issuer")).toHaveValue(
-      "https://localhost/realms/test2",
+      process.env.API_URL || "$1",
     );
     await expect(page.getByTestId("config.jwksUrl")).toHaveValue(
-      "https://localhost/realms/test2/protocol/openid-connect/certs",
+      process.env.API_URL || "$1",
     );
   });
 
@@ -74,7 +74,7 @@ test.describe.serial("JWT Authorization Grant identity provider test", () => {
     await createJwtAuthorizationGrantProviderKey(
       page,
       "jwt-authorization-grant",
-      "https://localhost/realms/test",
+      process.env.API_URL || "$1",
       "keyId",
       "MEMwBQYDK2VxAzoAWOVoLNsZlgw5dvat/Xi83Rh7zQMOerq3XrTT1xVbqDX2naZPlza0gwyNnMV6H6vnUGbaCK/+mgCA",
     );
@@ -88,7 +88,7 @@ test.describe.serial("JWT Authorization Grant identity provider test", () => {
     await clickTableRowItem(page, "jwt-authorization-grant");
 
     await expect(page.getByTestId("config.issuer")).toHaveValue(
-      "https://localhost/realms/test",
+      process.env.API_URL || "$1",
     );
     await expect(page.getByTestId("config.useJwksUrl")).not.toBeChecked();
     await expect(page.getByTestId("config.jwksUrl")).toBeHidden();

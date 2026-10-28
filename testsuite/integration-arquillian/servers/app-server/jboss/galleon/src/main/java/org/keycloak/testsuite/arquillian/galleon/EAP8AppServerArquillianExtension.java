@@ -17,10 +17,8 @@
 
 package org.keycloak.testsuite.arquillian.galleon;
 
-import org.jboss.arquillian.container.test.spi.client.deployment.ApplicationArchiveProcessor;
-import org.jboss.arquillian.core.spi.LoadableExtension;
 import org.keycloak.testsuite.arquillian.galleon.container.EAP8DeploymentArchiveProcessor;
-
+import org.jboss.arquillian.container.test.api.Deployment;
 public class EAP8AppServerArquillianExtension implements LoadableExtension {
 
     @Override

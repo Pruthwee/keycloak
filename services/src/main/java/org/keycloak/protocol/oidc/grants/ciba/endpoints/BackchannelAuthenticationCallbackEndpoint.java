@@ -16,6 +16,7 @@
  */
 package org.keycloak.protocol.oidc.grants.ciba.endpoints;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.IOException;
 import java.util.Map;
 
@@ -51,8 +52,6 @@ import org.keycloak.services.Urls;
 import org.keycloak.services.managers.AppAuthManager;
 
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 import static org.keycloak.protocol.oidc.grants.ciba.channel.AuthenticationChannelResponse.Status.CANCELLED;
 
 public class BackchannelAuthenticationCallbackEndpoint extends AbstractCibaEndpoint {

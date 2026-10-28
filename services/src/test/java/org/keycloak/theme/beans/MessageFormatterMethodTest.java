@@ -72,7 +72,7 @@ public class MessageFormatterMethodTest {
         msg = (String) fmt.exec(Arrays.asList(new SimpleScalar("simpleKey"),new SimpleNumber(2.5)));
         Assert.assertEquals("2.5", msg);
 
-        TimeZone defaultTimeZone = TimeZone.getDefault();
+        TimeZone defaultTimeZone = TimeZone.getTimeZone("UTC");
         try {
             TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 

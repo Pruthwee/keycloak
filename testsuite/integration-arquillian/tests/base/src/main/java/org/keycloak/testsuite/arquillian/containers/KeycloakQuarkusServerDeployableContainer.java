@@ -28,7 +28,6 @@ import java.util.stream.Collectors;
 import org.keycloak.testsuite.model.StoreProvider;
 import org.keycloak.testsuite.util.WaitUtils;
 
-import org.jboss.arquillian.container.spi.client.container.LifecycleException;
 import org.jboss.logging.Logger;
 
 /**

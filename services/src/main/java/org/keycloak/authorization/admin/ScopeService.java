@@ -16,6 +16,7 @@
  */
 package org.keycloak.authorization.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
@@ -62,7 +63,6 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
-import org.jboss.resteasy.reactive.NoCache;
 
 import static org.keycloak.models.utils.ModelToRepresentation.toRepresentation;
 import static org.keycloak.models.utils.RepresentationToModel.toModel;

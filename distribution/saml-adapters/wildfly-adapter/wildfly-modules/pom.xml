@@ -29,8 +29,7 @@
         <relativePath>../../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>keycloak-saml-wildfly-modules</artifactId>
-
+                <groupId>org.wildfly</groupId>
     <name>Keycloak SAML Wildfly Modules</name>
     <description>Keycloak SAML Wildfly Modules</description>
     <packaging>pom</packaging>

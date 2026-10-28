@@ -34,7 +34,6 @@ import org.keycloak.util.TokenUtil;
 
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.server.jaxrs.ResponseBuilderImpl;
-
 public class DockerAuthV2Protocol implements LoginProtocol {
     protected static final Logger logger = Logger.getLogger(DockerEndpoint.class);
 

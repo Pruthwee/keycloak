@@ -1,10 +1,10 @@
 package org.keycloak.models.workflow;
 
+import java.time.Instant;
 import org.keycloak.common.util.DurationConverter;
 import org.keycloak.models.KeycloakContext;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
-
 import org.jboss.logging.Logger;
 
 final class ScheduleWorkflowTask extends WorkflowTransactionalTask {
@@ -57,7 +57,7 @@ final class ScheduleWorkflowTask extends WorkflowTransactionalTask {
     private void fireWorkflowStepScheduled(KeycloakSession session, DefaultWorkflowExecutionContext context, WorkflowStep nextStep) {
         log.debugf("Scheduled step %s to run in %s for resource %s (execution id: %s)",
                 nextStep.getProviderId(), nextStep.getAfter(), context.getResourceId(), context.getExecutionId());
-        long scheduledTime = System.currentTimeMillis() + DurationConverter.parseDuration(nextStep.getAfter()).toMillis();
+        long scheduledTime = Instant.now().toEpochMilli() + DurationConverter.parseDuration(nextStep.getAfter()).toMillis();
         // fire workflow step scheduled event
         WorkflowProviderEvents.fireWorkflowStepScheduledEvent(session, context.getWorkflow(), nextStep, context.getResourceId(), context.getExecutionId(),
                 scheduledTime, nextStep.getAfter());

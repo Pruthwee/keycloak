@@ -17,6 +17,7 @@
 
 package org.keycloak.services.resources.admin.info;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -96,7 +97,6 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.extensions.Extension;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.resteasy.reactive.NoCache;
-
 /**
  * @author <a href="mailto:sthorger@redhat.com">Stian Thorgersen</a>
  */

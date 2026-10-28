@@ -17,6 +17,7 @@
 
 package org.keycloak.adapters.saml.elytron;
 
+import org.wildfly.security.auth.callback.AnonymousAuthorizationCallback;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -50,16 +51,6 @@ import org.keycloak.common.util.MultivaluedHashMap;
 import org.keycloak.common.util.UriUtils;
 
 import org.jboss.logging.Logger;
-import org.wildfly.security.auth.callback.AnonymousAuthorizationCallback;
-import org.wildfly.security.auth.callback.AuthenticationCompleteCallback;
-import org.wildfly.security.auth.callback.SecurityIdentityCallback;
-import org.wildfly.security.auth.server.SecurityIdentity;
-import org.wildfly.security.http.HttpScope;
-import org.wildfly.security.http.HttpServerCookie;
-import org.wildfly.security.http.HttpServerRequest;
-import org.wildfly.security.http.HttpServerResponse;
-import org.wildfly.security.http.Scope;
-
 /**
  * @author <a href="mailto:psilva@redhat.com">Pedro Igor</a>
  */

@@ -33,6 +33,7 @@ import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
@@ -339,7 +340,7 @@ public class BCOCSPProvider extends OCSPProvider {
                     // See Sun's OCSP implementation.
                     // https://www.ietf.org/rfc/rfc2560.txt, if nextUpdate is not set,
                     // the responder is indicating that newer update is avilable all the time
-                    long current = date == null ? System.currentTimeMillis() : date.getTime();
+                    long current = date == null ? Instant.now().toEpochMilli() : date.getTime();
                     Date stop = new Date(current + TIME_SKEW);
                     Date start = new Date(current - TIME_SKEW);
 

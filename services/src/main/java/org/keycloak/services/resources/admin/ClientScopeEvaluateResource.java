@@ -17,6 +17,7 @@
 
 package org.keycloak.services.resources.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
@@ -86,7 +87,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
 import org.w3c.dom.Document;
 
 import static org.keycloak.protocol.ProtocolMapperUtils.isEnabled;

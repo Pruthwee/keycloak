@@ -19,8 +19,6 @@ package org.keycloak.quarkus.runtime.integration.resteasy;
 
 import jakarta.ws.rs.core.MediaType;
 
-import org.jboss.resteasy.reactive.server.core.ResteasyReactiveRequestContext;
-import org.jboss.resteasy.reactive.server.spi.ServerRestHandler;
 
 /**
  * <p>A {@link ServerRestHandler} that set the media type produced by a JAX-RS resource method.

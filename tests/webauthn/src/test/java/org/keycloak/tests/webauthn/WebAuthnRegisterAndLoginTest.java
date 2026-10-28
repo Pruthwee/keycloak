@@ -18,6 +18,7 @@ package org.keycloak.tests.webauthn;
 
 import java.io.IOException;
 import java.util.List;
+import java.time.Instant;
 import java.util.Objects;
 
 import jakarta.ws.rs.core.Response;
@@ -439,7 +440,7 @@ public class WebAuthnRegisterAndLoginTest extends AbstractWebAuthnVirtualTest {
         assertThat(user.getCreatedTimestamp(), notNullValue());
 
         // test that timestamp is current with 60s tollerance
-        assertThat((System.currentTimeMillis() - user.getCreatedTimestamp()) < 60000, is(true));
+        assertThat((Instant.now().toEpochMilli() - user.getCreatedTimestamp()) < 60000, is(true));
 
         // test user info is set from form
         assertThat(user.getUsername(), is(username.toLowerCase()));

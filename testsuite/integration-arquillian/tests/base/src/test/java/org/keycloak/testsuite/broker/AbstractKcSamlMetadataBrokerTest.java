@@ -17,6 +17,7 @@
 package org.keycloak.testsuite.broker;
 
 import java.util.List;
+import java.time.Instant;
 
 import jakarta.ws.rs.core.Response;
 
@@ -131,7 +132,7 @@ public abstract class AbstractKcSamlMetadataBrokerTest extends AbstractBrokerTes
         keys.setProviderId(providerId);
         keys.setParentId(realmId);
         keys.setConfig(new MultivaluedHashMap<>());
-        keys.getConfig().putSingle("priority", Long.toString(System.currentTimeMillis()));
+        keys.getConfig().putSingle("priority", Long.toString(Instant.now().toEpochMilli()));
         keys.getConfig().putSingle("algorithm", algorithm);
         return keys;
     }

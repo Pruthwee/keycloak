@@ -25,7 +25,6 @@
         <relativePath>../../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>keycloak-saml-wildfly-adapter-dist</artifactId>
     <packaging>pom</packaging>
     <name>Keycloak SAML Wildfly Adapter Distro</name>
     <description>Keycloak SAML Wildfly Adapter Distro</description>
@@ -34,6 +33,7 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-saml-wildfly-modules</artifactId>
+            <version>${project.version}</version>
             <type>zip</type>
         </dependency>
     </dependencies>

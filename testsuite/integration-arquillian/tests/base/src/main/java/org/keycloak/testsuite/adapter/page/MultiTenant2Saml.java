@@ -20,8 +20,6 @@ package org.keycloak.testsuite.adapter.page;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.jboss.arquillian.container.test.api.OperateOnDeployment;
-import org.jboss.arquillian.test.api.ArquillianResource;
 
 import static org.keycloak.testsuite.util.WaitUtils.pause;
 

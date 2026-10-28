@@ -48,7 +48,6 @@ import org.keycloak.testsuite.webauthn.authenticators.DefaultVirtualAuthOptions;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;

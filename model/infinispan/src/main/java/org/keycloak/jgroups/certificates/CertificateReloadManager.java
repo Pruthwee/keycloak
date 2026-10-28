@@ -17,6 +17,7 @@
 
 package org.keycloak.jgroups.certificates;
 
+import org.jboss.arquillian.core.api.annotation.Inject;
 import java.lang.invoke.MethodHandles;
 import java.time.Duration;
 import java.util.concurrent.ScheduledExecutorService;

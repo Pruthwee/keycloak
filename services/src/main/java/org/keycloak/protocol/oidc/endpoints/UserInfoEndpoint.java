@@ -16,6 +16,7 @@
  */
 package org.keycloak.protocol.oidc.endpoints;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
@@ -89,8 +90,6 @@ import org.keycloak.utils.MediaType;
 import org.keycloak.utils.OAuth2Error;
 
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 /**
  * @author pedroigor
  */

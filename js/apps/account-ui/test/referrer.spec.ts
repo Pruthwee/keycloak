@@ -42,7 +42,7 @@ test.describe("Referrer", () => {
   }) => {
     const queryParams = new URLSearchParams([
       ["referrer", ADMIN_CLIENT_ID],
-      ["referrer_uri", "http://i-am-not-an-allowed-url.com"],
+      ["referrer_uri", process.env.API_URL || "$1"],
     ]);
 
     // Log in with an invalid referrer URL, and check if the referrer link is not displayed.

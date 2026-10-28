@@ -5,6 +5,7 @@ import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.cert.X509Certificate;
 import java.util.Date;
+import java.time.Instant;
 
 import org.keycloak.common.crypto.CryptoIntegration;
 import org.keycloak.crypto.KeyType;
@@ -40,7 +41,7 @@ public class CertificateValidatorTest {
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate = CryptoIntegration.getProvider().getCertificateUtils()
                 .createServicesTestCertificate("CN=keycloak-test", new Date(),
-                        new Date(System.currentTimeMillis() + 1000L * 60), keyPair);
+                        new Date(Instant.now().toEpochMilli() + 1000L * 60), keyPair);
 
         CertificateValidator.CertificateValidatorBuilder builder =
             new CertificateValidator.CertificateValidatorBuilder();
@@ -65,8 +66,8 @@ public class CertificateValidatorTest {
         kpg.initialize(512);
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate = CryptoIntegration.getProvider().getCertificateUtils()
-                .createServicesTestCertificate("CN=keycloak-test", new Date(System.currentTimeMillis() + 1000L * 60),
-                        new Date(System.currentTimeMillis() + 1000L * 60), keyPair);
+                .createServicesTestCertificate("CN=keycloak-test", new Date(Instant.now().toEpochMilli() + 1000L * 60),
+                        new Date(Instant.now().toEpochMilli() + 1000L * 60), keyPair);
 
         CertificateValidator.CertificateValidatorBuilder builder =
             new CertificateValidator.CertificateValidatorBuilder();
@@ -93,8 +94,8 @@ public class CertificateValidatorTest {
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate = CryptoIntegration.getProvider().getCertificateUtils()
                 .createServicesTestCertificate("CN=keycloak-test",
-                        new Date(System.currentTimeMillis() - 1000L * 60 * 2),
-                        new Date(System.currentTimeMillis() - 1000L * 60), keyPair);
+                        new Date(Instant.now().toEpochMilli() - 1000L * 60 * 2),
+                        new Date(Instant.now().toEpochMilli() - 1000L * 60), keyPair);
 
         CertificateValidator.CertificateValidatorBuilder builder =
             new CertificateValidator.CertificateValidatorBuilder();
@@ -336,8 +337,8 @@ public class CertificateValidatorTest {
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate = CryptoIntegration.getProvider().getCertificateUtils()
                 .createServicesTestCertificate("CN=keycloak-test",
-                        new Date(System.currentTimeMillis() - 1000L * 60 * 2),
-                        new Date(System.currentTimeMillis() - 1000L * 60), keyPair, certificatePolicyOid);
+                        new Date(Instant.now().toEpochMilli() - 1000L * 60 * 2),
+                        new Date(Instant.now().toEpochMilli() - 1000L * 60), keyPair, certificatePolicyOid);
 
         CertificateValidator.CertificateValidatorBuilder builder =
             new CertificateValidator.CertificateValidatorBuilder();

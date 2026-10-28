@@ -17,6 +17,7 @@
 
 package org.keycloak.quarkus.runtime.integration.jaxrs;
 
+import org.jboss.arquillian.core.api.annotation.Observes;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 

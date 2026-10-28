@@ -17,6 +17,8 @@
 
 package org.keycloak.operator.testsuite.integration;
 
+import org.jboss.logging.Logger;
+import static org.jboss.logging.Logger.Level;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -104,7 +106,6 @@ import io.quarkus.test.junit.callback.QuarkusTestAfterEachCallback;
 import io.quarkus.test.junit.callback.QuarkusTestMethodContext;
 import org.awaitility.Awaitility;
 import org.eclipse.microprofile.config.ConfigProvider;
-import org.jboss.logging.Logger.Level;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeAll;

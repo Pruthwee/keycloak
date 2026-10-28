@@ -21,6 +21,7 @@ import java.lang.reflect.Field;
 import java.net.URI;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
+import java.time.Instant;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -348,7 +349,7 @@ public class SimpleUndertowLoadBalancer {
 
         @Override
         public void failed(HttpServerExchange exchange) {
-            final long time = System.currentTimeMillis();
+            final long time = Instant.now().toEpochMilli();
 
             Integer remainingAttempts = exchange.getAttachment(REMAINING_RETRY_ATTEMPTS);
             if (remainingAttempts == null) {

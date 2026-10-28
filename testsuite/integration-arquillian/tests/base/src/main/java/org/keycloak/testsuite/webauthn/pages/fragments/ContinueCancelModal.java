@@ -17,7 +17,6 @@
 
 package org.keycloak.testsuite.webauthn.pages.fragments;
 
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

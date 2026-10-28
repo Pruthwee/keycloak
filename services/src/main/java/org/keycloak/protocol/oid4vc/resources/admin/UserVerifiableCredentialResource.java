@@ -1,5 +1,6 @@
 package org.keycloak.protocol.oid4vc.resources.admin;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -58,8 +59,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 import static org.keycloak.services.resources.admin.UserResource.verifySendEmailParams;
 
 public class UserVerifiableCredentialResource {

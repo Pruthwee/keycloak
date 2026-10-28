@@ -16,6 +16,7 @@
  */
 package org.keycloak.testsuite.util;
 
+import static org.jboss.logging.Logger.Level;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,7 +29,6 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import org.jboss.logging.Logger;
-import org.jboss.logging.Logger.Level;
 
 /**
  *

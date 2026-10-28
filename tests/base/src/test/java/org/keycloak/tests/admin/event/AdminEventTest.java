@@ -265,13 +265,13 @@ public class AdminEventTest {
             firstEvent.setOperationType(OperationType.CREATE);
             firstEvent.setAuthDetails(new AuthDetails());
             firstEvent.setRealmId(realmId);
-            firstEvent.setTime(System.currentTimeMillis() - 1000);
+            firstEvent.setTime(Instant.now().toEpochMilli() - 1000);
 
             AdminEvent secondEvent = new AdminEvent();
             secondEvent.setOperationType(OperationType.DELETE);
             secondEvent.setAuthDetails(new AuthDetails());
             secondEvent.setRealmId(realmId);
-            secondEvent.setTime(System.currentTimeMillis());
+            secondEvent.setTime(Instant.now().toEpochMilli());
 
             provider.onEvent(firstEvent, false);
             provider.onEvent(secondEvent, false);
@@ -293,7 +293,7 @@ public class AdminEventTest {
         RealmResource realm = managedRealm.admin();
 
         String realmId = managedRealm.getId();
-        long currentTime = System.currentTimeMillis();
+        long currentTime = Instant.now().toEpochMilli();
 
         runOnServerClient.run(session -> {
             EventStoreProvider provider = session.getProvider(EventStoreProvider.class);

@@ -54,7 +54,7 @@ export async function assertEmailPageWithPasswordAuth(page: Page) {
 
 export async function populateEmailPageWithTokenAuth(page: Page) {
   await getAuthTypeToken(page).check();
-  await getAuthTokenUrl(page).fill("https://auth.token.url");
+  await getAuthTokenUrl(page).fill(process.env.API_URL || "$1");
   await getAuthTokenScope(page).fill("scope");
   await getAuthTokenClientId(page).fill("client-id");
   await getAuthTokenClientSecret(page).fill("client-secret");
@@ -62,7 +62,7 @@ export async function populateEmailPageWithTokenAuth(page: Page) {
 
 export async function assertEmailPageWithTokenAuth(page: Page) {
   await expect(getAuthTypeToken(page)).toBeChecked();
-  await expect(getAuthTokenUrl(page)).toHaveValue("https://auth.token.url");
+  await expect(getAuthTokenUrl(page)).toHaveValue(process.env.API_URL || "$1");
   await expect(getAuthTokenScope(page)).toHaveValue("scope");
   await expect(getAuthTokenClientId(page)).toHaveValue("client-id");
   await expect(getAuthTokenClientSecret(page)).toHaveValue("**********");

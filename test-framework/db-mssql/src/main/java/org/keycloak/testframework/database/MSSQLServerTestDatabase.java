@@ -1,12 +1,10 @@
 package org.keycloak.testframework.database;
 
+import static org.jboss.logging.Logger.Level;
 import java.util.List;
 
 import org.keycloak.testframework.util.ContainerImages;
-
 import org.jboss.logging.Logger;
-import org.jboss.logmanager.Level;
-import org.jboss.logmanager.LogManager;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.MSSQLServerContainer;
 import org.testcontainers.utility.DockerImageName;

@@ -28,18 +28,6 @@ import org.keycloak.adapters.saml.AdapterConstants;
 import org.keycloak.adapters.saml.elytron.KeycloakConfigurationServletListener;
 import org.keycloak.subsystem.adapter.saml.extension.logging.KeycloakLogger;
 
-import org.jboss.as.server.deployment.DeploymentPhaseContext;
-import org.jboss.as.server.deployment.DeploymentUnit;
-import org.jboss.as.server.deployment.DeploymentUnitProcessingException;
-import org.jboss.as.server.deployment.DeploymentUnitProcessor;
-import org.jboss.as.web.common.WarMetaData;
-import org.jboss.dmr.ModelNode;
-import org.jboss.metadata.javaee.spec.ParamValueMetaData;
-import org.jboss.metadata.web.jboss.JBossWebMetaData;
-import org.jboss.metadata.web.spec.ListenerMetaData;
-import org.jboss.metadata.web.spec.LoginConfigMetaData;
-import org.jboss.staxmapper.FormattingXMLStreamWriter;
-import org.jboss.staxmapper.XMLExtendedStreamWriter;
 
 import static org.keycloak.subsystem.adapter.saml.extension.Elytron.isElytronEnabled;
 

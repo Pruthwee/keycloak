@@ -27,10 +27,10 @@ import jakarta.ws.rs.core.PathSegment;
 import jakarta.ws.rs.core.UriBuilder;
 import jakarta.ws.rs.core.UriInfo;
 
+import org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl;
 import org.keycloak.urls.HostnameProvider;
 import org.keycloak.urls.UrlType;
 
-import org.jboss.resteasy.reactive.common.jaxrs.UriBuilderImpl;
 
 import static org.keycloak.common.util.UriUtils.parseQueryParameters;
 

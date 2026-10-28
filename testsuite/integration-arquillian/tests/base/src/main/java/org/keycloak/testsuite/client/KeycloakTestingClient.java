@@ -36,9 +36,6 @@ import org.keycloak.testsuite.client.resources.TestingResource;
 import org.keycloak.testsuite.util.AdminClientUtil;
 import org.keycloak.util.JsonSerialization;
 
-import org.jboss.resteasy.client.jaxrs.ResteasyClient;
-import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
-import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.junit.AssumptionViolatedException;
 import org.junit.jupiter.api.Assertions;
 

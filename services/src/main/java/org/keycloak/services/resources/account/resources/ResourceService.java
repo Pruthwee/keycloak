@@ -17,6 +17,7 @@
 package org.keycloak.services.resources.account.resources;
 
 import java.util.Calendar;
+import java.time.Instant;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -177,7 +178,7 @@ public class ResourceService extends AbstractResourceService {
 
                         if (scope.getId().equals(ticket.getScope().getId())) {
                             if (!ticket.isGranted()) {
-                                ticket.setGrantedTimestamp(System.currentTimeMillis());
+                                ticket.setGrantedTimestamp(Instant.now().toEpochMilli());
                             }
                             // permission exists, remove from the list to avoid deletion
                             ticketIterator.remove();

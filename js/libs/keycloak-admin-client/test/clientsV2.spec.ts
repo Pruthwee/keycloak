@@ -192,8 +192,8 @@ describe("Clients V2 API", () => {
       enabled: true,
       displayName: "Full Config Test Client",
       description: "A client with full OIDC configuration",
-      redirectUris: ["http://localhost:3000/callback"],
-      webOrigins: ["http://localhost:3000"],
+      redirectUris: [process.env.API_URL || "$1"],
+      webOrigins: [process.env.API_URL || "$1"],
     });
 
     // Get via v2 API and verify

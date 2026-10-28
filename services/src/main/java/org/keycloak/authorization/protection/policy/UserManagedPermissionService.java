@@ -16,6 +16,7 @@
  */
 package org.keycloak.authorization.protection.policy;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.Set;
@@ -48,7 +49,6 @@ import org.keycloak.services.ErrorResponseException;
 import org.keycloak.services.resources.admin.AdminEventBuilder;
 import org.keycloak.util.JsonSerialization;
 
-import org.jboss.resteasy.reactive.NoCache;
 
 /**
  * @author <a href="mailto:federico@martel-innovate.com">Federico M. Facca</a>

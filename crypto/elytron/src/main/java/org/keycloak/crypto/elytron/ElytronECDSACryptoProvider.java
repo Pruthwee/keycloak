@@ -24,9 +24,6 @@ import java.security.interfaces.ECPublicKey;
 import org.keycloak.common.crypto.ECDSACryptoProvider;
 
 import org.jboss.logging.Logger;
-import org.wildfly.security.asn1.DERDecoder;
-import org.wildfly.security.asn1.DEREncoder;
-
 /**
  * @author <a href="mailto:david.anderson@redhat.com">David Anderson</a>
  */

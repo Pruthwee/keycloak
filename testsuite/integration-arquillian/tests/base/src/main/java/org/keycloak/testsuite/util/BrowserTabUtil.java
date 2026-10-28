@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.htmlunit.WebClient;
-import org.jboss.arquillian.drone.webdriver.htmlunit.DroneHtmlUnitDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;

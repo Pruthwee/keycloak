@@ -17,6 +17,7 @@
 
 package org.keycloak.tests.admin;
 
+import java.time.Instant;
 import java.net.URL;
 
 import org.keycloak.admin.client.resource.ClientResource;
@@ -150,8 +151,8 @@ class ClientVaultTest {
                     .directAccessGrantsEnabled(true)
                     .secret("some-primary-secret")
                     .attribute(ClientSecretConstants.CLIENT_ROTATED_SECRET, "${vault.rotated_secret}")
-                    .attribute(ClientSecretConstants.CLIENT_ROTATED_SECRET_CREATION_TIME, String.valueOf(System.currentTimeMillis() / 1000))
-                    .attribute(ClientSecretConstants.CLIENT_ROTATED_SECRET_EXPIRATION_TIME, String.valueOf(System.currentTimeMillis() / 1000 + 86400)));
+                    .attribute(ClientSecretConstants.CLIENT_ROTATED_SECRET_CREATION_TIME, String.valueOf(Instant.now().toEpochMilli() / 1000))
+                    .attribute(ClientSecretConstants.CLIENT_ROTATED_SECRET_EXPIRATION_TIME, String.valueOf(Instant.now().toEpochMilli() / 1000 + 86400)));
 
             realm.clients(ClientBuilder.create("myclient-jwt-client-secret-authenticator")
                     .publicClient(false)

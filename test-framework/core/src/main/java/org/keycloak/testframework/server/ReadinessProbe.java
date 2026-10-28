@@ -5,6 +5,7 @@ import java.net.URI;
 import java.security.cert.X509Certificate;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+import java.time.Instant;
 import java.util.function.IntFunction;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -36,8 +37,8 @@ public final class ReadinessProbe {
     }
 
     private static void waitUntilReady(String url, SSLContext sslContext, long timeout) {
-        var deadline = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(timeout);
-        while (System.currentTimeMillis() < deadline) {
+        var deadline = Instant.now().toEpochMilli() + TimeUnit.SECONDS.toMillis(timeout);
+        while (Instant.now().toEpochMilli() < deadline) {
             try {
                 HttpURLConnection connection = (HttpURLConnection) URI.create(url).toURL().openConnection();
                 if (connection instanceof HttpsURLConnection https) {

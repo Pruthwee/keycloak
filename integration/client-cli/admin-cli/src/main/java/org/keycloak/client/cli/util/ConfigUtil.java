@@ -16,6 +16,7 @@
  */
 package org.keycloak.client.cli.util;
 
+import java.time.Instant;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.client.cli.config.ConfigData;
 import org.keycloak.client.cli.config.ConfigHandler;
@@ -61,10 +62,10 @@ public class ConfigUtil {
             realmConfig.setRefreshToken(tokens.getRefreshToken());
             realmConfig.setSigningToken(signKey);
             realmConfig.setSecret(secret);
-            realmConfig.setExpiresAt(System.currentTimeMillis() + tokens.getExpiresIn() * 1000);
+            realmConfig.setExpiresAt(Instant.now().toEpochMilli() + tokens.getExpiresIn() * 1000);
             if (realmConfig.getRefreshToken() != null) {
                 realmConfig.setRefreshExpiresAt(tokens.getRefreshExpiresIn() == 0 ?
-                        Long.MAX_VALUE : System.currentTimeMillis() + tokens.getRefreshExpiresIn() * 1000);
+                        Long.MAX_VALUE : Instant.now().toEpochMilli() + tokens.getRefreshExpiresIn() * 1000);
             }
             realmConfig.setSigExpiresAt(sigExpiresAt);
             realmConfig.setClientId(clientId);

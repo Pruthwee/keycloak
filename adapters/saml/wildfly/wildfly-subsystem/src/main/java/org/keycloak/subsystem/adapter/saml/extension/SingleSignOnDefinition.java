@@ -16,11 +16,9 @@
  */
 package org.keycloak.subsystem.adapter.saml.extension;
 
+import org.jboss.as.controller.SimpleAttributeDefinitionBuilder;
 import java.util.HashMap;
 
-import org.jboss.as.controller.SimpleAttributeDefinition;
-import org.jboss.as.controller.SimpleAttributeDefinitionBuilder;
-import org.jboss.dmr.ModelType;
 
 /**
  * @author <a href="mailto:mstrukel@redhat.com">Marko Strukelj</a>

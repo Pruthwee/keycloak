@@ -33,12 +33,7 @@ import io.opentelemetry.context.Scope;
 import io.opentelemetry.semconv.CodeAttributes;
 import io.opentelemetry.semconv.incubating.CodeIncubatingAttributes;
 import org.apache.commons.lang3.StringUtils;
-import org.jboss.resteasy.reactive.common.model.ResourceClass;
 import org.jboss.resteasy.reactive.server.core.ResteasyReactiveRequestContext;
-import org.jboss.resteasy.reactive.server.model.HandlerChainCustomizer;
-import org.jboss.resteasy.reactive.server.model.ServerResourceMethod;
-import org.jboss.resteasy.reactive.server.spi.ServerRestHandler;
-
 public final class KeycloakTracingCustomizer implements HandlerChainCustomizer {
 
     private static class StartHandler implements ServerRestHandler {

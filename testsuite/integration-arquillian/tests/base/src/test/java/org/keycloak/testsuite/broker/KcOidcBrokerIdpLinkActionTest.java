@@ -53,7 +53,6 @@ import org.keycloak.testsuite.util.runonserver.RunHelpers;
 import org.keycloak.utils.BrokerUtil;
 
 import org.hamcrest.MatcherAssert;
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

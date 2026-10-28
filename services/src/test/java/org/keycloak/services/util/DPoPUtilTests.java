@@ -7,9 +7,9 @@ import java.util.Base64;
 import org.keycloak.common.VerificationException;
 import org.keycloak.http.HttpRequest;
 import org.keycloak.services.resteasy.HttpRequestImpl;
+import org.jboss.resteasy.mock.MockHttpRequest;
 import org.keycloak.utils.AbstractUtilSessionTest;
 
-import org.jboss.resteasy.mock.MockHttpRequest;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;

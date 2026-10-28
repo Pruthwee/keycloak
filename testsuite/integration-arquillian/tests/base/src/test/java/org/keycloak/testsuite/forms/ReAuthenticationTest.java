@@ -48,9 +48,6 @@ import org.keycloak.testsuite.util.oauth.OAuthClient;
 
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
-import org.jboss.arquillian.drone.api.annotation.Drone;
-import org.jboss.arquillian.graphene.page.Page;
-import org.jboss.arquillian.test.api.ArquillianResource;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;

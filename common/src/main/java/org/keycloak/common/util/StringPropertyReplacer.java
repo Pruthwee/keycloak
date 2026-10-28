@@ -16,6 +16,7 @@
  */
 package org.keycloak.common.util;
 
+import static org.jboss.logging.Logger.Level;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -23,10 +24,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
-
 import org.jboss.logging.Logger;
-import org.jboss.logging.Logger.Level;
-
+import org.jboss.logging.Logger;
 /**
  * A utility class for replacing properties in strings.
  *

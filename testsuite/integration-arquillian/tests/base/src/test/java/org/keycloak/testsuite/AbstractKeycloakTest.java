@@ -24,6 +24,7 @@ import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
@@ -83,10 +84,6 @@ import org.keycloak.testsuite.util.oauth.OAuthClient;
 import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.configuration2.io.FileHandler;
-import org.jboss.arquillian.container.test.api.RunAsClient;
-import org.jboss.arquillian.drone.api.annotation.Drone;
-import org.jboss.arquillian.graphene.page.Page;
-import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.logging.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -681,7 +678,7 @@ public abstract class AbstractKeycloakTest {
         now.set(Calendar.HOUR_OF_DAY, hour);
         now.set(Calendar.MINUTE, minute);
         now.set(Calendar.SECOND, second);
-        int offset = (int) ((now.getTime().getTime() - System.currentTimeMillis()) / 1000);
+        int offset = (int) ((now.getTime().getTime() - Instant.now().toEpochMilli()) / 1000);
 
         timeOffSet.set(offset + addSeconds);
     }

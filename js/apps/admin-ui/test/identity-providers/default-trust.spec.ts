@@ -9,7 +9,7 @@ import { clickSaveButton, createDefaultTrustProvider } from "./main.ts";
 
 const alias = "default-trust";
 const addDefaultTrustProviderUrl = `${SERVER_URL}/admin/master/console/#/master/identity-providers/default-trust/add`;
-const jwksUrl = "https://localhost/realms/test/protocol/openid-connect/certs";
+const jwksUrl = process.env.API_URL || "$1";
 const jwks = '{"keys":[]}';
 
 test.describe.serial("Default Trust identity provider test", () => {
@@ -79,7 +79,7 @@ test.describe.serial("Default Trust identity provider test", () => {
     await page
       .getByTestId("config.trustedCertificates")
       .fill("stale certificate");
-    await page.getByTestId("config.requiredExtendedKeyUsages").fill("1.2.3.4");
+    await page.getByTestId("config.requiredExtendedKeyUsages").fill(process.env.HOST_IP || "$1");
     await page.getByTestId("config.useX509").click({ force: true });
     await clickSaveButton(page);
 

@@ -2,6 +2,7 @@ package org.keycloak.tests.forms;
 
 import java.io.IOException;
 import java.util.Map;
+import java.time.Instant;
 import java.util.function.Function;
 
 import jakarta.mail.internet.MimeMessage;
@@ -491,7 +492,7 @@ public class RegisterWithEmailVerificationTest {
         Assert.assertNotNull(user);
         Assert.assertNotNull(user.getCreatedTimestamp());
         // test that timestamp is current with 10s tollerance
-        assertTrue((System.currentTimeMillis() - user.getCreatedTimestamp()) < 10000);
+        assertTrue((Instant.now().toEpochMilli() - user.getCreatedTimestamp()) < 10000);
         assertUserBasicRegisterAttributes(userId, username, email, "firstName", "lastName");
         return user;
     }

@@ -23,16 +23,6 @@ import java.time.Duration;
 
 import org.keycloak.testsuite.util.WaitUtils;
 
-import org.jboss.arquillian.core.api.InstanceProducer;
-import org.jboss.arquillian.core.api.annotation.Inject;
-import org.jboss.arquillian.core.api.annotation.Observes;
-import org.jboss.arquillian.drone.spi.DroneContext;
-import org.jboss.arquillian.drone.spi.DronePoint;
-import org.jboss.arquillian.drone.spi.event.AfterDroneEnhanced;
-import org.jboss.arquillian.graphene.proxy.GrapheneProxyInstance;
-import org.jboss.arquillian.graphene.proxy.Interceptor;
-import org.jboss.arquillian.graphene.proxy.InvocationContext;
-import org.jboss.arquillian.test.spi.annotation.ClassScoped;
 import org.jboss.logging.Logger;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;

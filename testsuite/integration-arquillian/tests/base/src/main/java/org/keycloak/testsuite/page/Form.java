@@ -17,7 +17,6 @@
 
 package org.keycloak.testsuite.page;
 
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.logging.Logger;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +25,6 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.keycloak.testsuite.util.UIUtils.clickLink;
 
-import static org.jboss.arquillian.graphene.Graphene.guardAjax;
 
 /**
  *

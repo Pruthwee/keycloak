@@ -22,21 +22,7 @@ import java.util.Objects;
 
 import org.keycloak.adapters.saml.AdapterConstants;
 
-import org.jboss.as.controller.capability.CapabilityServiceSupport;
-import org.jboss.as.server.deployment.Attachments;
-import org.jboss.as.server.deployment.DeploymentPhaseContext;
-import org.jboss.as.server.deployment.DeploymentUnit;
-import org.jboss.as.server.deployment.DeploymentUnitProcessingException;
-import org.jboss.as.server.deployment.DeploymentUnitProcessor;
-import org.jboss.as.web.common.WarMetaData;
 import org.jboss.logging.Logger;
-import org.jboss.metadata.javaee.spec.ParamValueMetaData;
-import org.jboss.metadata.web.jboss.JBossWebMetaData;
-import org.jboss.metadata.web.spec.LoginConfigMetaData;
-import org.jboss.msc.service.ServiceController;
-import org.jboss.msc.service.ServiceName;
-import org.jboss.msc.service.ServiceTarget;
-
 /**
  *
  * @author hmlnarik

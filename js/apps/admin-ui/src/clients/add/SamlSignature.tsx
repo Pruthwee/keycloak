@@ -19,18 +19,18 @@ export const SIGNATURE_ALGORITHMS = [
 const KEYNAME_TRANSFORMER = ["NONE", "KEY_ID", "CERT_SUBJECT"] as const;
 
 const CANONICALIZATION = [
-  { name: "EXCLUSIVE", value: "http://www.w3.org/2001/10/xml-exc-c14n#" },
+  { name: "EXCLUSIVE", value: process.env.API_URL || "$1" },
   {
     name: "EXCLUSIVE_WITH_COMMENTS",
-    value: "http://www.w3.org/2001/10/xml-exc-c14n#WithComments",
+    value: process.env.API_URL || "$1",
   },
   {
     name: "INCLUSIVE",
-    value: "http://www.w3.org/TR/2001/REC-xml-c14n-20010315",
+    value: process.env.API_URL || "$1",
   },
   {
     name: "INCLUSIVE_WITH_COMMENTS",
-    value: "http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments",
+    value: process.env.API_URL || "$1",
   },
 ] as const;
 

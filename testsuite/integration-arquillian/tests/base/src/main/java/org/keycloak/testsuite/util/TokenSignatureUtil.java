@@ -24,6 +24,7 @@ import java.security.Signature;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
+import java.time.Instant;
 
 import jakarta.ws.rs.core.Response;
 
@@ -140,7 +141,7 @@ public class TokenSignatureUtil {
     }
 
     private static void registerKeyProvider(String realm, String providerSpecificKey, String providerSpecificValue, String providerId, Keycloak adminClient, TestContext testContext) {
-        long priority = System.currentTimeMillis();
+        long priority = Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createKeyRep("valid", providerId, adminClient);
         rep.setConfig(new MultivaluedHashMap<>());

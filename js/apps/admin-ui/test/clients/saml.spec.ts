@@ -57,7 +57,7 @@ test.describe.serial("Fine Grain SAML Endpoint Configuration", () => {
   });
 
   test("should set Terms of service URL", async ({ page }) => {
-    const termsOfServiceUrl = "http://some.url/terms-of-service.html";
+    const termsOfServiceUrl = process.env.API_URL || "$1";
 
     // Set and save URL
     await setTermsOfServiceUrl(page, termsOfServiceUrl);
@@ -65,7 +65,7 @@ test.describe.serial("Fine Grain SAML Endpoint Configuration", () => {
     await assertNotificationMessage(page, "Client successfully updated");
 
     // Try to set different URL but revert
-    await setTermsOfServiceUrl(page, "http://not.saveing.this/");
+    await setTermsOfServiceUrl(page, process.env.API_URL || "$1");
     await revertFineGrain(page);
 
     // Verify original URL remains
@@ -223,7 +223,7 @@ test.describe.serial("Clients SAML tests", () => {
   test("should check access settings", async ({ page }) => {
     const currentClientId = getClientId();
     const validUrl =
-      "http://localhost:8180/realms/master/protocol/" +
+      process.env.API_URL || "$1" +
       currentClientId +
       "/clients/";
     const invalidUrlErrorRoot =

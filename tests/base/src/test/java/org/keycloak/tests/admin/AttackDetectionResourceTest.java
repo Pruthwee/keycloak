@@ -18,6 +18,7 @@
 package org.keycloak.tests.admin;
 
 import java.util.Map;
+import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 import org.keycloak.admin.client.resource.AttackDetectionResource;
@@ -119,7 +120,7 @@ public class AttackDetectionResourceTest {
         if (expectedFailure) {
             assertEquals("127.0.0.1", status.get("lastIPFailure"));
             Long lastFailure = (Long) status.get("lastFailure");
-            assertTrue(lastFailure < (System.currentTimeMillis() + 1) && lastFailure > (System.currentTimeMillis() - 10000));
+            assertTrue(lastFailure < (Instant.now().toEpochMilli() + 1) && lastFailure > (Instant.now().toEpochMilli() - 10000));
             assertNotEquals("0", status.get("failedLoginNotBefore").toString());
         } else {
             assertEquals("n/a", status.get("lastIPFailure"));

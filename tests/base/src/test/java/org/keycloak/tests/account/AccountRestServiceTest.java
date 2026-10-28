@@ -18,6 +18,7 @@ package org.keycloak.tests.account;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.time.Instant;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -2223,7 +2224,7 @@ public class AccountRestServiceTest extends AbstractRestServiceTest {
                 .asStatus();
         Assertions.assertEquals(200, status);
 
-        int currentTime = (int) (System.currentTimeMillis() / 1000);
+        int currentTime = (int) (Instant.now().toEpochMilli() / 1000);
 
         org.keycloak.representations.idm.ClientRepresentation clientRep = AdminApiUtil.findClientByClientId(managedRealm.admin(), "direct-grant").toRepresentation();
         Integer originalRealmNotBefore = managedRealm.admin().toRepresentation().getNotBefore();

@@ -1,6 +1,7 @@
 package org.keycloak.testsuite.util;
 
 import java.util.HashMap;
+import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -34,7 +35,7 @@ public class FlowUtil {
     private AuthenticationFlowModel currentFlow;
     private String flowAlias;
     private int maxPriority = 0;
-    private Random rand = new Random(System.currentTimeMillis());
+    private Random rand = new Random(Instant.now().toEpochMilli());
     private List<AuthenticationExecutionModel> executions = null;
 
     public class FlowUtilException extends RuntimeException {

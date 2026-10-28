@@ -18,6 +18,7 @@
 package org.keycloak.testsuite.util.cli;
 
 import java.util.Arrays;
+import java.time.Instant;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -155,12 +156,12 @@ public abstract class AbstractSessionCacheCommand extends AbstractCommand {
             String id = getArg(1);
             int count = getIntArg(2);
 
-            long start = System.currentTimeMillis();
+            long start = Instant.now().toEpochMilli();
             for (int i=0 ; i<count ; i++) {
                 UserSessionEntity userSession = (UserSessionEntity) cache.get(id).getEntity();
                 //printSession(id, userSession);
             }
-            long took = System.currentTimeMillis() - start;
+            long took = Instant.now().toEpochMilli() - start;
             log.infof("Took %d milliseconds", took);
         }
 

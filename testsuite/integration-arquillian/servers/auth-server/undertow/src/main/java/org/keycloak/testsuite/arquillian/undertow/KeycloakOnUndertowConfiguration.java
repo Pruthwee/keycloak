@@ -18,9 +18,7 @@
 package org.keycloak.testsuite.arquillian.undertow;
 
 import org.arquillian.undertow.UndertowContainerConfiguration;
-import org.jboss.arquillian.container.spi.ConfigurationException;
 import org.jboss.logging.Logger;
-
 public class KeycloakOnUndertowConfiguration extends UndertowContainerConfiguration {
 
     public static final int DEFAULT_HTTPS_PORT = Integer.valueOf(System.getProperty("auth.server.https.port", "8543"));

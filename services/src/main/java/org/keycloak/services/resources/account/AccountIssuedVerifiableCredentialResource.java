@@ -16,6 +16,7 @@
  */
 package org.keycloak.services.resources.account;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.List;
 
 import jakarta.ws.rs.DELETE;
@@ -41,8 +42,6 @@ import org.keycloak.services.managers.Auth;
 import org.keycloak.services.util.ResolveRelative;
 
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 public class AccountIssuedVerifiableCredentialResource {
 
     private static final Logger logger = Logger.getLogger(AccountIssuedVerifiableCredentialResource.class);

@@ -42,7 +42,6 @@ import org.keycloak.testsuite.util.LDAPTestConfiguration;
 import org.keycloak.testsuite.util.LDAPTestUtils;
 import org.keycloak.testsuite.util.oauth.AccessTokenResponse;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Assume;
 import org.junit.FixMethodOrder;
 import org.junit.Rule;

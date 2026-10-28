@@ -27,7 +27,6 @@ import org.keycloak.testsuite.admin.AdminApiUtil;
 import org.keycloak.testsuite.auth.page.AuthRealm;
 import org.keycloak.testsuite.pages.LoginPage;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.openqa.selenium.Cookie;
 

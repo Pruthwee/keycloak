@@ -18,6 +18,7 @@
 package org.keycloak.tests.model;
 
 import java.util.Arrays;
+import java.time.Instant;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -35,7 +36,6 @@ import org.keycloak.testframework.annotations.InjectRealm;
 import org.keycloak.testframework.annotations.KeycloakIntegrationTest;
 import org.keycloak.testframework.realm.ManagedRealm;
 import org.keycloak.testframework.remote.annotations.TestOnServer;
-
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.Assertions;
 
@@ -279,7 +279,7 @@ public class ConcurrentTransactionsTest {
                 sessionSet.getContext().setRealm(realm);
                 realm.setDefaultRole(sessionSet.roles().addRealmRole(realm, Constants.DEFAULT_ROLES_ROLE_PREFIX + "-" + realm.getName()));
                 RoleModel roleModel = realm.getDefaultRole();
-                roleModel.setSingleAttribute("foo", String.valueOf(System.currentTimeMillis()));
+                roleModel.setSingleAttribute("foo", String.valueOf(Instant.now().toEpochMilli()));
 
             });
 
@@ -303,7 +303,7 @@ public class ConcurrentTransactionsTest {
                                 // Wait until it's read in both threads
                                 readAttrLatch.countDown();
                                 readAttrLatch.await();
-                                roleModel.setSingleAttribute("foo", String.valueOf(System.currentTimeMillis()));
+                                roleModel.setSingleAttribute("foo", String.valueOf(Instant.now().toEpochMilli()));
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
                             }

@@ -1,4 +1,7 @@
 package org.keycloak.services.x509;
+import org.jboss.logmanager.handlers.WriterHandler;
+import org.jboss.logmanager.formatters.PatternFormatter;
+import org.jboss.resteasy.mock.MockHttpRequest;
 
 import java.io.ByteArrayInputStream;
 import java.io.StringWriter;
@@ -21,16 +24,14 @@ import javax.security.auth.x500.X500Principal;
 
 import jakarta.ws.rs.core.MultivaluedMap;
 
+import java.util.logging.Handler;
+import java.util.logging.Logger;
 import org.keycloak.common.crypto.CryptoIntegration;
 import org.keycloak.http.HttpRequest;
 import org.keycloak.services.resteasy.HttpRequestImpl;
 import org.keycloak.utils.ScopeUtil;
 
 import org.apache.commons.io.IOUtils;
-import org.jboss.logmanager.Logger;
-import org.jboss.logmanager.formatters.PatternFormatter;
-import org.jboss.logmanager.handlers.WriterHandler;
-import org.jboss.resteasy.mock.MockHttpRequest;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

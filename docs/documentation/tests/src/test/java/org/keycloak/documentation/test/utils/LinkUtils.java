@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -106,7 +107,7 @@ public class LinkUtils {
                     }
 
                     if (error == null) {
-                        verifiedLinks.put(link, System.currentTimeMillis());
+                        verifiedLinks.put(link, Instant.now().toEpochMilli());
                     } else {
                         invalidLinks.add(new InvalidLink(link, error));
                     }
@@ -149,7 +150,7 @@ public class LinkUtils {
                 if (!verifiedLinks.containsKey(image)) {
                     boolean valid = http.isValid(image).isSuccess();
                     if (valid) {
-                        verifiedLinks.put(image, System.currentTimeMillis());
+                        verifiedLinks.put(image, Instant.now().toEpochMilli());
                     } else {
                         missingImages.add(image);
                     }
@@ -224,7 +225,7 @@ public class LinkUtils {
                 p.load(new FileInputStream(verifiedLinksCacheFile));
                 for(Map.Entry<Object, Object> e : p.entrySet()) {
                     long checked = Long.valueOf((String) e.getValue());
-                    if (checked + Constants.LINK_CHECK_EXPIRATION >= System.currentTimeMillis()) {
+                    if (checked + Constants.LINK_CHECK_EXPIRATION >= Instant.now().toEpochMilli()) {
                         m.put((String) e.getKey(), checked);
                     }
                 }

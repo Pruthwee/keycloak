@@ -1,5 +1,5 @@
 .keycloak__authentication__header-drag-button svg {
-  fill: var(--pf-v5-global--BackgroundColor--100);
+  fill: var(--pf-v5-global--BackgroundColor--100, #000000);
 }
 
 .keycloak__authentication__header .pf-v5-c-data-list__cell {

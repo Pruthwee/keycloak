@@ -53,7 +53,6 @@ import org.keycloak.testsuite.util.MailServer;
 import org.keycloak.testsuite.util.TestCleanup;
 
 import org.hamcrest.Matchers;
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Rule;
 import org.junit.jupiter.api.Assertions;
 

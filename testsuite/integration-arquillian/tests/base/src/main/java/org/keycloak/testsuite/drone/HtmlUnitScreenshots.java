@@ -20,9 +20,6 @@ package org.keycloak.testsuite.drone;
 
 import org.arquillian.extension.recorder.screenshooter.ScreenshooterConfiguration;
 import org.arquillian.extension.recorder.screenshooter.event.ScreenshooterExtensionConfigured;
-import org.jboss.arquillian.core.api.Instance;
-import org.jboss.arquillian.core.api.annotation.Inject;
-import org.jboss.arquillian.core.api.annotation.Observes;
 
 /**
  * Disable screenshots for HTMLUnitDriver as it doesn't work

@@ -18,7 +18,7 @@ test.describe.serial("Kubernetes identity provider test", () => {
     await createKubernetesProvider(
       page,
       "kubernetes",
-      "https://kubernetes.myorg.com",
+      process.env.API_URL || "$1",
     );
 
     await assertNotificationMessage(
@@ -31,7 +31,7 @@ test.describe.serial("Kubernetes identity provider test", () => {
 
     await page
       .getByTestId("config.issuer")
-      .fill("https://kubernetes2.myorg.com");
+      .fill(process.env.API_URL || "$1");
 
     await clickSaveButton(page);
 

@@ -18,6 +18,7 @@
 package org.keycloak.tests.admin.concurrency;
 
 import java.util.List;
+import java.time.Instant;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -147,9 +148,9 @@ public class ConcurrencyTest extends AbstractConcurrencyTest {
 
     public void concurrentTest(KeycloakRunnable... tasks) throws Throwable {
         System.out.println("***************************");
-        long start = System.currentTimeMillis();
+        long start = Instant.now().toEpochMilli();
         run(tasks);
-        long end = System.currentTimeMillis() - start;
+        long end = Instant.now().toEpochMilli() - start;
         System.out.println("took " + end + " ms");
     }
 

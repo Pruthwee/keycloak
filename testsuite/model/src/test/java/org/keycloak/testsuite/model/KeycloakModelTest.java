@@ -20,6 +20,7 @@ import java.lang.management.LockInfo;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
 import java.util.Arrays;
+import java.time.Instant;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -434,9 +435,9 @@ public abstract class KeycloakModelTest {
             List<? extends Future<?>> tasks = IntStream.range(0, numThreads)
                     .mapToObj(i -> independentTask)
                     .map(es::submit).collect(Collectors.toList());
-            long limit = System.currentTimeMillis() + timeoutSeconds * 1000L;
+            long limit = Instant.now().toEpochMilli() + timeoutSeconds * 1000L;
             for (Future<?> future : tasks) {
-                long limitForTask = limit - System.currentTimeMillis();
+                long limitForTask = limit - Instant.now().toEpochMilli();
                 if (limitForTask > 0) {
                     try {
                         future.get(limitForTask, TimeUnit.MILLISECONDS);

@@ -1,5 +1,6 @@
 package org.keycloak.testframework.infinispan;
 
+import java.time.Instant;
 import org.keycloak.testframework.annotations.InjectInfinispanServer;
 import org.keycloak.testframework.injection.InstanceContext;
 import org.keycloak.testframework.injection.RequestedInstance;
@@ -7,7 +8,6 @@ import org.keycloak.testframework.injection.Supplier;
 import org.keycloak.testframework.injection.SupplierOrder;
 import org.keycloak.testframework.server.KeycloakServerConfigBuilder;
 import org.keycloak.testframework.server.KeycloakServerConfigInterceptor;
-
 import org.jboss.logging.Logger;
 
 public class InfinispanExternalServerSupplier implements Supplier<InfinispanServer, InjectInfinispanServer>, KeycloakServerConfigInterceptor<InfinispanServer, InjectInfinispanServer> {
@@ -19,11 +19,11 @@ public class InfinispanExternalServerSupplier implements Supplier<InfinispanServ
         InfinispanServer server = InfinispanExternalServer.create();
         getLogger().info("Starting Infinispan Server");
 
-        long start = System.currentTimeMillis();
+        long start = Instant.now().toEpochMilli();
 
         server.start();
 
-        getLogger().infov("Infinispan server started in {0} ms", System.currentTimeMillis() - start);
+        getLogger().infov("Infinispan server started in {0} ms", Instant.now().toEpochMilli() - start);
         return server;
     }
 

@@ -16,6 +16,7 @@
  */
 package org.keycloak.protocol.oidc.utils;
 
+import org.jboss.resteasy.mock.MockHttpRequest;
 import java.net.URI;
 import java.util.Collections;
 import java.util.Set;
@@ -31,7 +32,6 @@ import org.keycloak.services.resteasy.HttpRequestImpl;
 import org.keycloak.services.resteasy.ResteasyKeycloakSession;
 import org.keycloak.services.resteasy.ResteasyKeycloakSessionFactory;
 
-import org.jboss.resteasy.mock.MockHttpRequest;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;

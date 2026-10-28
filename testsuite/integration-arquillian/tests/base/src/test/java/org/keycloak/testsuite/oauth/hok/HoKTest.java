@@ -62,7 +62,6 @@ import org.keycloak.testsuite.util.oauth.OAuthClient;
 import org.keycloak.util.TokenUtil;
 
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.BeforeClass;

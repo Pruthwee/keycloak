@@ -19,8 +19,6 @@ package org.keycloak.testsuite.adapter.page;
 
 import java.net.URL;
 
-import org.jboss.arquillian.container.test.api.OperateOnDeployment;
-import org.jboss.arquillian.test.api.ArquillianResource;
 
 public class SalesPostClockSkewServlet extends SAMLServlet {
     public static final String DEPLOYMENT_NAME = "sales-post-clock-skew";

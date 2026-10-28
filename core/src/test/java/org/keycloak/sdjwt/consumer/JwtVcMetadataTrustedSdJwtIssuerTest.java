@@ -17,11 +17,11 @@
 
 package org.keycloak.sdjwt.consumer;
 
-import java.rmi.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import java.net.UnknownHostException;
 import org.keycloak.common.VerificationException;
 import org.keycloak.crypto.SignatureVerifierContext;
 import org.keycloak.rule.CryptoInitRule;

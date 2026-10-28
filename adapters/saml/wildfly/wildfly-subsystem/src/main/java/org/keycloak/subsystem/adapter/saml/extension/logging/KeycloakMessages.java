@@ -16,9 +16,8 @@
  */
 package org.keycloak.subsystem.adapter.saml.extension.logging;
 
-import org.jboss.logging.Messages;
-import org.jboss.logging.annotations.MessageBundle;
 
+import org.jboss.logging.Messages;
 /**
  * This interface to be fleshed out later when error messages are fully externalized.
  *

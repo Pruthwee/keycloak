@@ -19,7 +19,7 @@ test.describe.serial("SPIFFE identity provider test", () => {
       page,
       "spiffe",
       "spiffe://mytrust2",
-      "https://mytrust",
+      process.env.API_URL || "$1",
     );
 
     await assertNotificationMessage(
@@ -31,7 +31,7 @@ test.describe.serial("SPIFFE identity provider test", () => {
     await clickTableRowItem(page, "Spiffe");
 
     await page.getByTestId("config.trustDomain").fill("spiffe://mytrust2");
-    await page.getByTestId("config.bundleEndpoint").fill("https://mytrust2");
+    await page.getByTestId("config.bundleEndpoint").fill(process.env.API_URL || "$1");
 
     await clickSaveButton(page);
 

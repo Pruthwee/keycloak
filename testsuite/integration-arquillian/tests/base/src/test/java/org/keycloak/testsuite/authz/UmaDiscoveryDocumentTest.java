@@ -35,7 +35,6 @@ import org.keycloak.testsuite.AbstractKeycloakTest;
 import org.keycloak.testsuite.util.AdminClientUtil;
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 
-import org.jboss.arquillian.test.api.ArquillianResource;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

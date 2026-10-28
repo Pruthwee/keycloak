@@ -21,14 +21,6 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 import org.jboss.logging.Logger;
-import org.wildfly.extras.creaper.commands.undertow.AddUndertowListener;
-import org.wildfly.extras.creaper.commands.undertow.RemoveUndertowListener;
-import org.wildfly.extras.creaper.commands.undertow.SslVerifyClient;
-import org.wildfly.extras.creaper.commands.undertow.UndertowListenerType;
-import org.wildfly.extras.creaper.core.CommandFailedException;
-import org.wildfly.extras.creaper.core.online.OnlineManagementClient;
-import org.wildfly.extras.creaper.core.online.operations.admin.Administration;
-
 public class ServerTestEnricherUtil {
 
     private final static Logger LOG = Logger.getLogger(ServerTestEnricherUtil.class);

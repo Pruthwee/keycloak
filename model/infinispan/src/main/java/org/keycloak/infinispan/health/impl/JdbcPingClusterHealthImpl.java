@@ -17,6 +17,7 @@
 
 package org.keycloak.infinispan.health.impl;
 
+import org.jboss.arquillian.core.api.annotation.Inject;
 import java.lang.invoke.MethodHandles;
 import java.util.Objects;
 import java.util.concurrent.Executor;

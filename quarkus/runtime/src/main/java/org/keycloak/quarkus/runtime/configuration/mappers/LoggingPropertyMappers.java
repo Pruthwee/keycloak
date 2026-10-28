@@ -1,5 +1,6 @@
 package org.keycloak.quarkus.runtime.configuration.mappers;
 
+import org.jboss.logging.Logger.Level;
 import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -25,7 +26,6 @@ import org.keycloak.quarkus.runtime.configuration.Configuration;
 
 import io.quarkus.runtime.configuration.MemorySizeConverter;
 import io.smallrye.config.ConfigSourceInterceptorContext;
-import org.jboss.logmanager.LogContext;
 
 import static org.keycloak.config.LoggingOptions.DEFAULT_LOG_FORMAT;
 import static org.keycloak.config.LoggingOptions.LOG_CONSOLE_ENABLED;

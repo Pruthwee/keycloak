@@ -30,13 +30,7 @@ import io.quarkus.arc.Arc;
 import io.quarkus.arc.ClientProxy;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
-import org.jboss.resteasy.reactive.RestMulti;
-import org.jboss.resteasy.reactive.RestResponse;
-import org.jboss.resteasy.reactive.common.core.BlockingOperationSupport;
 import org.jboss.resteasy.reactive.server.core.ResteasyReactiveRequestContext;
-import org.jboss.resteasy.reactive.server.handlers.InvocationHandler;
-import org.jboss.resteasy.reactive.server.spi.EndpointInvoker;
-
 public final class TransactionalSessionHandler extends InvocationHandler implements org.keycloak.quarkus.runtime.transaction.TransactionalSessionHandler {
     
     /*

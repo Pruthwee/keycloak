@@ -966,7 +966,7 @@ public class OID4VCKeyAttestationTest extends OID4VCIssuerTestBase {
 
         // Keep support for non-default typ variants used by dedicated compatibility tests.
         KeyAttestationJwtBody payload = new KeyAttestationJwtBody();
-        long iat = System.currentTimeMillis() / 1000L;
+        long iat = Instant.now().toEpochMilli() / 1000L;
         payload.setIat(iat);
         payload.setExp(iat + 3600);
         payload.setNonce(cNonce);
@@ -1440,7 +1440,7 @@ public class OID4VCKeyAttestationTest extends OID4VCIssuerTestBase {
 
     private static void runJwtProofWithFutureIatRejectedTest(KeycloakSession session, String cNonce) {
         String credentialIssuer = OID4VCIssuerWellKnownProvider.getIssuer(session.getContext());
-        long now = System.currentTimeMillis() / 1000L;
+        long now = Instant.now().toEpochMilli() / 1000L;
         String jwtProof = OID4VCProofTestUtils.generateJwtProofWithClaims(List.of(credentialIssuer), cNonce,
                 OID4VCIssuerTestBase.OID4VCI_CLIENT_ID, now + 120, null, null);
 
@@ -1455,7 +1455,7 @@ public class OID4VCKeyAttestationTest extends OID4VCIssuerTestBase {
 
     private static void runJwtProofWithExpiredExpRejectedTest(KeycloakSession session, String cNonce) {
         String credentialIssuer = OID4VCIssuerWellKnownProvider.getIssuer(session.getContext());
-        long now = System.currentTimeMillis() / 1000L;
+        long now = Instant.now().toEpochMilli() / 1000L;
         String jwtProof = OID4VCProofTestUtils.generateJwtProofWithClaims(List.of(credentialIssuer), cNonce,
                 OID4VCIssuerTestBase.OID4VCI_CLIENT_ID, now, now - 1, null);
 
@@ -1498,7 +1498,7 @@ public class OID4VCKeyAttestationTest extends OID4VCIssuerTestBase {
 
     private static void runJwtProofWithFutureNbfRejectedTest(KeycloakSession session, String cNonce) {
         String credentialIssuer = OID4VCIssuerWellKnownProvider.getIssuer(session.getContext());
-        long now = System.currentTimeMillis() / 1000L;
+        long now = Instant.now().toEpochMilli() / 1000L;
         String jwtProof = OID4VCProofTestUtils.generateJwtProofWithClaims(List.of(credentialIssuer), cNonce,
                 OID4VCIssuerTestBase.OID4VCI_CLIENT_ID, now, null, now + 120);
 

@@ -17,13 +17,14 @@
 
 package org.keycloak.quarkus.runtime;
 
+import org.jboss.logging.Logger.Level;
+import static org.jboss.logging.Logger.Level;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.keycloak.quarkus.runtime.cli.command.AbstractAutoBuildCommand;
 import org.keycloak.quarkus.runtime.cli.command.Build;
-
 import org.jboss.logging.Logger;
 import picocli.CommandLine;
 

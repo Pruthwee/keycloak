@@ -3,6 +3,7 @@ package org.keycloak.testframework.server;
 import java.net.ConnectException;
 import java.net.URL;
 import java.util.Set;
+import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import javax.net.ssl.SSLException;
@@ -107,8 +108,8 @@ public class RemoteKeycloakServer implements KeycloakServer {
     }
 
     private void waitForStartup() {
-        long waitUntil = System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(5);
-        while (!verifyRunningKeycloak() && System.currentTimeMillis() < waitUntil) {
+        long waitUntil = Instant.now().toEpochMilli() + TimeUnit.MINUTES.toMillis(5);
+        while (!verifyRunningKeycloak() && Instant.now().toEpochMilli() < waitUntil) {
             try {
                 Thread.sleep(TimeUnit.SECONDS.toMillis(1));
             } catch (InterruptedException e) {

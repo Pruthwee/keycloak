@@ -23,7 +23,6 @@ import org.keycloak.testsuite.pages.IdpConfirmLinkPage;
 import org.keycloak.testsuite.util.LDAPRule;
 import org.keycloak.testsuite.util.LDAPTestUtils;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;

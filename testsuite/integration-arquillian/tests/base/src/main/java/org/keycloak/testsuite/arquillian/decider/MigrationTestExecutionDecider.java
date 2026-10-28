@@ -20,8 +20,6 @@ import java.lang.reflect.Method;
 
 import org.keycloak.testsuite.arquillian.migration.Migration;
 
-import org.jboss.arquillian.test.spi.execution.ExecutionDecision;
-import org.jboss.arquillian.test.spi.execution.TestExecutionDecider;
 import org.jboss.logging.Logger;
 
 /**

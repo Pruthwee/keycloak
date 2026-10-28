@@ -19,6 +19,7 @@ package org.keycloak.services.managers;
 
 import java.security.cert.X509Certificate;
 import java.time.Instant;
+import java.time.ZoneOffset;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Collections;
@@ -51,7 +52,6 @@ import org.keycloak.models.credential.RecoveryAuthnCodesCredentialModel;
 import org.keycloak.models.utils.KeycloakModelUtils;
 import org.keycloak.representations.idm.RealmRepresentation;
 import org.keycloak.storage.ReadOnlyException;
-
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.UserModel.DISABLED_REASON;
@@ -197,7 +197,7 @@ public class DefaultBruteForceProtector implements BruteForceProtector {
         if (type == EventType.USER_DISABLED_BY_TEMPORARY_LOCKOUT) {
             long secondsSinceEpoch = userLoginFailure.getFailedLoginNotBefore();
             Instant instant = Instant.ofEpochSecond(secondsSinceEpoch);
-            LocalDateTime timestamp = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+            LocalDateTime timestamp = LocalDateTime.ofInstant(instant, ZoneOffset.UTC);
 
             builder.detail(Details.NOT_BEFORE, timestamp.toString());
         }

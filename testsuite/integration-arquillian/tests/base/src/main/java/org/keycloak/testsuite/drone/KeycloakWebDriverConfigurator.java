@@ -22,14 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jboss.arquillian.core.api.Instance;
-import org.jboss.arquillian.core.api.annotation.Inject;
-import org.jboss.arquillian.core.api.annotation.Observes;
-import org.jboss.arquillian.drone.spi.DroneContext;
-import org.jboss.arquillian.drone.spi.event.BeforeDroneInstantiated;
-import org.jboss.arquillian.drone.webdriver.configuration.WebDriverConfiguration;
-import org.jboss.arquillian.drone.webdriver.spi.BrowserCapabilities;
-import org.jboss.arquillian.drone.webdriver.spi.BrowserCapabilitiesRegistry;
 import org.jboss.logging.Logger;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.CapabilityType;

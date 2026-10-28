@@ -23,7 +23,6 @@ import org.keycloak.testsuite.webauthn.pages.fragments.ContentAlert;
 import org.keycloak.testsuite.webauthn.pages.fragments.ContinueCancelModal;
 import org.keycloak.testsuite.webauthn.pages.fragments.LoggedInPageHeader;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

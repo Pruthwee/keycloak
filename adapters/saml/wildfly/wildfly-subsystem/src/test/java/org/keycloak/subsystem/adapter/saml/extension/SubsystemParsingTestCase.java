@@ -34,7 +34,6 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.jboss.as.subsystem.test.AbstractSubsystemBaseTest;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

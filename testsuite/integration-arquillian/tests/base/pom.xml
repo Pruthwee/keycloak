@@ -53,6 +53,7 @@
         <dependency>
             <groupId>org.keycloak.tests</groupId>
             <artifactId>keycloak-tests-utils-shared</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.keycloak.testframework</groupId>
@@ -62,10 +63,12 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-util-embedded-ldap</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-core</artifactId>
+            <version>${project.version}</version>
             <scope>test</scope>
             <type>test-jar</type>
         </dependency>
@@ -89,8 +92,9 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jboss.spec.javax.xml.bind</groupId>
+            <groupId>org.jboss.spec</groupId>
             <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
+            <version>${jboss.spec.javax.xml.bind.jboss-jaxb-api_2.3_spec.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -147,6 +151,7 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-model-storage-services</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.keycloak.testsuite</groupId>
@@ -185,6 +190,7 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-saml-adapter-core</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.xml.ws</groupId>
@@ -195,6 +201,7 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-core</artifactId>
             <scope>provided</scope>
+            <version>${resteasy.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.ws.rs</groupId>

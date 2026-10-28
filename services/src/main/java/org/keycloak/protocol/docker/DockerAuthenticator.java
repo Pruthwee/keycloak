@@ -21,7 +21,6 @@ import org.keycloak.representations.docker.DockerErrorResponseToken;
 
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.server.jaxrs.ResponseBuilderImpl;
-
 public class DockerAuthenticator extends HttpBasicAuthenticator {
     private static final Logger logger = Logger.getLogger(DockerAuthenticator.class);
 

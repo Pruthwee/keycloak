@@ -16,8 +16,6 @@
  */
 package org.keycloak.testsuite.arquillian.wildfly;
 
-import org.jboss.arquillian.container.test.spi.client.deployment.ApplicationArchiveProcessor;
-import org.jboss.arquillian.core.spi.LoadableExtension;
 import org.keycloak.testsuite.arquillian.wildfly.container.WildflyDeploymentArchiveProcessor;
 
 /**

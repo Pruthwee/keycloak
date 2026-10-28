@@ -20,6 +20,7 @@ package org.keycloak.common.util;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.time.Instant;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.junit.jupiter.api.Assertions;
@@ -43,17 +44,17 @@ class RetryTest {
     @Disabled("Disabled because it is slow. Run manually when needed.")
     @Test
     void shouldWaitExactlyTenSeconds() {
-        long started = System.currentTimeMillis();
-        AtomicLong last = new AtomicLong(System.currentTimeMillis());
+        long started = Instant.now().toEpochMilli();
+        AtomicLong last = new AtomicLong(Instant.now().toEpochMilli());
         Assertions.assertThrowsExactly(RuntimeException.class, () -> Retry.executeWithBackoff(iteration -> {
-            long current = System.currentTimeMillis();
+            long current = Instant.now().toEpochMilli();
             long interval = current - last.get();
             System.out.println("Interval " + iteration + ": " + interval);
             last.set(current);
             throw new RuntimeException();
         }, Duration.of(10, ChronoUnit.SECONDS), 1));
 
-        long duration = System.currentTimeMillis() - started;
+        long duration = Instant.now().toEpochMilli() - started;
         System.out.print("Duration: " + duration);
         Assertions.assertTrue(9500 < duration  && duration < 10500);
 

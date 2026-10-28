@@ -17,6 +17,7 @@
 
 package org.keycloak.quarkus.runtime.cli.command;
 
+import java.time.Instant;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -98,9 +99,9 @@ public class BuildPasswordDenylist extends AbstractCommand {
         picocli.println("  False-positive probability: " + fpp);
 
         try {
-            long startMs = System.currentTimeMillis();
+            long startMs = Instant.now().toEpochMilli();
             DenylistPasswordPolicyProviderFactory.buildBloomFile(inputFile, outputFile, fpp);
-            long elapsedMs = System.currentTimeMillis() - startMs;
+            long elapsedMs = Instant.now().toEpochMilli() - startMs;
             long outputSizeBytes = Files.size(outputFile);
             String sizeStr;
             if (outputSizeBytes < 1024) {

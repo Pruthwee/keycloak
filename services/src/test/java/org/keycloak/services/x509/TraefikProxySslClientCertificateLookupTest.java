@@ -33,8 +33,8 @@ import org.keycloak.crypto.KeyType;
 import org.keycloak.http.HttpRequest;
 import org.keycloak.rule.CryptoInitRule;
 import org.keycloak.services.resteasy.HttpRequestImpl;
-
 import org.jboss.resteasy.mock.MockHttpRequest;
+
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;

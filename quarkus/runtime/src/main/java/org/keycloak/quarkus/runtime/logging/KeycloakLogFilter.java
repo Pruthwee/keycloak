@@ -31,6 +31,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.jboss.logmanager.handlers.SyslogHandler;
 import org.keycloak.common.util.MultiSiteUtils;
 import org.keycloak.config.LoggingOptions;
 import org.keycloak.connections.infinispan.InfinispanConnectionProvider;
@@ -46,11 +47,6 @@ import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.spi.ConfigSource;
 import org.infinispan.commons.jdkspecific.ThreadCreator;
 import org.jboss.logging.Logger;
-import org.jboss.logmanager.ExtLogRecord;
-import org.jboss.logmanager.handlers.ConsoleHandler;
-import org.jboss.logmanager.handlers.FileHandler;
-import org.jboss.logmanager.handlers.SyslogHandler;
-
 /**
  * @author Alexander Schwartz
  */

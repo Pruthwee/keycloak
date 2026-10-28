@@ -21,7 +21,6 @@ import org.keycloak.models.UserModel;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.keycloak.testsuite.auth.page.AccountFields;
 
-import org.jboss.arquillian.graphene.page.Page;
 
 /**
  *

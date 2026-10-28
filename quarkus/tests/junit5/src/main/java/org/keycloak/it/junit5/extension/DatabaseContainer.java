@@ -17,13 +17,12 @@
 
 package org.keycloak.it.junit5.extension;
 
+import static org.jboss.logging.Logger.Level;
 import java.time.Duration;
 import java.util.logging.Logger;
 
 import org.keycloak.it.utils.RawKeycloakDistribution;
-
-import org.jboss.logmanager.Level;
-import org.jboss.logmanager.LogManager;
+import org.jboss.logging.Logger;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.mariadb.MariaDBContainer;

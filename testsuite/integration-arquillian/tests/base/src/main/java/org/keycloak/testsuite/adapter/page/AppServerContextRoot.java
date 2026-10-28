@@ -22,7 +22,6 @@ import java.net.URL;
 import org.keycloak.testsuite.arquillian.annotation.AppServerBrowserContext;
 import org.keycloak.testsuite.page.AbstractPageWithInjectedUrl;
 
-import org.jboss.arquillian.test.api.ArquillianResource;
 
 /**
  *

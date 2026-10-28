@@ -2,6 +2,7 @@ package org.keycloak.tests.oauth;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.time.Instant;
 import java.util.List;
 
 import org.keycloak.OAuth2Constants;
@@ -473,7 +474,7 @@ public abstract class AbstractJWTAuthorizationGrantTest extends BaseAbstractJWTA
 
     @Test
     public void testInvalidSignatureDoesNotConsumeJti() {
-        String jti = "test-sig-jti-" + System.currentTimeMillis();
+        String jti = "test-sig-jti-" + Instant.now().toEpochMilli();
         JsonWebToken token = createDefaultAuthorizationGrantToken();
         token.id(jti);
 

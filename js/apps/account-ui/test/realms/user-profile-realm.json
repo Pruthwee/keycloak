@@ -137,17 +137,17 @@
       "linkOnly": false,
       "firstBrokerLoginFlowAlias": "first broker login",
       "config": {
-        "userInfoUrl": "http://localhost:8180/realms/oidc-broker/protocol/openid-connect/userinfo",
+        "userInfoUrl": "${KEYCLOAK_URL:http://localhost:8180}/realms/oidc-broker/protocol/openid-connect/userinfo",
         "validateSignature": "true",
         "clientId": "3953a1ad-de74-4d09-955b-8a023d453803",
-        "tokenUrl": "http://localhost:8180/realms/oidc-broker/protocol/openid-connect/token",
-        "jwksUrl": "http://localhost:8180/realms/oidc-broker/protocol/openid-connect/certs",
-        "issuer": "http://localhost:8180/realms/oidc-broker",
+        "tokenUrl": "${KEYCLOAK_URL:http://localhost:8180}/realms/oidc-broker/protocol/openid-connect/token",
+        "jwksUrl": "${KEYCLOAK_URL:http://localhost:8180}/realms/oidc-broker/protocol/openid-connect/certs",
+        "issuer": "${KEYCLOAK_URL:http://localhost:8180}/realms/oidc-broker",
         "useJwksUrl": "true",
         "pkceEnabled": "false",
-        "authorizationUrl": "http://localhost:8180/realms/oidc-broker/protocol/openid-connect/auth",
+        "authorizationUrl": "${KEYCLOAK_URL:http://localhost:8180}/realms/oidc-broker/protocol/openid-connect/auth",
         "clientAuthMethod": "client_secret_post",
-        "logoutUrl": "http://localhost:8180/realms/oidc-broker/protocol/openid-connect/logout",
+        "logoutUrl": "${KEYCLOAK_URL:http://localhost:8180}/realms/oidc-broker/protocol/openid-connect/logout",
         "clientSecret": "**********"
       }
     }

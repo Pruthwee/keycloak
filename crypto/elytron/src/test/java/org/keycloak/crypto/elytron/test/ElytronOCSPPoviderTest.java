@@ -33,13 +33,8 @@ import javax.security.auth.x500.X500Principal;
 import org.keycloak.crypto.elytron.ElytronOCSPProvider;
 
 import org.junit.Test;
-import org.wildfly.security.x500.GeneralName;
-import org.wildfly.security.x500.cert.AccessDescription;
-import org.wildfly.security.x500.cert.AuthorityInformationAccessExtension;
-import org.wildfly.security.x500.cert.X509CertificateBuilder;
-
+import static org.wildfly.common.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
-
 /**
  * @author <a href="mailto:david.anderson@redhat.com">David Anderson</a>
  */

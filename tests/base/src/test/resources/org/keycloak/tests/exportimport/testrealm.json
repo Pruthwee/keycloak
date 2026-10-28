@@ -377,14 +377,14 @@
         {
           "clientId": "test-app",
           "enabled": true,
-          "baseUrl": "http://localhost:8180/auth/realms/master/app/auth",
+          "baseUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/auth",
           "redirectUris": [
-            "http://localhost:8180/auth/realms/master/app/auth/*",
+            "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/auth/*",
             "https://localhost:8543/auth/realms/master/app/auth/*",
-            "http://localhost:8180/auth/realms/test/app/auth/*",
+            "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/test/app/auth/*",
             "https://localhost:8543/auth/realms/test/app/auth/*"
           ],
-          "adminUrl": "http://localhost:8180/auth/realms/master/app/admin",
+          "adminUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/admin",
           "secret": "password",
           "protocolMappers": [
             {
@@ -410,11 +410,11 @@
         {
           "clientId": "root-url-client",
           "enabled": true,
-          "rootUrl": "http://localhost:8180/foo/bar",
-          "adminUrl": "http://localhost:8180/foo/bar",
+          "rootUrl": "${KEYCLOAK_URL:http://localhost:8180}/foo/bar",
+          "adminUrl": "${KEYCLOAK_URL:http://localhost:8180}/foo/bar",
           "baseUrl": "/baz",
           "redirectUris": [
-            "http://localhost:8180/foo/bar/*",
+            "${KEYCLOAK_URL:http://localhost:8180}/foo/bar/*",
             "https://localhost:8543/foo/bar/*"
           ],
           "directAccessGrantsEnabled": true,
@@ -425,7 +425,7 @@
           "enabled": true,
 
           "redirectUris": [
-            "http://localhost:8180/auth/realms/master/app/*",
+            "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/*",
             "https://localhost:8543/auth/realms/master/app/*"
           ],
           "secret": "password",

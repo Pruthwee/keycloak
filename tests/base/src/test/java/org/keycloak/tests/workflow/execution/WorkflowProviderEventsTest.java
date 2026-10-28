@@ -4,6 +4,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.time.Duration;
 import java.util.List;
+import java.time.Instant;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import jakarta.ws.rs.core.Response;
@@ -272,7 +273,7 @@ public class WorkflowProviderEventsTest extends AbstractWorkflowTest {
             assertThat(stepScheduledEvent.getStepProviderId(), equalTo(DisableUserStepProviderFactory.ID));
             assertThat(stepScheduledEvent.getExecutionId(), equalTo(executionId));
             assertThat(stepScheduledEvent.getDelay(), equalTo("5d"));
-            assertThat(stepScheduledEvent.getScheduledTime(), greaterThanOrEqualTo(System.currentTimeMillis()));
+            assertThat(stepScheduledEvent.getScheduledTime(), greaterThanOrEqualTo(Instant.now().toEpochMilli()));
 
             // no other events should have fired yet
             assertThat(collector.getEvents(), hasSize(2));

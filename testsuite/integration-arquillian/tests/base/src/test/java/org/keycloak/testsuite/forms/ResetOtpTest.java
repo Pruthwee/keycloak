@@ -19,11 +19,9 @@ import org.keycloak.testsuite.pages.LoginPage;
 import org.keycloak.testsuite.pages.LoginPasswordResetPage;
 import org.keycloak.testsuite.pages.ResetOtpPage;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.After;
 import org.junit.Test;
 
-import static org.wildfly.common.Assert.assertTrue;
 
 public class ResetOtpTest extends AbstractTestRealmKeycloakTest {
 

@@ -19,6 +19,7 @@ package org.keycloak.tests.keys;
 
 import java.security.interfaces.RSAPublicKey;
 import java.util.Arrays;
+import java.time.Instant;
 
 import jakarta.ws.rs.core.Response;
 
@@ -70,7 +71,7 @@ public class GeneratedRsaKeyProviderTest {
     }
 
     private void defaultKeysize(String providerId, KeyUse keyUse) throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", providerId);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -108,7 +109,7 @@ public class GeneratedRsaKeyProviderTest {
     }
 
     private void largeKeysize(String providerId, KeyUse keyUse) throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", providerId);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -147,7 +148,7 @@ public class GeneratedRsaKeyProviderTest {
     }
 
     private void updatePriority(String providerId, KeyUse keyUse) throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", providerId);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -189,7 +190,7 @@ public class GeneratedRsaKeyProviderTest {
     }
 
     private void updateKeysize(String providerId, KeyUse keyUse) throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", providerId);
         rep.setConfig(new MultivaluedHashMap<>());

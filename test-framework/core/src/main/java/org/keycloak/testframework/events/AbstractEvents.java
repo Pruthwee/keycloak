@@ -2,6 +2,7 @@ package org.keycloak.testframework.events;
 
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
+import java.time.Instant;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -9,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.keycloak.common.util.Time;
 import org.keycloak.testframework.realm.ManagedRealm;
-
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.Assertions;
 
@@ -133,7 +133,7 @@ public abstract class AbstractEvents<R> {
     protected abstract Logger getLogger();
 
     protected long getCurrentTime() {
-        return System.currentTimeMillis();
+        return Instant.now().toEpochMilli();
     }
 
     protected long getCurrentTimeOffset() {

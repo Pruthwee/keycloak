@@ -359,17 +359,17 @@
   "clients": [
     {
       "clientId": "test-app",
-      "adminUrl": "http://localhost:8180/auth/realms/master/app/admin",
-      "baseUrl": "http://localhost:8180/auth/realms/master/app/auth",
+      "adminUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/admin",
+      "baseUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/auth",
       "surrogateAuthRequired": false,
       "enabled": true,
       "clientAuthenticatorType": "client-secret",
       "secret": "password",
       "redirectUris": [
-        "http://localhost:8180/auth/realms/master/app/auth/*"
+        "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/auth/*"
       ],
       "webOrigins": [
-        "http://localhost:8180"
+        "${KEYCLOAK_URL:http://localhost:8180}"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -478,10 +478,10 @@
       "clientAuthenticatorType": "client-secret",
       "secret": "password",
       "redirectUris": [
-        "http://localhost:8180/auth/realms/master/app/*"
+        "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/*"
       ],
       "webOrigins": [
-        "http://localhost:8180"
+        "${KEYCLOAK_URL:http://localhost:8180}"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -590,10 +590,10 @@
       "clientAuthenticatorType": "client-secret",
       "secret": "password",
       "redirectUris": [
-        "http://localhost:8180/auth/realms/master/app/*"
+        "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app/*"
       ],
       "webOrigins": [
-        "http://localhost:8180"
+        "${KEYCLOAK_URL:http://localhost:8180}"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -697,17 +697,17 @@
     },
     {
       "clientId": "test-app-service-account",
-      "rootUrl": "http://localhost:8180/auth/realms/master/app-service-account",
-      "adminUrl": "http://localhost:8180/auth/realms/master/app-service-account",
+      "rootUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app-service-account",
+      "adminUrl": "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app-service-account",
       "surrogateAuthRequired": false,
       "enabled": true,
       "clientAuthenticatorType": "client-secret",
       "secret": "password",
       "redirectUris": [
-        "http://localhost:8180/auth/realms/master/app-service-account/*"
+        "${KEYCLOAK_URL:http://localhost:8180}/auth/realms/master/app-service-account/*"
       ],
       "webOrigins": [
-        "http://localhost:8180"
+        "${KEYCLOAK_URL:http://localhost:8180}"
       ],
       "notBefore": 0,
       "bearerOnly": false,

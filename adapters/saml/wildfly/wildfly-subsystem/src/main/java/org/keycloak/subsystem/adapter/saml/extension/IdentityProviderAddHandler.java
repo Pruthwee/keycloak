@@ -16,10 +16,6 @@
  */
 package org.keycloak.subsystem.adapter.saml.extension;
 
-import org.jboss.as.controller.AbstractAddStepHandler;
-import org.jboss.as.controller.OperationContext;
-import org.jboss.as.controller.OperationFailedException;
-import org.jboss.dmr.ModelNode;
 
 /**
  * @author <a href="mailto:mstrukel@redhat.com">Marko Strukelj</a>

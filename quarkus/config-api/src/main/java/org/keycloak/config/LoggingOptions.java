@@ -1,5 +1,7 @@
 package org.keycloak.config;
 
+import org.jboss.logging.Logger;
+import static org.jboss.logging.Logger.Level;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
@@ -8,8 +10,8 @@ import java.util.Optional;
 import java.util.function.Function;
 
 import io.quarkus.runtime.logging.LogRuntimeConfig;
-import org.jboss.logmanager.handlers.SyslogHandler;
 
+import org.jboss.logmanager.handlers.SyslogHandler;
 import static java.lang.String.format;
 
 public class LoggingOptions {

@@ -18,6 +18,7 @@
 package org.keycloak.tests.db;
 
 import java.util.UUID;
+import java.time.Instant;
 
 import jakarta.persistence.EntityManager;
 
@@ -168,7 +169,7 @@ public class AsyncCommitHqlTest {
             event.setId(UUID.randomUUID().toString());
             event.setRealmId(realm.getId());
             event.setType(EventType.LOGIN);
-            event.setTime(System.currentTimeMillis());
+            event.setTime(Instant.now().toEpochMilli());
             session.getProvider(EventStoreProvider.class).onEvent(event);
             em.flush();
 

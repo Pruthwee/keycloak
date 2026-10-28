@@ -83,7 +83,6 @@ import org.keycloak.testsuite.rest.representation.TestAuthenticationChannelReque
 import org.keycloak.util.JsonSerialization;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.jboss.resteasy.reactive.NoCache;
 
 import static org.keycloak.common.crypto.CryptoConstants.EC_KEY_SECP256R1;
 import static org.keycloak.common.crypto.CryptoConstants.EC_KEY_SECP384R1;

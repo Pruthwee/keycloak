@@ -17,6 +17,7 @@
 
 package org.keycloak.adapters.saml.elytron;
 
+import org.wildfly.security.http.HttpAuthenticationException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.security.auth.callback.CallbackHandler;
@@ -26,9 +27,6 @@ import org.keycloak.adapters.spi.InMemorySessionIdMapper;
 import org.keycloak.adapters.spi.SessionIdMapper;
 import org.keycloak.adapters.spi.SessionIdMapperUpdater;
 
-import org.wildfly.security.http.HttpAuthenticationException;
-import org.wildfly.security.http.HttpServerAuthenticationMechanism;
-import org.wildfly.security.http.HttpServerAuthenticationMechanismFactory;
 
 /**
  * @author <a href="mailto:psilva@redhat.com">Pedro Igor</a>

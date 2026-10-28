@@ -21,6 +21,7 @@ import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
+import java.time.Instant;
 import java.util.Base64;
 import java.util.List;
 import java.util.Map;
@@ -123,7 +124,7 @@ public abstract class RSAVerifierTest {
         // Took 44 seconds with 50000 iterations
         byte[] tokenBytes = JsonSerialization.writeValueAsBytes(token);
 
-        long start = System.currentTimeMillis();
+        long start = Instant.now().toEpochMilli();
         int count = 50000;
         for (int i = 0; i < count; i++) {
             String encoded = new JWSBuilder()
@@ -133,7 +134,7 @@ public abstract class RSAVerifierTest {
             verifySkeletonKeyToken(encoded);
 
         }
-        long end = System.currentTimeMillis() - start;
+        long end = Instant.now().toEpochMilli() - start;
         System.out.println("took: " + end);
     }
 

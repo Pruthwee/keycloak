@@ -65,13 +65,11 @@ import org.keycloak.testsuite.util.oauth.OAuthClient;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
-import static org.wildfly.common.Assert.assertTrue;
 
 /**
  * Test that userStorage implementation created in previous version is still compatible with latest Keycloak version

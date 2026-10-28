@@ -94,40 +94,40 @@
             "name": "REALM_COMPOSITE_1_APPLICATION",
             "fullScopeAllowed": false,
             "enabled": true,
-            "baseUrl": "http://localhost:8081/app",
-            "adminUrl": "http://localhost:8081/app/logout",
+            "baseUrl": "${KEYCLOAK_URL:http://localhost:8081}/app",
+            "adminUrl": "${KEYCLOAK_URL:http://localhost:8081}/app/logout",
             "secret": "password"
         },
         {
             "name": "REALM_COMPOSITE_2_APPLICATION",
             "fullScopeAllowed": false,
             "enabled": true,
-            "baseUrl": "http://localhost:8081/app",
-            "adminUrl": "http://localhost:8081/app/logout",
+            "baseUrl": "${KEYCLOAK_URL:http://localhost:8081}/app",
+            "adminUrl": "${KEYCLOAK_URL:http://localhost:8081}/app/logout",
             "secret": "password"
         },
         {
             "name": "REALM_ROLE_1_APPLICATION",
             "fullScopeAllowed": false,
             "enabled": true,
-            "baseUrl": "http://localhost:8081/app",
-            "adminUrl": "http://localhost:8081/app/logout",
+            "baseUrl": "${KEYCLOAK_URL:http://localhost:8081}/app",
+            "adminUrl": "${KEYCLOAK_URL:http://localhost:8081}/app/logout",
             "secret": "password"
         },
         {
             "name": "APP_ROLE_APPLICATION",
             "fullScopeAllowed": false,
             "enabled": true,
-            "baseUrl": "http://localhost:8081/app",
-            "adminUrl": "http://localhost:8081/app/logout",
+            "baseUrl": "${KEYCLOAK_URL:http://localhost:8081}/app",
+            "adminUrl": "${KEYCLOAK_URL:http://localhost:8081}/app/logout",
             "secret": "password"
         },
         {
             "name": "APP_COMPOSITE_APPLICATION",
             "fullScopeAllowed": false,
             "enabled": true,
-            "baseUrl": "http://localhost:8081/app",
-            "adminUrl": "http://localhost:8081/app/logout",
+            "baseUrl": "${KEYCLOAK_URL:http://localhost:8081}/app",
+            "adminUrl": "${KEYCLOAK_URL:http://localhost:8081}/app/logout",
             "secret": "password"
         }
     ],

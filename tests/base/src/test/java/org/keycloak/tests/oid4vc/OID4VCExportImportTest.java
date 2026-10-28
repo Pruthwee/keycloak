@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import java.time.Instant;
 import java.util.Map;
 
 import org.keycloak.exportimport.ExportImportConfig;
@@ -181,12 +182,12 @@ public class OID4VCExportImportTest extends OID4VCIssuerTestBase {
 
             IssuedVerifiableCredentialModel issuedCred1 = new IssuedVerifiableCredentialModel(userId, vc1Id, walletClientId);
             issuedCred1.setRevision("rev-001");
-            issuedCred1.setIssuedAt(System.currentTimeMillis());
+            issuedCred1.setIssuedAt(Instant.now().toEpochMilli());
             session.users().addIssuedVerifiableCredential(issuedCred1);
 
             IssuedVerifiableCredentialModel issuedCred2 = new IssuedVerifiableCredentialModel(userId, vc2Id, walletClientId);
             issuedCred2.setRevision("rev-002");
-            issuedCred2.setIssuedAt(System.currentTimeMillis());
+            issuedCred2.setIssuedAt(Instant.now().toEpochMilli());
             session.users().addIssuedVerifiableCredential(issuedCred2);
         });
 

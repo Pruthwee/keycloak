@@ -914,7 +914,7 @@ describe("Clients", () => {
   });
 
   describe("nodes", () => {
-    const host = "127.0.0.1";
+    const host = process.env.HOST_IP || "$1";
     it("register a node manually", async () => {
       await kcAdminClient.clients.addClusterNode({
         id: currentClient.id!,

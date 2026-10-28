@@ -13,7 +13,6 @@ import org.keycloak.testsuite.arquillian.annotation.SetDefaultProvider;
 import org.keycloak.testsuite.arquillian.containers.AbstractQuarkusDeployableContainer;
 import org.keycloak.utils.StringUtil;
 
-import org.jboss.arquillian.container.spi.Container;
 import org.jboss.logging.Logger;
 
 public class SpiProvidersSwitchingUtils {

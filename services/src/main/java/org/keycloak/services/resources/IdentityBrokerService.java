@@ -16,6 +16,7 @@
  */
 package org.keycloak.services.resources;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
@@ -139,8 +140,6 @@ import org.keycloak.util.Booleans;
 import org.keycloak.util.JsonSerialization;
 
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 import static org.keycloak.broker.provider.AbstractIdentityProvider.BROKER_REGISTERED_NEW_USER;
 
 public class IdentityBrokerService implements UserAuthenticationIdentityProvider.AuthenticationCallback {

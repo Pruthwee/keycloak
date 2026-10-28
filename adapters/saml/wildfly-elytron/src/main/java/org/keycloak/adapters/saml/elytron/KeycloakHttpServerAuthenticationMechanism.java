@@ -17,6 +17,7 @@
 
 package org.keycloak.adapters.saml.elytron;
 
+import org.wildfly.security.http.HttpServerAuthenticationMechanism;
 import java.net.URI;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -33,12 +34,6 @@ import org.keycloak.adapters.spi.SessionIdMapper;
 import org.keycloak.adapters.spi.SessionIdMapperUpdater;
 
 import org.jboss.logging.Logger;
-import org.wildfly.security.http.HttpAuthenticationException;
-import org.wildfly.security.http.HttpScope;
-import org.wildfly.security.http.HttpServerAuthenticationMechanism;
-import org.wildfly.security.http.HttpServerRequest;
-import org.wildfly.security.http.Scope;
-
 /**
  * @author <a href="mailto:psilva@redhat.com">Pedro Igor</a>
  */

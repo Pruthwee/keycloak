@@ -25,9 +25,7 @@ import jakarta.ws.rs.ext.MessageBodyReader;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.ObjectCodec;
-import org.jboss.resteasy.plugins.providers.sse.EventInput;
-import org.jboss.resteasy.specimpl.ResponseBuilderImpl;
-
+import org.jboss.resteasy.reactive.server.jaxrs.ResponseBuilderImpl;
 /**
  * Provides a way to read Streams incrementally - valid only for Resteasy Classic
  */

@@ -34,7 +34,6 @@ import io.undertow.Undertow;
 import io.undertow.server.handlers.BlockingHandler;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

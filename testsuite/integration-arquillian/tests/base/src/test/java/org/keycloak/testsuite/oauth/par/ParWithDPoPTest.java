@@ -19,6 +19,7 @@ package org.keycloak.testsuite.oauth.par;
 import java.io.IOException;
 import java.security.KeyPair;
 import java.util.ArrayList;
+import java.time.Instant;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -966,7 +967,7 @@ public class ParWithDPoPTest extends AbstractClientPoliciesTest {
         oauth.verifyToken(res.getAccessToken());
     }
 
-    private Random rand = new Random(System.currentTimeMillis());
+    private Random rand = new Random(Instant.now().toEpochMilli());
 
     private String createConfidentialClientForTest() throws ClientRegistrationException {
         return createClientDynamically(generateSuffixedName(CLIENT_NAME), (OIDCClientRepresentation clientRep) -> {

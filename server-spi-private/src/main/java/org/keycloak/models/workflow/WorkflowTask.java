@@ -1,6 +1,7 @@
 package org.keycloak.models.workflow;
 
 import java.util.Objects;
+import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -75,7 +76,7 @@ public final class WorkflowTask extends AbstractKeycloakTransaction implements R
     @Override
     public String toString() {
         String status = isScheduled() ? "SCHEDULED" : isActive() ? "ACTIVE" : isCompletedExceptionally() ? "FAILED" : "SUCCESS";
-        return "id: " + id + ", executionTime: " + (System.currentTimeMillis() - startTime) + "ms , status: " + status + ", task: [" + task.toString() + "]";
+        return "id: " + id + ", executionTime: " + (Instant.now().toEpochMilli() - startTime) + "ms , status: " + status + ", task: [" + task.toString() + "]";
     }
 
     public void cancel(Throwable error) {

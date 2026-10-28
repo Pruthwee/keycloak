@@ -30,7 +30,6 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.models.utils.KeycloakModelUtils;
 
-import org.jboss.resteasy.core.ResteasyContext;
 
 public class UndertowRequestFilter implements Filter {
 

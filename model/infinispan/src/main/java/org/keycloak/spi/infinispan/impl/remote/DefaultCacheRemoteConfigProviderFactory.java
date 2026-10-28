@@ -54,7 +54,6 @@ import static org.keycloak.connections.infinispan.InfinispanConnectionProvider.C
 import static org.keycloak.connections.infinispan.InfinispanConnectionProvider.skipSessionsCacheIfRequired;
 import static org.keycloak.spi.infinispan.impl.Util.copyFromOption;
 
-import static org.wildfly.security.sasl.util.SaslMechanismInformation.Names.SCRAM_SHA_512;
 
 /**
  * The default implementation for {@link CacheRemoteConfigProviderFactory} and {@link CacheRemoteConfigProvider}.

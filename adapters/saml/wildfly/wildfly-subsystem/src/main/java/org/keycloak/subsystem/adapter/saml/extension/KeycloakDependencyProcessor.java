@@ -17,18 +17,6 @@
 
 package org.keycloak.subsystem.adapter.saml.extension;
 
-import org.jboss.as.server.deployment.Attachments;
-import org.jboss.as.server.deployment.DeploymentPhaseContext;
-import org.jboss.as.server.deployment.DeploymentUnit;
-import org.jboss.as.server.deployment.DeploymentUnitProcessingException;
-import org.jboss.as.server.deployment.DeploymentUnitProcessor;
-import org.jboss.as.server.deployment.module.ModuleDependency;
-import org.jboss.as.server.deployment.module.ModuleSpecification;
-import org.jboss.as.web.common.WarMetaData;
-import org.jboss.metadata.web.jboss.JBossWebMetaData;
-import org.jboss.metadata.web.spec.LoginConfigMetaData;
-import org.jboss.modules.Module;
-import org.jboss.modules.ModuleLoader;
 
 /**
  * @author Stan Silvert ssilvert@redhat.com (C) 2013 Red Hat Inc.

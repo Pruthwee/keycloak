@@ -1,5 +1,6 @@
 package org.keycloak.config;
 
+import static org.jboss.logging.Logger.Level;
 import java.util.List;
 
 public class TelemetryOptions {

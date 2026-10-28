@@ -30,31 +30,31 @@ export const HeadersForm = ({ realm, save }: HeadersFormProps) => {
     >
       <HelpLinkTextInput
         fieldName="browserSecurityHeaders.xFrameOptions"
-        url="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options"
+        url=process.env.API_URL || "$1"
       />
       <HelpLinkTextInput
         fieldName="browserSecurityHeaders.contentSecurityPolicy"
-        url="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy"
+        url=process.env.API_URL || "$1"
       />
       <HelpLinkTextInput
         fieldName="browserSecurityHeaders.contentSecurityPolicyReportOnly"
-        url="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only"
+        url=process.env.API_URL || "$1"
       />
       <HelpLinkTextInput
         fieldName="browserSecurityHeaders.xContentTypeOptions"
-        url="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options"
+        url=process.env.API_URL || "$1"
       />
       <HelpLinkTextInput
         fieldName="browserSecurityHeaders.xRobotsTag"
-        url="https://developers.google.com/search/docs/advanced/robots/robots_meta_tag"
+        url=process.env.API_URL || "$1"
       />
       <HelpLinkTextInput
         fieldName="browserSecurityHeaders.strictTransportSecurity"
-        url="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security"
+        url=process.env.API_URL || "$1"
       />
       <HelpLinkTextInput
         fieldName="browserSecurityHeaders.referrerPolicy"
-        url="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy"
+        url=process.env.API_URL || "$1"
       />
 
       <ActionGroup>

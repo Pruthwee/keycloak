@@ -46,11 +46,6 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.utils.OCSPProvider;
 
 import org.jboss.logging.Logger;
-import org.wildfly.security.asn1.ASN1;
-import org.wildfly.security.asn1.DERDecoder;
-import org.wildfly.security.x500.X500;
-
-
 /**
  * @author <a href="mailto:david.anderson@redhat.com">David Anderson</a>
  */

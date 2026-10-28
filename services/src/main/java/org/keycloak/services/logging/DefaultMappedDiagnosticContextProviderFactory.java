@@ -24,8 +24,8 @@ import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ProviderConfigurationBuilder;
 import org.keycloak.sessions.AuthenticationSessionModel;
 
+import org.jboss.logging.Logger;
 import org.jboss.logging.MDC;
-
 /**
  * The default provider factory can be configured via --spi-mapped-diagnostic-context-default-mdc-keys to define mdc
  * keys to add as a comma-separated list. By default, "realm", "clientId", "userId", "ipAddress" and "org" are supported by the default provider implementation.

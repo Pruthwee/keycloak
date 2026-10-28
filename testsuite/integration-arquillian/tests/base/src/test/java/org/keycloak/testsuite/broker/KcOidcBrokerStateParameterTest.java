@@ -27,7 +27,6 @@ import org.keycloak.testsuite.AssertEvents;
 import org.keycloak.testsuite.pages.LoginExpiredPage;
 
 import org.hamcrest.Matchers;
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;

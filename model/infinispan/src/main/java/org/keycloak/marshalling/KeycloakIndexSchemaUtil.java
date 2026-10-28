@@ -17,6 +17,7 @@
 
 package org.keycloak.marshalling;
 
+import org.jboss.jandex.AnnotationTarget;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 import java.util.Map;

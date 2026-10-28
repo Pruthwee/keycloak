@@ -50,7 +50,6 @@ import org.keycloak.adapters.saml.SamlPrincipal;
 import org.keycloak.adapters.saml.SamlSession;
 import org.keycloak.adapters.spi.AuthenticationError;
 
-import org.jboss.resteasy.reactive.NoCache;
 import org.w3c.dom.Document;
 
 /**

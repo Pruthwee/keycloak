@@ -56,7 +56,7 @@ public final class Utils {
     public static JGroupsCertificate generateSelfSignedCertificate(Duration validity) {
         var endDate = Date.from(Instant.now().plus(validity));
         var keyPair = KeyUtils.generateRsaKeyPair(2048);
-        var certificate = CertificateUtils.generateV1SelfSignedCertificate(keyPair, JGROUPS_SUBJECT, BigInteger.valueOf(System.currentTimeMillis()), endDate);
+        var certificate = CertificateUtils.generateV1SelfSignedCertificate(keyPair, JGROUPS_SUBJECT, BigInteger.valueOf(Instant.now().toEpochMilli()), endDate);
 
         logger.debugf("Created JGroups certificate. Valid until %s", certificate.getNotAfter());
 
@@ -64,7 +64,7 @@ public final class Utils {
         entity.setCertificate(certificate);
         entity.setKeyPair(keyPair);
         entity.setAlias(UUID.randomUUID().toString());
-        entity.setGeneratedMillis(System.currentTimeMillis());
+        entity.setGeneratedMillis(Instant.now().toEpochMilli());
         return entity;
     }
 

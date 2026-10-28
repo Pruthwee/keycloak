@@ -16,11 +16,6 @@
  */
 package org.keycloak.subsystem.adapter.saml.extension;
 
-import org.jboss.as.server.deployment.DeploymentPhaseContext;
-import org.jboss.as.server.deployment.DeploymentUnit;
-import org.jboss.as.web.common.WarMetaData;
-import org.jboss.metadata.web.jboss.JBossWebMetaData;
-import org.jboss.msc.service.ServiceName;
 
 /**
  * Utility class for Elytron integration

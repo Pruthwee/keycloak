@@ -17,9 +17,6 @@
 
 package org.keycloak.testsuite.arquillian.galleon.container;
 
-import org.jboss.arquillian.core.spi.Validate;
-import org.jboss.as.arquillian.container.managed.ManagedDeployableContainer;
-import org.jboss.shrinkwrap.descriptor.spi.node.Node;
 import org.keycloak.testsuite.arquillian.container.AppServerContainerProvider;
 
 import java.util.ArrayList;

@@ -29,7 +29,6 @@ import org.keycloak.testsuite.pages.LogoutConfirmPage;
 import org.keycloak.testsuite.util.URLUtils;
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

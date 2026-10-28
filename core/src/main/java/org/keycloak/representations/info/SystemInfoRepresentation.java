@@ -19,6 +19,7 @@ package org.keycloak.representations.info;
 
 
 import java.util.Date;
+import java.time.Instant;
 import java.util.Locale;
 
 public class SystemInfoRepresentation {
@@ -46,7 +47,7 @@ public class SystemInfoRepresentation {
         SystemInfoRepresentation rep = new SystemInfoRepresentation();
         rep.version = serverVersion;
         rep.serverTime = new Date().toString();
-        rep.uptimeMillis = System.currentTimeMillis() - serverStartupTime;
+        rep.uptimeMillis = Instant.now().toEpochMilli() - serverStartupTime;
         rep.uptime = formatUptime(rep.uptimeMillis);
         rep.javaVersion = System.getProperty("java.version");
         rep.javaVendor = System.getProperty("java.vendor");

@@ -32,7 +32,6 @@ import org.keycloak.testsuite.util.MutualTLSUtils;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;

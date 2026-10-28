@@ -17,11 +17,6 @@
 
 package org.keycloak.subsystem.adapter.saml.extension;
 
-import org.jboss.as.server.deployment.DeploymentPhaseContext;
-import org.jboss.as.server.deployment.module.ModuleDependency;
-import org.jboss.as.server.deployment.module.ModuleSpecification;
-import org.jboss.modules.ModuleClassLoader;
-import org.jboss.modules.ModuleLoader;
 
 import static org.keycloak.subsystem.adapter.saml.extension.Elytron.isElytronEnabled;
 

@@ -31,9 +31,6 @@ import org.keycloak.adapters.spi.SessionIdMapperUpdater;
 import org.keycloak.common.util.KeycloakUriBuilder;
 
 import org.jboss.logging.Logger;
-import org.wildfly.security.http.HttpScope;
-import org.wildfly.security.http.Scope;
-
 /**
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
  * @version $Revision: 1 $

@@ -1,5 +1,5 @@
 import react from "@vitejs/plugin-react-swc";
-import { readFileSync } from "node:fs";
+import { readFile } from "node:fs";
 import path from "path";
 import { getProperties } from "properties-file";
 import { defineConfig, loadEnv } from "vite";
@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => {
           let properties = {};
           if (process.env.NODE_ENV === "development") {
             properties = getProperties(
-              readFileSync(
+              readFile(
                 "./maven-resources/theme/keycloak.v2/admin/messages/messages_en.properties",
               ),
             );
@@ -62,7 +62,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: "",
     server: {
-      origin: "http://localhost:5174",
+      origin: process.env.API_URL || "$1",
       port: 5174,
     },
     build: {

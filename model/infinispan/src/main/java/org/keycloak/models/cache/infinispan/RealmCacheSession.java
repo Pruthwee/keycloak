@@ -17,6 +17,7 @@
 
 package org.keycloak.models.cache.infinispan;
 
+import org.jboss.jandex.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;

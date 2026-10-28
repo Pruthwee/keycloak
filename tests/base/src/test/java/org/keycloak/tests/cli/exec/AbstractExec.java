@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.time.Instant;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -219,8 +220,8 @@ public abstract class AbstractExec {
     }
 
     public void waitForStdout(String content) {
-        long start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < waitTimeout) {
+        long start = Instant.now().toEpochMilli();
+        while (Instant.now().toEpochMilli() - start < waitTimeout) {
             if (stdoutString().indexOf(content) != -1) {
                 return;
             }
@@ -235,8 +236,8 @@ public abstract class AbstractExec {
     }
 
     public void waitForStderr(String content) {
-        long start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < waitTimeout) {
+        long start = Instant.now().toEpochMilli();
+        while (Instant.now().toEpochMilli() - start < waitTimeout) {
             if (stderrString().indexOf(content) != -1) {
                 return;
             }

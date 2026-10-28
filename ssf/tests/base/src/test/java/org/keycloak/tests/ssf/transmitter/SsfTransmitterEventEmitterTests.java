@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.time.Instant;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
@@ -432,7 +433,7 @@ public class SsfTransmitterEventEmitterTests {
                                 "format", "complex",
                                 "user", Map.of("format", "iss_sub", "iss", issuer, "sub", userUuid),
                                 "session", Map.of("format", "opaque", "id", "fake-session-id-123")),
-                        "event", Map.of("event_timestamp", System.currentTimeMillis() / 1000)))
+                        "event", Map.of("event_timestamp", Instant.now().toEpochMilli() / 1000)))
                 .asResponse()) {
             Assertions.assertEquals(200, res.getStatus());
             Assertions.assertEquals("dispatched", res.asJson().get("status").asText(),

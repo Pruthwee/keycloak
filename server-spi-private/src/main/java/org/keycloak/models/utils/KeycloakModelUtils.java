@@ -24,6 +24,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
+import java.time.Instant;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.Collection;
@@ -98,7 +99,6 @@ import org.keycloak.sessions.RootAuthenticationSessionModel;
 import org.keycloak.transaction.JtaTransactionManagerLookup;
 import org.keycloak.transaction.RequestContextHelper;
 import org.keycloak.utils.KeycloakSessionUtil;
-
 import org.jboss.logging.Logger;
 
 import static org.keycloak.utils.StreamsUtil.closing;
@@ -245,7 +245,7 @@ public final class KeycloakModelUtils {
 
     public static CertificateRepresentation generateKeyPairCertificate(String subject, int keysize, Calendar endDate) {
         KeyPair keyPair = KeyUtils.generateRsaKeyPair(keysize);
-        X509Certificate certificate = CertificateUtils.generateV1SelfSignedCertificate(keyPair, subject, BigInteger.valueOf(System.currentTimeMillis()), endDate.getTime());
+        X509Certificate certificate = CertificateUtils.generateV1SelfSignedCertificate(keyPair, subject, BigInteger.valueOf(Instant.now().toEpochMilli()), endDate.getTime());
 
         String privateKeyPem = PemUtils.encodeKey(keyPair.getPrivate());
         String certPem = PemUtils.encodeCertificate(certificate);

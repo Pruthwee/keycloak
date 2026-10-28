@@ -14,7 +14,7 @@ import { assertNotificationMessage } from "../utils/masthead.ts";
 test.describe.serial("Client SSF receiver", () => {
   const realmName = `ssf-receiver-realm-${uuid()}`;
   const clientId = `ssf-receiver-client-${uuid()}`;
-  const audience = "https://receiver.example.com/ssf";
+  const audience = process.env.API_URL || "$1";
 
   // TextControl derives its data-testid from the form field name, which is the
   // attribute path with dots after the first replaced by 🍺 (see

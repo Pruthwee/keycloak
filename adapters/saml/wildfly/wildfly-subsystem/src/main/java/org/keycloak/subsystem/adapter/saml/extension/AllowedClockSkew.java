@@ -16,14 +16,9 @@
  */
 package org.keycloak.subsystem.adapter.saml.extension;
 
+import org.jboss.as.controller.SimpleAttributeDefinitionBuilder;
 import java.util.EnumSet;
 
-import org.jboss.as.controller.SimpleAttributeDefinition;
-import org.jboss.as.controller.SimpleAttributeDefinitionBuilder;
-import org.jboss.as.controller.operations.validation.EnumValidator;
-import org.jboss.as.controller.operations.validation.IntRangeValidator;
-import org.jboss.dmr.ModelNode;
-import org.jboss.dmr.ModelType;
 
 /**
  *

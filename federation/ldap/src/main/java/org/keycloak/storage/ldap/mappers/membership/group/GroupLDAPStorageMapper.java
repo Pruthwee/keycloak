@@ -17,6 +17,7 @@
 
 package org.keycloak.storage.ldap.mappers.membership.group;
 
+import org.jboss.jandex.Type;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;

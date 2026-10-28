@@ -41,7 +41,6 @@ import org.keycloak.testsuite.util.oauth.BackchannelLogoutResponse;
 import org.keycloak.testsuite.util.oauth.OAuthClient;
 import org.keycloak.util.JsonSerialization;
 
-import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

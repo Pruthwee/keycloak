@@ -629,7 +629,6 @@
                         maven.execution.global-settings
                         maven.execution.active-profiles
                 -->
-                <groupId>org.jboss.shrinkwrap.resolver</groupId>
                 <artifactId>shrinkwrap-resolver-maven-plugin</artifactId>
                 <version>${shrinkwrap-resolver.version}</version>
                 <executions>
@@ -1464,6 +1463,7 @@
                 <dependency>
                     <groupId>org.jboss.arquillian.junit</groupId>
                     <artifactId>arquillian-junit-container</artifactId>
+                    <version>${arquillian-core.version}</version>
                 </dependency>
 
                 <dependency>
@@ -1588,18 +1588,22 @@
                 <dependency>
                     <groupId>org.keycloak</groupId>
                     <artifactId>keycloak-admin-client-internal</artifactId>
+                    <version>${project.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.keycloak</groupId>
                     <artifactId>keycloak-client-registration-api</artifactId>
+                    <version>${project.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.keycloak</groupId>
                     <artifactId>keycloak-services</artifactId>
+                    <version>${project.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.keycloak</groupId>
                     <artifactId>keycloak-authz-client-tests</artifactId>
+                    <version>${project.version}</version>
                 </dependency>
 
                 <!--UNDERTOW-->
@@ -1618,6 +1622,7 @@
                     <groupId>org.jboss.resteasy</groupId>
                     <artifactId>resteasy-undertow</artifactId>
                     <scope>compile</scope>
+                    <version>${resteasy.undertow.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.jboss.resteasy</groupId>
@@ -1681,6 +1686,7 @@
                 <dependency>
                     <groupId>org.keycloak</groupId>
                     <artifactId>keycloak-client-cli-dist</artifactId>
+                    <version>${project.version}</version>
                     <exclusions>
                         <exclusion>
                             <groupId>org.keycloak</groupId>

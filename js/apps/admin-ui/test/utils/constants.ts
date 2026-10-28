@@ -1,4 +1,4 @@
-const DEFAULT_SERVER_URL = "http://localhost:8080";
+const DEFAULT_SERVER_URL = process.env.API_URL || "$1";
 const normalizeServerUrl = (url: string) => url.replace(/\/$/, "");
 
 export const SERVER_URL = normalizeServerUrl(

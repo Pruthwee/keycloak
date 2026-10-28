@@ -27,6 +27,7 @@ import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
@@ -98,8 +99,8 @@ public class BCCertificateUtilsProvider implements CertificateUtilsProvider {
             BigInteger serialNumber = BigInteger.valueOf(Math.abs(random.nextInt()));
 
             // Validity
-            Date notBefore = new Date(System.currentTimeMillis());
-            Date notAfter = new Date(System.currentTimeMillis() + (((1000L * 60 * 60 * 24 * 30)) * 12) * 3);
+            Date notBefore = new Date(Instant.now().toEpochMilli());
+            Date notAfter = new Date(Instant.now().toEpochMilli() + (((1000L * 60 * 60 * 24 * 30)) * 12) * 3);
 
             // SubjectPublicKeyInfo
             SubjectPublicKeyInfo subjPubKeyInfo = SubjectPublicKeyInfo.getInstance(keyPair.getPublic().getEncoded());
@@ -160,7 +161,7 @@ public class BCCertificateUtilsProvider implements CertificateUtilsProvider {
      * @throws Exception the exception
      */
     public X509Certificate generateV1SelfSignedCertificate(KeyPair caKeyPair, String subject) {
-        return generateV1SelfSignedCertificate(caKeyPair, subject, BigInteger.valueOf(System.currentTimeMillis()));
+        return generateV1SelfSignedCertificate(caKeyPair, subject, BigInteger.valueOf(Instant.now().toEpochMilli()));
     }
 
     public X509Certificate generateV1SelfSignedCertificate(KeyPair caKeyPair, String subject, BigInteger serialNumber) {
@@ -173,7 +174,7 @@ public class BCCertificateUtilsProvider implements CertificateUtilsProvider {
     public X509Certificate generateV1SelfSignedCertificate(KeyPair caKeyPair, String subject, BigInteger serialNumber, Date validityEndDate) {
         try {
             X500Name subjectDN = new X500NameBuilder(BCStyle.INSTANCE).addRDN(BCStyle.CN, subject).build();
-            Date validityStartDate = new Date(System.currentTimeMillis() - 100000);
+            Date validityStartDate = new Date(Instant.now().toEpochMilli() - 100000);
             SubjectPublicKeyInfo subPubKeyInfo = SubjectPublicKeyInfo.getInstance(caKeyPair.getPublic().getEncoded());
 
             X509v1CertificateBuilder builder = new X509v1CertificateBuilder(subjectDN, serialNumber, validityStartDate,

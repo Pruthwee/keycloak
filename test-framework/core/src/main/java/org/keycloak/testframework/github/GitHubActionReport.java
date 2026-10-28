@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
 import java.util.Comparator;
+import java.time.Instant;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -44,14 +45,14 @@ public class GitHubActionReport {
 
     public void onClassStart() {
         if (enabled) {
-            testClassStartedAt = System.currentTimeMillis();
+            testClassStartedAt = Instant.now().toEpochMilli();
         }
     }
 
     public void onClassSuccess(ExtensionContext context) {
         if (enabled) {
             if (slowTestClassTimeout >= -1) {
-                long executionTime = System.currentTimeMillis() - testClassStartedAt;
+                long executionTime = Instant.now().toEpochMilli() - testClassStartedAt;
                 if (executionTime > slowTestClassTimeout) {
                     Class<?> testClass = context.getRequiredTestClass();
                     String file = findJavaClass(testClass);
@@ -70,14 +71,14 @@ public class GitHubActionReport {
 
     public void onMethodStart() {
         if (enabled && slowTestTimeout >= -1) {
-            testStartedAt = System.currentTimeMillis();
+            testStartedAt = Instant.now().toEpochMilli();
         }
     }
 
     public void onMethodSuccess(ExtensionContext context) {
         if (enabled) {
             if (slowTestTimeout >= -1) {
-                long executionTime = System.currentTimeMillis() - testStartedAt;
+                long executionTime = Instant.now().toEpochMilli() - testStartedAt;
                 if (executionTime > slowTestTimeout) {
                     Class<?> testClass = context.getRequiredTestClass();
                     String file = findJavaClass(testClass);

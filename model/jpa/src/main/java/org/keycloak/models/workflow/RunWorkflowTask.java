@@ -2,13 +2,13 @@ package org.keycloak.models.workflow;
 
 
 import java.util.concurrent.TimeoutException;
+import java.time.Instant;
 
 import org.keycloak.cluster.ClusterProvider;
 import org.keycloak.cluster.ExecutionResult;
 import org.keycloak.common.util.DurationConverter;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.utils.KeycloakModelUtils;
-
 import org.jboss.logging.Logger;
 
 import static org.keycloak.models.workflow.Workflows.getStepProvider;
@@ -142,7 +142,7 @@ class RunWorkflowTask extends WorkflowTransactionalTask {
     private void fireWorkflowStepScheduled(KeycloakSession session, DefaultWorkflowExecutionContext context, WorkflowStep nextStep) {
         log.debugf("Scheduled step %s to run in %s for resource %s (execution id: %s)",
                 nextStep.getProviderId(), nextStep.getAfter(), context.getResourceId(), context.getExecutionId());
-        long scheduledTime = System.currentTimeMillis() + DurationConverter.parseDuration(nextStep.getAfter()).toMillis();
+        long scheduledTime = Instant.now().toEpochMilli() + DurationConverter.parseDuration(nextStep.getAfter()).toMillis();
         // Fire workflow step scheduled event
         WorkflowProviderEvents.fireWorkflowStepScheduledEvent(session, context.getWorkflow(), nextStep, context.getResourceId(), context.getExecutionId(),
                 scheduledTime, nextStep.getAfter());

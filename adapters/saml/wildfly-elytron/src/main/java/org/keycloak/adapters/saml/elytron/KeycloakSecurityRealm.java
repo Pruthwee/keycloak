@@ -16,6 +16,7 @@
  */
 package org.keycloak.adapters.saml.elytron;
 
+import org.wildfly.security.auth.server.SecurityRealm;
 import java.security.Principal;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.HashMap;
@@ -24,15 +25,6 @@ import java.util.Map;
 
 import org.keycloak.adapters.saml.SamlPrincipal;
 
-import org.wildfly.security.auth.SupportLevel;
-import org.wildfly.security.auth.server.RealmIdentity;
-import org.wildfly.security.auth.server.RealmUnavailableException;
-import org.wildfly.security.auth.server.SecurityRealm;
-import org.wildfly.security.authz.AuthorizationIdentity;
-import org.wildfly.security.authz.MapAttributes;
-import org.wildfly.security.credential.Credential;
-import org.wildfly.security.evidence.BearerTokenEvidence;
-import org.wildfly.security.evidence.Evidence;
 
 /**
  * @author <a href="mailto:psilva@redhat.com">Pedro Igor</a>

@@ -20,8 +20,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.reactive.NoCache;
-
 /**
  * Receiver-facing subject management endpoints per SSF 1.0 §8.1.3.
  * Authenticated via the receiver's bearer token with {@code ssf.manage}

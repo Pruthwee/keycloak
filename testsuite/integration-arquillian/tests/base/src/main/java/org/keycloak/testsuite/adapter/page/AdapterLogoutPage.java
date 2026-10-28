@@ -21,11 +21,6 @@ import java.net.URL;
 
 import org.keycloak.testsuite.page.AbstractPageWithInjectedUrl;
 
-import org.jboss.arquillian.container.test.api.OperateOnDeployment;
-import org.jboss.arquillian.test.api.ArquillianResource;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.StringAsset;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
 
 /**
  * @author mhajas

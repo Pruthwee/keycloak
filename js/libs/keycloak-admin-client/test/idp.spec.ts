@@ -156,12 +156,12 @@ describe("Identity providers", () => {
     const result = await kcAdminClient.identityProviders.importFromUrl({
       providerId: "oidc",
       fromUrl:
-        "http://localhost:8180/realms/master/.well-known/openid-configuration",
+        process.env.API_URL || "$1",
     });
 
     expect(result).to.be.ok;
     expect(result.authorizationUrl).to.equal(
-      "http://localhost:8180/realms/master/protocol/openid-connect/auth",
+      process.env.API_URL || "$1",
     );
   });
 

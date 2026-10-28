@@ -25,7 +25,6 @@ import org.keycloak.testsuite.util.LDAPRule;
 import org.keycloak.testsuite.util.LDAPTestConfiguration;
 import org.keycloak.testsuite.util.LDAPTestUtils;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;

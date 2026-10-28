@@ -17,6 +17,7 @@
 package org.keycloak.testsuite.authz;
 
 import java.util.ArrayList;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -786,7 +787,7 @@ public class UserManagedAccessTest extends AbstractResourceServerTest {
 
                 String requesterId = session.users().getUserByUsername(realm, requesterUsername).getId();
                 PermissionTicket ticket = sf.getPermissionTicketStore().create(rs, resource, scope, requesterId);
-                ticket.setGrantedTimestamp(System.currentTimeMillis());
+                ticket.setGrantedTimestamp(Instant.now().toEpochMilli());
             };
         }
     }

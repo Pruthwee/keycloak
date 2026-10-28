@@ -17,6 +17,7 @@
 
 package org.keycloak.events.log;
 
+import static org.jboss.logging.Logger.Level;
 import java.util.Map;
 
 import jakarta.enterprise.context.ContextNotActiveException;
@@ -33,7 +34,6 @@ import org.keycloak.models.KeycloakContext;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.sessions.AuthenticationSessionModel;
 import org.keycloak.utils.StringUtil;
-
 import org.jboss.logging.Logger;
 
 /**

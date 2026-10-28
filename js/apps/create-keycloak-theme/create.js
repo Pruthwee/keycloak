@@ -11,7 +11,7 @@ import { simpleGit } from "simple-git";
 import { fileURLToPath } from "url";
 
 const packageJson = JSON.parse(
-  fs.readFileSync(
+  await fs.promises.readFile(
     join(fileURLToPath(import.meta.url), "..", "package.json"),
     "utf8",
   ),

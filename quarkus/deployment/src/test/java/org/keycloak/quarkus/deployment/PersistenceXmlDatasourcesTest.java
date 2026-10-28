@@ -31,7 +31,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.wildfly.common.Assert.assertNotNull;
-
 /**
  * Unit tests for the static persistence.xml helpers used by
  * {@link KeycloakProcessor#produceUserDefinedPersistenceUnits}: the datasource-name resolution order and the

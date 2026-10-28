@@ -1,10 +1,12 @@
 <!doctype html>
 <html>
   <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
+
     <meta charset="utf-8">
   </head>
   <body>
-    <script type="module">
+    <script type="module" nonce="{{CSP_NONCE}}">
       checkStorageAccess();
       
       async function checkStorageAccess() {

@@ -1,5 +1,6 @@
 package org.keycloak.tests.broker.oidc;
 
+import java.time.Instant;
 import jakarta.ws.rs.core.Response;
 
 import org.keycloak.admin.client.CreatedResponseUtil;
@@ -40,7 +41,7 @@ public class KcOidcBrokerPrivateKeyJwtCustomSignAlgTest extends AbstractKcOidcBr
         rep.setProviderId(GeneratedEcdsaKeyProviderFactory.ID);
         rep.setProviderType(KeyProvider.class.getName());
         rep.setConfig(new MultivaluedHashMap<>());
-        rep.getConfig().putSingle("priority", Long.toString(System.currentTimeMillis()));
+        rep.getConfig().putSingle("priority", Long.toString(Instant.now().toEpochMilli()));
         rep.getConfig().putSingle("active", "true");
         rep.getConfig().putSingle("enabled", "true");
         rep.getConfig().putSingle(GeneratedEcdsaKeyProviderFactory.ECDSA_ELLIPTIC_CURVE_KEY, "P-256");

@@ -1,5 +1,6 @@
 package org.keycloak.services.resources.account;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -60,7 +61,6 @@ import org.keycloak.util.JsonSerialization;
 import org.keycloak.utils.MediaType;
 import org.keycloak.utils.SecureContextResolver;
 
-import org.jboss.resteasy.reactive.NoCache;
 
 /**
  * Created by st on 29/03/17.

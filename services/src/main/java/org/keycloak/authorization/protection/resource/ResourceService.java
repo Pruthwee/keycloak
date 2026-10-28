@@ -17,6 +17,7 @@
  */
 package org.keycloak.authorization.protection.resource;
 
+import org.jboss.resteasy.reactive.NoCache;
 import java.util.function.BiFunction;
 
 import jakarta.ws.rs.Consumes;
@@ -41,7 +42,6 @@ import org.keycloak.representations.idm.authorization.ResourceOwnerRepresentatio
 import org.keycloak.representations.idm.authorization.ResourceRepresentation;
 import org.keycloak.services.ErrorResponseException;
 
-import org.jboss.resteasy.reactive.NoCache;
 
 /**
  * @author <a href="mailto:psilva@redhat.com">Pedro Igor</a>

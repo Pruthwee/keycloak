@@ -22,7 +22,6 @@ import org.keycloak.testsuite.auth.page.PasswordFields;
 import org.keycloak.testsuite.page.Form;
 import org.keycloak.testsuite.util.UIUtils;
 
-import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
