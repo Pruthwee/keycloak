@@ -44,7 +44,7 @@ public class JarThemeProviderFactory extends ClasspathThemeProviderFactory {
             ClassLoader classLoader = getClass().getClassLoader();
             Enumeration<URL> resources = classLoader.getResources(KEYCLOAK_THEMES_JSON);
             while (resources.hasMoreElements()) {
-                loadThemes(classLoader, resources.nextElement().openStream());
+                loadThemes(classLoader, ResourceLoader.openStreamWithTimeouts(resources.nextElement()));
             }
         } catch (IOException e) {
             throw new RuntimeException("Failed to load themes", e);

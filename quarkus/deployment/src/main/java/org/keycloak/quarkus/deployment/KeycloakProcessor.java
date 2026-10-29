@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -200,6 +201,16 @@ import static org.keycloak.theme.ClasspathThemeProviderFactory.KEYCLOAK_THEMES_J
 class KeycloakProcessor {
 
     private static final Logger logger = Logger.getLogger(KeycloakProcessor.class);
+
+    private static final int URL_CONNECT_TIMEOUT_MS = 5000;
+    private static final int URL_READ_TIMEOUT_MS = 30000;
+
+    private static InputStream openStreamWithTimeouts(URL url) throws IOException {
+        URLConnection connection = url.openConnection();
+        connection.setConnectTimeout(URL_CONNECT_TIMEOUT_MS);
+        connection.setReadTimeout(URL_READ_TIMEOUT_MS);
+        return connection.getInputStream();
+    }
 
     // Quarkus names the default (unnamed) persistence unit "<default>". The HibernateOrmIntegration*ConfiguredBuildItem
     // listeners for the default PU MUST target this exact name, NOT KEYCLOAK_DEFAULT_PERSISTENCE_UNIT ("keycloak-default"),
@@ -843,7 +854,7 @@ class KeycloakProcessor {
             Enumeration<URL> resources = Thread.currentThread().getContextClassLoader().getResources(KEYCLOAK_THEMES_JSON);
 
             while (resources.hasMoreElements()) {
-                themes.add(JsonSerialization.readValue(resources.nextElement().openStream(), ClasspathThemeProviderFactory.ThemesRepresentation.class));
+                themes.add(JsonSerialization.readValue(openStreamWithTimeouts(resources.nextElement()), ClasspathThemeProviderFactory.ThemesRepresentation.class));
             }
 
             return themes;
@@ -1168,13 +1179,13 @@ class KeycloakProcessor {
 
         List<ScriptProviderDescriptor> descriptors = new ArrayList<>();
 
-        try (InputStream is = url.openStream()) {
+        try (InputStream is = openStreamWithTimeouts(url)) {
             ScriptProviderDescriptor descriptor = JsonSerialization.readValue(is, ScriptProviderDescriptor.class);
 
             configureScriptDescriptor(descriptor, fileName -> {
                 // descriptor is at META-INF/
                 try {
-                    return new URL(url, "../" + fileName).openStream();
+                    return openStreamWithTimeouts(new URL(url, "../" + fileName));
                 } catch (IOException e) {
                     throw new RuntimeException("Failed to read script file from: " + fileName);
                 }

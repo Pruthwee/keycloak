@@ -42,6 +42,16 @@ public class IDFedLSInputResolver implements LSResourceResolver {
 
     protected static final Logger logger = Logger.getLogger(IDFedLSInputResolver.class);
 
+    private static final int URL_CONNECT_TIMEOUT_MS = 5000;
+    private static final int URL_READ_TIMEOUT_MS = 30000;
+
+    private static InputStream openStreamWithTimeouts(URL url) throws IOException {
+        java.net.URLConnection connection = url.openConnection();
+        connection.setConnectTimeout(URL_CONNECT_TIMEOUT_MS);
+        connection.setReadTimeout(URL_READ_TIMEOUT_MS);
+        return connection.getInputStream();
+    }
+
     private static final Map<String, String> schemaLocationMap;
 
     static {
@@ -155,7 +165,7 @@ public class IDFedLSInputResolver implements LSResourceResolver {
             URL url = SecurityActions.loadResource(getClass(), loc);
             InputStream is;
             try {
-                is = url.openStream();
+                is = openStreamWithTimeouts(url);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

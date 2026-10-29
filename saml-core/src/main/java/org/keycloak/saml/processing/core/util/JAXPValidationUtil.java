@@ -59,6 +59,16 @@ public class JAXPValidationUtil {
 
     private static final PicketLinkLogger logger = PicketLinkLoggerFactory.getLogger();
 
+    private static final int URL_CONNECT_TIMEOUT_MS = 5000;
+    private static final int URL_READ_TIMEOUT_MS = 30000;
+
+    private static InputStream openStreamWithTimeouts(URL url) throws IOException {
+        java.net.URLConnection connection = url.openConnection();
+        connection.setConnectTimeout(URL_CONNECT_TIMEOUT_MS);
+        connection.setReadTimeout(URL_READ_TIMEOUT_MS);
+        return connection.getInputStream();
+    }
+
     protected static Validator validator;
 
     protected static SchemaFactory schemaFactory;
@@ -169,7 +179,7 @@ public class JAXPValidationUtil {
             URL url = SecurityActions.loadResource(JAXPValidationUtil.class, schema);
             if (url == null)
                 throw logger.nullValueError("schema url:" + schema);
-            sourceArr[i++] = new StreamSource(url.openStream());
+            sourceArr[i++] = new StreamSource(openStreamWithTimeouts(url));
         }
         return sourceArr;
     }

@@ -54,7 +54,7 @@ public class ClasspathThemeResourceProviderFactory implements ThemeResourceProvi
 
     protected void loadMessages(Properties messages, URL resource) throws IOException {
         if (resource != null) {
-            try (InputStream stream = resource.openStream()) {
+            try (InputStream stream = ResourceLoader.openStreamWithTimeouts(resource)) {
                 PropertiesUtil.readCharsetAware(messages, stream);
             }
         }

@@ -48,6 +48,16 @@ public class JAXBUtil {
 
     private static final PicketLinkLogger logger = PicketLinkLoggerFactory.getLogger();
 
+    private static final int URL_CONNECT_TIMEOUT_MS = 5000;
+    private static final int URL_READ_TIMEOUT_MS = 30000;
+
+    private static java.io.InputStream openStreamWithTimeouts(URL url) throws IOException {
+        java.net.URLConnection connection = url.openConnection();
+        connection.setConnectTimeout(URL_CONNECT_TIMEOUT_MS);
+        connection.setReadTimeout(URL_READ_TIMEOUT_MS);
+        return connection.getInputStream();
+    }
+
     public static final String W3C_XML_SCHEMA_NS_URI = "http://www.w3.org/2001/XMLSchema";
 
     private static final HashMap<String, JAXBContext> jaxbContextHash = new HashMap<String, JAXBContext>();
@@ -179,7 +189,7 @@ public class JAXBUtil {
             if (schemaURL == null)
                 throw logger.nullValueError("Schema URL :" + schemaLocation);
 
-            schemaSources[i++] = new StreamSource(schemaURL.openStream());
+            schemaSources[i++] = new StreamSource(openStreamWithTimeouts(schemaURL));
         }
 
         Schema schema = schemaFactory.newSchema(schemaSources);

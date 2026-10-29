@@ -62,6 +62,16 @@ public class InfinispanUtil {
 
     private static final Object CHANNEL_INIT_SYNCHRONIZER = new Object();
 
+    private static final int URL_CONNECT_TIMEOUT_MS = 5000;
+    private static final int URL_READ_TIMEOUT_MS = 30000;
+
+    private static java.io.InputStream openStreamWithTimeouts(java.net.URL url) throws java.io.IOException {
+        java.net.URLConnection connection = url.openConnection();
+        connection.setConnectTimeout(URL_CONNECT_TIMEOUT_MS);
+        connection.setReadTimeout(URL_READ_TIMEOUT_MS);
+        return connection.getInputStream();
+    }
+
     /**
      * @deprecated to be removed without replacement.
      */
@@ -87,7 +97,7 @@ public class InfinispanUtil {
                     System.setProperty(InfinispanConnectionProvider.JGROUPS_BIND_ADDR, jgroupsBindAddr);
                 }
                 try {
-                    JChannel channel = new JChannel(fileLookup.lookupFileLocation(jgroupsConfigPath, InfinispanUtil.class.getClassLoader()).openStream());
+                    JChannel channel = new JChannel(openStreamWithTimeouts(fileLookup.lookupFileLocation(jgroupsConfigPath, InfinispanUtil.class.getClassLoader())));
                     channel.setName(nodeName);
                     JGroupsTransport transport = new JGroupsTransport(channel);
 

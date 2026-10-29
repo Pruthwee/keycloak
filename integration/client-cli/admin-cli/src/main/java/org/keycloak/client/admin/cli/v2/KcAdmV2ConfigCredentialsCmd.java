@@ -19,6 +19,7 @@ import static org.keycloak.client.admin.cli.KcAdmMain.V2_FLAG;
 class KcAdmV2ConfigCredentialsCmd extends ConfigCredentialsCmd {
 
     private static final int DEFAULT_MANAGEMENT_PORT = 9000;
+    private static final String MANAGEMENT_PORT_ENV_VAR = "KC_HTTP_MANAGEMENT_PORT";
     private static final String OPENAPI_PATH = "/openapi";
 
     @Option(names = "--openapi-url", description = "URL of the OpenAPI endpoint for auto-fetching the server descriptor " +
@@ -92,7 +93,26 @@ class KcAdmV2ConfigCredentialsCmd extends ConfigCredentialsCmd {
     private String deriveDefaultOpenApiUrl() throws Exception {
         URL serverParsed = new URL(server);
         URI managementUri = new URI(serverParsed.getProtocol(), null,
-                serverParsed.getHost(), DEFAULT_MANAGEMENT_PORT, OPENAPI_PATH, null, null);
+                serverParsed.getHost(), resolveManagementPort(), OPENAPI_PATH, null, null);
         return managementUri.toString();
+    }
+
+    /**
+     * The management port comes from the KC_HTTP_MANAGEMENT_PORT environment variable, injected by the deployment;
+     * the former default port is used when it is not set or is not a valid port number.
+     */
+    private static int resolveManagementPort() {
+        String value = System.getenv(MANAGEMENT_PORT_ENV_VAR);
+        if (value != null && !value.isBlank()) {
+            try {
+                int port = Integer.parseInt(value.trim());
+                if (port > 0 && port <= 65535) {
+                    return port;
+                }
+            } catch (NumberFormatException e) {
+                // fall back to the default port
+            }
+        }
+        return DEFAULT_MANAGEMENT_PORT;
     }
 }

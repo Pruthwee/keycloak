@@ -20,6 +20,7 @@ package org.keycloak.connections.jpa.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -53,6 +54,9 @@ import org.jboss.logging.Logger;
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
  */
 public class JpaUtils {
+
+    private static final int URL_CONNECT_TIMEOUT_MS = 5000;
+    private static final int URL_READ_TIMEOUT_MS = 30000;
 
     public static final String HIBERNATE_DEFAULT_SCHEMA = "hibernate.default_schema";
     public static final String QUERY_NATIVE_SUFFIX = "[native]";
@@ -156,8 +160,13 @@ public class JpaUtils {
             return null;
         }
         Properties props = new Properties();
-        try (InputStream is = url.openStream()) {
-            props.load(is);
+        try {
+            URLConnection connection = url.openConnection();
+            connection.setConnectTimeout(URL_CONNECT_TIMEOUT_MS);
+            connection.setReadTimeout(URL_READ_TIMEOUT_MS);
+            try (InputStream is = connection.getInputStream()) {
+                props.load(is);
+            }
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }

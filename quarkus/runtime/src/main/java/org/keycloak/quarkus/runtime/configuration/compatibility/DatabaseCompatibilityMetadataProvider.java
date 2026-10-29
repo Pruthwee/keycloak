@@ -3,6 +3,7 @@ package org.keycloak.quarkus.runtime.configuration.compatibility;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Comparator;
@@ -31,6 +32,9 @@ import static org.keycloak.quarkus.runtime.configuration.Configuration.getOption
 public class DatabaseCompatibilityMetadataProvider implements CompatibilityMetadataProvider {
 
     private static final Logger log = Logger.getLogger(DatabaseCompatibilityMetadataProvider.class);
+
+    private static final int URL_CONNECT_TIMEOUT_MS = 5000;
+    private static final int URL_READ_TIMEOUT_MS = 30000;
 
     public static final String ID = "database";
     public static final String UNSUPPORTED_CHANGES_HASH_KEY = "unsupported-changeset-hash";
@@ -81,7 +85,10 @@ public class DatabaseCompatibilityMetadataProvider implements CompatibilityMetad
             ObjectMapper objectMapper = new ObjectMapper();
             while(resources.hasMoreElements()) {
                 URL url = resources.nextElement();
-                try (InputStream inputStream = url.openStream()) {
+                URLConnection connection = url.openConnection();
+                connection.setConnectTimeout(URL_CONNECT_TIMEOUT_MS);
+                connection.setReadTimeout(URL_READ_TIMEOUT_MS);
+                try (InputStream inputStream = connection.getInputStream()) {
                     JsonParent parent = objectMapper.readValue(inputStream, new TypeReference<>() {});
                     changeSets.addAll(parent.changeSets);
                     migrations.addAll(parent.migrations);

@@ -69,7 +69,7 @@ public class ClassLoaderTheme extends FileBasedTheme {
 
         URL p = classLoader.getResource(themeRoot + "theme.properties");
         if (p != null) {
-            try (InputStream stream = p.openStream()) {
+            try (InputStream stream = ResourceLoader.openStreamWithTimeouts(p)) {
                 PropertiesUtil.readCharsetAware(properties, stream);
             }
             this.parentName = properties.getProperty("parent");
@@ -119,7 +119,7 @@ public class ClassLoaderTheme extends FileBasedTheme {
     protected void loadBundle(String baseBundlename, Locale locale, Properties m) throws IOException {
         URL url = classLoader.getResource(this.messageRoot + toBundleName(baseBundlename, locale) + ".properties");
         if (url != null) {
-            try (InputStream stream = url.openStream()) {
+            try (InputStream stream = ResourceLoader.openStreamWithTimeouts(url)) {
                 PropertiesUtil.readCharsetAware(m, stream);
             }
         }

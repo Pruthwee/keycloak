@@ -63,6 +63,16 @@ public class SAML2Request {
 
     private static final PicketLinkLogger logger = PicketLinkLoggerFactory.getLogger();
 
+    private static final int URL_CONNECT_TIMEOUT_MS = 5000;
+    private static final int URL_READ_TIMEOUT_MS = 30000;
+
+    private static InputStream openStreamWithTimeouts(URL url) throws IOException {
+        java.net.URLConnection connection = url.openConnection();
+        connection.setConnectTimeout(URL_CONNECT_TIMEOUT_MS);
+        connection.setReadTimeout(URL_READ_TIMEOUT_MS);
+        return connection.getInputStream();
+    }
+
     private SAMLDocumentHolder samlDocumentHolder = null;
 
     private String nameIDFormat = JBossSAMLURIConstants.NAMEID_FORMAT_TRANSIENT.get();
@@ -155,7 +165,7 @@ public class SAML2Request {
 
         InputStream is = null;
         try {
-            is = resourceURL.openStream();
+            is = openStreamWithTimeouts(resourceURL);
         } catch (IOException e) {
             throw logger.processingError(e);
         }
