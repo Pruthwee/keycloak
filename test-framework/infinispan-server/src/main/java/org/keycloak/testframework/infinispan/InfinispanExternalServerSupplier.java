@@ -19,11 +19,11 @@ public class InfinispanExternalServerSupplier implements Supplier<InfinispanServ
         InfinispanServer server = InfinispanExternalServer.create();
         getLogger().info("Starting Infinispan Server");
 
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
 
         server.start();
 
-        getLogger().infov("Infinispan server started in {0} ms", System.currentTimeMillis() - start);
+        getLogger().infov("Infinispan server started in {0} ms", java.time.Instant.now().toEpochMilli() - start);
         return server;
     }
 

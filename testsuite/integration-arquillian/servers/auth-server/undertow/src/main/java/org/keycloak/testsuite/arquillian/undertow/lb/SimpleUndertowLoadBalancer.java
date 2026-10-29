@@ -348,7 +348,7 @@ public class SimpleUndertowLoadBalancer {
 
         @Override
         public void failed(HttpServerExchange exchange) {
-            final long time = System.currentTimeMillis();
+            final long time = java.time.Instant.now().toEpochMilli();
 
             Integer remainingAttempts = exchange.getAttachment(REMAINING_RETRY_ATTEMPTS);
             if (remainingAttempts == null) {

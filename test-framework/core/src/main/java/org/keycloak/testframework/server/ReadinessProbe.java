@@ -36,8 +36,8 @@ public final class ReadinessProbe {
     }
 
     private static void waitUntilReady(String url, SSLContext sslContext, long timeout) {
-        var deadline = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(timeout);
-        while (System.currentTimeMillis() < deadline) {
+        var deadline = java.time.Instant.now().toEpochMilli() + TimeUnit.SECONDS.toMillis(timeout);
+        while (java.time.Instant.now().toEpochMilli() < deadline) {
             try {
                 HttpURLConnection connection = (HttpURLConnection) URI.create(url).toURL().openConnection();
                 if (connection instanceof HttpsURLConnection https) {

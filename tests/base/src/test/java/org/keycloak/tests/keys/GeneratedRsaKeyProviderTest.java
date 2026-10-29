@@ -70,7 +70,7 @@ public class GeneratedRsaKeyProviderTest {
     }
 
     private void defaultKeysize(String providerId, KeyUse keyUse) throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", providerId);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -108,7 +108,7 @@ public class GeneratedRsaKeyProviderTest {
     }
 
     private void largeKeysize(String providerId, KeyUse keyUse) throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", providerId);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -147,7 +147,7 @@ public class GeneratedRsaKeyProviderTest {
     }
 
     private void updatePriority(String providerId, KeyUse keyUse) throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", providerId);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -189,7 +189,7 @@ public class GeneratedRsaKeyProviderTest {
     }
 
     private void updateKeysize(String providerId, KeyUse keyUse) throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", providerId);
         rep.setConfig(new MultivaluedHashMap<>());

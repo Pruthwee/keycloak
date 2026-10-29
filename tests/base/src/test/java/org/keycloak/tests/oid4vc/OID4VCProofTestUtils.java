@@ -107,7 +107,7 @@ public final class OID4VCProofTestUtils {
             String certification
     ) {
         KeyAttestationJwtBody body = new KeyAttestationJwtBody();
-        long iatSeconds = System.currentTimeMillis() / 1000;
+        long iatSeconds = java.time.Instant.now().toEpochMilli() / 1000;
         body.setIat(iatSeconds);
         body.setExp(iatSeconds + 3600);
         body.setNonce(nonce);
@@ -159,7 +159,7 @@ public final class OID4VCProofTestUtils {
             // Generate self-signed cert
             X500Name subject = new X500Name("CN=example.com");
 
-            long now = System.currentTimeMillis();
+            long now = java.time.Instant.now().toEpochMilli();
             BigInteger serial = BigInteger.valueOf(now);
             Date notBefore = new Date(now);
             Date notAfter = new Date(now + 3600000); // 1h

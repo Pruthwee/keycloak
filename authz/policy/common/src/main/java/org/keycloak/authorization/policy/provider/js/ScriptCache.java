@@ -137,7 +137,7 @@ public class ScriptCache {
             if(maxAge == -1) {
                 expiration = -1;
             } else {
-                expiration = System.currentTimeMillis() + maxAge;
+                expiration = java.time.Instant.now().toEpochMilli() + maxAge;
             }
         }
 
@@ -150,7 +150,7 @@ public class ScriptCache {
         }
 
         boolean isExpired() {
-            return expiration != -1 ? System.currentTimeMillis() > expiration : false;
+            return expiration != -1 ? java.time.Instant.now().toEpochMilli() > expiration : false;
         }
     }
 }

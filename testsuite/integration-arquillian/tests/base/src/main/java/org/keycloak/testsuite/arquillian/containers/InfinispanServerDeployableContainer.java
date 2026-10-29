@@ -111,7 +111,7 @@ public class InfinispanServerDeployableContainer implements DeployableContainer<
 
             trustAllCertificates();
 
-            long startTimeMillis = System.currentTimeMillis();
+            long startTimeMillis = java.time.Instant.now().toEpochMilli();
             long startupTimeoutMillis = 30 * 1000;
             URL consoleURL = new URL(String.format("%s://localhost:%s/console/",
                     CACHE_SERVER_AUTH ? "https" : "http",
@@ -119,7 +119,7 @@ public class InfinispanServerDeployableContainer implements DeployableContainer<
 
             while (true) {
                 Thread.sleep(1000);
-                if (System.currentTimeMillis() > startTimeMillis + startupTimeoutMillis) {
+                if (java.time.Instant.now().toEpochMilli() > startTimeMillis + startupTimeoutMillis) {
                     stop();
                     throw new LifecycleException("Infinispan server startup timed out.");
                 }

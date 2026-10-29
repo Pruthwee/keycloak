@@ -1,5 +1,5 @@
 import react from "@vitejs/plugin-react-swc";
-import { readFileSync } from "node:fs";
+import { readFile } from "node:fs/promises";
 import path from "path";
 import { getProperties } from "properties-file";
 import { defineConfig, loadEnv } from "vite";
@@ -22,12 +22,12 @@ export default defineConfig(({ mode }) => {
         }
         return null;
       },
-      load(id) {
+      async load(id) {
         if (id === "message-bundle") {
           let properties = {};
           if (process.env.NODE_ENV === "development") {
             properties = getProperties(
-              readFileSync(
+              await readFile(
                 "./maven-resources/theme/keycloak.v2/admin/messages/messages_en.properties",
               ),
             );

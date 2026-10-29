@@ -238,14 +238,14 @@ public final class KeycloakModelUtils {
     }
 
     public static CertificateRepresentation generateKeyPairCertificate(String subject) {
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(java.util.TimeZone.getTimeZone("UTC"));
         calendar.add(Calendar.YEAR, DEFAULT_CERTIFICATE_VALIDITY_YEARS);
         return generateKeyPairCertificate(subject, DEFAULT_RSA_KEY_SIZE, calendar);
     }
 
     public static CertificateRepresentation generateKeyPairCertificate(String subject, int keysize, Calendar endDate) {
         KeyPair keyPair = KeyUtils.generateRsaKeyPair(keysize);
-        X509Certificate certificate = CertificateUtils.generateV1SelfSignedCertificate(keyPair, subject, BigInteger.valueOf(System.currentTimeMillis()), endDate.getTime());
+        X509Certificate certificate = CertificateUtils.generateV1SelfSignedCertificate(keyPair, subject, BigInteger.valueOf(java.time.Instant.now().toEpochMilli()), endDate.getTime());
 
         String privateKeyPem = PemUtils.encodeKey(keyPair.getPrivate());
         String certPem = PemUtils.encodeCertificate(certificate);

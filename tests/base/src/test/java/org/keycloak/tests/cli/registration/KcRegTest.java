@@ -389,9 +389,9 @@ public class KcRegTest extends AbstractRegCliTest {
             Assertions.assertNotNull(realmcfg.getToken(), "token not null");
             Assertions.assertNotNull(realmcfg.getRefreshToken(), "refresh token not null");
             Assertions.assertNotNull(realmcfg.getExpiresAt(), "token expires not null");
-            Assertions.assertNotNull(realmcfg.getExpiresAt() > System.currentTimeMillis(), "token expires in future");
+            Assertions.assertNotNull(realmcfg.getExpiresAt() > java.time.Instant.now().toEpochMilli(), "token expires in future");
             Assertions.assertNotNull(realmcfg.getRefreshExpiresAt(), "refresh token expires not null");
-            Assertions.assertNotNull(realmcfg.getRefreshExpiresAt() > System.currentTimeMillis(), "refresh token expires in future");
+            Assertions.assertNotNull(realmcfg.getRefreshExpiresAt() > java.time.Instant.now().toEpochMilli(), "refresh token expires in future");
             Assertions.assertTrue(realmcfg.getClients().isEmpty(), "clients is empty");
 
         } finally {

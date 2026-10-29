@@ -43,17 +43,17 @@ class RetryTest {
     @Disabled("Disabled because it is slow. Run manually when needed.")
     @Test
     void shouldWaitExactlyTenSeconds() {
-        long started = System.currentTimeMillis();
-        AtomicLong last = new AtomicLong(System.currentTimeMillis());
+        long started = java.time.Instant.now().toEpochMilli();
+        AtomicLong last = new AtomicLong(java.time.Instant.now().toEpochMilli());
         Assertions.assertThrowsExactly(RuntimeException.class, () -> Retry.executeWithBackoff(iteration -> {
-            long current = System.currentTimeMillis();
+            long current = java.time.Instant.now().toEpochMilli();
             long interval = current - last.get();
             System.out.println("Interval " + iteration + ": " + interval);
             last.set(current);
             throw new RuntimeException();
         }, Duration.of(10, ChronoUnit.SECONDS), 1));
 
-        long duration = System.currentTimeMillis() - started;
+        long duration = java.time.Instant.now().toEpochMilli() - started;
         System.out.print("Duration: " + duration);
         Assertions.assertTrue(9500 < duration  && duration < 10500);
 

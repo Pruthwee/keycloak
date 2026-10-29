@@ -6,19 +6,19 @@
 
 .kc-attributes__plus-icon {
   /* shift the button left to adjust for table cell padding */
-  margin-left: calc(var(--pf-v5-global--spacer--md) * -1);
+  margin-left: calc(var(--pf-v5-global--spacer--md, 1rem) * -1);
 }
 
 .pf-v5-c-button.kc-attributes__minus-icon {
   /* shift the button left to adjust for table cell padding */
-  margin-left: calc(var(--pf-v5-global--spacer--md) * -1);
-  color: var(--pf-v5-c-button--m-plain--Color);
+  margin-left: calc(var(--pf-v5-global--spacer--md, 1rem) * -1);
+  color: var(--pf-v5-c-button--m-plain--Color, #6a6e73);
 }
 
 .kc-attributes__action-group {
   /* subtract the padding at the bottom of the table from the action group margin */
   --pf-v5-c-form__group--m-action--MarginTop: calc(
-    var(--pf-v5-global--spacer--2xl) - var(--pf-v5-global--spacer--sm)
+    var(--pf-v5-global--spacer--2xl, 3rem) - var(--pf-v5-global--spacer--sm, 0.5rem)
   );
 }
 

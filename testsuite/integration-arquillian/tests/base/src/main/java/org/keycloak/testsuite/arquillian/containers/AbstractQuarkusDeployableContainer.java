@@ -335,11 +335,11 @@ public abstract class AbstractQuarkusDeployableContainer implements DeployableCo
         // support for MP Health this should change
         URL contextRoot = new URL(getBaseUrl(suiteContext) + "/auth/realms/master/");
         HttpURLConnection connection;
-        long startTime = System.currentTimeMillis();
+        long startTime = java.time.Instant.now().toEpochMilli();
         Exception e = null;
 
         while (true) {
-            if (System.currentTimeMillis() - startTime > getStartTimeout()) {
+            if (java.time.Instant.now().toEpochMilli() - startTime > getStartTimeout()) {
                 stop();
                 throw new IllegalStateException("Timeout [" + getStartTimeout() + "] while waiting for Quarkus server", e);
             }

@@ -214,10 +214,10 @@ public class LDAPEmbeddedServer {
 
 
     public void start() throws Exception {
-        long t0 = System.currentTimeMillis();
+        long t0 = java.time.Instant.now().toEpochMilli();
         log.info("Starting LDAP server..");
         ldapServer.start();
-        long elapsed = System.currentTimeMillis() - t0;
+        long elapsed = java.time.Instant.now().toEpochMilli() - t0;
         // Verify the server started properly
         if (ldapServer.isStarted() && ldapServer.getDirectoryService().isStarted()) {
             log.infof("LDAP server started in %d ms (port=%d, startTLS=%s, ssl=%s).",
@@ -422,10 +422,10 @@ public class LDAPEmbeddedServer {
 
 
     protected void stopLdapServer() {
-        long t0 = System.currentTimeMillis();
+        long t0 = java.time.Instant.now().toEpochMilli();
         log.info("Stopping LDAP server.");
         ldapServer.stop();
-        log.infof("LDAP server stopped in %d ms.", System.currentTimeMillis() - t0);
+        log.infof("LDAP server stopped in %d ms.", java.time.Instant.now().toEpochMilli() - t0);
     }
 
 

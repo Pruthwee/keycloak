@@ -61,10 +61,10 @@ public class ConfigUtil {
             realmConfig.setRefreshToken(tokens.getRefreshToken());
             realmConfig.setSigningToken(signKey);
             realmConfig.setSecret(secret);
-            realmConfig.setExpiresAt(System.currentTimeMillis() + tokens.getExpiresIn() * 1000);
+            realmConfig.setExpiresAt(java.time.Instant.now().toEpochMilli() + tokens.getExpiresIn() * 1000);
             if (realmConfig.getRefreshToken() != null) {
                 realmConfig.setRefreshExpiresAt(tokens.getRefreshExpiresIn() == 0 ?
-                        Long.MAX_VALUE : System.currentTimeMillis() + tokens.getRefreshExpiresIn() * 1000);
+                        Long.MAX_VALUE : java.time.Instant.now().toEpochMilli() + tokens.getRefreshExpiresIn() * 1000);
             }
             realmConfig.setSigExpiresAt(sigExpiresAt);
             realmConfig.setClientId(clientId);

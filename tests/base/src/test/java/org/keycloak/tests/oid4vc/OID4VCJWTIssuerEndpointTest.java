@@ -1083,7 +1083,7 @@ public class OID4VCJWTIssuerEndpointTest extends OID4VCIssuerEndpointTest {
         String cNonce = getCNonce();
 
         String issuer = credentialIssuer.getCredentialIssuer();
-        long now = System.currentTimeMillis() / 1000L;
+        long now = java.time.Instant.now().toEpochMilli() / 1000L;
         String futureIatProof = generateJwtProofWithClaims(
                 List.of(issuer),
                 cNonce,
@@ -1130,7 +1130,7 @@ public class OID4VCJWTIssuerEndpointTest extends OID4VCIssuerEndpointTest {
         String cNonce = getCNonce();
 
         String issuer = credentialIssuer.getCredentialIssuer();
-        long now = System.currentTimeMillis() / 1000L;
+        long now = java.time.Instant.now().toEpochMilli() / 1000L;
         String expiredExpProof = generateJwtProofWithClaims(
                 List.of(issuer),
                 cNonce,
@@ -1171,7 +1171,7 @@ public class OID4VCJWTIssuerEndpointTest extends OID4VCIssuerEndpointTest {
         String cNonce = getCNonce();
 
         String issuer = credentialIssuer.getCredentialIssuer();
-        long now = System.currentTimeMillis() / 1000L;
+        long now = java.time.Instant.now().toEpochMilli() / 1000L;
         String futureNbfProof = generateJwtProofWithClaims(
                 List.of(issuer),
                 cNonce,

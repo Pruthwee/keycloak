@@ -681,7 +681,7 @@ public abstract class AbstractKeycloakTest {
         now.set(Calendar.HOUR_OF_DAY, hour);
         now.set(Calendar.MINUTE, minute);
         now.set(Calendar.SECOND, second);
-        int offset = (int) ((now.getTime().getTime() - System.currentTimeMillis()) / 1000);
+        int offset = (int) ((now.getTime().getTime() - java.time.Instant.now().toEpochMilli()) / 1000);
 
         timeOffSet.set(offset + addSeconds);
     }

@@ -128,7 +128,7 @@ public class PermissionTicketService {
         
         PermissionTicket ticket = ticketStore.create(resourceServer, resource, scope, user.getId());
         if(representation.isGranted())
-                ticket.setGrantedTimestamp(java.lang.System.currentTimeMillis());
+                ticket.setGrantedTimestamp(java.time.Instant.now().toEpochMilli());
         representation = ModelToRepresentation.toRepresentation(ticket, authorization);
         return Response.ok(representation).build();
     }

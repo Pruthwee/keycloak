@@ -966,7 +966,7 @@ public class ParWithDPoPTest extends AbstractClientPoliciesTest {
         oauth.verifyToken(res.getAccessToken());
     }
 
-    private Random rand = new Random(System.currentTimeMillis());
+    private Random rand = new Random(java.time.Instant.now().toEpochMilli());
 
     private String createConfidentialClientForTest() throws ClientRegistrationException {
         return createClientDynamically(generateSuffixedName(CLIENT_NAME), (OIDCClientRepresentation clientRep) -> {

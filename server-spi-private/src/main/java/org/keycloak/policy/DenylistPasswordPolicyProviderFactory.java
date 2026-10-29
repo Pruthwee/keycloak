@@ -375,7 +375,7 @@ public class DenylistPasswordPolicyProviderFactory implements PasswordPolicyProv
             this.lastModifiedMillis = path.toFile().lastModified();
             this.lastSizeBytes = path.toFile().length();
             this.denylist = load();
-            this.lastCheckedMillis = System.currentTimeMillis();
+            this.lastCheckedMillis = java.time.Instant.now().toEpochMilli();
         }
 
         public String getName() {
@@ -399,12 +399,12 @@ public class DenylistPasswordPolicyProviderFactory implements PasswordPolicyProv
             if (checkIntervalMillis == 0) {
                 return;
             }
-            long now = System.currentTimeMillis();
+            long now = java.time.Instant.now().toEpochMilli();
             if (now - lastCheckedMillis < checkIntervalMillis) {
                 return;
             }
             synchronized (this) {
-                now = System.currentTimeMillis();
+                now = java.time.Instant.now().toEpochMilli();
                 if (now - lastCheckedMillis < checkIntervalMillis) {
                     return;
                 }
@@ -446,13 +446,13 @@ public class DenylistPasswordPolicyProviderFactory implements PasswordPolicyProv
         private BloomFilter<String> loadFromBloom() {
             try {
                 LOG.infof("Loading pre-computed denylist start: name=%s path=%s", name, path);
-                long loadStartMillis = System.currentTimeMillis();
+                long loadStartMillis = java.time.Instant.now().toEpochMilli();
                 BloomFilter<String> filter;
                 try (BufferedInputStream in = new BufferedInputStream(
                         Files.newInputStream(path), BUFFER_SIZE_IN_BYTES)) {
                     filter = BloomFilter.readFrom(in, Funnels.stringFunnel(StandardCharsets.UTF_8));
                 }
-                long loadTimeMillis = System.currentTimeMillis() - loadStartMillis;
+                long loadTimeMillis = java.time.Instant.now().toEpochMilli() - loadStartMillis;
                 LOG.infof("Loading pre-computed denylist finished: name=%s path=%s loadTime=%dms",
                         name, path, loadTimeMillis);
                 return filter;
@@ -470,7 +470,7 @@ public class DenylistPasswordPolicyProviderFactory implements PasswordPolicyProv
         private BloomFilter<String> loadFromPlaintext() {
             try {
                 LOG.infof("Loading denylist start: name=%s path=%s", name, path);
-                long loadStartMillis = System.currentTimeMillis();
+                long loadStartMillis = java.time.Instant.now().toEpochMilli();
 
                 long passwordCount = countPasswordsInDenylistFile();
                 double fpp = getFalsePositiveProbability();
@@ -483,7 +483,7 @@ public class DenylistPasswordPolicyProviderFactory implements PasswordPolicyProv
                 insertPasswordsInto(filter);
 
                 double expectedFfp = filter.expectedFpp();
-                long loadTimeMillis = System.currentTimeMillis() - loadStartMillis;
+                long loadTimeMillis = java.time.Instant.now().toEpochMilli() - loadStartMillis;
                 LOG.infof("Loading denylist finished: name=%s passwords=%s path=%s falsePositiveProbability=%s expectedFalsePositiveProbability=%s loadTime=%dms",
                         name, passwordCount, path, fpp, expectedFfp, loadTimeMillis);
 

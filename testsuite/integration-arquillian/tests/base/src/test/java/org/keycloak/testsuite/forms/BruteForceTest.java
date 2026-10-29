@@ -854,7 +854,7 @@ public class BruteForceTest extends AbstractChangeImportedUserPasswordsTest {
 
     @Test
     public void testBrowserTotpSessionInvalidAfterLockout() {
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
         loginWithTotpFailure();
         continueLoginWithInvalidTotp();
         continueLoginWithInvalidTotp();

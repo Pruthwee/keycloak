@@ -279,7 +279,7 @@ public class ConcurrentTransactionsTest {
                 sessionSet.getContext().setRealm(realm);
                 realm.setDefaultRole(sessionSet.roles().addRealmRole(realm, Constants.DEFAULT_ROLES_ROLE_PREFIX + "-" + realm.getName()));
                 RoleModel roleModel = realm.getDefaultRole();
-                roleModel.setSingleAttribute("foo", String.valueOf(System.currentTimeMillis()));
+                roleModel.setSingleAttribute("foo", String.valueOf(java.time.Instant.now().toEpochMilli()));
 
             });
 
@@ -303,7 +303,7 @@ public class ConcurrentTransactionsTest {
                                 // Wait until it's read in both threads
                                 readAttrLatch.countDown();
                                 readAttrLatch.await();
-                                roleModel.setSingleAttribute("foo", String.valueOf(System.currentTimeMillis()));
+                                roleModel.setSingleAttribute("foo", String.valueOf(java.time.Instant.now().toEpochMilli()));
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
                             }

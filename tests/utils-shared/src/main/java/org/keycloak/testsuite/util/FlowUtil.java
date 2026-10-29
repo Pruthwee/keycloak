@@ -34,7 +34,7 @@ public class FlowUtil {
     private AuthenticationFlowModel currentFlow;
     private String flowAlias;
     private int maxPriority = 0;
-    private Random rand = new Random(System.currentTimeMillis());
+    private Random rand = new Random(java.time.Instant.now().toEpochMilli());
     private List<AuthenticationExecutionModel> executions = null;
 
     public class FlowUtilException extends RuntimeException {

@@ -27,7 +27,7 @@ public class BootstrapFilter {
     QuarkusKeycloakSessionFactory factory;
 
     public BootstrapFilter() {
-        startup = System.currentTimeMillis();
+        startup = java.time.Instant.now().toEpochMilli();
     }
 
     @ServerRequestFilter(priority = 1, preMatching = true)
@@ -52,7 +52,7 @@ public class BootstrapFilter {
         }
 
         // Implement a back-off to wait as long as the current start-up took, but then retry at least once per minute
-        long retry = Math.min(Math.max((System.currentTimeMillis() - startup) / 1000, 1), 60);
+        long retry = Math.min(Math.max((java.time.Instant.now().toEpochMilli() - startup) / 1000, 1), 60);
         // Return 503 Service Unavailable
         return Response
                 .status(Response.Status.SERVICE_UNAVAILABLE)

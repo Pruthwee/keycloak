@@ -78,12 +78,12 @@ public class TraefikProxySslClientCertificateLookupTest {
         KeyPair keyPairClient = kpg.generateKeyPair();
         X509Certificate clientCert = CryptoIntegration.getProvider().getCertificateUtils()
                 .createServicesTestCertificate("CN=test-client", new Date(),
-                        new Date(System.currentTimeMillis() + 1000L * 60 * 60 * 24 * 365), keyPairClient);
+                        Date.from(java.time.Instant.now().plusMillis(1000L * 60 * 60 * 24 * 365)), keyPairClient);
 
         KeyPair keyPairCa = kpg.generateKeyPair();
         X509Certificate caCert = CryptoIntegration.getProvider().getCertificateUtils()
                 .createServicesTestCertificate("CN=test-ca", new Date(),
-                        new Date(System.currentTimeMillis() + 1000L * 60 * 60 * 24 * 365), keyPairCa);
+                        Date.from(java.time.Instant.now().plusMillis(1000L * 60 * 60 * 24 * 365)), keyPairCa);
 
         String pemClientCert = PemUtils.encodeCertificate(clientCert);
         String pemCaCert = PemUtils.encodeCertificate(caCert);

@@ -1257,7 +1257,7 @@ public class RefreshTokenTest {
                 .clientId("test-app")
                 .type(EventType.CODE_TO_TOKEN);
 
-        int currentTime = (int) (System.currentTimeMillis() / 1000);
+        int currentTime = (int) (java.time.Instant.now().toEpochMilli() / 1000);
 
         ClientRepresentation clientRep = oauth.clientResource().toRepresentation();
         int originalClientNotBefore = clientRep.getNotBefore() != null ? clientRep.getNotBefore() : 0;
@@ -1316,7 +1316,7 @@ public class RefreshTokenTest {
                 .clientId("test-app")
                 .type(EventType.CODE_TO_TOKEN);
 
-        int currentTime = (int) (System.currentTimeMillis() / 1000);
+        int currentTime = (int) (java.time.Instant.now().toEpochMilli() / 1000);
 
         RealmRepresentation realmRep = realm.admin().toRepresentation();
         int originalRealmNotBefore = realmRep.getNotBefore() != null ? realmRep.getNotBefore() : 0;

@@ -410,7 +410,7 @@ public class KeycloakServer {
     }
 
     public void start() throws Throwable {
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
 
         ResteasyDeployment deployment = new ResteasyDeploymentImpl();
 

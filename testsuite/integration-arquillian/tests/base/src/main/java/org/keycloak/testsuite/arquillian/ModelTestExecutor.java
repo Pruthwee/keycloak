@@ -62,7 +62,7 @@ public class ModelTestExecutor extends LocalTestExecuter {
                 result.setStatus(TestResult.Status.FAILED);
                 result.setThrowable(e);
             } finally {
-                result.setEnd(System.currentTimeMillis());
+                result.setEnd(java.time.Instant.now().toEpochMilli());
             }
 
             // Need to use reflection this way...

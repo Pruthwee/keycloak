@@ -220,7 +220,7 @@ public class JavaKeystoreKeyProviderTest {
         cryptoHelper.keystore().assumeKeystoreTypeSupported(keystoreType);
         generateKeystore(keystoreType, algorithmType, keyAlgorithm);
 
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", priority, keyAlgorithm, vault? "${vault.keystore_password}" : "password");
 
@@ -271,7 +271,7 @@ public class JavaKeystoreKeyProviderTest {
     @Test
     public void invalidKeystore() throws Exception {
         generateKeystore(cryptoHelper.keystore().getPreferredKeystoreType(), AlgorithmType.RSA, Algorithm.RS256);
-        ComponentRepresentation rep = createRep("valid", System.currentTimeMillis(), keyAlgorithm);
+        ComponentRepresentation rep = createRep("valid", java.time.Instant.now().toEpochMilli(), keyAlgorithm);
         rep.getConfig().putSingle("keystore", "nosuchfile");
 
         Response response = realm.admin().components().add(rep);
@@ -281,7 +281,7 @@ public class JavaKeystoreKeyProviderTest {
     @Test
     public void invalidKeystoreOutsideKeystoreDirectories() throws Exception {
         generateKeystore(cryptoHelper.keystore().getPreferredKeystoreType(), AlgorithmType.RSA, Algorithm.RS256);
-        ComponentRepresentation rep = createRep("valid", System.currentTimeMillis(), keyAlgorithm);
+        ComponentRepresentation rep = createRep("valid", java.time.Instant.now().toEpochMilli(), keyAlgorithm);
         rep.getConfig().putSingle("keystore", "/invalid");
 
         Response response = realm.admin().components().add(rep);
@@ -291,7 +291,7 @@ public class JavaKeystoreKeyProviderTest {
     @Test
     public void invalidKeystoreOutsideKeystoreDirectoriesRelative() throws Exception {
         generateKeystore(cryptoHelper.keystore().getPreferredKeystoreType(), AlgorithmType.RSA, Algorithm.RS256);
-        ComponentRepresentation rep = createRep("valid", System.currentTimeMillis(), keyAlgorithm);
+        ComponentRepresentation rep = createRep("valid", java.time.Instant.now().toEpochMilli(), keyAlgorithm);
         rep.getConfig().putSingle("keystore", "../invalid");
 
         Response response = realm.admin().components().add(rep);
@@ -301,7 +301,7 @@ public class JavaKeystoreKeyProviderTest {
     @Test
     public void invalidKeystorePassword() throws Exception {
         generateKeystore(cryptoHelper.keystore().getPreferredKeystoreType(), AlgorithmType.RSA, Algorithm.RS256);
-        ComponentRepresentation rep = createRep("valid", System.currentTimeMillis(), keyAlgorithm);
+        ComponentRepresentation rep = createRep("valid", java.time.Instant.now().toEpochMilli(), keyAlgorithm);
         rep.getConfig().putSingle("keystore", "invalid");
 
         Response response = realm.admin().components().add(rep);
@@ -311,7 +311,7 @@ public class JavaKeystoreKeyProviderTest {
     @Test
     public void invalidKeyAlias() throws Exception {
         generateKeystore(cryptoHelper.keystore().getPreferredKeystoreType(), AlgorithmType.RSA, Algorithm.RS256);
-        ComponentRepresentation rep = createRep("valid", System.currentTimeMillis(), keyAlgorithm);
+        ComponentRepresentation rep = createRep("valid", java.time.Instant.now().toEpochMilli(), keyAlgorithm);
         rep.getConfig().putSingle("keyAlias", "invalid");
 
         Response response = realm.admin().components().add(rep);
@@ -331,7 +331,7 @@ public class JavaKeystoreKeyProviderTest {
             log.infof("Fallback to keystore type '%s' for the invalidKeyPassword() test", keystoreType);
         }
         generateKeystore(keystoreType, AlgorithmType.RSA, Algorithm.RS256);
-        ComponentRepresentation rep = createRep("valid", System.currentTimeMillis(), keyAlgorithm);
+        ComponentRepresentation rep = createRep("valid", java.time.Instant.now().toEpochMilli(), keyAlgorithm);
         rep.getConfig().putSingle("keyPassword", "invalid");
 
         Response response = realm.admin().components().add(rep);
@@ -342,7 +342,7 @@ public class JavaKeystoreKeyProviderTest {
     @Test
     public void invalidKeyAlgorithmCreatedECButRegisteredRSA() throws Exception {
         generateKeystore(cryptoHelper.keystore().getPreferredKeystoreType(), AlgorithmType.ECDSA, Algorithm.RS256);
-        ComponentRepresentation rep = createRep("valid", System.currentTimeMillis(), Algorithm.RS256);
+        ComponentRepresentation rep = createRep("valid", java.time.Instant.now().toEpochMilli(), Algorithm.RS256);
 
         Response response = realm.admin().components().add(rep);
         assertError(response, "Invalid RS256 key for alias keyalias. Algorithm is EC.");
@@ -351,7 +351,7 @@ public class JavaKeystoreKeyProviderTest {
     @Test
     public void invalidKeyUsageForRS256() throws Exception {
         generateKeystore(cryptoHelper.keystore().getPreferredKeystoreType(), AlgorithmType.RSA, Algorithm.RS256);
-        ComponentRepresentation rep = createRep("valid", System.currentTimeMillis(), Algorithm.RS256);
+        ComponentRepresentation rep = createRep("valid", java.time.Instant.now().toEpochMilli(), Algorithm.RS256);
         rep.getConfig().putSingle(Attributes.KEY_USE, "enc");
 
         Response response = realm.admin().components().add(rep);
@@ -361,7 +361,7 @@ public class JavaKeystoreKeyProviderTest {
     @Test
     public void invalidKeystoreExpiredCertificate() throws Exception {
         generateRSAExpiredCertificateStore(cryptoHelper.keystore().getPreferredKeystoreType());
-        ComponentRepresentation rep = createRep("valid", System.currentTimeMillis(), keyAlgorithm);
+        ComponentRepresentation rep = createRep("valid", java.time.Instant.now().toEpochMilli(), keyAlgorithm);
 
         Response response = realm.admin().components().add(rep);
         assertError(response, "Certificate error on server.");
@@ -371,7 +371,7 @@ public class JavaKeystoreKeyProviderTest {
     public void testExpiredCertificateInOneHour() throws Exception {
         this.keyAlgorithm = Algorithm.RS256;
         generateRSAExpiredInOneHourCertificateStore(cryptoHelper.keystore().getPreferredKeystoreType());
-        ComponentRepresentation rep = createRep("valid", System.currentTimeMillis(), keyAlgorithm);
+        ComponentRepresentation rep = createRep("valid", java.time.Instant.now().toEpochMilli(), keyAlgorithm);
 
         try (Response response = realm.admin().components().add(rep)) {
             String id = ApiUtil.getCreatedId(response);

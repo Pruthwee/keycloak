@@ -165,7 +165,7 @@ public class GeneratedEcdhKeyProviderTest {
     }
 
     private String supportedEc(String ecInNistRep, String algorithm) {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", GeneratedEcdhKeyProviderFactory.ID);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -211,7 +211,7 @@ public class GeneratedEcdhKeyProviderTest {
     }
 
     private void unsupportedEc(String ecInNistRep, String algorithmMode) {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", GeneratedEcdhKeyProviderFactory.ID);
         rep.setConfig(new MultivaluedHashMap<>());

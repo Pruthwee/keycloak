@@ -90,8 +90,8 @@ public class EventStoreProviderTest {
     @DatabaseTest
      // This looks like some database issue, test should get events which are newer or equal to requested time, however it gets only newer events from remote server
     public void query() {
-        long oldest = System.currentTimeMillis() - 30000;
-        long newest = System.currentTimeMillis() + 30000;
+        long oldest = java.time.Instant.now().toEpochMilli() - 30000;
+        long newest = java.time.Instant.now().toEpochMilli() + 30000;
 
         eventHelper.storeEvent(create(EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
         eventHelper.storeEvent(create(newest, EventType.REGISTER, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
@@ -254,11 +254,11 @@ public class EventStoreProviderTest {
 
     @Test
     public void clear() {
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 20000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis(), EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis(), EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, EventType.LOGIN, realm2.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 20000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, EventType.LOGIN, realm2.getId(), "clientId", "userId", "127.0.0.1", "error"));
 
         eventHelper.clearEvents(realm1.getId());
 
@@ -268,28 +268,28 @@ public class EventStoreProviderTest {
 
     @Test
     public void lengthExceedLimit(){
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, EventType.LOGIN, realm1.getId(), StringUtils.repeat("clientId", 100), "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, EventType.LOGIN, StringUtils.repeat(realm1.getId(), 100), "clientId", "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, EventType.LOGIN, realm1.getId(), "clientId", StringUtils.repeat("userId", 100), "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, EventType.LOGIN, realm1.getId(), StringUtils.repeat("clientId", 100), "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, EventType.LOGIN, StringUtils.repeat(realm1.getId(), 100), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, EventType.LOGIN, realm1.getId(), "clientId", StringUtils.repeat("userId", 100), "127.0.0.1", "error"));
 
-        EventRepresentation event = create(System.currentTimeMillis() - 30000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error");
+        EventRepresentation event = create(java.time.Instant.now().toEpochMilli() - 30000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error");
         event.setSessionId(StringUtils.repeat("sessionId", 100));
         eventHelper.storeEvent(event);
     }
 
     @Test
     public void maxLengthWithNull(){
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, EventType.LOGIN, realm1.getId(), null, null, "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, EventType.LOGIN, realm1.getId(), null, null, "127.0.0.1", "error"));
     }
 
     @Test
     public void clearOld() {
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 300000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 200000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis(), EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis(), EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 300000, EventType.LOGIN, realm2.getId(), "clientId", "userId", "127.0.0.1", "error"));
-        eventHelper.storeEvent(create(System.currentTimeMillis(), EventType.LOGIN, realm2.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 300000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 200000, EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), EventType.LOGIN, realm1.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 300000, EventType.LOGIN, realm2.getId(), "clientId", "userId", "127.0.0.1", "error"));
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), EventType.LOGIN, realm2.getId(), "clientId", "userId", "127.0.0.1", "error"));
 
         // Set expiration of events for realm1.getId() .
         realm1.updateWithCleanup(r -> r.eventsExpiration(100));
@@ -315,7 +315,7 @@ public class EventStoreProviderTest {
     }
 
     private EventRepresentation create(EventType event, String realmId, String clientId, String userId, String ipAddress, String error) {
-        return create(System.currentTimeMillis(), event, realmId, clientId, userId, ipAddress, error);
+        return create(java.time.Instant.now().toEpochMilli(), event, realmId, clientId, userId, ipAddress, error);
     }
 
     private EventRepresentation create(Calendar date, EventType event, String realmId, String clientId, String userId, String error) {

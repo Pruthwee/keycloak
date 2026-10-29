@@ -2223,7 +2223,7 @@ public class AccountRestServiceTest extends AbstractRestServiceTest {
                 .asStatus();
         Assertions.assertEquals(200, status);
 
-        int currentTime = (int) (System.currentTimeMillis() / 1000);
+        int currentTime = (int) (java.time.Instant.now().toEpochMilli() / 1000);
 
         org.keycloak.representations.idm.ClientRepresentation clientRep = AdminApiUtil.findClientByClientId(managedRealm.admin(), "direct-grant").toRepresentation();
         Integer originalRealmNotBefore = managedRealm.admin().toRepresentation().getNotBefore();

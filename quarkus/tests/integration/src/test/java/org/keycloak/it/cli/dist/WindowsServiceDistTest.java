@@ -64,7 +64,7 @@ public class WindowsServiceDistTest {
 
     @BeforeEach
     void setUp(KeycloakRunner runner, RawDistRootPath path) {
-        this.testServiceName = TEST_SERVICE_NAME_PREFIX + System.currentTimeMillis();
+        this.testServiceName = TEST_SERVICE_NAME_PREFIX + java.time.Instant.now().toEpochMilli();
 
         // Check if prunsrv.exe is available in the distribution
         Path prunsrvPath = path.getDistRootPath().resolve("bin").resolve("prunsrv.exe");

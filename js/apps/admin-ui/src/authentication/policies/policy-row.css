@@ -4,7 +4,7 @@
   }
 }
 .keycloak__policies_authentication__minus-icon svg {
-  color: var(--pf-v5-c-button--m-plain--Color);
+  color: var(--pf-v5-c-button--m-plain--Color, #6a6e73);
 }
 
 .keycloak__policies_authentication__number-field {

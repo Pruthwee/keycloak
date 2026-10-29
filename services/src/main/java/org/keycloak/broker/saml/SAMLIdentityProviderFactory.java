@@ -157,7 +157,7 @@ public class SAMLIdentityProviderFactory extends AbstractIdentityProviderFactory
                 }
 
                 samlIdentityProviderConfig.setEnabledFromMetadata(entityType.getValidUntil() == null
-                        || entityType.getValidUntil().toGregorianCalendar().getTime().after(new Date(System.currentTimeMillis())));
+                        || entityType.getValidUntil().toGregorianCalendar().getTime().after(Date.from(java.time.Instant.now())));
 
                 // check for hide on login attribute
                 if (entityType.getExtensions() != null && entityType.getExtensions().getEntityAttributes() != null) {

@@ -139,7 +139,7 @@ public class PolicyEvaluationTest extends AbstractAuthzTest {
         policyRepresentation.setName("testCheckDateAndTime");
 
         // set the notOnOrAfter for 1 hour from now
-        long notOnOrAfter = System.currentTimeMillis() + 3600000;
+        long notOnOrAfter = java.time.Instant.now().toEpochMilli() + 3600000;
         Date notOnOrAfterDate = new Date(notOnOrAfter);
         policyRepresentation.setNotOnOrAfter(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(notOnOrAfterDate));
 
@@ -151,7 +151,7 @@ public class PolicyEvaluationTest extends AbstractAuthzTest {
         assertEquals(Effect.PERMIT, evaluation.getEffect());
 
         // lets now override the context to use a time that exceeds the time that was set in the policy.
-        long contextTime = System.currentTimeMillis() + 5400000;
+        long contextTime = java.time.Instant.now().toEpochMilli() + 5400000;
         Map<String,Collection<String>> attributes = new HashMap<>();
         attributes.put("kc.time.date_time", Arrays.asList(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(contextTime))));
         evaluation = createEvaluation(session, authorization, null, resourceServer, policy, attributes);

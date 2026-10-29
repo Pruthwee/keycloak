@@ -295,7 +295,7 @@ public abstract class AbstractUserAdapter extends UserModelDefaultMethods {
         throw new ReadOnlyException("user is read only for this update");
     }
 
-    protected long created = System.currentTimeMillis();
+    protected long created = java.time.Instant.now().toEpochMilli();
 
     @Override
     public Long getCreatedTimestamp() {

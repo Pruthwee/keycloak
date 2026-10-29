@@ -147,9 +147,9 @@ public class ConcurrencyTest extends AbstractConcurrencyTest {
 
     public void concurrentTest(KeycloakRunnable... tasks) throws Throwable {
         System.out.println("***************************");
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
         run(tasks);
-        long end = System.currentTimeMillis() - start;
+        long end = java.time.Instant.now().toEpochMilli() - start;
         System.out.println("took " + end + " ms");
     }
 

@@ -432,7 +432,7 @@ public class SsfTransmitterEventEmitterTests {
                                 "format", "complex",
                                 "user", Map.of("format", "iss_sub", "iss", issuer, "sub", userUuid),
                                 "session", Map.of("format", "opaque", "id", "fake-session-id-123")),
-                        "event", Map.of("event_timestamp", System.currentTimeMillis() / 1000)))
+                        "event", Map.of("event_timestamp", java.time.Instant.now().toEpochMilli() / 1000)))
                 .asResponse()) {
             Assertions.assertEquals(200, res.getStatus());
             Assertions.assertEquals("dispatched", res.asJson().get("status").asText(),

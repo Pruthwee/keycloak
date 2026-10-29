@@ -289,7 +289,7 @@ public class UserStorageTest extends AbstractAuthTest {
         thor.setFirstName("Stian");
         thor.setLastName("Thorgersen");
         thor.setEmailVerified(true);
-        long thorCreated = System.currentTimeMillis() - 100;
+        long thorCreated = java.time.Instant.now().toEpochMilli() - 100;
         thor.setCreatedTimestamp(thorCreated);
         thor.setEmail("thor@hammer.com");
         thor.setAttributes(new HashMap<>());

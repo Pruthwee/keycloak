@@ -6,6 +6,6 @@
 }
 
 .keycloak-groups-tree__non-viewable {
-  color: var(--pf-v5-global--Color--200);
+  color: var(--pf-v5-global--Color--200, #6a6e73);
   cursor: default;
 }

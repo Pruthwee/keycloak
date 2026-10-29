@@ -65,7 +65,7 @@ public abstract class DefaultKeycloakSessionFactory implements KeycloakSessionFa
     protected CopyOnWriteArrayList<ProviderEventListener> listeners = new CopyOnWriteArrayList<>();
 
     // TODO: Likely should be changed to int and use Time.currentTime() to be compatible with all our "time" reps
-    protected long serverStartupTimestamp = System.currentTimeMillis();
+    protected long serverStartupTimestamp = java.time.Instant.now().toEpochMilli();
 
     protected ComponentFactoryProviderFactory componentFactoryPF;
 

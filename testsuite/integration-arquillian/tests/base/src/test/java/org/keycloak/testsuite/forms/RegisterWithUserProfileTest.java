@@ -706,7 +706,7 @@ public class RegisterWithUserProfileTest extends AbstractTestRealmKeycloakTest {
         Assertions.assertNotNull(user);
         Assertions.assertNotNull(user.getCreatedTimestamp());
         // test that timestamp is current with 10s tollerance
-        Assertions.assertTrue((System.currentTimeMillis() - user.getCreatedTimestamp()) < 10000);
+        Assertions.assertTrue((java.time.Instant.now().toEpochMilli() - user.getCreatedTimestamp()) < 10000);
         // test user info is set from form
         assertThat(username, Matchers.equalToIgnoringCase(user.getUsername()));
         assertEquals(email.toLowerCase(), user.getEmail());

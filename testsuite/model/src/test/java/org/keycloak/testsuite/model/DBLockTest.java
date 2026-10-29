@@ -143,7 +143,7 @@ public class DBLockTest extends KeycloakModelTest {
     }
 
     private void testLockConcurrentlyInternal(KeycloakSession sessionLC, DBLockProvider.Namespace lock) {
-        long startupTime = System.currentTimeMillis();
+        long startupTime = java.time.Instant.now().toEpochMilli();
 
         final Semaphore semaphore = new Semaphore();
         final KeycloakSessionFactory sessionFactory = sessionLC.getKeycloakSessionFactory();
@@ -177,7 +177,7 @@ public class DBLockTest extends KeycloakModelTest {
             }
         }
 
-        long took = (System.currentTimeMillis() - startupTime);
+        long took = (java.time.Instant.now().toEpochMilli() - startupTime);
         log.infof("DBLockTest executed in %d ms with total counter %d. THREADS_COUNT=%d, ITERATIONS_PER_THREAD=%d", took, semaphore.getTotal(), THREADS_COUNT, ITERATIONS_PER_THREAD);
 
         Assert.assertEquals(THREADS_COUNT * ITERATIONS_PER_THREAD, semaphore.getTotal());

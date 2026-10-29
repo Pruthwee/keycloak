@@ -86,12 +86,12 @@ public abstract class AbstractKeycloakServerSupplier implements Supplier<Keycloa
             getLogger().debugv("Startup command and options: \n\t{0}", String.join("\n\t", command.toArgs()));
         }
 
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
 
         KeycloakServer server = getServer();
         server.start(command, managedCert.isTlsEnabled());
 
-        getLogger().infov("Keycloak test server started in {0} ms", System.currentTimeMillis() - start);
+        getLogger().infov("Keycloak test server started in {0} ms", java.time.Instant.now().toEpochMilli() - start);
 
         return server;
     }

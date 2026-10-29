@@ -473,7 +473,7 @@ public abstract class AbstractJWTAuthorizationGrantTest extends BaseAbstractJWTA
 
     @Test
     public void testInvalidSignatureDoesNotConsumeJti() {
-        String jti = "test-sig-jti-" + System.currentTimeMillis();
+        String jti = "test-sig-jti-" + java.time.Instant.now().toEpochMilli();
         JsonWebToken token = createDefaultAuthorizationGrantToken();
         token.id(jti);
 

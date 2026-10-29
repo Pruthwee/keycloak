@@ -563,7 +563,7 @@ public class KcOIDCBrokerWithSignatureTest extends AbstractBaseBrokerTest {
         keys.setParentId(realmId);
         MultivaluedHashMap<String, String> config = new MultivaluedHashMap<>(extra);
         keys.setConfig(config);
-        config.putSingle("priority", Long.toString(System.currentTimeMillis()));
+        config.putSingle("priority", Long.toString(java.time.Instant.now().toEpochMilli()));
         config.putSingle("algorithm", algorithm);
         return keys;
     }
@@ -576,7 +576,7 @@ public class KcOIDCBrokerWithSignatureTest extends AbstractBaseBrokerTest {
         keys.setProviderId("hmac-generated");
         keys.setParentId(realmId);
         keys.setConfig(new MultivaluedHashMap<>());
-        keys.getConfig().putSingle("priority", Long.toString(System.currentTimeMillis()));
+        keys.getConfig().putSingle("priority", Long.toString(java.time.Instant.now().toEpochMilli()));
         keys.getConfig().putSingle("algorithm", algorithm);
         keys.getConfig().putSingle("secretSize", size);
         keys.getConfig().putSingle("kid", KeycloakModelUtils.generateId());

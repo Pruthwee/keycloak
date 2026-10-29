@@ -55,7 +55,7 @@ public class GeneratedHmacKeyProviderTest {
 
     @Test
     public void defaultKeysize() throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", GeneratedHmacKeyProviderFactory.ID);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -89,7 +89,7 @@ public class GeneratedHmacKeyProviderTest {
 
     @Test
     public void largeKeysize() {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", GeneratedHmacKeyProviderFactory.ID);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -124,7 +124,7 @@ public class GeneratedHmacKeyProviderTest {
 
     @Test
     public void updateKeysize() throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", GeneratedHmacKeyProviderFactory.ID);
         rep.setConfig(new MultivaluedHashMap<>());

@@ -1822,7 +1822,7 @@ public class RepresentationToModel {
         boolean granted = representation.isGranted();
 
         if (granted && !ticket.isGranted()) {
-            ticket.setGrantedTimestamp(System.currentTimeMillis());
+            ticket.setGrantedTimestamp(java.time.Instant.now().toEpochMilli());
         } else if (!granted) {
             ticketStore.delete(ticket.getId());
         }

@@ -556,11 +556,11 @@ public class PermissionManagementTest extends AbstractResourceServerTest {
 
             org.keycloak.authorization.model.PermissionTicket ticket1 =
                     ticketStore.create(rs1, resource1, null, requester);
-            ticket1.setGrantedTimestamp(System.currentTimeMillis());
+            ticket1.setGrantedTimestamp(java.time.Instant.now().toEpochMilli());
 
             org.keycloak.authorization.model.PermissionTicket ticket2 =
                     ticketStore.create(rs2, resource2, null, requester);
-            ticket2.setGrantedTimestamp(System.currentTimeMillis());
+            ticket2.setGrantedTimestamp(java.time.Instant.now().toEpochMilli());
 
             java.util.Map<org.keycloak.authorization.model.PermissionTicket.FilterOption, String> filters =
                     new java.util.EnumMap<>(org.keycloak.authorization.model.PermissionTicket.FilterOption.class);

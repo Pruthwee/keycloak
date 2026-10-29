@@ -155,7 +155,7 @@ public class ConcurrentLoginTest extends AbstractConcurrencyTest {
     @Test
     public void concurrentLoginSingleUser() throws Throwable {
         LOGGER.info("*********************************************");
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
 
         AtomicReference<String> userSessionId = new AtomicReference<>();
         LoginTask loginTask = null;
@@ -170,7 +170,7 @@ public class ConcurrentLoginTest extends AbstractConcurrencyTest {
                             .getAuthenticatedClientSessions().size(), Integer.class);
             Assertions.assertEquals(1 + DEFAULT_CLIENTS_COUNT, clientSessionsCount);
         } finally {
-            long end = System.currentTimeMillis() - start;
+            long end = java.time.Instant.now().toEpochMilli() - start;
             LOGGER.infof("Statistics: %s", loginTask == null ? "??" : loginTask.getHistogram());
             LOGGER.info("concurrentLoginSingleUser took " + (end/1000) + "s");
             LOGGER.info("*********************************************");
@@ -207,7 +207,7 @@ public class ConcurrentLoginTest extends AbstractConcurrencyTest {
     @Test
     public void concurrentLoginSingleUserSingleClient() throws Throwable {
         LOGGER.info("*********************************************");
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
 
         AtomicReference<String> userSessionId = new AtomicReference<>();
         LoginTask loginTask = null;
@@ -221,7 +221,7 @@ public class ConcurrentLoginTest extends AbstractConcurrencyTest {
                             .getAuthenticatedClientSessions().size(), Integer.class);
             Assertions.assertEquals(2, clientSessionsCount);
         } finally {
-            long end = System.currentTimeMillis() - start;
+            long end = java.time.Instant.now().toEpochMilli() - start;
             LOGGER.infof("Statistics: %s", loginTask == null ? "??" : loginTask.getHistogram());
             LOGGER.info("concurrentLoginSingleUserSingleClient took " + (end/1000) + "s");
             LOGGER.info("*********************************************");
@@ -232,7 +232,7 @@ public class ConcurrentLoginTest extends AbstractConcurrencyTest {
     @DatabaseTest
     public void concurrentLoginMultipleUsers() throws Throwable {
         LOGGER.info("*********************************************");
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
 
         AtomicReference<String> userSessionId = new AtomicReference<>();
         LoginTask loginTask = null;
@@ -249,7 +249,7 @@ public class ConcurrentLoginTest extends AbstractConcurrencyTest {
                     .getAuthenticatedClientSessions().size(), Integer.class);
             Assertions.assertEquals(1 + DEFAULT_CLIENTS_COUNT / 3 + (DEFAULT_CLIENTS_COUNT % 3 <= 0 ? 0 : 1), clientSessionsCount);
         } finally {
-            long end = System.currentTimeMillis() - start;
+            long end = java.time.Instant.now().toEpochMilli() - start;
             LOGGER.infof("Statistics: %s", loginTask == null ? "??" : loginTask.getHistogram());
             LOGGER.info("concurrentLoginMultipleUsers took " + (end/1000) + "s");
             LOGGER.info("*********************************************");
@@ -261,7 +261,7 @@ public class ConcurrentLoginTest extends AbstractConcurrencyTest {
     @DatabaseTest
     public void concurrentCodeReuseShouldFail() throws Throwable {
         LOGGER.info("*********************************************");
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
 
 
         for (int i=0 ; i<10 ; i++) {
@@ -310,7 +310,7 @@ public class ConcurrentLoginTest extends AbstractConcurrencyTest {
             LOGGER.infof("Iteration %d passed successfully", i);
         }
 
-        long end = System.currentTimeMillis() - start;
+        long end = java.time.Instant.now().toEpochMilli() - start;
         LOGGER.info("concurrentCodeReuseShouldFail took " + (end/1000) + "s");
         LOGGER.info("*********************************************");
 

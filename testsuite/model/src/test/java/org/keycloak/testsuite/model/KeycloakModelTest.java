@@ -434,9 +434,9 @@ public abstract class KeycloakModelTest {
             List<? extends Future<?>> tasks = IntStream.range(0, numThreads)
                     .mapToObj(i -> independentTask)
                     .map(es::submit).collect(Collectors.toList());
-            long limit = System.currentTimeMillis() + timeoutSeconds * 1000L;
+            long limit = java.time.Instant.now().toEpochMilli() + timeoutSeconds * 1000L;
             for (Future<?> future : tasks) {
-                long limitForTask = limit - System.currentTimeMillis();
+                long limitForTask = limit - java.time.Instant.now().toEpochMilli();
                 if (limitForTask > 0) {
                     try {
                         future.get(limitForTask, TimeUnit.MILLISECONDS);

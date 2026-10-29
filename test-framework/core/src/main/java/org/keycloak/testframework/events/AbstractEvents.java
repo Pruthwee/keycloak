@@ -133,7 +133,7 @@ public abstract class AbstractEvents<R> {
     protected abstract Logger getLogger();
 
     protected long getCurrentTime() {
-        return System.currentTimeMillis();
+        return java.time.Instant.now().toEpochMilli();
     }
 
     protected long getCurrentTimeOffset() {

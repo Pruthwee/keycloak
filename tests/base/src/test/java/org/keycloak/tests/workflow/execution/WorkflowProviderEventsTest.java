@@ -272,7 +272,7 @@ public class WorkflowProviderEventsTest extends AbstractWorkflowTest {
             assertThat(stepScheduledEvent.getStepProviderId(), equalTo(DisableUserStepProviderFactory.ID));
             assertThat(stepScheduledEvent.getExecutionId(), equalTo(executionId));
             assertThat(stepScheduledEvent.getDelay(), equalTo("5d"));
-            assertThat(stepScheduledEvent.getScheduledTime(), greaterThanOrEqualTo(System.currentTimeMillis()));
+            assertThat(stepScheduledEvent.getScheduledTime(), greaterThanOrEqualTo(java.time.Instant.now().toEpochMilli()));
 
             // no other events should have fired yet
             assertThat(collector.getEvents(), hasSize(2));

@@ -733,7 +733,7 @@ public class TokenIntrospectionTest extends AbstractTestRealmKeycloakTest {
         AccessTokenResponse accessTokenResponse = oauth.doAccessTokenRequest(code);
         events.clear();
 
-        int currentTime = (int) (System.currentTimeMillis() / 1000);
+        int currentTime = (int) (java.time.Instant.now().toEpochMilli() / 1000);
 
         ClientRepresentation clientRep = AdminApiUtil.findClientByClientId(managedRealm.admin(), "test-app").toRepresentation();
         int originalClientNotBefore = clientRep.getNotBefore() != null ? clientRep.getNotBefore() : 0;

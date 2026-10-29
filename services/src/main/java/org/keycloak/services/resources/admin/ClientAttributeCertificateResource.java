@@ -288,7 +288,7 @@ public class ClientAttributeCertificateResource {
         int validity = config.getValidity() != null && config.getValidity() > 0
                 ? config.getValidity()
                 : KeycloakModelUtils.DEFAULT_CERTIFICATE_VALIDITY_YEARS;
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(java.util.TimeZone.getTimeZone("UTC"));
         calendar.add(Calendar.YEAR, validity);
         CertificateRepresentation info = KeycloakModelUtils.generateKeyPairCertificate(client.getClientId(), keySize, calendar);
         byte[] rtn = getKeystore(config, info.getPrivateKey(), info.getCertificate());

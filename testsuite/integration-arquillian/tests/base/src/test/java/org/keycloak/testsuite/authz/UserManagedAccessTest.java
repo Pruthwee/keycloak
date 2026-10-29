@@ -786,7 +786,7 @@ public class UserManagedAccessTest extends AbstractResourceServerTest {
 
                 String requesterId = session.users().getUserByUsername(realm, requesterUsername).getId();
                 PermissionTicket ticket = sf.getPermissionTicketStore().create(rs, resource, scope, requesterId);
-                ticket.setGrantedTimestamp(System.currentTimeMillis());
+                ticket.setGrantedTimestamp(java.time.Instant.now().toEpochMilli());
             };
         }
     }

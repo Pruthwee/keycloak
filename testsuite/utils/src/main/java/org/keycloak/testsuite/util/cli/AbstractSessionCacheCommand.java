@@ -155,12 +155,12 @@ public abstract class AbstractSessionCacheCommand extends AbstractCommand {
             String id = getArg(1);
             int count = getIntArg(2);
 
-            long start = System.currentTimeMillis();
+            long start = java.time.Instant.now().toEpochMilli();
             for (int i=0 ; i<count ; i++) {
                 UserSessionEntity userSession = (UserSessionEntity) cache.get(id).getEntity();
                 //printSession(id, userSession);
             }
-            long took = System.currentTimeMillis() - start;
+            long took = java.time.Instant.now().toEpochMilli() - start;
             log.infof("Took %d milliseconds", took);
         }
 

@@ -465,7 +465,7 @@ public class RegisterTest extends AbstractTestRealmKeycloakTest {
         Assertions.assertNotNull(user);
         Assertions.assertNotNull(user.getCreatedTimestamp());
         // test that timestamp is current with 10s tollerance
-        assertTrue((System.currentTimeMillis() - user.getCreatedTimestamp()) < 10000);
+        assertTrue((java.time.Instant.now().toEpochMilli() - user.getCreatedTimestamp()) < 10000);
         assertUserBasicRegisterAttributes(userId, username, email, "firstName", "lastName");
         return user;
     }
@@ -652,7 +652,7 @@ public class RegisterTest extends AbstractTestRealmKeycloakTest {
             Assertions.assertNotNull(user);
             Assertions.assertNotNull(user.getCreatedTimestamp());
             // test that timestamp is current with 10s tollerance
-            assertTrue((System.currentTimeMillis() - user.getCreatedTimestamp()) < 10000);
+            assertTrue((java.time.Instant.now().toEpochMilli() - user.getCreatedTimestamp()) < 10000);
         }
     }
 

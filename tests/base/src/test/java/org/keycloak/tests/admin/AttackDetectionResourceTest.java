@@ -119,7 +119,7 @@ public class AttackDetectionResourceTest {
         if (expectedFailure) {
             assertEquals("127.0.0.1", status.get("lastIPFailure"));
             Long lastFailure = (Long) status.get("lastFailure");
-            assertTrue(lastFailure < (System.currentTimeMillis() + 1) && lastFailure > (System.currentTimeMillis() - 10000));
+            assertTrue(lastFailure < (java.time.Instant.now().toEpochMilli() + 1) && lastFailure > (java.time.Instant.now().toEpochMilli() - 10000));
             assertNotEquals("0", status.get("failedLoginNotBefore").toString());
         } else {
             assertEquals("n/a", status.get("lastIPFailure"));

@@ -23,7 +23,7 @@ public class ApiServerHelper {
     private KubeAPIServer kubeApi;
 
     public ApiServerHelper() {
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
         for (int i = 0; i < MAX_START_RETRIES; i++) {
             kubeApi = new KubeAPIServer(
                     KubeAPIServerConfigBuilder.anAPIServerConfig().withStartupTimeout(90_000).build());
@@ -37,7 +37,7 @@ public class ApiServerHelper {
                 Log.warnf("api server failed to become ready %s", e.getMessage());
             }
         }
-        Log.infof("api server started in %s ms", System.currentTimeMillis() - start);
+        Log.infof("api server started in %s ms", java.time.Instant.now().toEpochMilli() - start);
     }
 
     public void stop() {

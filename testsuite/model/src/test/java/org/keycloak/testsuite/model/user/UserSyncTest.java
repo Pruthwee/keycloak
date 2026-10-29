@@ -137,12 +137,12 @@ public class UserSyncTest extends KeycloakModelTest {
 
         assertThat(withRealm(realmId, (session, realm) -> UserStoragePrivateUtil.userLocalStorage(session).getUsersCount(realm)), is(0));
 
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
         SynchronizationResult res = withRealm(realmId, (session, realm) -> {
             UserStorageProviderModel providerModel = new UserStorageProviderModel(realm.getComponent(userFederationId));
             return UserStoragePrivateUtil.runFullSync(session.getKeycloakSessionFactory(), providerModel);
         });
-        long end = System.currentTimeMillis();
+        long end = java.time.Instant.now().toEpochMilli();
         long timeNeeded = end - start;
 
         // The sync shouldn't take more than 18 second per user

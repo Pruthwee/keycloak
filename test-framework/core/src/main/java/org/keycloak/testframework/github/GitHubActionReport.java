@@ -44,14 +44,14 @@ public class GitHubActionReport {
 
     public void onClassStart() {
         if (enabled) {
-            testClassStartedAt = System.currentTimeMillis();
+            testClassStartedAt = java.time.Instant.now().toEpochMilli();
         }
     }
 
     public void onClassSuccess(ExtensionContext context) {
         if (enabled) {
             if (slowTestClassTimeout >= -1) {
-                long executionTime = System.currentTimeMillis() - testClassStartedAt;
+                long executionTime = java.time.Instant.now().toEpochMilli() - testClassStartedAt;
                 if (executionTime > slowTestClassTimeout) {
                     Class<?> testClass = context.getRequiredTestClass();
                     String file = findJavaClass(testClass);
@@ -70,14 +70,14 @@ public class GitHubActionReport {
 
     public void onMethodStart() {
         if (enabled && slowTestTimeout >= -1) {
-            testStartedAt = System.currentTimeMillis();
+            testStartedAt = java.time.Instant.now().toEpochMilli();
         }
     }
 
     public void onMethodSuccess(ExtensionContext context) {
         if (enabled) {
             if (slowTestTimeout >= -1) {
-                long executionTime = System.currentTimeMillis() - testStartedAt;
+                long executionTime = java.time.Instant.now().toEpochMilli() - testStartedAt;
                 if (executionTime > slowTestTimeout) {
                     Class<?> testClass = context.getRequiredTestClass();
                     String file = findJavaClass(testClass);

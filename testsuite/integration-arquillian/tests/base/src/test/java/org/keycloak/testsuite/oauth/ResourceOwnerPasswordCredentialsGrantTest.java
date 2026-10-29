@@ -712,9 +712,9 @@ public class ResourceOwnerPasswordCredentialsGrantTest extends AbstractKeycloakT
     private long perfTest(int actionsCount, String actionMessage, RunnableWithException action) throws Exception {
         long sumTimeMs = 0;
         for (int i = 0 ; i < actionsCount ; i++) {
-            long start = System.currentTimeMillis();
+            long start = java.time.Instant.now().toEpochMilli();
             action.run();
-            long took = System.currentTimeMillis() - start;
+            long took = java.time.Instant.now().toEpochMilli() - start;
             getLogger().infof("%s %d: %d ms", actionMessage, i + 1, took);
             sumTimeMs = sumTimeMs + took;
         }

@@ -102,7 +102,7 @@ public class GeneratedEcdsaKeyProviderTest {
     }
 
     private String supportedEc(String ecInNistRep, boolean withCertificate) {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", GeneratedEcdsaKeyProviderFactory.ID);
         rep.setConfig(new MultivaluedHashMap<>());
@@ -159,7 +159,7 @@ public class GeneratedEcdsaKeyProviderTest {
     }
 
     private void unsupportedEc(String ecInNistRep) {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createRep("valid", GeneratedEcdsaKeyProviderFactory.ID);
         rep.setConfig(new MultivaluedHashMap<>());

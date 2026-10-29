@@ -1,11 +1,11 @@
 .keycloak__otp_policies_authentication__policy-type {
   display: inline-grid;
-  padding-right: var(--pf-v5-global--spacer--lg);
+  padding-right: var(--pf-v5-global--spacer--lg, 1.5rem);
 }
 
 .keycloak__otp_policies_authentication__number-of-digits {
   display: inline-grid;
-  padding-right: var(--pf-v5-global--spacer--lg);
+  padding-right: var(--pf-v5-global--spacer--lg, 1.5rem);
 }
 
 @media (min-width: 768px) {

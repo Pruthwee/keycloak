@@ -104,12 +104,12 @@ public class SearchQueryUtilsTest {
 
     @Test
     public void testReDoS() {
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
         int count = 50000;
         for (int i = 0; i < count; i++) {
             SearchQueryUtils.getFields(" ".repeat(1443) + "\n\n".repeat(1443) + 0);
         }
-        long end = System.currentTimeMillis() - start;
+        long end = java.time.Instant.now().toEpochMilli() - start;
         System.out.println("took: " + end + " milliseconds");
     }
 }

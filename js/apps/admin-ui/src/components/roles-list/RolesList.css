@@ -3,35 +3,35 @@
 }
 
 .pf-v5-c-button.pf-m-link.kc-groups-link {
-  font-size: var(--pf-v5-global--FontSize--sm);
+  font-size: var(--pf-v5-global--FontSize--sm, 0.875rem);
   padding-left: 0px;
-  padding-right: var(--pf-v5-global--spacer--xs);
+  padding-right: var(--pf-v5-global--spacer--xs, 0.25rem);
   padding-top: 0px;
 }
 
 .pf-v5-c-button.pf-m-link.kc-users-link {
-  font-size: var(--pf-v5-global--FontSize--sm);
-  padding-left: var(--pf-v5-global--spacer--xs);
-  padding-right: var(--pf-v5-global--spacer--xs);
+  font-size: var(--pf-v5-global--FontSize--sm, 0.875rem);
+  padding-left: var(--pf-v5-global--spacer--xs, 0.25rem);
+  padding-right: var(--pf-v5-global--spacer--xs, 0.25rem);
   padding-top: 0px;
 }
 
 .pf-v5-c-button.pf-m-link.kc-groups-link-empty-state {
-  padding-left: var(--pf-v5-global--spacer--xs);
-  padding-right: var(--pf-v5-global--spacer--xs);
+  padding-left: var(--pf-v5-global--spacer--xs, 0.25rem);
+  padding-right: var(--pf-v5-global--spacer--xs, 0.25rem);
 }
 
 .pf-v5-c-button.pf-m-link.kc-users-link-empty-state {
-  padding-left: var(--pf-v5-global--spacer--xs);
-  padding-right: var(--pf-v5-global--spacer--xs);
+  padding-left: var(--pf-v5-global--spacer--xs, 0.25rem);
+  padding-right: var(--pf-v5-global--spacer--xs, 0.25rem);
 }
 
 .pf-v5-c-chip-group.kc-filter-chip-group__table {
-  margin-left: var(--pf-v5-global--spacer--md);
-  margin-bottom: var(--pf-v5-global--spacer--md);
+  margin-left: var(--pf-v5-global--spacer--md, 1rem);
+  margin-bottom: var(--pf-v5-global--spacer--md, 1rem);
 }
 
 button#default-role-help-icon.pf-v5-c-form__group-label-help {
-  margin-left: var(--pf-v5-global--spacer--xs);
+  margin-left: var(--pf-v5-global--spacer--xs, 0.25rem);
   vertical-align: middle;
 }

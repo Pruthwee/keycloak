@@ -98,9 +98,9 @@ public class BuildPasswordDenylist extends AbstractCommand {
         picocli.println("  False-positive probability: " + fpp);
 
         try {
-            long startMs = System.currentTimeMillis();
+            long startMs = java.time.Instant.now().toEpochMilli();
             DenylistPasswordPolicyProviderFactory.buildBloomFile(inputFile, outputFile, fpp);
-            long elapsedMs = System.currentTimeMillis() - startMs;
+            long elapsedMs = java.time.Instant.now().toEpochMilli() - startMs;
             long outputSizeBytes = Files.size(outputFile);
             String sizeStr;
             if (outputSizeBytes < 1024) {

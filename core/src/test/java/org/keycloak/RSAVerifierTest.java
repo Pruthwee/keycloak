@@ -123,7 +123,7 @@ public abstract class RSAVerifierTest {
         // Took 44 seconds with 50000 iterations
         byte[] tokenBytes = JsonSerialization.writeValueAsBytes(token);
 
-        long start = System.currentTimeMillis();
+        long start = java.time.Instant.now().toEpochMilli();
         int count = 50000;
         for (int i = 0; i < count; i++) {
             String encoded = new JWSBuilder()
@@ -133,7 +133,7 @@ public abstract class RSAVerifierTest {
             verifySkeletonKeyToken(encoded);
 
         }
-        long end = System.currentTimeMillis() - start;
+        long end = java.time.Instant.now().toEpochMilli() - start;
         System.out.println("took: " + end);
     }
 

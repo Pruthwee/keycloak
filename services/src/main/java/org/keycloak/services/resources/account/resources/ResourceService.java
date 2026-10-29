@@ -177,7 +177,7 @@ public class ResourceService extends AbstractResourceService {
 
                         if (scope.getId().equals(ticket.getScope().getId())) {
                             if (!ticket.isGranted()) {
-                                ticket.setGrantedTimestamp(System.currentTimeMillis());
+                                ticket.setGrantedTimestamp(java.time.Instant.now().toEpochMilli());
                             }
                             // permission exists, remove from the list to avoid deletion
                             ticketIterator.remove();

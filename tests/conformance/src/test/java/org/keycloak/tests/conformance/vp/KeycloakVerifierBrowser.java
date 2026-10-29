@@ -123,7 +123,7 @@ final class KeycloakVerifierBrowser {
                 + urlEncode(idpAlias) + "/endpoint/" + OID4VPIdentityProviderEndpoint.STATUS_PATH
                 + "?" + OAuth2Constants.STATE + "=" + urlEncode(state));
 
-        long deadline = System.currentTimeMillis() + STATUS_POLL_TIMEOUT.toMillis();
+        long deadline = java.time.Instant.now().toEpochMilli() + STATUS_POLL_TIMEOUT.toMillis();
         while (true) {
             JsonNode status = readJson(get(statusUri).body());
             String statusValue = status.path(OID4VPIdentityProviderEndpoint.STATUS_KEY).asText();
@@ -135,7 +135,7 @@ final class KeycloakVerifierBrowser {
             if (!OID4VPIdentityProviderEndpoint.STATUS_PENDING.equals(statusValue)) {
                 throw new IllegalStateException("Cross device status poll ended with status " + statusValue);
             }
-            if (System.currentTimeMillis() > deadline) {
+            if (java.time.Instant.now().toEpochMilli() > deadline) {
                 throw new IllegalStateException("Cross device presentation did not arrive within " + STATUS_POLL_TIMEOUT);
             }
             try {

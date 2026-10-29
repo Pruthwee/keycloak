@@ -33,7 +33,7 @@ public class Time {
      */
     @Deprecated
     public static int currentTime() {
-        return ((int) (System.currentTimeMillis() / 1000)) + offset;
+        return ((int) (java.time.Instant.now().toEpochMilli() / 1000)) + offset;
     }
 
     /**
@@ -42,7 +42,7 @@ public class Time {
      * @return see description
      */
     public static long currentTimeSeconds() {
-        return (System.currentTimeMillis() / 1000) + offset;
+        return (java.time.Instant.now().toEpochMilli() / 1000) + offset;
     }
 
     /**
@@ -50,7 +50,7 @@ public class Time {
      * @return see description
      */
     public static long currentTimeMillis() {
-        return System.currentTimeMillis() + (offset * 1000L);
+        return java.time.Instant.now().toEpochMilli() + (offset * 1000L);
     }
 
     /**

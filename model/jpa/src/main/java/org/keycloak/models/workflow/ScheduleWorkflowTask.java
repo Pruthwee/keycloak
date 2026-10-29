@@ -57,7 +57,7 @@ final class ScheduleWorkflowTask extends WorkflowTransactionalTask {
     private void fireWorkflowStepScheduled(KeycloakSession session, DefaultWorkflowExecutionContext context, WorkflowStep nextStep) {
         log.debugf("Scheduled step %s to run in %s for resource %s (execution id: %s)",
                 nextStep.getProviderId(), nextStep.getAfter(), context.getResourceId(), context.getExecutionId());
-        long scheduledTime = System.currentTimeMillis() + DurationConverter.parseDuration(nextStep.getAfter()).toMillis();
+        long scheduledTime = java.time.Instant.now().toEpochMilli() + DurationConverter.parseDuration(nextStep.getAfter()).toMillis();
         // fire workflow step scheduled event
         WorkflowProviderEvents.fireWorkflowStepScheduledEvent(session, context.getWorkflow(), nextStep, context.getResourceId(), context.getExecutionId(),
                 scheduledTime, nextStep.getAfter());

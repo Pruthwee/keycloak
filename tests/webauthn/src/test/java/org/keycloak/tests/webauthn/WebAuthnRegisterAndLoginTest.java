@@ -439,7 +439,7 @@ public class WebAuthnRegisterAndLoginTest extends AbstractWebAuthnVirtualTest {
         assertThat(user.getCreatedTimestamp(), notNullValue());
 
         // test that timestamp is current with 60s tollerance
-        assertThat((System.currentTimeMillis() - user.getCreatedTimestamp()) < 60000, is(true));
+        assertThat((java.time.Instant.now().toEpochMilli() - user.getCreatedTimestamp()) < 60000, is(true));
 
         // test user info is set from form
         assertThat(user.getUsername(), is(username.toLowerCase()));

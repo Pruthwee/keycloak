@@ -76,8 +76,8 @@ public class AdminEventStoreProviderTest {
 
     @Test
     public void query() {
-        long oldest = System.currentTimeMillis() - 30000;
-        long newest = System.currentTimeMillis() + 30000;
+        long oldest = java.time.Instant.now().toEpochMilli() - 30000;
+        long newest = java.time.Instant.now().toEpochMilli() + 30000;
 
         eventHelper.storeEvent(create(realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
         eventHelper.storeEvent(create(newest, realm1.getId(), OperationType.ACTION, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
@@ -189,8 +189,8 @@ public class AdminEventStoreProviderTest {
 
     @Test
     public void queryResourcePath() {
-        long oldest = System.currentTimeMillis() - 30000;
-        long newest = System.currentTimeMillis() + 30000;
+        long oldest = java.time.Instant.now().toEpochMilli() - 30000;
+        long newest = java.time.Instant.now().toEpochMilli() + 30000;
 
         eventHelper.storeEvent(create(realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
         eventHelper.storeEvent(create(newest, realm1.getId(), OperationType.ACTION, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
@@ -218,11 +218,11 @@ public class AdminEventStoreProviderTest {
 
     @Test
     public void clear() {
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 20000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, realm2.getId(), OperationType.CREATE, realm2.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 20000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, realm2.getId(), OperationType.CREATE, realm2.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
 
         eventHelper.clearAdminEvents(realm1.getId());
 
@@ -232,26 +232,26 @@ public class AdminEventStoreProviderTest {
 
     @Test
     public void clearOld() {
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 20000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 20000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
 
-        eventHelper.clearAdminEvents(realm1.getId(), System.currentTimeMillis() - 10000);
-        eventHelper.clearAdminEvents(realm2.getId(), System.currentTimeMillis() - 10000);
+        eventHelper.clearAdminEvents(realm1.getId(), java.time.Instant.now().toEpochMilli() - 10000);
+        eventHelper.clearAdminEvents(realm2.getId(), java.time.Instant.now().toEpochMilli() - 10000);
 
         Assertions.assertEquals(2, eventHelper.queryAdminEvents(realm1.getId(), null, null, null, null, null, null, null, null, null, null).length);
     }
 
     @Test
     public void expireOld() {
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 20000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis() - 30000, realm2.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
-        eventHelper.storeEvent(create(System.currentTimeMillis(), realm2.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 20000, realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), realm1.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli() - 30000, realm2.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
+        eventHelper.storeEvent(create(java.time.Instant.now().toEpochMilli(), realm2.getId(), OperationType.CREATE, realm1.getId(), "clientId", "userId", "127.0.0.1", "/admin/realms/master", "error"), false);
 
         // Set expiration of events for realm1.getId() .
         realm1.updateWithCleanup(r -> {
@@ -293,11 +293,11 @@ public class AdminEventStoreProviderTest {
     }
 
     private AdminEventRepresentation create(String realmId, OperationType operation, String authRealmId, String authClientId, String authUserId, String authIpAddress, String resourcePath, String error) {
-        return create(System.currentTimeMillis(), realmId, operation, authRealmId, authClientId, authUserId, authIpAddress, resourcePath, error);
+        return create(java.time.Instant.now().toEpochMilli(), realmId, operation, authRealmId, authClientId, authUserId, authIpAddress, resourcePath, error);
     }
 
     private AdminEventRepresentation create(String realmId, OperationType operation, String authRealmId, String authClientId, String authUserId, String authIpAddress, String resourcePath, String resourceType, String error) {
-        return create(System.currentTimeMillis(), realmId, operation, authRealmId, authClientId, authUserId, authIpAddress, resourcePath, resourceType, error);
+        return create(java.time.Instant.now().toEpochMilli(), realmId, operation, authRealmId, authClientId, authUserId, authIpAddress, resourcePath, resourceType, error);
     }
 
     private AdminEventRepresentation create(Date date, String realmId, OperationType operation, String authRealmId, String authClientId, String authUserId, String authIpAddress, String resourcePath, String error) {

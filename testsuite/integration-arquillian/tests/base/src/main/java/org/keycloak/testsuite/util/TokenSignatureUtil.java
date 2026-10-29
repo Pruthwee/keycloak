@@ -140,7 +140,7 @@ public class TokenSignatureUtil {
     }
 
     private static void registerKeyProvider(String realm, String providerSpecificKey, String providerSpecificValue, String providerId, Keycloak adminClient, TestContext testContext) {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         ComponentRepresentation rep = createKeyRep("valid", providerId, adminClient);
         rep.setConfig(new MultivaluedHashMap<>());

@@ -219,8 +219,8 @@ public abstract class AbstractExec {
     }
 
     public void waitForStdout(String content) {
-        long start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < waitTimeout) {
+        long start = java.time.Instant.now().toEpochMilli();
+        while (java.time.Instant.now().toEpochMilli() - start < waitTimeout) {
             if (stdoutString().indexOf(content) != -1) {
                 return;
             }
@@ -235,8 +235,8 @@ public abstract class AbstractExec {
     }
 
     public void waitForStderr(String content) {
-        long start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < waitTimeout) {
+        long start = java.time.Instant.now().toEpochMilli();
+        while (java.time.Instant.now().toEpochMilli() - start < waitTimeout) {
             if (stderrString().indexOf(content) != -1) {
                 return;
             }

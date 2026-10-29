@@ -178,7 +178,7 @@ public class BaseConfigCredentialsCmd extends BaseAuthOptionsCmd {
                         getAuthTokensBySecret(server, realm, user, password, clientId, secret) :
                         getAuthTokens(server, realm, user, password, clientId);
 
-        Long sigExpiresAt = signedRequestToken == null ? null : System.currentTimeMillis() + sigLifetime * 1000;
+        Long sigExpiresAt = signedRequestToken == null ? null : java.time.Instant.now().toEpochMilli() + sigLifetime * 1000;
 
         // save tokens to config file
         saveTokens(tokens, server, realm, clientId, signedRequestToken, sigExpiresAt, secret, grantTypeForAuthentication);

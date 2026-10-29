@@ -168,7 +168,7 @@ public class AsyncCommitHqlTest {
             event.setId(UUID.randomUUID().toString());
             event.setRealmId(realm.getId());
             event.setType(EventType.LOGIN);
-            event.setTime(System.currentTimeMillis());
+            event.setTime(java.time.Instant.now().toEpochMilli());
             session.getProvider(EventStoreProvider.class).onEvent(event);
             em.flush();
 

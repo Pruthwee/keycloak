@@ -107,8 +107,8 @@ public class RemoteKeycloakServer implements KeycloakServer {
     }
 
     private void waitForStartup() {
-        long waitUntil = System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(5);
-        while (!verifyRunningKeycloak() && System.currentTimeMillis() < waitUntil) {
+        long waitUntil = java.time.Instant.now().toEpochMilli() + TimeUnit.MINUTES.toMillis(5);
+        while (!verifyRunningKeycloak() && java.time.Instant.now().toEpochMilli() < waitUntil) {
             try {
                 Thread.sleep(TimeUnit.SECONDS.toMillis(1));
             } catch (InterruptedException e) {

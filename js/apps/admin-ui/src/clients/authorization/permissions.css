@@ -1,5 +1,5 @@
 .pf-v5-c-button.keycloak__permissions__empty_state {
-  color: var(--pf-v5-c-button--disabled--Color);
-  background-color: var(--pf-v5-c-button--disabled--BackgroundColor);
+  color: var(--pf-v5-c-button--disabled--Color, #151515);
+  background-color: var(--pf-v5-c-button--disabled--BackgroundColor, #d2d2d2);
   --pf-v5-c-button--after--BorderWidth: 0;
 }

@@ -956,7 +956,7 @@ public class UserSearchTest extends AbstractUserTest {
 
     @Test
     public void searchByCreatedAfter() {
-        long beforeCreation = System.currentTimeMillis();
+        long beforeCreation = java.time.Instant.now().toEpochMilli();
         createUser("timestampuser1", "timestampuser1@localhost");
         createUser("timestampuser2", "timestampuser2@localhost");
 
@@ -969,7 +969,7 @@ public class UserSearchTest extends AbstractUserTest {
         assertTrue(usernames.contains("timestampuser2"), "Should contain timestampuser2");
 
         // Using a future timestamp should return no users
-        long futureTimestamp = System.currentTimeMillis() + 100_000;
+        long futureTimestamp = java.time.Instant.now().toEpochMilli() + 100_000;
         users = managedRealm.admin().users().search(
                 null, null, null, null, null, null, null, 0, 100, null, null,
                 String.valueOf(futureTimestamp), null);
@@ -979,7 +979,7 @@ public class UserSearchTest extends AbstractUserTest {
     @Test
     public void searchByCreatedBefore() {
         createUser("beforeuser1", "beforeuser1@localhost");
-        long afterCreation = System.currentTimeMillis();
+        long afterCreation = java.time.Instant.now().toEpochMilli();
 
         // All users created at or before afterCreation should include beforeuser1
         List<UserRepresentation> users = managedRealm.admin().users().search(
@@ -997,9 +997,9 @@ public class UserSearchTest extends AbstractUserTest {
 
     @Test
     public void searchByCreatedBeforeAndAfter() {
-        long beforeFirst = System.currentTimeMillis();
+        long beforeFirst = java.time.Instant.now().toEpochMilli();
         createUser("rangeuser1", "rangeuser1@localhost");
-        long afterFirst = System.currentTimeMillis();
+        long afterFirst = java.time.Instant.now().toEpochMilli();
 
         // Range query: both inclusive bounds
         List<UserRepresentation> users = managedRealm.admin().users().search(
@@ -1038,10 +1038,10 @@ public class UserSearchTest extends AbstractUserTest {
 
     @Test
     public void countByCreatedTimestamp() {
-        long beforeCreation = System.currentTimeMillis();
+        long beforeCreation = java.time.Instant.now().toEpochMilli();
         createUser("countuser1", "countuser1@localhost");
         createUser("countuser2", "countuser2@localhost");
-        long afterCreation = System.currentTimeMillis();
+        long afterCreation = java.time.Instant.now().toEpochMilli();
 
         Integer count = managedRealm.admin().users().count(
                 null, null, null, null, null, null, null, null, null, null, null,
@@ -1064,7 +1064,7 @@ public class UserSearchTest extends AbstractUserTest {
 
     @Test
     public void searchByCreatedTimestampWithOtherFilters() {
-        long beforeCreation = System.currentTimeMillis();
+        long beforeCreation = java.time.Instant.now().toEpochMilli();
 
         UserRepresentation enabledUser = new UserRepresentation();
         enabledUser.setUsername("tsenableduser");
@@ -1078,7 +1078,7 @@ public class UserSearchTest extends AbstractUserTest {
         disabledUser.setEnabled(false);
         createUser(disabledUser);
 
-        long afterCreation = System.currentTimeMillis();
+        long afterCreation = java.time.Instant.now().toEpochMilli();
 
         // Search with createdAfter + enabled=true
         List<UserRepresentation> enabledUsers = managedRealm.admin().users().search(

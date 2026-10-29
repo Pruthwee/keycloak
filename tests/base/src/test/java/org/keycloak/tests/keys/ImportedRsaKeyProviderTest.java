@@ -83,7 +83,7 @@ public class ImportedRsaKeyProviderTest {
     }
 
     private void privateKeyOnly(String providerId, KeyUse keyUse, String algorithm) throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         KeyPair keyPair = KeyUtils.generateRsaKeyPair(2048);
         String kid = KeyUtils.createKeyId(keyPair.getPublic());
@@ -128,7 +128,7 @@ public class ImportedRsaKeyProviderTest {
     }
 
     private void keyAndCertificate(String providerId, KeyUse keyUse) throws Exception {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         KeyPair keyPair = KeyUtils.generateRsaKeyPair(2048);
         Certificate certificate = CertificateUtils.generateV1SelfSignedCertificate(keyPair, "test");
@@ -267,7 +267,7 @@ public class ImportedRsaKeyProviderTest {
 
     @Test
     public void testExpiredCertificateInOneHour() {
-        long priority = System.currentTimeMillis();
+        long priority = java.time.Instant.now().toEpochMilli();
 
         KeyPair keyPair = KeyUtils.generateRsaKeyPair(2048);
         Certificate certificate = CertificateUtils.generateV1SelfSignedCertificate(

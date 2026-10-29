@@ -99,8 +99,8 @@ public class BCFIPSCertificateUtilsProvider implements CertificateUtilsProvider{
             BigInteger serialNumber = BigInteger.valueOf(Math.abs(random.nextInt()));
 
             // Validity
-            Date notBefore = new Date(System.currentTimeMillis());
-            Date notAfter = new Date(System.currentTimeMillis() + (((1000L * 60 * 60 * 24 * 30)) * 12) * 3);
+            Date notBefore = Date.from(java.time.Instant.now());
+            Date notAfter = Date.from(java.time.Instant.now().plusMillis((((1000L * 60 * 60 * 24 * 30)) * 12) * 3));
 
             // SubjectPublicKeyInfo
             SubjectPublicKeyInfo subjPubKeyInfo = SubjectPublicKeyInfo.getInstance(keyPair.getPublic().getEncoded());
@@ -162,11 +162,11 @@ public class BCFIPSCertificateUtilsProvider implements CertificateUtilsProvider{
      * @throws Exception the exception
      */
     public X509Certificate generateV1SelfSignedCertificate(KeyPair caKeyPair, String subject) {
-        return generateV1SelfSignedCertificate(caKeyPair, subject, BigInteger.valueOf(System.currentTimeMillis()));
+        return generateV1SelfSignedCertificate(caKeyPair, subject, BigInteger.valueOf(java.time.Instant.now().toEpochMilli()));
     }
 
     public X509Certificate generateV1SelfSignedCertificate(KeyPair caKeyPair, String subject, BigInteger serialNumber) {
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(java.util.TimeZone.getTimeZone("UTC"));
         calendar.add(Calendar.YEAR, 10);
         return generateV1SelfSignedCertificate(caKeyPair, subject, serialNumber, calendar.getTime());
     }
@@ -175,7 +175,7 @@ public class BCFIPSCertificateUtilsProvider implements CertificateUtilsProvider{
     public X509Certificate generateV1SelfSignedCertificate(KeyPair caKeyPair, String subject, BigInteger serialNumber, Date validityEndDate) {
         try {
             X500Name subjectDN = new X500NameBuilder(BCStyle.INSTANCE).addRDN(BCStyle.CN, subject).build();
-            Date validityStartDate = new Date(System.currentTimeMillis() - 100000);
+            Date validityStartDate = Date.from(java.time.Instant.now().minusMillis(100000));
             SubjectPublicKeyInfo subPubKeyInfo = SubjectPublicKeyInfo.getInstance(caKeyPair.getPublic().getEncoded());
 
             X509v1CertificateBuilder builder = new X509v1CertificateBuilder(subjectDN, serialNumber, validityStartDate,

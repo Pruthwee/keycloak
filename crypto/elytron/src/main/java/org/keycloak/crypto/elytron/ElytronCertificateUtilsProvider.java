@@ -88,13 +88,13 @@ public class ElytronCertificateUtilsProvider implements CertificateUtilsProvider
             X500Principal issuerdn = caCert.getSubjectX500Principal();
 
             // Validity
-            ZonedDateTime notBefore = ZonedDateTime.ofInstant(new Date(System.currentTimeMillis()).toInstant(),
-                    ZoneId.systemDefault());
-            Calendar calendar = Calendar.getInstance();
+            ZonedDateTime notBefore = ZonedDateTime.ofInstant(Date.from(java.time.Instant.now()).toInstant(),
+                    java.time.ZoneOffset.UTC);
+            Calendar calendar = Calendar.getInstance(java.util.TimeZone.getTimeZone("UTC"));
             calendar.add(Calendar.YEAR, 3);
             Date validityEndDate = new Date(calendar.getTime().getTime());
             ZonedDateTime notAfter = ZonedDateTime.ofInstant(validityEndDate.toInstant(),
-                    ZoneId.systemDefault());
+                    java.time.ZoneOffset.UTC);
             // Serial Number
             SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
             BigInteger serialNumber = BigInteger.valueOf(Math.abs(random.nextInt()));
@@ -162,13 +162,13 @@ public class ElytronCertificateUtilsProvider implements CertificateUtilsProvider
      */
     @Override
     public X509Certificate generateV1SelfSignedCertificate(KeyPair caKeyPair, String subject) {
-        return generateV1SelfSignedCertificate(caKeyPair, subject, BigInteger.valueOf(System.currentTimeMillis()));
+        return generateV1SelfSignedCertificate(caKeyPair, subject, BigInteger.valueOf(java.time.Instant.now().toEpochMilli()));
     }
 
     @Override
     public X509Certificate generateV1SelfSignedCertificate(KeyPair caKeyPair, String subject,
             BigInteger serialNumber) {
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(java.util.TimeZone.getTimeZone("UTC"));
         calendar.add(Calendar.YEAR, 10);
         return generateV1SelfSignedCertificate(caKeyPair, subject, serialNumber, calendar.getTime());
     }
@@ -180,11 +180,11 @@ public class ElytronCertificateUtilsProvider implements CertificateUtilsProvider
             X500Principal subjectdn = cnToX500Principal(subject);
 
             ZonedDateTime notBefore = ZonedDateTime.ofInstant(
-                    (new Date(System.currentTimeMillis() - 100000)).toInstant(),
-                    ZoneId.systemDefault());
+                    (Date.from(java.time.Instant.now().minusMillis(100000))).toInstant(),
+                    java.time.ZoneOffset.UTC);
 
             ZonedDateTime notAfter = ZonedDateTime.ofInstant(validityEndDate.toInstant(),
-                    ZoneId.systemDefault());
+                    java.time.ZoneOffset.UTC);
 
             X509CertificateBuilder cbuilder = new X509CertificateBuilder()
                     .setSubjectDn(subjectdn)
@@ -325,8 +325,8 @@ public class ElytronCertificateUtilsProvider implements CertificateUtilsProvider
             X500Principal subjectdn = subjectToX500Principle(dn);
             X500Principal issuerdn = subjectToX500Principle(dn);
 
-            ZonedDateTime notValidBefore = ZonedDateTime.ofInstant(startDate.toInstant(), ZoneId.systemDefault());
-            ZonedDateTime notValidAfter = ZonedDateTime.ofInstant(expiryDate.toInstant(), ZoneId.systemDefault());
+            ZonedDateTime notValidBefore = ZonedDateTime.ofInstant(startDate.toInstant(), java.time.ZoneOffset.UTC);
+            ZonedDateTime notValidAfter = ZonedDateTime.ofInstant(expiryDate.toInstant(), java.time.ZoneOffset.UTC);
 
             X509CertificateBuilder cbuilder = new X509CertificateBuilder()
                         .setSubjectDn(subjectdn)

@@ -98,7 +98,7 @@ public class FAPI2DPoPTest extends AbstractFAPI2Test {
         jwsEcHeader = new JWSHeader(org.keycloak.jose.jws.Algorithm.ES256, DPOP_JWT_HEADER_TYPE, jwkEc.getKeyId(), jwkEc);
     }
 
-    private final Random rand = new Random(System.currentTimeMillis());
+    private final Random rand = new Random(java.time.Instant.now().toEpochMilli());
 
     @Test
     public void testFAPI2DPoPSecurityProfileClientRegistration() throws Exception {

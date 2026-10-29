@@ -182,7 +182,7 @@ public abstract class OCSPProvider {
 
             @Override
             public Date getRevocationTime() {
-                return new Date(System.currentTimeMillis());
+                return Date.from(java.time.Instant.now());
             }
 
             @Override
