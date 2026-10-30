@@ -54,7 +54,7 @@ public class X509OCSPResponderSpecificCertTest extends AbstractX509Authenticatio
 
     private static final String OCSP_RESPONDER_HOST = "localhost";
 
-    private static final int OCSP_RESPONDER_PORT = 8888;
+    private static final int OCSP_RESPONDER_PORT = Integer.parseInt(System.getenv().getOrDefault("OCSP_RESPONDER_PORT", "8888"));
 
     private Undertow ocspResponder;
 

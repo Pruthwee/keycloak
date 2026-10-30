@@ -10,7 +10,7 @@ public class KeycloakEnterpriseDbContainer extends JdbcDatabaseContainer<Keycloa
     private String databaseName = "keycloak";
     private String username = "enterprisedb";
     private String password = "password";
-    private static final int PORT = 5432;
+    private static final int PORT = Integer.parseInt(System.getenv().getOrDefault("EDB_DB_PORT", "5432"));
 
     public KeycloakEnterpriseDbContainer(DockerImageName dockerImageName) {
         super(dockerImageName);

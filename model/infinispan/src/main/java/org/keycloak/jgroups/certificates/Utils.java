@@ -48,9 +48,18 @@ public final class Utils {
 
     private static final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass());
     private static final String JGROUPS_SUBJECT = "jgroups";
-    private static final char[] KEY_PASSWORD = "jgroups-password".toCharArray();
+    private static final char[] KEY_PASSWORD = resolveKeyPassword();
 
     private Utils() {
+    }
+
+    // The password only protects the in-memory key store built in this JVM; it comes from the environment (a Secret) or is generated per process.
+    private static char[] resolveKeyPassword() {
+        String password = System.getenv("KC_JGROUPS_KEY_PASSWORD");
+        if (password == null || password.isEmpty()) {
+            password = UUID.randomUUID().toString();
+        }
+        return password.toCharArray();
     }
 
     public static JGroupsCertificate generateSelfSignedCertificate(Duration validity) {

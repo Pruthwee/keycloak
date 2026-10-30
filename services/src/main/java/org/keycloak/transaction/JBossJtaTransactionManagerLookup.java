@@ -43,7 +43,7 @@ public class JBossJtaTransactionManagerLookup implements JtaTransactionManagerLo
     public void init(Config.Scope config) {
         try {
             InitialContext ctx = new InitialContext();
-            tm = (TransactionManager)ctx.lookup("java:jboss/TransactionManager");
+            tm = (TransactionManager)ctx.lookup(System.getenv().getOrDefault("KC_JTA_TRANSACTION_MANAGER_JNDI_NAME", "java:jboss/TransactionManager"));
             if (tm == null) {
                 logger.debug("Could not locate TransactionManager");
             }

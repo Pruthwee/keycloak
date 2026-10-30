@@ -57,7 +57,7 @@ public class KeycloakUpdateJobDependentResource extends CRUDKubernetesDependentR
 
     // shared volume configuration
     private static final String WORK_DIR_VOLUME_NAME = "keycloak-update-job-temporary-workdir"; // unlikely to conflict
-    private static final String WORK_DIR_VOLUME_MOUNT_PATH = "/mnt/" + WORK_DIR_VOLUME_NAME; // unlikely to conflict
+    private static final String WORK_DIR_VOLUME_MOUNT_PATH = System.getenv().getOrDefault("KC_OPERATOR_UPDATE_JOB_MOUNT_BASE", "/mnt") + "/" + WORK_DIR_VOLUME_NAME; // unlikely to conflict
     private static final String UPDATES_FILE_PATH = WORK_DIR_VOLUME_MOUNT_PATH + "/updates.json";
 
     // Annotations

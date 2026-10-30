@@ -81,9 +81,9 @@ public final class Constants {
     public static final String KEYCLOAK_INGRESS_SUFFIX = "-ingress";
 
     public static final String INSECURE_DISABLE = "INSECURE-DISABLE";
-    public static final String CERTIFICATES_FOLDER = "/mnt/certificates";
+    public static final String CERTIFICATES_FOLDER = System.getenv().getOrDefault("KC_OPERATOR_CERTIFICATES_FOLDER", "/mnt/certificates");
 
-    public static final String CONFIG_FOLDER = "/opt/keycloak/conf";
+    public static final String CONFIG_FOLDER = System.getenv().getOrDefault("KC_OPERATOR_CONFIG_FOLDER", "/opt/keycloak/conf");
     public static final String TRUSTSTORES_FOLDER = CONFIG_FOLDER + "/truststores";
     public static final String CACHE_CONFIG_SUBFOLDER = "cache";
     public static final String CACHE_CONFIG_FOLDER = CONFIG_FOLDER + "/" + CACHE_CONFIG_SUBFOLDER;

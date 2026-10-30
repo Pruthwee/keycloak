@@ -51,7 +51,7 @@ public final class OpenIdConformanceServer implements AutoCloseable {
     // The URL at which the suite containers reach Keycloak, which must be set as the Keycloak 'hostname' option
     public static final URI KEYCLOAK_BASE_URI = URI.create("https://host.testcontainers.internal:8443");
 
-    private static final String NGINX_CERTIFICATE_PATH = "/etc/ssl/certs/nginx-selfsigned.crt";
+    private static final String NGINX_CERTIFICATE_PATH = System.getenv().getOrDefault("NGINX_CERTIFICATE_PATH", "/etc/ssl/certs/nginx-selfsigned.crt");
 
     private static OpenIdConformanceServer instance;
 

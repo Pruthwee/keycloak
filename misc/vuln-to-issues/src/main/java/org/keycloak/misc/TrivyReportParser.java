@@ -30,7 +30,7 @@ public class TrivyReportParser {
     public static void main(String[] args) throws IOException {
         GitHub github = new GitHubBuilder().withJwtToken(GH_TOKEN).build();
 
-        File runDir = new File("/tmp/trivy-logs");
+        File runDir = new File(System.getenv().getOrDefault("TRIVY_LOGS_DIR", "/tmp/trivy-logs"));
 
         Map<String, Vulnerability> vulnerabilities = parseTrivyReports(runDir);
         updateGitHubIssues(github, vulnerabilities);

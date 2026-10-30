@@ -47,7 +47,7 @@ public class CRLRule extends ExternalResource {
     protected static final Logger log = Logger.getLogger(CRLRule.class);
 
     private static final String CRL_RESPONDER_HOST = "localhost";
-    private static final int CRL_RESPONDER_PORT = 8889;
+    private static final int CRL_RESPONDER_PORT = Integer.parseInt(System.getenv().getOrDefault("CRL_RESPONDER_PORT", "8889"));
 
     public static final String CRL_RESPONDER_ORIGIN = "http://" + CRL_RESPONDER_HOST + ":" + CRL_RESPONDER_PORT;
 

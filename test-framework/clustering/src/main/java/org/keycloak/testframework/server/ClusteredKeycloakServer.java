@@ -40,8 +40,8 @@ import org.testcontainers.utility.LazyFuture;
 public class ClusteredKeycloakServer implements KeycloakServer {
 
     private static final String CLUSTER_VIEW_REGEX = ".*ISPN000093.*(?<=\\()(%1$d)(?=\\)).*|.*ISPN000094.*(?<=\\()(%1$d)(?=\\)).*";
-    private static final int REQUEST_PORT = 8080;
-    private static final int MANAGEMENT_PORT = 9000;
+    private static final int REQUEST_PORT = Integer.parseInt(System.getenv().getOrDefault("KC_TEST_REQUEST_PORT", "8080"));
+    private static final int MANAGEMENT_PORT = Integer.parseInt(System.getenv().getOrDefault("KC_TEST_MANAGEMENT_PORT", "9000"));
     public static final String SNAPSHOT_IMAGE = "-";
 
     private final DockerKeycloakDistribution[] containers;

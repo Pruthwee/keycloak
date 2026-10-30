@@ -1,0 +1,41 @@
+# Only the application's own container. The database (and any other external
+# service) is reached through environment variables: nothing is started here.
+services:
+  bedrock-keycloak-mm1:
+    image: bedrock-keycloak-mm1:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"   # HTTP
+      - "8443:8443"   # HTTPS
+      - "9000:9000"   # management interface: /health/live, /health/ready
+    environment:
+      # Database (external service)
+      KC_DB: ${KC_DB:-postgres}
+      KC_DB_URL_HOST: ${DB_HOST:?set DB_HOST}
+      KC_DB_URL_PORT: ${DB_PORT:-5432}
+      KC_DB_URL_DATABASE: ${DB_NAME:-keycloak}
+      KC_DB_USERNAME: ${DB_USERNAME:?set DB_USERNAME}
+      KC_DB_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD}
+      # Bootstrap administrator (credentials come from the shell that runs compose)
+      KC_BOOTSTRAP_ADMIN_USERNAME: ${KC_BOOTSTRAP_ADMIN_USERNAME:?set KC_BOOTSTRAP_ADMIN_USERNAME}
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_BOOTSTRAP_ADMIN_PASSWORD:?set KC_BOOTSTRAP_ADMIN_PASSWORD}
+      # Password of the in-memory JGroups key store (optional, generated per process when empty)
+      KC_JGROUPS_KEY_PASSWORD: ${KC_JGROUPS_KEY_PASSWORD:-}
+      # HTTP / proxy / hostname
+      KC_HOSTNAME: ${KC_HOSTNAME:-localhost}
+      KC_HTTP_ENABLED: ${KC_HTTP_ENABLED:-true}
+      KC_PROXY_HEADERS: ${KC_PROXY_HEADERS:-xforwarded}
+      KC_HEALTH_ENABLED: "true"
+      KC_LOG_LEVEL: ${KC_LOG_LEVEL:-info}
+      # JVM
+      JAVA_OPTS: ${JAVA_OPTS:--Xmx512m -Xms256m -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -XX:+ExitOnOutOfMemoryError -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.err.encoding=UTF-8 -Djava.security.egd=file:/dev/urandom -Duser.language=en -Duser.country=US}
+      TZ: UTC
+    volumes:
+      - ./quarkus/dist/src/main/content/conf:/opt/keycloak/conf:ro   # configuration (keycloak.conf)
+      - bedrock-keycloak-mm1-data:/opt/keycloak/data                  # data and logs
+    restart: unless-stopped
+
+volumes:
+  bedrock-keycloak-mm1-data:

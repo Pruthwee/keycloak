@@ -149,7 +149,7 @@ public class KeycloakRealmImportJobDependentResource extends KubernetesDependent
     }
 
     private void buildKeycloakJobContainer(Container keycloakContainer, KeycloakRealmImport keycloakRealmImport, String volumeName, Config config) {
-        var importMntPath = "/mnt/realm-import/";
+        var importMntPath = System.getenv().getOrDefault("KC_OPERATOR_REALM_IMPORT_MOUNT_PATH", "/mnt/realm-import/");
 
         var command = List.of("/opt/keycloak/bin/kc.sh");
 
