@@ -177,9 +177,10 @@ public class CredentialsTest {
         keyCertForm.addFormData("keyPassword", "keypass", MediaType.TEXT_PLAIN_TYPE);
         keyCertForm.addFormData("storePassword", "storepass", MediaType.TEXT_PLAIN_TYPE);
 
-        FileInputStream fs = new FileInputStream(generatedKeystore.getKeystoreFile());
-        byte [] content = fs.readAllBytes();
-        fs.close();
+        byte [] content;
+        try (FileInputStream fs = new FileInputStream(generatedKeystore.getKeystoreFile())) {
+            content = fs.readAllBytes();
+        }
         keyCertForm.addFormData("file", content, MediaType.APPLICATION_OCTET_STREAM_TYPE);
         CertificateRepresentation cert = certRsc.uploadJks(keyCertForm);
 

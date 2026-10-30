@@ -18,11 +18,11 @@ import static org.keycloak.client.admin.cli.KcAdmMain.V2_FLAG;
 @Command(name = "credentials", description = "--server SERVER_URL --realm REALM [ARGUMENTS]")
 class KcAdmV2ConfigCredentialsCmd extends ConfigCredentialsCmd {
 
-    private static final int DEFAULT_MANAGEMENT_PORT = 9000;
+    private static final int DEFAULT_MANAGEMENT_PORT = Integer.parseInt(System.getenv().getOrDefault("MANAGEMENT_PORT", "9000"));
     private static final String OPENAPI_PATH = "/openapi";
 
     @Option(names = "--openapi-url", description = "URL of the OpenAPI endpoint for auto-fetching the server descriptor " +
-            "(default: <server-protocol>://<server-host>:" + DEFAULT_MANAGEMENT_PORT + OPENAPI_PATH + ")")
+            "(default: <server-protocol>://<server-host>:<management-port>" + OPENAPI_PATH + ", the management port is 9000 unless MANAGEMENT_PORT is set)")
     String openApiUrl;
 
     @Spec
